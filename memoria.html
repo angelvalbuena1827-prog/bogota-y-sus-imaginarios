@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora la colección Memoria de Bogotá y sus imaginarios.">
+    <title>Memoria | Bogotá y sus imaginarios</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .pagina-coleccion {
+            min-height: 100vh;
+            background: #07111f;
+            color: #F5F1FF;
+            padding: 35px 4%;
+        }
+
+        .coleccion-layout {
+            display: grid;
+            grid-template-columns: 210px minmax(0, 1fr);
+            gap: 38px;
+            max-width: 1600px;
+            margin: 35px auto 0;
+        }
+
+        .menu-colecciones {
+            border-right: 1px solid rgba(229, 200, 255, .25);
+            padding-right: 20px;
+        }
+
+        .menu-colecciones h2 {
+            font: 500 11px 'Montserrat', sans-serif;
+            letter-spacing: 3px;
+            color: #D6B6FF;
+            margin-bottom: 25px;
+        }
+
+        .grupo-coleccion {
+            margin-bottom: 7px;
+        }
+
+        .boton-coleccion {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 10px 5px;
+            border: 0;
+            background: transparent;
+            color: #E4DEEF;
+            font: 400 14px 'Montserrat', sans-serif;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .boton-coleccion.activa {
+            color: #D6B6FF;
+            text-shadow: 0 0 12px rgba(168, 60, 255, .5);
+        }
+
+        .lista-obras {
+            list-style: none;
+            margin: 4px 0 12px;
+            padding: 0 0 0 12px;
+            border-left: 1px solid rgba(214, 182, 255, .35);
+        }
+
+        .lista-obras[hidden] {
+            display: none;
+        }
+
+        .obra-menu {
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: #BFC6D8;
+            text-align: left;
+            padding: 9px 8px;
+            font: 400 11px 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        .obra-menu:hover,
+        .obra-menu.seleccionada {
+            background: rgba(168, 60, 255, .15);
+            color: #F5F1FF;
+        }
+
+        .contenido-coleccion {
+            min-width: 0;
+        }
+
+        .sobre-coleccion {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 25px;
+            margin-bottom: 28px;
+        }
+
+        .numero-coleccion {
+            color: #D6B6FF;
+            font: 500 11px 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .sobre-coleccion h1 {
+            margin: 5px 0 0;
+            font: 600 clamp(48px, 6vw, 88px) 'Bodoni Moda', serif;
+            line-height: 1;
+            color: #E5C8FF;
+        }
+
+        .descripcion-coleccion {
+            max-width: 320px;
+            color: #C6CEE0;
+            font: italic 400 20px 'Cormorant Garamond', serif;
+        }
+
+        .exposicion {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(220px, .8fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .marco-obra {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            border: 1px solid rgba(229, 200, 255, .25);
+            background:
+                radial-gradient(ellipse at center,
+                    rgba(49, 91, 255, .14), transparent 70%),
+                #0A192B;
+            text-align: center;
+        }
+
+        .marco-obra p {
+            color: #C6CEE0;
+            font: 400 13px 'Montserrat', sans-serif;
+            line-height: 1.8;
+        }
+
+        .flecha-obra {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border: 1px solid #A83CFF;
+            border-radius: 50%;
+            background: rgba(7, 21, 45, .9);
+            color: #F5F1FF;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .flecha-obra:hover {
+            box-shadow: 0 0 16px rgba(168, 60, 255, .45);
+        }
+
+        .flecha-anterior {
+            left: -21px;
+        }
+
+        .flecha-siguiente {
+            right: -21px;
+        }
+
+        .datos-obra {
+            padding: 12px 0;
+        }
+
+        .contador-obra {
+            color: #D6B6FF;
+            font: 500 11px 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .datos-obra h2 {
+            color: #E5C8FF;
+            font: italic 500 clamp(25px, 3vw, 38px) 'Cormorant Garamond', serif;
+            margin: 16px 0 20px;
+        }
+
+        .ficha-obra {
+            display: grid;
+            grid-template-columns: 78px 1fr;
+            gap: 11px 8px;
+            font: 400 12px 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        .ficha-obra dt {
+            color: #D6B6FF;
+        }
+
+        .ficha-obra dd {
+            margin: 0;
+            color: #E4DEEF;
+        }
+
+        .descripcion-obra {
+            border-top: 1px solid rgba(229, 200, 255, .3);
+            padding-top: 17px;
+            color: #C6CEE0;
+            font: 400 13px 'Montserrat', sans-serif;
+            line-height: 1.8;
+        }
+
+        .miniaturas {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 25px 2px 15px;
+            margin-top: 12px;
+        }
+
+        .miniatura {
+            flex: 0 0 76px;
+            height: 90px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(229, 200, 255, .25);
+            background: #122238;
+            color: #C6CEE0;
+            font: 400 11px 'Montserrat', sans-serif;
+            cursor: pointer;
+        }
+
+        .miniatura.seleccionada {
+            border: 1px solid #D6B6FF;
+            box-shadow: 0 0 12px rgba(168, 60, 255, .4);
+            color: #F5F1FF;
+        }
+
+        @media (max-width: 850px) {
+            .coleccion-layout {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .menu-colecciones {
+                border-right: 0;
+                border-bottom: 1px solid rgba(229, 200, 255, .25);
+                padding: 0 0 15px;
+            }
+
+            .exposicion {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-coleccion {
+                align-items: start;
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pagina-coleccion {
+                padding: 24px 18px;
+            }
+
+            .marco-obra {
+                aspect-ratio: 1 / 1;
+            }
+
+            .flecha-anterior {
+                left: -12px;
+            }
+
+            .flecha-siguiente {
+                right: -12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main class="pagina-coleccion">
+
+    <a class="marca" href="index.html">
+        BOGOTÁ <span>Y SUS IMAGINARIOS</span>
+    </a>
+
+    <div class="coleccion-layout">
+
+        <aside class="menu-colecciones">
+            <h2>COLECCIONES</h2>
+            <div id="menu-lateral"></div>
+        </aside>
+
+        <section class="contenido-coleccion">
+            <header class="sobre-coleccion">
+                <div>
+                    <p class="numero-coleccion" id="numero-coleccion">COLECCIÓN 06 / 07</p>
+                    <h1 id="titulo-coleccion">Memoria</h1>
+                </div>
+                <p class="descripcion-coleccion" id="descripcion-coleccion">
+                    Huellas, recuerdos y lugares que permanecen en la ciudad.
+                </p>
+            </header>
+
+            <div class="exposicion">
+                <div class="marco-obra">
+                    <button class="flecha-obra flecha-anterior"
+                        id="anterior" aria-label="Obra anterior">‹</button>
+
+                    <p id="marcador-imagen">
+                        ESPACIO RESERVADO PARA LA IMAGEN<br>
+                        DE LA OBRA SELECCIONADA
+                    </p>
+
+                    <button class="flecha-obra flecha-siguiente"
+                        id="siguiente" aria-label="Obra siguiente">›</button>
+                </div>
+
+                <article class="datos-obra">
+                    <p class="contador-obra" id="contador-obra">01 / 12</p>
+                    <h2 id="titulo-obra">Título de la obra</h2>
+
+                    <dl class="ficha-obra">
+                        <dt>Autoría</dt><dd id="autor-obra">Por completar</dd>
+                        <dt>Fecha</dt><dd id="fecha-obra">Por completar</dd>
+                        <dt>Tipo</dt><dd id="tipo-obra">Por completar</dd>
+                        <dt>Lugar</dt><dd id="lugar-obra">Por completar</dd>
+                        <dt>Temas</dt><dd id="temas-obra">Por completar</dd>
+                    </dl>
+
+                    <p class="descripcion-obra" id="texto-obra">
+                        Aquí irá la descripción de la obra seleccionada.
+                    </p>
+                </article>
+            </div>
+
+            <nav class="miniaturas" id="miniaturas"
+                aria-label="Navegar entre las obras"></nav>
+        </section>
+    </div>
+</main>
+
+<script>
+    const colecciones = [
+        { nombre: "Vida cotidiana", obras: 8 },
+        { nombre: "Pasado", obras: 8 },
+        { nombre: "Vida nocturna", obras: 8 },
+        { nombre: "Violencia", obras: 8 },
+        { nombre: "Resistencia", obras: 8 },
+        { nombre: "Memoria", obras: 12 },
+        { nombre: "Amor", obras: 8 }
+    ];
+
+    let coleccionActual = 5;
+    let obraActual = 0;
+
+    const menu = document.getElementById("menu-lateral");
+    const miniaturas = document.getElementById("miniaturas");
+
+    function crearMenu() {
+        menu.innerHTML = "";
+
+        colecciones.forEach((coleccion, indice) => {
+            const grupo = document.createElement("div");
+            grupo.className = "grupo-coleccion";
+
+            const boton = document.createElement("button");
+            boton.className = "boton-coleccion" +
+                (indice === coleccionActual ? " activa" : "");
+            boton.setAttribute("aria-expanded",
+                indice === coleccionActual ? "true" : "false");
+
+            boton.innerHTML =
+                `<span>${String(indice + 1).padStart(2, "0")}　${coleccion.nombre}</span>
+                 <span aria-hidden="true">${indice === coleccionActual ? "⌃" : "⌄"}</span>`;
+
+            const lista = document.createElement("ul");
+            lista.className = "lista-obras";
+            lista.hidden = indice !== coleccionActual;
+
+            for (let i = 0; i < coleccion.obras; i++) {
+                const elemento = document.createElement("li");
+                const enlace = document.createElement("button");
+
+                enlace.className = "obra-menu" +
+                    (indice === coleccionActual && i === obraActual
+                        ? " seleccionada" : "");
+
+                enlace.textContent =
+                    `${String(i + 1).padStart(2, "0")}. Título de la obra ${i + 1}`;
+
+                enlace.addEventListener("click", () => {
+                    coleccionActual = indice;
+                    obraActual = i;
+                    actualizarPagina();
+                });
+
+                elemento.appendChild(enlace);
+                lista.appendChild(elemento);
+            }
+
+            boton.addEventListener("click", () => {
+                if (coleccionActual === indice) {
+                    lista.hidden = !lista.hidden;
+                    boton.setAttribute("aria-expanded",
+                        String(!lista.hidden));
+                    boton.lastElementChild.textContent =
+                        lista.hidden ? "⌄" : "⌃";
+                } else {
+                    coleccionActual = indice;
+                    obraActual = 0;
+                    actualizarPagina();
+                }
+            });
+
+            grupo.append(boton, lista);
+            menu.appendChild(grupo);
+        });
+    }
+
+    function actualizarObra() {
+        const coleccion = colecciones[coleccionActual];
+
+        document.getElementById("numero-coleccion").textContent =
+            `COLECCIÓN ${String(coleccionActual + 1).padStart(2, "0")} / 07`;
+
+        document.getElementById("titulo-coleccion").textContent =
+            coleccion.nombre;
+
+        document.getElementById("descripcion-coleccion").textContent =
+            "Aquí irá la presentación de esta colección.";
+
+        document.getElementById("contador-obra").textContent =
+            `${String(obraActual + 1).padStart(2, "0")} / ${coleccion.obras}`;
+
+        document.getElementById("titulo-obra").textContent =
+            `Título de la obra ${obraActual + 1}`;
+
+        document.getElementById("marcador-imagen").innerHTML =
+            "ESPACIO RESERVADO PARA LA IMAGEN<br>DE LA OBRA SELECCIONADA";
+
+        ["autor-obra", "fecha-obra", "tipo-obra",
+         "lugar-obra", "temas-obra"].forEach(id => {
+            document.getElementById(id).textContent = "Por completar";
+        });
+
+        document.getElementById("texto-obra").textContent =
+            "Aquí irá la descripción de la obra seleccionada.";
+
+        miniaturas.innerHTML = "";
+
+        for (let i = 0; i < coleccion.obras; i++) {
+            const boton = document.createElement("button");
+            boton.className = "miniatura" +
+                (i === obraActual ? " seleccionada" : "");
+            boton.textContent = String(i + 1).padStart(2, "0");
+            boton.setAttribute("aria-label", `Ver obra ${i + 1}`);
+
+            boton.addEventListener("click", () => {
+                obraActual = i;
+                actualizarPagina();
+            });
+
+            miniaturas.appendChild(boton);
+        }
+    }
+
+    function actualizarPagina() {
+        crearMenu();
+        actualizarObra();
+    }
+
+    document.getElementById("anterior").addEventListener("click", () => {
+        const total = colecciones[coleccionActual].obras;
+        obraActual = (obraActual - 1 + total) % total;
+        actualizarPagina();
+    });
+
+    document.getElementById("siguiente").addEventListener("click", () => {
+        const total = colecciones[coleccionActual].obras;
+        obraActual = (obraActual + 1) % total;
+        actualizarPagina();
+    });
+
+    actualizarPagina();
+</script>
+</body>
+</html>
