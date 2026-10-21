@@ -1,0 +1,551 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* =========================
+   1. PALETA Y CONFIGURACIÓN
+========================= */
+
+:root {
+    --azul-noche: #07152D;
+    --azul-electrico: #315BFF;
+    --violeta: #A83CFF;
+    --magenta: #D65CFF;
+    --lila: #E5C8FF;
+    --blanco-frio: #F5F1FF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--azul-noche);
+    color: var(--blanco-frio);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--violeta);
+    color: white;
+}
+
+/* =========================
+   2. ENCABEZADO Y NAVEGACIÓN
+========================= */
+
+.encabezado {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.marca {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+}
+
+.marca span {
+    font-size: 0.58rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    color: var(--lila);
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navegacion a {
+    position: relative;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--blanco-frio);
+    opacity: 0.82;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.navegacion a:hover,
+.navegacion a.activo {
+    color: white;
+    opacity: 1;
+}
+
+.navegacion a::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--magenta);
+    box-shadow: 0 0 8px var(--magenta);
+    transition: width 0.3s ease;
+}
+
+.navegacion a:hover::after,
+.navegacion a.activo::after {
+    width: 100%;
+}
+
+/* =========================
+   3. PORTADA PRINCIPAL
+========================= */
+
+.portada {
+    position: relative;
+    isolation: isolate;
+    min-height: 720px;
+    height: 100svh;
+    max-height: 1100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 130px 5% 100px;
+    background-color: var(--azul-noche);
+
+    /* Sustituiremos esta ruta por el archivo
+       de la fotografía que guardes en GitHub. */
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(4, 12, 31, 0.48) 0%,
+            rgba(4, 12, 31, 0.15) 38%,
+            rgba(4, 12, 31, 0.32) 65%,
+            rgba(4, 12, 31, 0.88) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(4, 12, 31, 0.30),
+            transparent 75%
+        ),
+        url("imgs/portada.jpg");
+
+    background-position: center, center, center 55%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.portada::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at 50% 43%,
+            rgba(49, 91, 255, 0.10),
+            transparent 52%
+        );
+}
+
+.portada-contenido {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    animation: aparecer 1.2s ease both;
+}
+
+.etiqueta {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--lila);
+}
+
+.portada .etiqueta {
+    margin-bottom: 16px;
+}
+
+/* =========================
+   4. TÍTULO Y LUMINOSIDAD
+========================= */
+
+.portada h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(5rem, 14vw, 13rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+    color: #F5F1FF;
+
+    text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.85),
+        0 0 14px rgba(85, 123, 255, 0.8),
+        0 0 35px rgba(49, 91, 255, 0.6),
+        0 0 75px rgba(49, 91, 255, 0.25);
+}
+
+.subtitulo {
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 4.8rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--lila);
+
+    text-shadow:
+        0 0 7px rgba(229, 200, 255, 0.6),
+        0 0 20px rgba(214, 92, 255, 0.55),
+        0 0 42px rgba(168, 60, 255, 0.3);
+}
+
+.introduccion {
+    margin-top: 28px;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    letter-spacing: 0.06em;
+    color: var(--blanco-frio);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.explorar {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 36px;
+    padding: 13px 21px;
+    border: 1px solid rgba(229, 200, 255, 0.65);
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.explorar span {
+    font-size: 1.1rem;
+    color: var(--lila);
+}
+
+.explorar:hover {
+    background: rgba(49, 91, 255, 0.18);
+    border-color: var(--magenta);
+    box-shadow: 0 0 24px rgba(49, 91, 255, 0.28);
+    transform: translateY(-3px);
+}
+
+.indicador {
+    position: absolute;
+    bottom: 27px;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    color: rgba(245, 241, 255, 0.8);
+}
+
+.indicador span {
+    display: block;
+    width: 27px;
+    height: 1px;
+    background: var(--magenta);
+    box-shadow: 0 0 8px var(--magenta);
+}
+
+/* =========================
+   5. COLECCIONES
+========================= */
+
+.seccion-colecciones {
+    position: relative;
+    padding: 110px 7% 120px;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(49, 91, 255, 0.12),
+            transparent 60%
+        ),
+        var(--azul-noche);
+}
+
+.encabezado-seccion {
+    max-width: 720px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.encabezado-seccion h2,
+.seccion-recorridos h2,
+.seccion-proyecto h2 {
+    margin-top: 14px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.encabezado-seccion > p:last-child,
+.seccion-recorridos > p:last-child,
+.seccion-proyecto > p:last-child {
+    margin-top: 18px;
+    color: rgba(245, 241, 255, 0.78);
+    font-size: 0.9rem;
+}
+
+.colecciones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(229, 200, 255, 0.22);
+    border-left: 1px solid rgba(229, 200, 255, 0.22);
+}
+
+.coleccion {
+    position: relative;
+    min-height: 125px;
+    padding: 25px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-right: 1px solid rgba(229, 200, 255, 0.22);
+    border-bottom: 1px solid rgba(229, 200, 255, 0.22);
+    background: rgba(255, 255, 255, 0.015);
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.coleccion:hover {
+    background: rgba(49, 91, 255, 0.12);
+    box-shadow: inset 0 0 25px rgba(49, 91, 255, 0.08);
+}
+
+.numero {
+    align-self: flex-start;
+    padding-top: 5px;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--magenta);
+}
+
+.nombre-coleccion {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 500;
+}
+
+.flecha {
+    margin-left: auto;
+    color: var(--lila);
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.coleccion:hover .flecha {
+    color: white;
+    transform: translate(3px, -3px);
+}
+
+/* =========================
+   6. RECORRIDOS Y PROYECTO
+========================= */
+
+.seccion-recorridos,
+.seccion-proyecto {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.seccion-recorridos {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 91, 255, 0.12),
+            transparent 65%
+        ),
+        #0A1935;
+}
+
+.seccion-recorridos > p:last-child,
+.seccion-proyecto > p:last-child {
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.seccion-proyecto {
+    background: var(--azul-noche);
+}
+
+/* =========================
+   7. PIE DE PÁGINA
+========================= */
+
+.pie-pagina {
+    padding: 30px 5%;
+    border-top: 1px solid rgba(229, 200, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: rgba(245, 241, 255, 0.7);
+    font-size: 0.7rem;
+}
+
+.pie-pagina a {
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--lila);
+}
+
+/* =========================
+   8. ANIMACIÓN Y ACCESIBILIDAD
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================
+   9. DISEÑO PARA TABLET Y MÓVIL
+========================= */
+
+@media (max-width: 850px) {
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        padding: 22px 5%;
+    }
+
+    .navegacion {
+        flex-wrap: wrap;
+        gap: 13px 22px;
+    }
+
+    .navegacion a {
+        font-size: 0.65rem;
+    }
+
+    .portada {
+        min-height: 680px;
+        padding-top: 170px;
+        background-position: center, center, 58% center;
+    }
+
+    .portada h1 {
+        font-size: clamp(4rem, 15vw, 8rem);
+    }
+
+    .colecciones-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-colecciones {
+        padding: 80px 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .marca {
+        font-size: 0.78rem;
+    }
+
+    .marca span {
+        font-size: 0.52rem;
+    }
+
+    .navegacion {
+        gap: 12px 16px;
+    }
+
+    .portada {
+        min-height: 650px;
+        height: 92svh;
+        padding-right: 5%;
+        padding-left: 5%;
+        background-position: center, center, 60% center;
+    }
+
+    .portada h1 {
+        font-size: clamp(3.5rem, 16vw, 5.5rem);
+        letter-spacing: -0.06em;
+    }
+
+    .subtitulo {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+    }
+
+    .portada .etiqueta {
+        font-size: 0.55rem;
+        letter-spacing: 0.16em;
+    }
+
+    .introduccion {
+        font-size: 0.8rem;
+    }
+
+    .indicador {
+        left: 5%;
+        font-size: 0.5rem;
+    }
+
+    .coleccion {
+        min-height: 100px;
+        padding: 20px 17px;
+        gap: 14px;
+    }
+
+    .pie-pagina {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
