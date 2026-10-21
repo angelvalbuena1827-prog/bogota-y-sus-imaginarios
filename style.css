@@ -549,3 +549,50 @@ a {
         align-items: flex-start;
     }
 }
+/* Botón para activar y silenciar la lluvia */
+.boton-lluvia {
+    position: fixed;
+    right: 28px;
+    bottom: 26px;
+    z-index: 1000;
+
+    padding: 12px 18px;
+    border: 1px solid rgba(229, 200, 255, 0.55);
+    border-radius: 30px;
+
+    background: rgba(7, 21, 45, 0.85);
+    color: #F5F1FF;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 18px rgba(168, 60, 255, 0.15);
+
+    transition: background 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.boton-lluvia:hover {
+    background: rgba(49, 91, 255, 0.25);
+    border-color: #D65CFF;
+    box-shadow: 0 0 22px rgba(168, 60, 255, 0.35);
+}
+
+.boton-lluvia:focus-visible {
+    outline: 2px solid #E5C8FF;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    .boton-lluvia {
+        right: 16px;
+        bottom: 16px;
+        padding: 11px 15px;
+        font-size: 10px;
+    }
+}
