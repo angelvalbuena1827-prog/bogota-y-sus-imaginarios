@@ -141,6 +141,35 @@
         <a href="index.html">BOGOTÁ Y SUS IMAGINARIOS</a>
         <p>Un archivo para descubrir otras formas de mirar la ciudad.</p>
     </footer>
+<!-- Sonido ambiental de lluvia -->
+<audio id="sonido-lluvia" loop>
+    <source src="sonidos/lluvia-bogota.mp3" type="audio/mpeg">
+    Tu navegador no puede reproducir este audio.
+</audio>
 
+<button id="boton-lluvia" class="boton-lluvia" type="button" aria-pressed="false">
+    ♫ Activar lluvia
+</button>
+
+<script>
+    const sonidoLluvia = document.getElementById('sonido-lluvia');
+    const botonLluvia = document.getElementById('boton-lluvia');
+
+    botonLluvia.addEventListener('click', async () => {
+        if (sonidoLluvia.paused) {
+            try {
+                await sonidoLluvia.play();
+                botonLluvia.textContent = '♫ Silenciar lluvia';
+                botonLluvia.setAttribute('aria-pressed', 'true');
+            } catch (error) {
+                botonLluvia.textContent = 'No se pudo reproducir';
+            }
+        } else {
+            sonidoLluvia.pause();
+            botonLluvia.textContent = '♫ Activar lluvia';
+            botonLluvia.setAttribute('aria-pressed', 'false');
+        }
+    });
+</script>
 </body>
 </html>
