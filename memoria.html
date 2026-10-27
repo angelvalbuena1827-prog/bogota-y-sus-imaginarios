@@ -21,6 +21,8 @@
 
     * { box-sizing: border-box; }
 
+    body { margin: 0; }
+
     .pagina-coleccion {
       min-height: 100vh;
       background: var(--fondo);
@@ -40,8 +42,6 @@
       color: var(--lila);
       margin-left: 8px;
     }
-
-    /* APERTURA EDITORIAL */
 
     .apertura-memoria {
       max-width: 1450px;
@@ -74,8 +74,7 @@
     .epigrafe-memoria blockquote {
       margin: 0;
       color: #d6b6ff;
-      font: italic 400 clamp(18px, 2.1vw, 25px)
-        'Cormorant Garamond', serif;
+      font: italic 400 clamp(18px, 2.1vw, 25px) 'Cormorant Garamond', serif;
       line-height: 1.5;
     }
 
@@ -83,7 +82,6 @@
       margin: 12px 0 0;
       color: var(--suave);
       font: 400 11px 'Montserrat', sans-serif;
-      letter-spacing: .04em;
     }
 
     .texto-intro-memoria {
@@ -97,13 +95,10 @@
     .subtitulo-memoria {
       margin: 0 0 28px;
       color: #f5f1ff;
-      font: italic 400 clamp(28px, 3.5vw, 39px)
-        'Cormorant Garamond', serif;
+      font: italic 400 clamp(28px, 3.5vw, 39px) 'Cormorant Garamond', serif;
     }
 
-    .texto-intro-memoria p {
-      margin: 0 0 22px;
-    }
+    .texto-intro-memoria p { margin: 0 0 22px; }
 
     .pregunta-memoria {
       margin: 38px 0 0;
@@ -125,11 +120,7 @@
       text-transform: uppercase;
     }
 
-    .enlace-recorrido:hover {
-      color: var(--lila);
-    }
-
-    /* EXPOSICIÓN DIGITAL */
+    .enlace-recorrido:hover { color: var(--lila); }
 
     .coleccion-layout {
       display: grid;
@@ -152,9 +143,7 @@
       margin: 0 0 25px;
     }
 
-    .grupo-coleccion {
-      margin-bottom: 7px;
-    }
+    .grupo-coleccion { margin-bottom: 7px; }
 
     .boton-coleccion {
       width: 100%;
@@ -183,9 +172,7 @@
       border-left: 1px solid rgba(214, 182, 255, .35);
     }
 
-    .lista-obras[hidden] {
-      display: none;
-    }
+    .lista-obras[hidden] { display: none; }
 
     .obra-menu {
       width: 100%;
@@ -205,9 +192,14 @@
       color: #f5f1ff;
     }
 
-    .contenido-coleccion {
-      min-width: 0;
+    .pendiente {
+      padding: 8px;
+      color: #8995ad;
+      font: 10px 'Montserrat', sans-serif;
+      line-height: 1.6;
     }
+
+    .contenido-coleccion { min-width: 0; }
 
     .sobre-coleccion {
       display: flex;
@@ -248,26 +240,26 @@
     .marco-obra {
       position: relative;
       aspect-ratio: 4 / 3;
+      min-width: 0;
       display: grid;
       place-items: center;
-      padding: 30px;
+      padding: 18px;
       border: 1px solid var(--linea);
       background:
-        radial-gradient(ellipse at center,
-          rgba(49, 91, 255, .14), transparent 70%),
+        radial-gradient(ellipse at center, rgba(49, 91, 255, .14), transparent 70%),
         var(--panel);
-      text-align: center;
     }
 
-    .marcador-imagen {
-      color: #c6cee0;
-      font: 400 12px 'Montserrat', sans-serif;
-      line-height: 1.9;
-      letter-spacing: .06em;
+    .imagen-obra {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     .flecha-obra {
       position: absolute;
+      z-index: 2;
       top: 50%;
       transform: translateY(-50%);
       width: 42px;
@@ -280,16 +272,11 @@
       cursor: pointer;
     }
 
-    .flecha-obra:hover {
-      box-shadow: 0 0 16px rgba(168, 60, 255, .35);
-    }
-
+    .flecha-obra:hover { box-shadow: 0 0 16px rgba(168, 60, 255, .35); }
     .flecha-anterior { left: -21px; }
     .flecha-siguiente { right: -21px; }
 
-    .datos-obra {
-      padding: 12px 0;
-    }
+    .datos-obra { padding: 12px 0; }
 
     .contador-obra {
       color: #d6b6ff;
@@ -300,27 +287,20 @@
 
     .datos-obra h3 {
       color: var(--lila);
-      font: italic 500 clamp(25px, 3vw, 38px)
-        'Cormorant Garamond', serif;
+      font: italic 500 clamp(25px, 3vw, 38px) 'Cormorant Garamond', serif;
       margin: 16px 0 20px;
     }
 
     .ficha-obra {
       display: grid;
-      grid-template-columns: 78px 1fr;
+      grid-template-columns: 85px 1fr;
       gap: 11px 8px;
       font: 400 12px 'Montserrat', sans-serif;
       line-height: 1.6;
     }
 
-    .ficha-obra dt {
-      color: #d6b6ff;
-    }
-
-    .ficha-obra dd {
-      margin: 0;
-      color: #e4deef;
-    }
+    .ficha-obra dt { color: #d6b6ff; }
+    .ficha-obra dd { margin: 0; color: #e4deef; }
 
     .descripcion-obra {
       border-top: 1px solid rgba(229, 200, 255, .3);
@@ -341,19 +321,32 @@
     .miniatura {
       flex: 0 0 76px;
       height: 90px;
+      padding: 4px;
       display: grid;
       place-items: center;
+      overflow: hidden;
       border: 1px solid var(--linea);
       background: #122238;
-      color: #c6cee0;
-      font: 400 11px 'Montserrat', sans-serif;
       cursor: pointer;
+    }
+
+    .miniatura img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .miniatura.seleccionada {
       border-color: #d6b6ff;
       box-shadow: 0 0 12px rgba(168, 60, 255, .35);
-      color: #f5f1ff;
+    }
+
+    .sin-obras {
+      padding: 28px;
+      border: 1px solid var(--linea);
+      color: var(--suave);
+      font: 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
     }
 
     .nota-prototipo {
@@ -361,6 +354,82 @@
       color: #8995ad;
       font: 400 10px 'Montserrat', sans-serif;
       line-height: 1.6;
+    }
+
+    /* ARCHIVO SONORO */
+
+    .audio-memoria {
+      max-width: 1100px;
+      margin: 65px auto 20px;
+      padding: 28px;
+      border: 1px solid var(--linea);
+      background: radial-gradient(ellipse at top left, rgba(49, 91, 255, .13), transparent 65%), var(--panel);
+    }
+
+    .etiqueta-audio,
+    .etiqueta-participacion {
+      color: #d6b6ff;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .audio-memoria h2,
+    .participacion-memoria h2 {
+      margin: 10px 0;
+      color: var(--lila);
+      font: 600 clamp(28px, 4vw, 42px) 'Bodoni Moda', serif;
+    }
+
+    .audio-memoria p,
+    .participacion-memoria p {
+      max-width: 760px;
+      color: var(--texto);
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
+    .audio-memoria audio {
+      width: 100%;
+      max-width: 650px;
+      margin-top: 10px;
+    }
+
+    .audio-nota {
+      color: var(--suave) !important;
+      font-size: 11px !important;
+    }
+
+    /* FORMULARIO PARTICIPATIVO */
+
+    .participacion-memoria {
+      max-width: 1100px;
+      margin: 45px auto 30px;
+      padding: 34px 28px;
+      border: 1px solid var(--linea);
+      background: linear-gradient(135deg, rgba(168, 60, 255, .10), transparent 65%), var(--panel);
+    }
+
+    .participacion-memoria h2 {
+      font-size: clamp(30px, 4vw, 46px);
+    }
+
+    .boton-recuerdo {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 20px;
+      border: 1px solid var(--violeta);
+      color: #f5f1ff;
+      background: rgba(168, 60, 255, .15);
+      text-decoration: none;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: background .2s ease, box-shadow .2s ease;
+    }
+
+    .boton-recuerdo:hover {
+      background: rgba(168, 60, 255, .3);
+      box-shadow: 0 0 18px rgba(168, 60, 255, .2);
     }
 
     @media (max-width: 850px) {
@@ -375,9 +444,7 @@
         padding: 0 0 15px;
       }
 
-      .exposicion {
-        grid-template-columns: 1fr;
-      }
+      .exposicion { grid-template-columns: 1fr; }
 
       .sobre-coleccion {
         align-items: flex-start;
@@ -385,15 +452,11 @@
         gap: 8px;
       }
 
-      .descripcion-coleccion {
-        max-width: 600px;
-      }
+      .descripcion-coleccion { max-width: 600px; }
     }
 
     @media (max-width: 600px) {
-      .pagina-coleccion {
-        padding: 24px 18px;
-      }
+      .pagina-coleccion { padding: 24px 18px; }
 
       .encabezado-memoria {
         flex-direction: column;
@@ -406,16 +469,15 @@
         max-width: 92%;
       }
 
-      .texto-intro-memoria {
-        font-size: 14px;
-      }
-
-      .marco-obra {
-        aspect-ratio: 1 / 1;
-      }
-
+      .texto-intro-memoria { font-size: 14px; }
+      .marco-obra { aspect-ratio: 1 / 1; }
       .flecha-anterior { left: -12px; }
       .flecha-siguiente { right: -12px; }
+
+      .audio-memoria,
+      .participacion-memoria {
+        padding: 22px 18px;
+      }
     }
   </style>
 </head>
@@ -427,9 +489,8 @@
     BOGOTÁ <span>Y SUS IMAGINARIOS</span>
   </a>
 
-  <!-- APERTURA EDITORIAL DE MEMORIA -->
+  <!-- APERTURA EDITORIAL -->
   <section class="apertura-memoria" aria-labelledby="titulo-apertura">
-
     <div class="encabezado-memoria">
       <h1 class="titulo-memoria" id="titulo-apertura">Memoria</h1>
 
@@ -491,106 +552,178 @@
 
   <!-- EXPOSICIÓN DIGITAL -->
   <div class="coleccion-layout" id="exposicion-memoria">
-
     <aside class="menu-colecciones">
       <h2>COLECCIONES</h2>
       <div id="menu-lateral"></div>
     </aside>
 
     <section class="contenido-coleccion" aria-label="Exposición digital">
-
       <header class="sobre-coleccion">
         <div>
-          <p class="numero-coleccion" id="numero-coleccion">
-            COLECCIÓN 06 / 07
-          </p>
+          <p class="numero-coleccion" id="numero-coleccion">COLECCIÓN 06 / 07</p>
           <h2 id="titulo-coleccion">Memoria</h2>
         </div>
-
         <p class="descripcion-coleccion" id="descripcion-coleccion">
-          Huellas, recuerdos y lugares que permanecen en la ciudad.
+          Volver a pasar por el corazón.
         </p>
       </header>
 
-      <div class="exposicion">
-        <div class="marco-obra">
-          <button class="flecha-obra flecha-anterior"
-            id="anterior" aria-label="Obra anterior">‹</button>
-
-          <p class="marcador-imagen" id="marcador-imagen">
-            ESPACIO RESERVADO PARA LA IMAGEN<br>
-            DE LA OBRA SELECCIONADA
-          </p>
-
-          <button class="flecha-obra flecha-siguiente"
-            id="siguiente" aria-label="Obra siguiente">›</button>
-        </div>
-
-        <article class="datos-obra">
-          <p class="contador-obra" id="contador-obra">01 / 12</p>
-          <h3 id="titulo-obra">Título de la obra</h3>
-
-          <dl class="ficha-obra">
-            <dt>Autoría</dt><dd id="autor-obra">Por completar</dd>
-            <dt>Fecha</dt><dd id="fecha-obra">Por completar</dd>
-            <dt>Tipo</dt><dd id="tipo-obra">Por completar</dd>
-            <dt>Lugar</dt><dd id="lugar-obra">Por completar</dd>
-            <dt>Temas</dt><dd id="temas-obra">Por completar</dd>
-          </dl>
-
-          <p class="descripcion-obra" id="texto-obra">
-            Aquí irá la descripción de la obra seleccionada.
-          </p>
-        </article>
-      </div>
-
-      <nav class="miniaturas" id="miniaturas"
-        aria-label="Navegar entre las obras"></nav>
-
-      <p class="nota-prototipo">
-        Estructura de prueba: los títulos, las imágenes y los datos
-        de las obras se completarán en una siguiente etapa.
+      <div id="panel-obras"></div>
+      <p class="nota-prototipo" id="nota-prototipo">
+        Explora las obras mediante las flechas o las miniaturas.
       </p>
     </section>
   </div>
+
+  <!-- ARCHIVO SONORO -->
+  <section class="audio-memoria" aria-labelledby="titulo-audio">
+    <span class="etiqueta-audio">ARCHIVO SONORO · MEMORIA</span>
+    <h2 id="titulo-audio">Escuchar también es recordar</h2>
+
+    <p>
+      Hay memorias que regresan a través de las palabras y otras que
+      encuentran su camino por medio de la música. Si lo deseas, puedes
+      detenerte a escuchar esta pieza mientras recorres la colección.
+    </p>
+
+    <p><strong>César López — Hasta que amemos la vida</strong></p>
+
+    <audio controls preload="none">
+      <source src="sonidos/hasta-que-amemos-la-vida.mpeg" type="audio/mpeg">
+      Tu navegador no puede reproducir este archivo de audio.
+    </audio>
+
+    <p class="audio-nota">
+      La reproducción comienza únicamente cuando decides escuchar.
+    </p>
+  </section>
+
+  <!-- FORMULARIO PARTICIPATIVO -->
+  <section class="participacion-memoria" aria-labelledby="titulo-participacion">
+    <span class="etiqueta-participacion">MEMORIA COLECTIVA</span>
+    <h2 id="titulo-participacion">También somos nuestra memoria</h2>
+
+    <p>
+      Cada persona guarda una Bogotá distinta. Queremos conocer ese
+      recuerdo que te acompaña: puede ser una persona, un lugar, una
+      canción, un momento feliz o algo que todavía te duela.
+    </p>
+
+    <p>
+      Si quieres, comparte tu historia y ayúdanos a construir una memoria
+      colectiva de la ciudad. Tu aporte será revisado antes de formar
+      parte de la exposición.
+    </p>
+
+    <p>
+      Puedes compartir tu recuerdo sin adjuntar una fotografía.
+      La imagen es opcional.
+    </p>
+
+    <a
+      class="boton-recuerdo"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSe5z1zWqp_aHZHXg1OEtOVgmFSVaATQVgS7MXWQ_wh-p8bDRg/viewform?usp=dialog"
+      target="_blank"
+      rel="noopener noreferrer">
+      Compartir mi recuerdo ↗
+    </a>
+  </section>
+
 </main>
 
 <script>
   const colecciones = [
     {
       nombre: "Vida cotidiana",
-      obras: 8,
-      descripcion: "Las historias que habitan lo común."
+      descripcion: "Las historias que habitan lo común.",
+      obras: []
     },
     {
       nombre: "Pasado",
-      obras: 8,
-      descripcion: "Las huellas de las ciudades que fuimos."
+      descripcion: "Las huellas de las ciudades que fuimos.",
+      obras: []
     },
     {
       nombre: "Vida nocturna",
-      obras: 8,
-      descripcion: "La ciudad que aparece cuando cae la noche."
+      descripcion: "La ciudad que aparece cuando cae la noche.",
+      obras: []
     },
     {
       nombre: "Violencia",
-      obras: 8,
-      descripcion: "Las heridas que transforman la ciudad."
+      descripcion: "Las heridas que transforman la ciudad.",
+      obras: []
     },
     {
       nombre: "Resistencia",
-      obras: 8,
-      descripcion: "Crear, permanecer y transformar el espacio."
+      descripcion: "Crear, permanecer y transformar el espacio.",
+      obras: []
     },
     {
       nombre: "Memoria",
-      obras: 12,
-      descripcion: "Volver a pasar por el corazón."
+      descripcion: "Volver a pasar por el corazón.",
+      obras: [
+        {
+          titulo: "La siempreviva",
+          imagen: "imgs/la-siempreviva.jpg",
+          autor: "Miguel Torres",
+          fecha: "1994",
+          tipo: "Teatro",
+          lugar: "La Candelaria",
+          temas: "Memoria",
+          mirada: "La ruda",
+          impacto: "No me la saco de la cabeza",
+          reaccion: "Llorar varios días",
+          pregunta: "¿Qué queda de una ciudad después de una tragedia que todavía duele?",
+          descripcion: "La siempreviva, de Miguel Torres, reconstruye desde el teatro la historia de una familia marcada por la toma y retoma del Palacio de Justicia de 1985. En medio de la incertidumbre, la desaparición y la espera, Bogotá aparece como una ciudad atravesada por la violencia y por una memoria que se niega a desaparecer."
+        },
+        {
+          titulo: "Parque de la Independencia",
+          imagen: "imgs/parque-independencia.jpg",
+          autor: "Luis Fernando Roldán Jaramillo",
+          fecha: "1994",
+          tipo: "Pintura",
+          lugar: "Parque de la Independencia",
+          temas: "Memoria",
+          mirada: "La cotidiana",
+          impacto: "Me dejó algo",
+          reaccion: "Vuela la cabeza",
+          pregunta: "¿Cómo se pinta un lugar que ya conocemos?",
+          descripcion: "Luis Fernando Roldán dedicó una serie de 32 pinturas al Parque de la Independencia, explorando el espacio desde una mirada que se mueve entre la abstracción y la realidad. La luz, la vegetación, las montañas y la arquitectura bogotana aparecen transformadas por la materia y el color, convirtiendo un parque conocido en una experiencia distinta de la ciudad."
+        },
+        {
+          titulo: "Bogotá",
+          imagen: "imgs/bogota-andres-cepeda.jpg",
+          autor: "Andrés Cepeda",
+          fecha: "2024",
+          tipo: "Canción",
+          lugar: "Teatro Colón",
+          temas: "Memoria",
+          mirada: "La nostálgica",
+          impacto: "Me dejó algo",
+          reaccion: "Deja pensando",
+          pregunta: "¿Puede una ciudad caber en los recuerdos de una infancia?",
+          descripcion: "Andrés Cepeda convierte a Bogotá en un álbum de recuerdos familiares y cotidianos. Entre la memoria, la casa y los lugares que acompañan una vida, la canción construye una Bogotá íntima, afectiva y atravesada por la nostalgia."
+        },
+        {
+          titulo: "Avenida de la República [Carrera Séptima], Bogotá",
+          imagen: "imgs/carrera-septima-1930.jpg",
+          autor: "Gumersindo Cuéllar Jiménez",
+          fecha: "1930",
+          tipo: "Fotografía",
+          lugar: "Carrera Séptima",
+          temas: "Memoria",
+          mirada: "La cotidiana",
+          impacto: "Me dejó algo",
+          reaccion: "Deja pensando",
+          pregunta: "¿Cuánto puede cambiar una calle y, al mismo tiempo, seguir siendo la misma ciudad?",
+          descripcion: "Esta fotografía de Gumersindo Cuéllar recorre la Carrera Séptima a la altura de la Calle 26 y conserva una mirada de Bogotá en 1930. Entre viviendas, calles y arquitectura, la imagen permite asomarse a una ciudad que todavía estaba en transformación y comparar sus formas de habitar y recorrer el espacio con la Bogotá que conocemos hoy."
+        }
+      ]
     },
     {
       nombre: "Amor",
-      obras: 8,
-      descripcion: "Los afectos también construyen ciudad."
+      descripcion: "Los afectos también construyen ciudad.",
+      obras: []
     }
   ];
 
@@ -598,7 +731,7 @@
   let obraActual = 0;
 
   const menu = document.getElementById("menu-lateral");
-  const miniaturas = document.getElementById("miniaturas");
+  const panel = document.getElementById("panel-obras");
 
   function crearMenu() {
     menu.innerHTML = "";
@@ -611,10 +744,7 @@
       boton.className = "boton-coleccion" +
         (indice === coleccionActual ? " activa" : "");
 
-      boton.setAttribute(
-        "aria-expanded",
-        indice === coleccionActual ? "true" : "false"
-      );
+      boton.setAttribute("aria-expanded", String(indice === coleccionActual));
 
       boton.innerHTML =
         `<span>${String(indice + 1).padStart(2, "0")}　${coleccion.nombre}</span>
@@ -624,24 +754,30 @@
       lista.className = "lista-obras";
       lista.hidden = indice !== coleccionActual;
 
-      for (let i = 0; i < coleccion.obras; i++) {
-        const elemento = document.createElement("li");
-        const enlace = document.createElement("button");
+      if (coleccion.obras.length) {
+        coleccion.obras.forEach((obra, i) => {
+          const elemento = document.createElement("li");
+          const enlace = document.createElement("button");
 
-        enlace.className = "obra-menu" +
-          (indice === coleccionActual && i === obraActual
-            ? " seleccionada" : "");
+          enlace.className = "obra-menu" +
+            (indice === coleccionActual && i === obraActual ? " seleccionada" : "");
 
-        enlace.textContent =
-          `${String(i + 1).padStart(2, "0")}. Título de la obra ${i + 1}`;
+          enlace.textContent =
+            `${String(i + 1).padStart(2, "0")}. ${obra.titulo}`;
 
-        enlace.addEventListener("click", () => {
-          coleccionActual = indice;
-          obraActual = i;
-          actualizarPagina();
+          enlace.addEventListener("click", () => {
+            coleccionActual = indice;
+            obraActual = i;
+            actualizarPagina();
+          });
+
+          elemento.appendChild(enlace);
+          lista.appendChild(elemento);
         });
-
-        elemento.appendChild(enlace);
+      } else {
+        const elemento = document.createElement("li");
+        elemento.className = "pendiente";
+        elemento.textContent = "Obras en preparación";
         lista.appendChild(elemento);
       }
 
@@ -662,46 +798,116 @@
     });
   }
 
+  function crearPanelObra() {
+    panel.innerHTML = `
+      <div class="exposicion">
+        <div class="marco-obra">
+          <button class="flecha-obra flecha-anterior"
+            id="anterior" aria-label="Obra anterior">‹</button>
+          <img class="imagen-obra" id="imagen-obra" alt="">
+          <button class="flecha-obra flecha-siguiente"
+            id="siguiente" aria-label="Obra siguiente">›</button>
+        </div>
+
+        <article class="datos-obra">
+          <p class="contador-obra" id="contador-obra"></p>
+          <h3 id="titulo-obra"></h3>
+
+          <dl class="ficha-obra">
+            <dt>Autoría</dt><dd id="autor-obra"></dd>
+            <dt>Fecha</dt><dd id="fecha-obra"></dd>
+            <dt>Tipo</dt><dd id="tipo-obra"></dd>
+            <dt>Lugar</dt><dd id="lugar-obra"></dd>
+            <dt>Temas</dt><dd id="temas-obra"></dd>
+            <dt>Mirada</dt><dd id="mirada-obra"></dd>
+            <dt>Impacto</dt><dd id="impacto-obra"></dd>
+            <dt>Reacción</dt><dd id="reaccion-obra"></dd>
+          </dl>
+
+          <p class="descripcion-obra" id="texto-obra"></p>
+        </article>
+      </div>
+
+      <nav class="miniaturas" id="miniaturas"
+        aria-label="Navegar entre las obras"></nav>
+    `;
+  }
+
   function actualizarObra() {
     const coleccion = colecciones[coleccionActual];
 
     document.getElementById("numero-coleccion").textContent =
       `COLECCIÓN ${String(coleccionActual + 1).padStart(2, "0")} / 07`;
 
-    document.getElementById("titulo-coleccion").textContent =
-      coleccion.nombre;
+    document.getElementById("titulo-coleccion").textContent = coleccion.nombre;
+    document.getElementById("descripcion-coleccion").textContent = coleccion.descripcion;
 
-    document.getElementById("descripcion-coleccion").textContent =
-      coleccion.descripcion;
+    const nota = document.getElementById("nota-prototipo");
+
+    if (coleccion.obras.length === 0) {
+      panel.innerHTML = `
+        <div class="sin-obras">
+          Esta colección está en preparación. Pronto incorporaremos
+          sus obras y sus historias.
+        </div>
+      `;
+      nota.textContent = "Estamos construyendo el recorrido de esta colección.";
+      return;
+    }
+
+    crearPanelObra();
+
+    const obra = coleccion.obras[obraActual];
 
     document.getElementById("contador-obra").textContent =
-      `${String(obraActual + 1).padStart(2, "0")} / ${coleccion.obras}`;
+      `${String(obraActual + 1).padStart(2, "0")} / ${String(coleccion.obras.length).padStart(2, "0")}`;
 
-    document.getElementById("titulo-obra").textContent =
-      `Título de la obra ${obraActual + 1}`;
+    document.getElementById("titulo-obra").textContent = obra.titulo;
 
-    document.getElementById("marcador-imagen").innerHTML =
-      "ESPACIO RESERVADO PARA LA IMAGEN<br>DE LA OBRA SELECCIONADA";
+    const imagen = document.getElementById("imagen-obra");
+    imagen.src = obra.imagen;
+    imagen.alt = obra.titulo;
 
-    ["autor-obra", "fecha-obra", "tipo-obra", "lugar-obra", "temas-obra"]
-      .forEach(id => {
-        document.getElementById(id).textContent = "Por completar";
-      });
+    imagen.onerror = () => {
+      imagen.alt = "No se pudo cargar la imagen: " + obra.titulo;
+      imagen.style.display = "none";
+    };
 
-    document.getElementById("texto-obra").textContent =
-      "Aquí irá la descripción de la obra seleccionada.";
+    imagen.onload = () => { imagen.style.display = "block"; };
 
-    miniaturas.innerHTML = "";
+    document.getElementById("autor-obra").textContent = obra.autor;
+    document.getElementById("fecha-obra").textContent = obra.fecha;
+    document.getElementById("tipo-obra").textContent = obra.tipo;
+    document.getElementById("lugar-obra").textContent = obra.lugar;
+    document.getElementById("temas-obra").textContent = obra.temas;
+    document.getElementById("mirada-obra").textContent = obra.mirada;
+    document.getElementById("impacto-obra").textContent = obra.impacto;
+    document.getElementById("reaccion-obra").textContent = obra.reaccion;
 
-    for (let i = 0; i < coleccion.obras; i++) {
+    const texto = document.getElementById("texto-obra");
+    const pregunta = document.createElement("strong");
+    pregunta.textContent = obra.pregunta;
+    texto.replaceChildren(
+      pregunta,
+      document.createElement("br"),
+      document.createElement("br"),
+      document.createTextNode(obra.descripcion)
+    );
+
+    const miniaturas = document.getElementById("miniaturas");
+
+    coleccion.obras.forEach((item, i) => {
       const boton = document.createElement("button");
-
       boton.className = "miniatura" +
         (i === obraActual ? " seleccionada" : "");
-
-      boton.textContent = String(i + 1).padStart(2, "0");
-      boton.setAttribute("aria-label", `Ver obra ${i + 1}`);
+      boton.setAttribute("aria-label", `Ver ${item.titulo}`);
       boton.setAttribute("aria-pressed", String(i === obraActual));
+
+      const mini = document.createElement("img");
+      mini.src = item.imagen;
+      mini.alt = "";
+
+      boton.appendChild(mini);
 
       boton.addEventListener("click", () => {
         obraActual = i;
@@ -709,25 +915,27 @@
       });
 
       miniaturas.appendChild(boton);
-    }
+    });
+
+    document.getElementById("anterior").addEventListener("click", () => {
+      obraActual = (obraActual - 1 + coleccion.obras.length) %
+        coleccion.obras.length;
+      actualizarPagina();
+    });
+
+    document.getElementById("siguiente").addEventListener("click", () => {
+      obraActual = (obraActual + 1) % coleccion.obras.length;
+      actualizarPagina();
+    });
+
+    nota.textContent =
+      "Explora las obras mediante las flechas o seleccionando sus miniaturas.";
   }
 
   function actualizarPagina() {
     crearMenu();
     actualizarObra();
   }
-
-  document.getElementById("anterior").addEventListener("click", () => {
-    const total = colecciones[coleccionActual].obras;
-    obraActual = (obraActual - 1 + total) % total;
-    actualizarPagina();
-  });
-
-  document.getElementById("siguiente").addEventListener("click", () => {
-    const total = colecciones[coleccionActual].obras;
-    obraActual = (obraActual + 1) % total;
-    actualizarPagina();
-  });
 
   actualizarPagina();
 </script>
