@@ -300,7 +300,60 @@
       font: 400 12px 'Montserrat', sans-serif;
       line-height: 1.6;
     }
-        .ficha-obra dt { color: #d6b6ff; }
+
+    .ficha-obra dt { color: #d6b6ff; }
+    .ficha-obra dd { margin: 0; color: #e4deef; }
+
+    .descripcion-obra {
+      border-top: 1px solid rgba(229, 200, 255, .3);
+      padding-top: 17px;
+      color: #c6cee0;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
+    .miniaturas {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 25px 2px 15px;
+      margin-top: 12px;
+    }
+
+    .miniatura {
+      flex: 0 0 76px;
+      height: 90px;
+      padding: 4px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--linea);
+      background: #122238;
+      cursor: pointer;
+    }
+
+    .miniatura img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .miniatura.seleccionada {
+      border-color: #d6b6ff;
+      box-shadow: 0 0 12px rgba(168, 60, 255, .35);
+    }
+
+    .sin-obras {
+      padding: 28px;
+      border: 1px solid var(--linea);
+      color: var(--suave);
+      font: 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+          line-height: 1.6;
+    }
+
+    .ficha-obra dt { color: #d6b6ff; }
     .ficha-obra dd { margin: 0; color: #e4deef; }
 
     .descripcion-obra {
@@ -463,93 +516,92 @@
 
     /* PIE DE PÁGINA EDITORIAL */
 
-   .pie-pagina {
-  width: 100%;
-  margin: 55px 0 0;
-  padding: 22px 3%;
-  border-top: 1px solid rgba(229, 200, 255, .22);
-  background: #07111f;
-}
+    .pie-pagina {
+      width: 100%;
+      margin: 55px 0 0;
+      padding: 22px 3%;
+      border-top: 1px solid rgba(229, 200, 255, .22);
+      background: #07111f;
+    }
 
-.pie-contenido {
-  width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 24px;
-}
+    .pie-contenido {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 24px;
+    }
 
-.pie-marca {
-  margin: 0;
-  color: #e5c8ff;
-  font: 600 12px 'Montserrat', sans-serif;
-  letter-spacing: 1.2px;
-  overflow-wrap: anywhere;
-}
+    .pie-marca {
+      margin: 0;
+      color: #e5c8ff;
+      font: 600 12px 'Montserrat', sans-serif;
+      letter-spacing: 1.2px;
+      overflow-wrap: anywhere;
+    }
 
-.pie-descripcion {
-  margin: 0;
-  color: #c6cee0;
-  font: 400 12px 'Montserrat', sans-serif;
-  line-height: 1.6;
-  text-align: center;
-}
+    .pie-descripcion {
+      margin: 0;
+      color: #c6cee0;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-.pie-creditos {
-  min-width: 0;
-  justify-self: end;
-  color: #c6cee0;
-  font: 400 10px 'Montserrat', sans-serif;
-  line-height: 1.65;
-  overflow-wrap: anywhere;
-}
+    .pie-creditos {
+      min-width: 0;
+      justify-self: end;
+      color: #c6cee0;
+      font: 400 10px 'Montserrat', sans-serif;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
 
-.pie-creditos p {
-  margin: 0;
-}
+    .pie-creditos p { margin: 0; }
 
-.pie-etiqueta {
-  color: #e5c8ff;
-  font-weight: 500;
-}
+    .pie-etiqueta {
+      color: #e5c8ff;
+      font-weight: 500;
+    }
 
-.pie-final {
-  margin: 15px 0 0;
-  padding-top: 10px;
-  border-top: 1px solid rgba(229, 200, 255, .15);
-  color: #8995ad;
-  font: 400 9px 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
+    .pie-final {
+      margin: 15px 0 0;
+      padding-top: 10px;
+      border-top: 1px solid rgba(229, 200, 255, .15);
+      color: #8995ad;
+      font: 400 9px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
 
-@media (max-width: 850px) {
-  .pie-contenido {
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
+    @media (max-width: 850px) {
+      .pie-contenido {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
 
-  .pie-descripcion {
-    text-align: left;
-  }
+      .pie-descripcion { text-align: left; }
 
-  .pie-creditos {
-    grid-column: 1 / -1;
-    justify-self: start;
-  }
-}
+      .pie-creditos {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+    }
 
-@media (max-width: 600px) {
-  .pie-contenido {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
-  }
+    @media (max-width: 600px) {
+      .pie-contenido {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+      }
 
-  .pie-creditos {
-    grid-column: auto;
-    justify-self: start;
-  }
-}
+      .pie-creditos {
+        grid-column: auto;
+        justify-self: start;
+      }
+    }
 
+    /* ADAPTACIÓN DE LAS OBRAS A PANTALLAS PEQUEÑAS */
+
+    @media (max-width: 850px) {
       .coleccion-layout {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -685,7 +737,8 @@
       </a>
     </div>
   </section>
-    <!-- EXPOSICIÓN DIGITAL -->
+
+  <!-- EXPOSICIÓN DIGITAL -->
 
   <div class="coleccion-layout" id="exposicion-memoria">
     <aside class="menu-colecciones">
@@ -736,8 +789,7 @@
       La reproducción comienza únicamente cuando decides escuchar.
     </p>
   </section>
-
-  <!-- FORMULARIO PARTICIPATIVO -->
+    <!-- FORMULARIO PARTICIPATIVO -->
 
   <section class="participacion-memoria" aria-labelledby="titulo-participacion">
     <span class="etiqueta-participacion">MEMORIA COLECTIVA</span>
@@ -909,7 +961,7 @@
           pregunta: "¿Puede una ciudad caber en los recuerdos de una infancia?",
           descripcion: "Andrés Cepeda convierte a Bogotá en un álbum de recuerdos familiares y cotidianos. Entre la memoria, la casa y los lugares que acompañan una vida, la canción construye una Bogotá íntima, afectiva y atravesada por la nostalgia."
         },
-        {
+                {
           titulo: "Avenida de la República [Carrera Séptima], Bogotá",
           imagen: "imgs/carrera-septima-1930.jpg",
           autor: "Gumersindo Cuéllar Jiménez",
