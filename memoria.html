@@ -463,75 +463,92 @@
 
     /* PIE DE PÁGINA EDITORIAL */
 
-    .pie-pagina {
-      width: calc(100% + 8%);
-      margin: 75px -4% -35px;
-      padding: 28px 3%;
-      border-top: 1px solid rgba(229, 200, 255, .22);
-      background: #07111f;
-    }
+   .pie-pagina {
+  width: 100%;
+  margin: 55px 0 0;
+  padding: 22px 3%;
+  border-top: 1px solid rgba(229, 200, 255, .22);
+  background: #07111f;
+}
 
-    .pie-contenido {
-      width: 100%;
-      max-width: 1700px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      align-items: center;
-      gap: 35px;
-    }
+.pie-contenido {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
 
-    .pie-marca {
-      margin: 0;
-      color: #e5c8ff;
-      font: 600 14px 'Montserrat', sans-serif;
-      letter-spacing: 1.5px;
-    }
+.pie-marca {
+  margin: 0;
+  color: #e5c8ff;
+  font: 600 12px 'Montserrat', sans-serif;
+  letter-spacing: 1.2px;
+  overflow-wrap: anywhere;
+}
 
-    .pie-descripcion {
-      margin: 0;
-      color: #c6cee0;
-      font: 400 13px 'Montserrat', sans-serif;
-      line-height: 1.8;
-      text-align: center;
-    }
+.pie-descripcion {
+  margin: 0;
+  color: #c6cee0;
+  font: 400 12px 'Montserrat', sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
 
-    .pie-creditos {
-      justify-self: end;
-      color: #c6cee0;
-      font: 400 12px 'Montserrat', sans-serif;
-      line-height: 1.65;
-    }
+.pie-creditos {
+  min-width: 0;
+  justify-self: end;
+  color: #c6cee0;
+  font: 400 10px 'Montserrat', sans-serif;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
 
-    .pie-creditos p { margin: 0; }
+.pie-creditos p {
+  margin: 0;
+}
 
-    .pie-etiqueta {
-      color: #e5c8ff;
-      font-weight: 500;
-    }
+.pie-etiqueta {
+  color: #e5c8ff;
+  font-weight: 500;
+}
 
-    .pie-final {
-      max-width: 1700px;
-      margin: 20px auto 0;
-      padding-top: 13px;
-      border-top: 1px solid rgba(229, 200, 255, .15);
-      color: #8995ad;
-      font: 400 10px 'Montserrat', sans-serif;
-      letter-spacing: 1.5px;
-    }
+.pie-final {
+  margin: 15px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(229, 200, 255, .15);
+  color: #8995ad;
+  font: 400 9px 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
 
-    @media (max-width: 850px) {
-      .pie-contenido {
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-      }
+@media (max-width: 850px) {
+  .pie-contenido {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
 
-      .pie-descripcion { text-align: left; }
+  .pie-descripcion {
+    text-align: left;
+  }
 
-      .pie-creditos {
-        grid-column: 1 / -1;
-        justify-self: start;
-      }
+  .pie-creditos {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .pie-contenido {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .pie-creditos {
+    grid-column: auto;
+    justify-self: start;
+  }
+}
 
       .coleccion-layout {
         grid-template-columns: 1fr;
