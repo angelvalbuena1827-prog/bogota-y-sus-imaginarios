@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +19,6 @@
     }
 
     * { box-sizing: border-box; }
-
     body { margin: 0; }
 
     .pagina-coleccion {
@@ -272,7 +270,10 @@
       cursor: pointer;
     }
 
-    .flecha-obra:hover { box-shadow: 0 0 16px rgba(168, 60, 255, .35); }
+    .flecha-obra:hover {
+      box-shadow: 0 0 16px rgba(168, 60, 255, .35);
+    }
+
     .flecha-anterior { left: -21px; }
     .flecha-siguiente { right: -21px; }
 
@@ -308,6 +309,68 @@
       color: #c6cee0;
       font: 400 12px 'Montserrat', sans-serif;
       line-height: 1.8;
+    }
+
+    .enlace-obra {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 17px;
+      padding: 11px 14px;
+      border: 1px solid var(--violeta);
+      color: #f5f1ff;
+      background: rgba(168, 60, 255, .12);
+      text-decoration: none;
+      font: 500 10px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .2s ease, box-shadow .2s ease;
+    }
+
+    .enlace-obra:hover {
+      background: rgba(168, 60, 255, .28);
+      box-shadow: 0 0 16px rgba(168, 60, 255, .2);
+      color: var(--lila);
+    }
+
+    .membo-memoria {
+      max-width: 1100px;
+      margin: 45px auto 30px;
+      padding: 38px 30px;
+      border: 1px solid var(--linea);
+      background:
+        radial-gradient(ellipse at top right, rgba(49, 91, 255, .15), transparent 60%),
+        linear-gradient(135deg, rgba(168, 60, 255, .10), transparent 65%),
+        var(--panel);
+    }
+
+    .membo-memoria h2 {
+      max-width: 760px;
+      margin: 10px 0 18px;
+      color: var(--lila);
+      font: 600 clamp(30px, 4vw, 46px) 'Bodoni Moda', serif;
+      line-height: 1.15;
+    }
+
+    .membo-memoria p {
+      max-width: 760px;
+      color: var(--texto);
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+          line-height: 1.15;
+    }
+
+    .membo-memoria p {
+      max-width: 760px;
+      color: var(--texto);
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .membo-cierre {
+      color: #d6b6ff !important;
+      font: italic 400 23px 'Cormorant Garamond', serif !important;
     }
 
     .miniaturas {
@@ -475,7 +538,7 @@
       .flecha-siguiente { right: -12px; }
 
       .audio-memoria,
-      .participacion-memoria {
+      .membo-memoria {
         padding: 22px 18px;
       }
     }
@@ -598,7 +661,7 @@
     </p>
   </section>
 
-  <!-- FORMULARIO PARTICIPATIVO -->
+  <!-- FORMULARIO PARTICIPATIVO: MEMORIA COLECTIVA -->
   <section class="participacion-memoria" aria-labelledby="titulo-participacion">
     <span class="etiqueta-participacion">MEMORIA COLECTIVA</span>
     <h2 id="titulo-participacion">También somos nuestra memoria</h2>
@@ -626,6 +689,38 @@
       target="_blank"
       rel="noopener noreferrer">
       Compartir mi recuerdo ↗
+    </a>
+  </section>
+
+  <!-- CIERRE EDITORIAL: MEMBO -->
+  <section class="membo-memoria" aria-labelledby="titulo-membo">
+    <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO</span>
+    <h2 id="titulo-membo">Una ciudad también se escucha</h2>
+
+    <p>
+      La memoria de Bogotá no vive únicamente en sus calles, fotografías y
+      relatos. También permanece en las canciones, las grabaciones, las voces
+      y los archivos que conservamos.
+    </p>
+
+    <p>
+      <strong>MEMBO — Memoria Musical de Bogotá</strong> es un espacio para
+      descubrir, documentar y preservar las huellas sonoras de la ciudad.
+      Sus archivos nos invitan a escuchar Bogotá desde otras épocas, voces
+      y experiencias.
+    </p>
+
+    <p class="membo-cierre">
+      Hay recuerdos que regresan cuando vemos una imagen. Otros necesitan
+      una canción para volver.
+    </p>
+
+    <a
+      class="boton-recuerdo"
+      href="https://membogota.org/"
+      target="_blank"
+      rel="noopener noreferrer">
+      Explorar MEMBO ↗
     </a>
   </section>
 
@@ -665,6 +760,8 @@
         {
           titulo: "La siempreviva",
           imagen: "imgs/la-siempreviva.jpg",
+          enlace: "https://www.youtube.com/watch?v=OQipIt6m-CY",
+          textoEnlace: "Ver la obra de teatro en YouTube",
           autor: "Miguel Torres",
           fecha: "1994",
           tipo: "Teatro",
@@ -693,6 +790,8 @@
         {
           titulo: "Bogotá",
           imagen: "imgs/bogota-andres-cepeda.jpg",
+          enlace: "https://youtu.be/HgPbFmnDF8M?si=6X_rWzQkAGqY-9Mn",
+          textoEnlace: "Escuchar y ver el video en YouTube",
           autor: "Andrés Cepeda",
           fecha: "2024",
           tipo: "Canción",
@@ -887,6 +986,7 @@
     const texto = document.getElementById("texto-obra");
     const pregunta = document.createElement("strong");
     pregunta.textContent = obra.pregunta;
+
     texto.replaceChildren(
       pregunta,
       document.createElement("br"),
@@ -894,12 +994,29 @@
       document.createTextNode(obra.descripcion)
     );
 
+    const enlaceAnterior = document.getElementById("enlace-obra");
+    if (enlaceAnterior) enlaceAnterior.remove();
+
+    if (obra.enlace) {
+      const enlaceObra = document.createElement("a");
+      enlaceObra.id = "enlace-obra";
+      enlaceObra.className = "enlace-obra";
+      enlaceObra.href = obra.enlace;
+      enlaceObra.target = "_blank";
+      enlaceObra.rel = "noopener noreferrer";
+      enlaceObra.textContent = obra.textoEnlace + " ↗";
+
+      document.getElementById("texto-obra")
+        .insertAdjacentElement("afterend", enlaceObra);
+    }
+
     const miniaturas = document.getElementById("miniaturas");
 
     coleccion.obras.forEach((item, i) => {
       const boton = document.createElement("button");
       boton.className = "miniatura" +
         (i === obraActual ? " seleccionada" : "");
+
       boton.setAttribute("aria-label", `Ver ${item.titulo}`);
       boton.setAttribute("aria-pressed", String(i === obraActual));
 
