@@ -19,6 +19,7 @@
     }
 
     * { box-sizing: border-box; }
+
     body { margin: 0; }
 
     .pagina-coleccion {
@@ -299,8 +300,7 @@
       font: 400 12px 'Montserrat', sans-serif;
       line-height: 1.6;
     }
-
-    .ficha-obra dt { color: #d6b6ff; }
+        .ficha-obra dt { color: #d6b6ff; }
     .ficha-obra dd { margin: 0; color: #e4deef; }
 
     .descripcion-obra {
@@ -309,68 +309,6 @@
       color: #c6cee0;
       font: 400 12px 'Montserrat', sans-serif;
       line-height: 1.8;
-    }
-
-    .enlace-obra {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 17px;
-      padding: 11px 14px;
-      border: 1px solid var(--violeta);
-      color: #f5f1ff;
-      background: rgba(168, 60, 255, .12);
-      text-decoration: none;
-      font: 500 10px 'Montserrat', sans-serif;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background .2s ease, box-shadow .2s ease;
-    }
-
-    .enlace-obra:hover {
-      background: rgba(168, 60, 255, .28);
-      box-shadow: 0 0 16px rgba(168, 60, 255, .2);
-      color: var(--lila);
-    }
-
-    .membo-memoria {
-      max-width: 1100px;
-      margin: 45px auto 30px;
-      padding: 38px 30px;
-      border: 1px solid var(--linea);
-      background:
-        radial-gradient(ellipse at top right, rgba(49, 91, 255, .15), transparent 60%),
-        linear-gradient(135deg, rgba(168, 60, 255, .10), transparent 65%),
-        var(--panel);
-    }
-
-    .membo-memoria h2 {
-      max-width: 760px;
-      margin: 10px 0 18px;
-      color: var(--lila);
-      font: 600 clamp(30px, 4vw, 46px) 'Bodoni Moda', serif;
-      line-height: 1.15;
-    }
-
-    .membo-memoria p {
-      max-width: 760px;
-      color: var(--texto);
-      font: 400 13px 'Montserrat', sans-serif;
-      line-height: 1.9;
-    }
-          line-height: 1.15;
-    }
-
-    .membo-memoria p {
-      max-width: 760px;
-      color: var(--texto);
-      font: 400 13px 'Montserrat', sans-serif;
-      line-height: 1.9;
-    }
-
-    .membo-cierre {
-      color: #d6b6ff !important;
-      font: italic 400 23px 'Cormorant Garamond', serif !important;
     }
 
     .miniaturas {
@@ -462,6 +400,11 @@
       font-size: 11px !important;
     }
 
+    .membo-cierre {
+      color: #d6b6ff !important;
+      font: italic 400 21px 'Cormorant Garamond', serif !important;
+    }
+
     /* FORMULARIO PARTICIPATIVO */
 
     .participacion-memoria {
@@ -495,7 +438,101 @@
       box-shadow: 0 0 18px rgba(168, 60, 255, .2);
     }
 
+    /* ENLACES A LAS OBRAS */
+
+    .enlace-obra {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 15px;
+      border: 1px solid var(--violeta);
+      color: #f5f1ff;
+      background: rgba(168, 60, 255, .13);
+      text-decoration: none;
+      font: 500 10px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      text-transform: uppercase;
+      transition: background .2s ease, box-shadow .2s ease;
+    }
+
+    .enlace-obra:hover {
+      background: rgba(168, 60, 255, .28);
+      box-shadow: 0 0 16px rgba(168, 60, 255, .2);
+      color: var(--lila);
+    }
+
+    /* PIE DE PÁGINA EDITORIAL */
+
+    .pie-pagina {
+      width: calc(100% + 8%);
+      margin: 75px -4% -35px;
+      padding: 28px 3%;
+      border-top: 1px solid rgba(229, 200, 255, .22);
+      background: #07111f;
+    }
+
+    .pie-contenido {
+      width: 100%;
+      max-width: 1700px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .pie-marca {
+      margin: 0;
+      color: #e5c8ff;
+      font: 600 14px 'Montserrat', sans-serif;
+      letter-spacing: 1.5px;
+    }
+
+    .pie-descripcion {
+      margin: 0;
+      color: #c6cee0;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .pie-creditos {
+      justify-self: end;
+      color: #c6cee0;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.65;
+    }
+
+    .pie-creditos p { margin: 0; }
+
+    .pie-etiqueta {
+      color: #e5c8ff;
+      font-weight: 500;
+    }
+
+    .pie-final {
+      max-width: 1700px;
+      margin: 20px auto 0;
+      padding-top: 13px;
+      border-top: 1px solid rgba(229, 200, 255, .15);
+      color: #8995ad;
+      font: 400 10px 'Montserrat', sans-serif;
+      letter-spacing: 1.5px;
+    }
+
     @media (max-width: 850px) {
+      .pie-contenido {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+
+      .pie-descripcion { text-align: left; }
+
+      .pie-creditos {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+
       .coleccion-layout {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -538,79 +575,28 @@
       .flecha-siguiente { right: -12px; }
 
       .audio-memoria,
-      .membo-memoria {
+      .participacion-memoria {
         padding: 22px 18px;
       }
+
+      .pie-pagina {
+        width: calc(100% + 36px);
+        margin: 55px -18px -24px;
+        padding: 26px 18px;
+      }
+
+      .pie-contenido {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .pie-descripcion { text-align: left; }
+
+      .pie-creditos {
+        grid-column: auto;
+        justify-self: start;
+      }
     }
-
-    /* PIE DE PÁGINA EDITORIAL */
-
-.pie-pagina {
-  margin: 80px -4% -35px;
-  padding: 35px 4% 24px;
-  border-top: 1px solid rgba(229, 200, 255, .22);
-  background: #07111f;
-}
-
-.pie-contenido {
-  max-width: 1600px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.pie-marca {
-  color: #e5c8ff;
-  font: 600 14px 'Montserrat', sans-serif;
-  letter-spacing: 2px;
-  margin: 0 0 15px;
-}
-
-.pie-descripcion {
-  max-width: 430px;
-  color: #c6cee0;
-  font: 400 13px 'Montserrat', sans-serif;
-  line-height: 1.8;
-}
-
-.pie-creditos {
-  color: #c6cee0;
-  font: 400 12px 'Montserrat', sans-serif;
-  line-height: 1.9;
-}
-
-.pie-creditos p {
-  margin: 0;
-}
-
-.pie-etiqueta {
-  color: #e5c8ff;
-  font-weight: 500;
-}
-
-.pie-final {
-  max-width: 1600px;
-  margin: 25px auto 0;
-  padding-top: 17px;
-  border-top: 1px solid rgba(229, 200, 255, .15);
-  color: #8995ad;
-  font: 400 10px 'Montserrat', sans-serif;
-  letter-spacing: 1.5px;
-}
-
-@media (max-width: 650px) {
-  .pie-pagina {
-    margin-top: 55px;
-    padding: 30px 18px 22px;
-  }
-
-  .pie-contenido {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-}
   </style>
 </head>
 
@@ -622,6 +608,7 @@
   </a>
 
   <!-- APERTURA EDITORIAL -->
+
   <section class="apertura-memoria" aria-labelledby="titulo-apertura">
     <div class="encabezado-memoria">
       <h1 class="titulo-memoria" id="titulo-apertura">Memoria</h1>
@@ -681,8 +668,8 @@
       </a>
     </div>
   </section>
+    <!-- EXPOSICIÓN DIGITAL -->
 
-  <!-- EXPOSICIÓN DIGITAL -->
   <div class="coleccion-layout" id="exposicion-memoria">
     <aside class="menu-colecciones">
       <h2>COLECCIONES</h2>
@@ -695,12 +682,14 @@
           <p class="numero-coleccion" id="numero-coleccion">COLECCIÓN 06 / 07</p>
           <h2 id="titulo-coleccion">Memoria</h2>
         </div>
+
         <p class="descripcion-coleccion" id="descripcion-coleccion">
           Volver a pasar por el corazón.
         </p>
       </header>
 
       <div id="panel-obras"></div>
+
       <p class="nota-prototipo" id="nota-prototipo">
         Explora las obras mediante las flechas o las miniaturas.
       </p>
@@ -708,6 +697,7 @@
   </div>
 
   <!-- ARCHIVO SONORO -->
+
   <section class="audio-memoria" aria-labelledby="titulo-audio">
     <span class="etiqueta-audio">ARCHIVO SONORO · MEMORIA</span>
     <h2 id="titulo-audio">Escuchar también es recordar</h2>
@@ -730,7 +720,8 @@
     </p>
   </section>
 
-  <!-- FORMULARIO PARTICIPATIVO: MEMORIA COLECTIVA -->
+  <!-- FORMULARIO PARTICIPATIVO -->
+
   <section class="participacion-memoria" aria-labelledby="titulo-participacion">
     <span class="etiqueta-participacion">MEMORIA COLECTIVA</span>
     <h2 id="titulo-participacion">También somos nuestra memoria</h2>
@@ -761,8 +752,9 @@
     </a>
   </section>
 
-  <!-- CIERRE EDITORIAL: MEMBO -->
-  <section class="membo-memoria" aria-labelledby="titulo-membo">
+  <!-- RECOMENDACIÓN: MEMBO -->
+
+  <section class="participacion-memoria" aria-labelledby="titulo-membo">
     <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO</span>
     <h2 id="titulo-membo">Una ciudad también se escucha</h2>
 
@@ -773,10 +765,9 @@
     </p>
 
     <p>
-      <strong>MEMBO — Memoria Musical de Bogotá</strong> es un espacio para
-      descubrir, documentar y preservar las huellas sonoras de la ciudad.
-      Sus archivos nos invitan a escuchar Bogotá desde otras épocas, voces
-      y experiencias.
+      <strong>MEMBO — Memoria Musical de Bogotá</strong> invita a descubrir
+      otras formas de escuchar y recordar la ciudad a través de su patrimonio
+      musical y sus archivos sonoros.
     </p>
 
     <p class="membo-cierre">
@@ -794,6 +785,35 @@
   </section>
 
 </main>
+
+<!-- PIE DE PÁGINA EDITORIAL -->
+
+<footer class="pie-pagina">
+  <div class="pie-contenido">
+
+    <div>
+      <p class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</p>
+    </div>
+
+    <p class="pie-descripcion">
+      Un archivo para descubrir otras formas de mirar la ciudad.
+    </p>
+
+    <div class="pie-creditos">
+      <p class="pie-etiqueta">Proyecto académico</p>
+      <p>Estudios Literarios y Edición</p>
+      <p>Universidad Jorge Tadeo Lozano</p>
+      <p>Curaduría, textos y edición</p>
+      <p>María Angélica Valbuena Acuña</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+
+  </div>
+
+  <div class="pie-final">
+    BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL
+  </div>
+</footer>
 
 <script>
   const colecciones = [
@@ -1063,8 +1083,8 @@
       document.createTextNode(obra.descripcion)
     );
 
-    const enlaceAnterior = document.getElementById("enlace-obra");
-    if (enlaceAnterior) enlaceAnterior.remove();
+    const enlaceExistente = document.getElementById("enlace-obra");
+    if (enlaceExistente) enlaceExistente.remove();
 
     if (obra.enlace) {
       const enlaceObra = document.createElement("a");
@@ -1075,8 +1095,7 @@
       enlaceObra.rel = "noopener noreferrer";
       enlaceObra.textContent = obra.textoEnlace + " ↗";
 
-      document.getElementById("texto-obra")
-        .insertAdjacentElement("afterend", enlaceObra);
+      texto.insertAdjacentElement("afterend", enlaceObra);
     }
 
     const miniaturas = document.getElementById("miniaturas");
@@ -1124,34 +1143,6 @@
   }
 
   actualizarPagina();
-
-  <!-- PIE DE PÁGINA EDITORIAL -->
-<footer class="pie-pagina">
-  <div class="pie-contenido">
-
-    <div>
-      <p class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</p>
-
-      <p class="pie-descripcion">
-        Un archivo para descubrir otras formas de mirar la ciudad.
-      </p>
-    </div>
-
-    <div class="pie-creditos">
-      <p class="pie-etiqueta">Proyecto académico</p>
-      <p>Estudios Literarios y Edición</p>
-      <p>Universidad Jorge Tadeo Lozano</p>
-      <p>Curaduría, textos y edición</p>
-      <p>María Angélica Valbuena Acuña</p>
-      <p>Bogotá, Colombia</p>
-    </div>
-
-  </div>
-
-  <div class="pie-final">
-    BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL
-  </div>
-</footer>
 </script>
 </body>
 </html>
