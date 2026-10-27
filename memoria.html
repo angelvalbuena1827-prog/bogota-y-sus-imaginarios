@@ -542,6 +542,75 @@
         padding: 22px 18px;
       }
     }
+
+    /* PIE DE PÁGINA EDITORIAL */
+
+.pie-pagina {
+  margin: 80px -4% -35px;
+  padding: 35px 4% 24px;
+  border-top: 1px solid rgba(229, 200, 255, .22);
+  background: #07111f;
+}
+
+.pie-contenido {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.pie-marca {
+  color: #e5c8ff;
+  font: 600 14px 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  margin: 0 0 15px;
+}
+
+.pie-descripcion {
+  max-width: 430px;
+  color: #c6cee0;
+  font: 400 13px 'Montserrat', sans-serif;
+  line-height: 1.8;
+}
+
+.pie-creditos {
+  color: #c6cee0;
+  font: 400 12px 'Montserrat', sans-serif;
+  line-height: 1.9;
+}
+
+.pie-creditos p {
+  margin: 0;
+}
+
+.pie-etiqueta {
+  color: #e5c8ff;
+  font-weight: 500;
+}
+
+.pie-final {
+  max-width: 1600px;
+  margin: 25px auto 0;
+  padding-top: 17px;
+  border-top: 1px solid rgba(229, 200, 255, .15);
+  color: #8995ad;
+  font: 400 10px 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 650px) {
+  .pie-pagina {
+    margin-top: 55px;
+    padding: 30px 18px 22px;
+  }
+
+  .pie-contenido {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
   </style>
 </head>
 
@@ -1055,6 +1124,34 @@
   }
 
   actualizarPagina();
+
+  <!-- PIE DE PÁGINA EDITORIAL -->
+<footer class="pie-pagina">
+  <div class="pie-contenido">
+
+    <div>
+      <p class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</p>
+
+      <p class="pie-descripcion">
+        Un archivo para descubrir otras formas de mirar la ciudad.
+      </p>
+    </div>
+
+    <div class="pie-creditos">
+      <p class="pie-etiqueta">Proyecto académico</p>
+      <p>Estudios Literarios y Edición</p>
+      <p>Universidad Jorge Tadeo Lozano</p>
+      <p>Curaduría, textos y edición</p>
+      <p>María Angélica Valbuena Acuña</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+
+  </div>
+
+  <div class="pie-final">
+    BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL
+  </div>
+</footer>
 </script>
 </body>
 </html>
