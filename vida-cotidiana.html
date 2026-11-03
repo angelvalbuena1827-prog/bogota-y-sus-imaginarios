@@ -1,14 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Descubre la vida cotidiana de Bogotá a través de sus historias, obras y formas de contemplar la ciudad.">
-  <meta name="theme-color" content="#07111f">
-
+  <meta name="description" content="El maravilloso arte de la contemplación: una colección sobre las escenas, los encuentros y las historias cotidianas de Bogotá.">
   <title>Vida cotidiana | Bogotá y sus imaginarios</title>
-
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -19,21 +15,11 @@
       --acento-rgb: 0, 214, 208;
       --texto: #d4d9e7;
       --suave: #aeb9d0;
-      --linea: rgba(0, 214, 208, .25);
+      --linea: rgba(var(--acento-rgb), .27);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--fondo);
-    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
 
     .pagina-coleccion {
       min-height: 100vh;
@@ -41,8 +27,6 @@
       color: #f5f1ff;
       padding: 35px 4%;
     }
-
-    /* MARCA SUPERIOR */
 
     .marca-memoria {
       display: inline-block;
@@ -55,9 +39,8 @@
     .marca-memoria span {
       color: var(--acento);
       margin-left: 8px;
+      text-shadow: 0 0 14px rgba(var(--acento-rgb), .35);
     }
-
-    /* APERTURA EDITORIAL */
 
     .apertura-memoria {
       max-width: 1450px;
@@ -79,10 +62,11 @@
       color: var(--acento);
       font: 600 clamp(52px, 8vw, 108px) 'Bodoni Moda', serif;
       line-height: .98;
+      text-shadow: 0 0 22px rgba(var(--acento-rgb), .15);
     }
 
     .epigrafe-memoria {
-      max-width: 450px;
+      max-width: 480px;
       padding-top: 12px;
       text-align: right;
     }
@@ -114,9 +98,7 @@
       font: italic 400 clamp(28px, 3.5vw, 39px) 'Cormorant Garamond', serif;
     }
 
-    .texto-intro-memoria p {
-      margin: 0 0 22px;
-    }
+    .texto-intro-memoria p { margin: 0 0 22px; }
 
     .pregunta-memoria {
       margin: 38px 0 0;
@@ -138,11 +120,9 @@
       text-transform: uppercase;
     }
 
-    .enlace-recorrido:hover {
-      color: var(--acento);
-    }
+    .enlace-recorrido:hover { color: var(--acento); }
 
-    /* DISTRIBUCIÓN DE LA COLECCIÓN */
+    /* Navegación entre colecciones */
 
     .coleccion-layout {
       display: grid;
@@ -152,8 +132,6 @@
       margin: 70px auto 0;
       scroll-margin-top: 30px;
     }
-
-    /* MENÚ LATERAL */
 
     .menu-colecciones {
       border-right: 1px solid var(--linea);
@@ -167,57 +145,29 @@
       margin: 0 0 25px;
     }
 
-    .grupo-coleccion {
-      margin-bottom: 7px;
-    }
+    .grupo-coleccion { margin-bottom: 7px; }
 
-    .enlace-coleccion {
+    .boton-coleccion {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
       padding: 10px 5px;
+      border: 0;
+      background: transparent;
       color: #e4deef;
+      text-decoration: none;
       font: 400 13px 'Montserrat', sans-serif;
-      text-decoration: none;
       text-align: left;
-      transition: color .2s ease;
     }
 
-    .enlace-coleccion:hover,
-    .enlace-coleccion.activa {
+    .boton-coleccion.activa {
       color: var(--acento);
-      text-shadow: 0 0 12px rgba(var(--acento-rgb), .35);
+      text-shadow: 0 0 12px rgba(var(--acento-rgb), .4);
     }
 
-    .lista-obras {
-      list-style: none;
-      margin: 4px 0 12px;
-      padding: 0 0 0 12px;
-      border-left: 1px solid var(--linea);
-    }
-
-    .obra-menu {
-      display: block;
-      padding: 9px 8px;
-      color: #bfc6d8;
-      font: 400 11px 'Montserrat', sans-serif;
-      line-height: 1.5;
-      text-decoration: none;
-    }
-
-    .obra-menu:hover,
-    .obra-menu.seleccionada {
-      background: rgba(var(--acento-rgb), .12);
-      color: #f5f1ff;
-    }
-
-    /* CABECERA DE LA EXPOSICIÓN */
-
-    .contenido-coleccion {
-      min-width: 0;
-    }
+    .contenido-coleccion { min-width: 0; }
 
     .sobre-coleccion {
       display: flex;
@@ -246,37 +196,43 @@
       color: #c6cee0;
       font: italic 400 20px 'Cormorant Garamond', serif;
       line-height: 1.4;
-      text-align: right;
     }
 
-    /* IMAGEN Y FICHA */
+    /* Exposición */
 
     .exposicion {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(220px, .8fr);
+      grid-template-columns: minmax(0, 1fr) minmax(230px, .75fr);
       gap: 30px;
       align-items: center;
     }
 
     .marco-obra {
       position: relative;
+      width: 100%;
+      max-width: 680px;
       aspect-ratio: 4 / 3;
       min-width: 0;
+      margin: 0 auto;
       display: grid;
       place-items: center;
-      padding: 18px;
+      padding: 22px;
       border: 1px solid var(--linea);
       background:
-        radial-gradient(ellipse at center, rgba(var(--acento-rgb), .08), transparent 70%),
+        radial-gradient(ellipse at center, rgba(var(--acento-rgb), .10), transparent 70%),
         var(--panel);
     }
 
     .imagen-obra {
+      display: block;
       width: 100%;
       height: 100%;
-      max-height: 100%;
       object-fit: contain;
+      cursor: zoom-in;
+      transition: transform .25s ease;
     }
+
+    .imagen-obra:hover { transform: scale(1.015); }
 
     .flecha-obra {
       position: absolute;
@@ -291,25 +247,17 @@
       color: #f5f1ff;
       font-size: 22px;
       cursor: pointer;
-      transition: box-shadow .2s ease, color .2s ease;
     }
 
     .flecha-obra:hover {
+      box-shadow: 0 0 17px rgba(var(--acento-rgb), .4);
       color: var(--acento);
-      box-shadow: 0 0 16px rgba(var(--acento-rgb), .35);
     }
 
-    .flecha-anterior {
-      left: -21px;
-    }
+    .flecha-anterior { left: -21px; }
+    .flecha-siguiente { right: -21px; }
 
-    .flecha-siguiente {
-      right: -21px;
-    }
-
-    .datos-obra {
-      padding: 12px 0;
-    }
+    .datos-obra { padding: 12px 0; }
 
     .contador-obra {
       color: var(--acento);
@@ -332,45 +280,52 @@
       line-height: 1.6;
     }
 
-    .ficha-obra dt {
-      color: var(--acento);
-    }
+    .ficha-obra dt { color: var(--acento); }
+    .ficha-obra dd { margin: 0; color: #e4deef; }
 
-    .ficha-obra dd {
-      margin: 0;
-      color: #e4deef;
-    }
+    /* Descripción debajo de la exposición */
 
-    /* DESCRIPCIÓN AMPLIA DEBAJO DE LA EXPOSICIÓN */
-
-    .descripcion-obra-amplia {
-      max-width: 1100px;
-      margin: 48px auto 0;
-      padding: 30px 0 10px;
+    .descripcion-obra {
+      max-width: 1050px;
+      margin: 35px auto 0;
+      padding: 25px 0 0;
       border-top: 1px solid var(--linea);
       color: #c6cee0;
-      font: 400 14px 'Montserrat', sans-serif;
-      line-height: 1.95;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
     }
 
-    .descripcion-obra-amplia h3 {
-      margin: 0 0 22px;
+    .descripcion-obra p { margin: 0 0 18px; }
+
+    .descripcion-obra .pregunta-obra {
       color: var(--acento);
-      font: 600 clamp(25px, 3.5vw, 38px) 'Bodoni Moda', serif;
-    }
-
-    .descripcion-obra-amplia .pregunta-obra {
-      margin: 0 0 25px;
-      color: #f5f1ff;
-      font: italic 500 23px 'Cormorant Garamond', serif;
+      font: italic 400 24px 'Cormorant Garamond', serif;
       line-height: 1.5;
     }
 
-    .descripcion-obra-amplia p {
-      margin: 0 0 22px;
+    /* Botón para entrevista */
+
+    .boton-recuerdo {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 20px;
+      border: 1px solid var(--acento);
+      color: #f5f1ff;
+      background: rgba(var(--acento-rgb), .10);
+      text-decoration: none;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: background .2s ease, box-shadow .2s ease;
     }
 
-    /* MINIATURAS */
+    .boton-recuerdo:hover {
+      background: rgba(var(--acento-rgb), .2);
+      box-shadow: 0 0 18px rgba(var(--acento-rgb), .2);
+      color: var(--acento);
+    }
+
+    /* Miniaturas */
 
     .miniaturas {
       display: flex;
@@ -400,26 +355,68 @@
 
     .miniatura.seleccionada {
       border-color: var(--acento);
-      box-shadow: 0 0 12px rgba(var(--acento-rgb), .35);
+      box-shadow: 0 0 13px rgba(var(--acento-rgb), .35);
     }
 
-    .nota-prototipo {
-      margin: 15px 0 0;
-      color: #8995ad;
-      font: 400 10px 'Montserrat', sans-serif;
-      line-height: 1.6;
+    /* Ventana para ampliar las imágenes */
+
+    .visor-imagen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 55px 30px;
+      background: rgba(2, 7, 15, .96);
+      backdrop-filter: blur(7px);
     }
 
-    /* PARTICIPACIÓN Y RECOMENDACIÓN */
+    .visor-imagen.abierto { display: flex; }
+
+    .visor-imagen img {
+      display: block;
+      max-width: min(100%, 1100px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 0 40px rgba(0, 0, 0, .5);
+    }
+
+    .cerrar-visor {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--acento);
+      border-radius: 50%;
+      background: rgba(7, 17, 31, .8);
+      color: var(--acento);
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    .cerrar-visor:hover {
+      background: rgba(var(--acento-rgb), .15);
+      box-shadow: 0 0 15px rgba(var(--acento-rgb), .3);
+    }
+
+    /* Participación y recomendación */
 
     .bloque-vida {
       max-width: 1100px;
-      margin: 45px auto 30px;
+      margin: 55px auto 30px;
       padding: 34px 28px;
       border: 1px solid var(--linea);
-      background:
-        linear-gradient(135deg, rgba(var(--acento-rgb), .09), transparent 65%),
-        var(--panel);
+      background: linear-gradient(135deg, rgba(var(--acento-rgb), .09), transparent 65%), var(--panel);
+    }
+
+    .etiqueta-participacion {
+      color: var(--acento);
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
     }
 
     .bloque-vida h2 {
@@ -435,65 +432,17 @@
       line-height: 1.8;
     }
 
-    .etiqueta-participacion {
+    .bloque-vida .cierre-vida {
       color: var(--acento);
-      font: 500 11px 'Montserrat', sans-serif;
-      letter-spacing: 2px;
+      font: italic 400 21px 'Cormorant Garamond', serif;
     }
 
-    .boton-recuerdo {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 14px 20px;
-      border: 1px solid var(--acento);
-      color: #f5f1ff;
-      background: rgba(var(--acento-rgb), .12);
-      text-decoration: none;
-      font: 500 11px 'Montserrat', sans-serif;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      transition: background .2s ease, box-shadow .2s ease;
-    }
-
-    .boton-recuerdo:hover {
-      background: rgba(var(--acento-rgb), .25);
-      box-shadow: 0 0 18px rgba(var(--acento-rgb), .2);
-    }
-
-    .audio-nota {
+    .nota-participacion {
       color: var(--suave) !important;
       font-size: 11px !important;
     }
 
-    /* ACCESOS FIJOS */
-
-    .accesos-fijos {
-      position: fixed;
-      z-index: 20;
-      right: 22px;
-      bottom: 20px;
-      display: flex;
-      gap: 9px;
-    }
-
-    .accesos-fijos a {
-      display: inline-block;
-      padding: 10px 13px;
-      border: 1px solid var(--acento);
-      background: rgba(7, 17, 31, .94);
-      color: var(--acento);
-      font: 500 10px 'Montserrat', sans-serif;
-      letter-spacing: .8px;
-      text-decoration: none;
-      text-transform: uppercase;
-      backdrop-filter: blur(8px);
-    }
-
-    .accesos-fijos a:hover {
-      background: rgba(var(--acento-rgb), .15);
-    }
-
-    /* PIE DE PÁGINA */
+    /* Pie de página */
 
     .pie-pagina {
       width: 100%;
@@ -536,14 +485,8 @@
       overflow-wrap: anywhere;
     }
 
-    .pie-creditos p {
-      margin: 0;
-    }
-
-    .pie-etiqueta {
-      color: var(--acento);
-      font-weight: 500;
-    }
+    .pie-creditos p { margin: 0; }
+    .pie-etiqueta { color: var(--acento); font-weight: 500; }
 
     .pie-final {
       margin: 15px 0 0;
@@ -554,10 +497,9 @@
       letter-spacing: 1px;
     }
 
-    /* ADAPTACIÓN A TABLETAS */
+    /* Adaptación a pantallas pequeñas */
 
     @media (max-width: 850px) {
-
       .coleccion-layout {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -569,9 +511,7 @@
         padding: 0 0 15px;
       }
 
-      .exposicion {
-        grid-template-columns: 1fr;
-      }
+      .exposicion { grid-template-columns: 1fr; }
 
       .sobre-coleccion {
         align-items: flex-start;
@@ -579,19 +519,16 @@
         gap: 8px;
       }
 
-      .descripcion-coleccion {
-        max-width: 600px;
-        text-align: left;
-      }
+      .descripcion-coleccion { max-width: 600px; }
+
+      .marco-obra { max-width: 680px; }
 
       .pie-contenido {
         grid-template-columns: 1fr 1fr;
         gap: 18px;
       }
 
-      .pie-descripcion {
-        text-align: left;
-      }
+      .pie-descripcion { text-align: left; }
 
       .pie-creditos {
         grid-column: 1 / -1;
@@ -599,13 +536,8 @@
       }
     }
 
-    /* ADAPTACIÓN A CELULARES */
-
     @media (max-width: 600px) {
-
-      .pagina-coleccion {
-        padding: 24px 18px;
-      }
+      .pagina-coleccion { padding: 24px 18px; }
 
       .encabezado-memoria {
         flex-direction: column;
@@ -618,29 +550,21 @@
         max-width: 92%;
       }
 
-      .texto-intro-memoria {
-        font-size: 14px;
-      }
+      .texto-intro-memoria { font-size: 14px; }
 
       .marco-obra {
         aspect-ratio: 1 / 1;
+        padding: 14px;
       }
 
-      .flecha-anterior {
-        left: -12px;
-      }
+      .flecha-anterior { left: -12px; }
+      .flecha-siguiente { right: -12px; }
 
-      .flecha-siguiente {
-        right: -12px;
-      }
+      .bloque-vida { padding: 22px 18px; }
 
-      .descripcion-obra-amplia {
-        font-size: 13px;
-      }
+      .visor-imagen { padding: 55px 12px; }
 
-      .bloque-vida {
-        padding: 22px 18px;
-      }
+      .visor-imagen img { max-width: 100%; max-height: 82vh; }
 
       .pie-pagina {
         width: calc(100% + 36px);
@@ -650,456 +574,229 @@
 
       .pie-contenido {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 15px;
       }
 
-      .pie-descripcion {
-        text-align: left;
-      }
+      .pie-descripcion { text-align: left; }
 
       .pie-creditos {
         grid-column: auto;
         justify-self: start;
-      }
-
-      .accesos-fijos {
-        right: 10px;
-        bottom: 10px;
-      }
-
-      .accesos-fijos a {
-        padding: 9px 10px;
-        font-size: 9px;
       }
     }
   </style>
 </head>
 
 <body>
-
 <main class="pagina-coleccion">
-
-  <!-- MARCA SUPERIOR -->
 
   <a class="marca-memoria" href="index.html">
     BOGOTÁ <span>Y SUS IMAGINARIOS</span>
   </a>
 
-
-  <!-- APERTURA EDITORIAL -->
-
   <section class="apertura-memoria" aria-labelledby="titulo-apertura">
-
     <div class="encabezado-memoria">
-
-      <h1 class="titulo-memoria" id="titulo-apertura">
-        Vida cotidiana
-      </h1>
+      <h1 class="titulo-memoria" id="titulo-apertura">Vida cotidiana</h1>
 
       <div class="epigrafe-memoria">
-
         <blockquote>
-          «Aisthesis designa la experiencia estética fundamental de que una obra de arte puede renovar la percepción de las cosas, embotada por la costumbre [...]».
+          «Aisthesis designa la experiencia estética fundamental de que una obra de arte puede renovar la percepción de las cosas, embotada por la costumbre».
         </blockquote>
-
-        <p>
-          — Hans Robert Jauss, <em>Pequeña apología de la experiencia estética</em>
-        </p>
-
+        <p>— Hans Robert Jauss, <em>Pequeña apología de la experiencia estética</em></p>
       </div>
-
     </div>
 
+    <div class="texto-intro-memoria">
+      <h2 class="subtitulo-memoria">El maravilloso arte de la contemplación</h2>
 
-    <div class="texto-intro-memoria" id="texto-editorial">
+      <p>Bienvenido a esta colección. Antes de comenzar, quiero invitarte a hacer algo sencillo: detente un momento. Ahora que me lees, tómate unos segundos para mirar el lugar en el que estás. ¿Dónde te encuentras? ¿Qué es lo primero que ves? ¿Qué sonidos llegan hasta ti? ¿Hay algo a tu alrededor en lo que nunca antes te habías detenido?</p>
 
-      <h2 class="subtitulo-memoria">
-        El maravilloso arte de la contemplación
-      </h2>
+      <p>A veces transitamos los mismos lugares tantas veces que dejamos de mirarlos. Caminamos por las mismas calles, repetimos nuestros recorridos, coincidimos con otras personas y nos acostumbramos a los paisajes que nos rodean. La prisa convierte los días en una sucesión de actividades y, casi sin darnos cuenta, dejamos de reparar en aquello que también forma parte de nuestra vida.</p>
 
-      <p>
-        Bienvenido a esta colección. Antes de comenzar, quiero invitarte a hacer algo sencillo: detente un momento. Ahora que me lees, tómate unos segundos para mirar el lugar en el que estás. ¿Dónde te encuentras? ¿Qué es lo primero que ves? ¿Qué sonidos llegan hasta ti? ¿Hay algo a tu alrededor en lo que nunca antes te habías detenido?
-      </p>
+      <p>Sin embargo, la ciudad no ocurre únicamente en sus grandes acontecimientos. También está en los trabajos que pasan inadvertidos, en las conversaciones fugaces, en los encuentros inesperados, en los lugares que habitamos y en esos pequeños momentos que parecen no tener mayor importancia. Allí también hay historias, contrastes y maneras de comprender quiénes somos y cómo vivimos Bogotá.</p>
 
-      <p>
-        A veces transitamos los mismos lugares tantas veces que dejamos de mirarlos. Caminamos por las mismas calles, repetimos nuestros recorridos, coincidimos con otras personas y nos acostumbramos a los paisajes que nos rodean. La prisa convierte los días en una sucesión de actividades y, casi sin darnos cuenta, dejamos de reparar en aquello que también forma parte de nuestra vida.
-      </p>
+      <p>He escogido estas obras porque quiero invitarte a descubrir esas otras formas de contar nuestra ciudad. A mirar con curiosidad lo que quizás ya conoces, a encontrar belleza en lo habitual y a reconocer que incluso las escenas más sencillas pueden despertar preguntas, recuerdos y nuevas maneras de percibir nuestro entorno.</p>
 
-      <p>
-        Sin embargo, la ciudad no ocurre únicamente en sus grandes acontecimientos. También está en los trabajos que pasan inadvertidos, en las conversaciones fugaces, en los encuentros inesperados, en los lugares que habitamos y en esos pequeños momentos que parecen no tener mayor importancia. Allí también hay historias, contrastes y maneras de comprender quiénes somos y cómo vivimos Bogotá.
-      </p>
+      <p>En un mundo que cada día parece avanzar más deprisa, detenernos también puede ser una pequeña revolución. Contemplar no significa alejarnos de lo que sucede, sino estar más presentes en ello. A veces, basta con prestar atención para descubrir que aquello que creíamos conocer todavía tiene mucho por mostrarnos.</p>
 
-      <p>
-        He escogido estas obras porque quiero invitarte a descubrir esas otras formas de contar nuestra ciudad. A mirar con curiosidad lo que quizás ya conoces, a encontrar belleza en lo habitual y a reconocer que incluso las escenas más sencillas pueden despertar preguntas, recuerdos y nuevas maneras de percibir nuestro entorno.
-      </p>
+      <p class="pregunta-memoria">¿Cuánto de tu ciudad has dejado de mirar por estar acostumbrado a ella?</p>
 
-      <p>
-        En un mundo que cada día parece avanzar más deprisa, detenernos también puede ser una pequeña revolución. Contemplar no significa alejarnos de lo que sucede, sino estar más presentes en ello. A veces, basta con prestar atención para descubrir que aquello que creíamos conocer todavía tiene mucho por mostrarnos.
-      </p>
-
-      <p class="pregunta-memoria">
-        ¿Cuánto de tu ciudad has dejado de mirar por estar acostumbrado a ella?
-      </p>
-
-      <a class="enlace-recorrido" href="#exposicion-vida">
-        Recorrer las obras ↓
-      </a>
-
+      <a class="enlace-recorrido" href="#exposicion-memoria">Recorrer las obras ↓</a>
     </div>
-
   </section>
+    <div class="coleccion-layout" id="exposicion-memoria">
 
-
-  <!-- EXPOSICIÓN DIGITAL -->
-
-  <div class="coleccion-layout" id="exposicion-vida">
-
-    <!-- MENÚ LATERAL -->
-
-    <aside class="menu-colecciones">
-
+    <aside class="menu-colecciones" aria-label="Navegación entre colecciones">
       <h2>COLECCIONES</h2>
 
-      <nav aria-label="Navegación entre colecciones">
+      <div class="grupo-coleccion">
+        <a class="boton-coleccion activa" href="vida-cotidiana.html">
+          <span>01　Vida cotidiana</span><span>↗</span>
+        </a>
+      </div>
 
-        <div class="grupo-coleccion">
-
-          <a class="enlace-coleccion activa" href="vida-cotidiana.html">
-            <span>01　Vida cotidiana</span>
-            <span aria-hidden="true">⌃</span>
-          </a>
-
-          <ul class="lista-obras">
-
-            <li>
-              <a
-                class="obra-menu seleccionada"
-                href="#obra-actual"
-                data-obra="0"
-                aria-current="true"
-              >
-                01. Humor de Ascensoristas
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="obra-menu"
-                href="#obra-actual"
-                data-obra="1"
-              >
-                02. Que pase lo peor
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-        <div class="grupo-coleccion">
-          <a class="enlace-coleccion" href="pasado.html">
-            <span>02　Pasado</span>
-            <span aria-hidden="true">⌄</span>
-          </a>
-        </div>
-
-        <div class="grupo-coleccion">
-          <a class="enlace-coleccion" href="vida-nocturna.html">
-            <span>03　Vida nocturna</span>
-            <span aria-hidden="true">⌄</span>
-          </a>
-        </div>
-
-        <div class="grupo-coleccion">
-          <a class="enlace-coleccion" href="violencia.html">
-            <span>04　Violencia</span>
-            <span aria-hidden="true">⌄</span>
-          </a>
-        </div>
-
-        <div class="grupo-coleccion">
-          <a class="enlace-coleccion" href="resistencia.html">
-            <span>05　Resistencia</span>
-            <span aria-hidden="true">⌄</span>
-          </a>
-        </div>
-
-        <div class="grupo-coleccion">
-          <a class="enlace-coleccion" href="memoria.html">
-            <span>06　Memoria</span>
-            <span aria-hidden="true">⌄</span>
-          </a>
-        </div>
-
-        <div class="grupo-coleccion">
-          <a class="enlace-coleccion" href="amor.html">
-            <span>07　Amor</span>
-            <span aria-hidden="true">⌄</span>
-          </a>
-        </div>
-
-      </nav>
-
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="pasado.html">02　Pasado</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="vida-nocturna.html">03　Vida nocturna</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="violencia.html">04　Violencia</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="resistencia.html">05　Resistencia</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="memoria.html">06　Memoria</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="amor.html">07　Amor</a></div>
     </aside>
-
-
-    <!-- CONTENIDO DE LA COLECCIÓN -->
 
     <section class="contenido-coleccion" aria-label="Exposición digital">
 
       <header class="sobre-coleccion">
-
         <div>
           <p class="numero-coleccion">COLECCIÓN 01 / 07</p>
           <h2>Vida cotidiana</h2>
         </div>
-
-        <p class="descripcion-coleccion">
-          El maravilloso arte de la contemplación.
-        </p>
-
+        <p class="descripcion-coleccion">Las historias que habitan lo común.</p>
       </header>
 
-
-      <!-- IMAGEN Y FICHA DE LA OBRA -->
-
-      <div class="exposicion" id="obra-actual">
+      <div class="exposicion">
 
         <div class="marco-obra">
-
-          <button
-            class="flecha-obra flecha-anterior"
-            id="anterior"
-            type="button"
-            aria-label="Obra anterior"
-          >‹</button>
+          <button class="flecha-obra flecha-anterior" id="anterior" aria-label="Obra anterior">‹</button>
 
           <img
             class="imagen-obra"
             id="imagen-obra"
             src="imgs/humor-ascensoristas.png"
-            alt="Cartel de la obra teatral Humor de Ascensoristas"
+            alt="Afiche de la obra de teatro Humor de Ascensoristas"
+            title="Haz clic para ampliar la imagen"
           >
 
-          <button
-            class="flecha-obra flecha-siguiente"
-            id="siguiente"
-            type="button"
-            aria-label="Obra siguiente"
-          >›</button>
-
+          <button class="flecha-obra flecha-siguiente" id="siguiente" aria-label="Obra siguiente">›</button>
         </div>
 
-
         <article class="datos-obra">
+          <p class="contador-obra" id="contador-obra">01 / 02</p>
 
-          <p class="contador-obra" id="contador-obra">
-            01 / 02
-          </p>
+          <h3 id="titulo-obra">Humor de Ascensoristas</h3>
 
-          <h3 id="titulo-obra">
-            Humor de Ascensoristas
-          </h3>
-
-          <dl class="ficha-obra" id="ficha-obra">
-
+          <dl class="ficha-obra">
             <dt>Autoría</dt>
-            <dd>Iván Gómez Gaitán</dd>
+            <dd id="autor-obra">Iván Gómez Gaitán</dd>
 
-            <dt>Año</dt>
-            <dd>2022</dd>
+            <dt>Fecha</dt>
+            <dd id="fecha-obra">2022 (reconocimiento) · presentación en Bogotá en 2024</dd>
 
             <dt>Tipo</dt>
-            <dd>Teatro</dd>
+            <dd id="tipo-obra">Teatro</dd>
 
             <dt>Lugar</dt>
-            <dd>Congreso de la República</dd>
+            <dd id="lugar-obra">Congreso de la República</dd>
 
             <dt>Temas</dt>
-            <dd>Vida cotidiana</dd>
+            <dd id="temas-obra">Vida cotidiana</dd>
 
             <dt>Mirada</dt>
-            <dd>La nostálgica</dd>
+            <dd id="mirada-obra">La nostálgica</dd>
 
             <dt>Impacto</dt>
-            <dd>4. Volvería a ella</dd>
+            <dd id="impacto-obra">Volvería a ella</dd>
 
             <dt>Reacción</dt>
-            <dd>Deja pensando</dd>
-
+            <dd id="reaccion-obra">Deja pensando</dd>
           </dl>
-
         </article>
 
       </div>
 
-
-      <!-- DESCRIPCIÓN AMPLIA -->
-
-      <section
-        class="descripcion-obra-amplia"
-        id="descripcion-obra"
-        aria-live="polite"
-      >
-
-        <h3>Humor de Ascensoristas</h3>
+      <!-- La descripción aparece debajo de la imagen y de la ficha -->
+      <article class="descripcion-obra" id="texto-obra" aria-live="polite">
 
         <p class="pregunta-obra">
           ¿Cuántas historias pueden permanecer escondidas detrás de las puertas de un lugar que creemos conocer?
         </p>
 
-        <p>
-          En <em>Humor de Ascensoristas</em>, Iván Gómez Gaitán entrelaza las vidas de Pedro, un antiguo ascensorista del Congreso que, en su vejez, se prepara para una nueva entrevista de trabajo, y Marcos, un joven soldado que enfrenta la inminencia de la muerte en una zona de guerra. Sus historias se encuentran en un relato atravesado por los recuerdos, las ausencias y la necesidad de encontrar respuestas o despedirse.
-        </p>
+        <p>En <em>Humor de Ascensoristas</em>, Iván Gómez Gaitán entrelaza las vidas de Pedro, un antiguo ascensorista del Congreso que, en su vejez, se prepara para una nueva entrevista de trabajo, y Marcos, un joven soldado que enfrenta la inminencia de la muerte en una zona de guerra. Sus historias se encuentran en un relato atravesado por los recuerdos, las ausencias y la necesidad de encontrar respuestas o despedirse.</p>
 
-        <p>
-          La obra nos invita a mirar más allá de los espacios que habitualmente asociamos con la vida institucional de Bogotá. A través de Pedro, recupera la figura de quien, desde un oficio cotidiano y muchas veces inadvertido, también ha sido parte de la historia de un lugar. Porque detrás de los edificios que reconocemos, de los trabajos que pocas veces nombramos y de los encuentros que parecen pasajeros, existen vidas enteras, recuerdos y sentimientos que merecen ser escuchados.
-        </p>
+        <p>La obra nos invita a mirar más allá de los espacios que habitualmente asociamos con la vida institucional de Bogotá. A través de Pedro, recupera la figura de quien, desde un oficio cotidiano y muchas veces inadvertido, también ha sido parte de la historia de un lugar. Porque detrás de los edificios que reconocemos, de los trabajos que pocas veces nombramos y de los encuentros que parecen pasajeros, existen vidas enteras, recuerdos y sentimientos que merecen ser escuchados.</p>
 
-        <p>
-          Entre la nostalgia, la soledad y el arrepentimiento, <em>Humor de Ascensoristas</em> nos recuerda que la ciudad también se construye con las historias de quienes la habitan y la recorren cada día.
-        </p>
+        <p>Entre la nostalgia, la soledad y el arrepentimiento, <em>Humor de Ascensoristas</em> nos recuerda que la ciudad también se construye con las historias de quienes la habitan y la recorren cada día.</p>
 
-      </section>
-
-
-      <!-- MINIATURAS -->
+      </article>
 
       <nav class="miniaturas" id="miniaturas" aria-label="Navegar entre las obras">
 
-        <button
-          class="miniatura seleccionada"
-          type="button"
-          data-obra="0"
-          aria-label="Ver Humor de Ascensoristas"
-          aria-pressed="true"
-        >
+        <button class="miniatura seleccionada" data-indice="0" aria-label="Ver Humor de Ascensoristas">
           <img src="imgs/humor-ascensoristas.png" alt="">
         </button>
 
-        <button
-          class="miniatura"
-          type="button"
-          data-obra="1"
-          aria-label="Ver Que pase lo peor"
-          aria-pressed="false"
-        >
+        <button class="miniatura" data-indice="1" aria-label="Ver Que pase lo peor">
           <img src="imgs/que-pase-lo-peor.webp" alt="">
         </button>
 
       </nav>
 
-      <p class="nota-prototipo">
-        Explora las obras mediante las flechas o seleccionando sus miniaturas.
-      </p>
-
     </section>
-
   </div>
 
+  <!-- Visor de imágenes ampliadas -->
+  <div
+    class="visor-imagen"
+    id="visor-imagen"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Imagen ampliada"
+  >
+    <button class="cerrar-visor" id="cerrar-visor" aria-label="Cerrar imagen ampliada">×</button>
+    <img id="imagen-ampliada" src="" alt="">
+  </div>
 
-  <!-- PARTICIPACIÓN FOTOGRÁFICA -->
-
+  <!-- Participación fotográfica -->
   <section class="bloque-vida" aria-labelledby="titulo-mirada">
 
-    <span class="etiqueta-participacion">UNA MIRADA COLECTIVA</span>
+    <span class="etiqueta-participacion">UNA PAUSA PARA COMPARTIR</span>
 
     <h2 id="titulo-mirada">Una mirada a nuestra ciudad</h2>
 
-    <p>
-      No siempre necesitamos recorrer grandes distancias para descubrir algo nuevo. A veces basta con detenernos a mirar aquello que tenemos delante.
-    </p>
+    <p>No siempre necesitamos recorrer grandes distancias para descubrir algo nuevo. A veces basta con detenernos a mirar aquello que tenemos delante.</p>
 
-    <p>
-      ¿Qué estás viendo en este momento? Puede ser una calle por la que pasas todos los días, una ventana, un árbol que crece entre el concreto, una persona trabajando, un paisaje que te gusta o un pequeño detalle que normalmente pasaría inadvertido.
-    </p>
+    <p>¿Qué estás viendo en este momento? Puede ser una calle por la que pasas todos los días, una ventana, un árbol que crece entre el concreto, una persona trabajando, un paisaje que te gusta o un pequeño detalle que normalmente pasaría inadvertido.</p>
 
-    <p>
-      Te invitamos a compartir una fotografía de Bogotá: puede ser algo que estés contemplando mientras recorres esta colección o una imagen que hayas guardado porque significa algo para ti.
-    </p>
+    <p>Te invitamos a compartir una fotografía de Bogotá: puede ser algo que estés contemplando mientras recorres esta colección o una imagen que hayas guardado porque significa algo para ti.</p>
 
-    <p>
-      Cada mirada es distinta y, cuando las reunimos, descubrimos que nuestra ciudad tiene muchas más formas de ser contada.
-    </p>
+    <p>Cada mirada es distinta y, cuando las reunimos, descubrimos que nuestra ciudad tiene muchas más formas de ser contada.</p>
 
-    <p class="audio-nota">
-      Puedes participar subiendo una fotografía y contándonos dónde la tomaste y qué llamó tu atención. Google Forms solicitará iniciar sesión para adjuntar imágenes.
-    </p>
+    <p class="nota-participacion">Puedes participar subiendo una fotografía y contándonos dónde la tomaste y qué llamó tu atención. Google Forms solicitará iniciar sesión para adjuntar imágenes.</p>
 
     <a
       class="boton-recuerdo"
       href="https://docs.google.com/forms/d/e/1FAIpQLSdGIJoDsHfww0Nzmwchi5DVU7_zaAO60iQpRQHSaAMDEEwSuQ/viewform"
       target="_blank"
       rel="noopener noreferrer"
-    >
-      Compartir mi fotografía ↗
-    </a>
+    >Compartir mi fotografía ↗</a>
 
   </section>
 
-
-  <!-- RECOMENDACIÓN AUDIOVISUAL -->
-
+  <!-- Recomendación audiovisual -->
   <section class="bloque-vida" aria-labelledby="titulo-sonidos-bogotanos">
 
-    <span class="etiqueta-participacion">
-      PARA SEGUIR EXPLORANDO · RECOMENDACIÓN AUDIOVISUAL
-    </span>
+    <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO · RECOMENDACIÓN AUDIOVISUAL</span>
 
     <h2 id="titulo-sonidos-bogotanos">Bogotá también se escucha</h2>
 
-    <p>
-      Hay ciudades que reconocemos por sus paisajes, sus calles y sus edificios, pero también por los sonidos que las acompañan.
-    </p>
+    <p>Hay ciudades que reconocemos por sus paisajes, sus calles y sus edificios, pero también por los sonidos que las acompañan.</p>
 
-    <p>
-      En <em>Sonidos Bogotanos</em>, el director Omar Mosquera nos propone acercarnos a esa dimensión sonora de Bogotá. El tráfico, el perifoneo, las construcciones y los sonidos de la naturaleza componen un paisaje que, aunque muchas veces confundimos con ruido, también hace parte de nuestra identidad.
-    </p>
+    <p>En <em>Sonidos Bogotanos</em>, el director Omar Mosquera nos propone acercarnos a esa dimensión sonora de Bogotá. El tráfico, el perifoneo, las construcciones y los sonidos de la naturaleza componen un paisaje que, aunque muchas veces confundimos con ruido, también hace parte de nuestra identidad.</p>
 
-    <p>
-      Te invito a ver este documental y a escuchar con otros oídos esa ciudad que recorremos todos los días. Quizás descubras que algunos de los sonidos que más te representan estaban ahí desde siempre, esperando a que les prestaras atención.
-    </p>
+    <p>Te invitamos a ver este documental y a escuchar con otros oídos esa ciudad que recorremos todos los días. Quizás descubras que algunos de los sonidos que más te representan estaban ahí desde siempre, esperando a que les prestaras atención.</p>
 
-    <p class="audio-nota">
-      <em>Sonidos Bogotanos</em> · Omar Mosquera N. · Colombia, 2024 · Documental · 6 min. Forma parte de la serie <em>Bogotario</em>.
-    </p>
+    <p class="nota-participacion"><em>Sonidos Bogotanos</em> · Omar Mosquera N. · Colombia, 2024 · Documental · 6 minutos. Forma parte de la serie <em>Bogotario</em>.</p>
 
     <a
       class="boton-recuerdo"
       href="https://www.retinalatina.org/peliculas/sonidos-bogotanos-omar-mosquera/"
       target="_blank"
       rel="noopener noreferrer"
-    >
-      Ver documental en Retina Latina ↗
-    </a>
+    >Ver documental en Retina Latina ↗</a>
 
   </section>
-
-</main>
-
-
-<!-- ACCESOS FIJOS -->
-
-<nav class="accesos-fijos" aria-label="Accesos rápidos">
-
-  <a href="index.html">
-    ← Inicio
-  </a>
-
-  <a
-    href="#"
-    onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
-  >
-    ↑ Volver arriba
-  </a>
-
-</nav>
-
-
-<!-- PIE DE PÁGINA EDITORIAL -->
+  </main>
 
 <footer class="pie-pagina">
-
   <div class="pie-contenido">
 
     <div>
@@ -1111,14 +808,12 @@
     </p>
 
     <div class="pie-creditos">
-
       <p class="pie-etiqueta">Proyecto académico</p>
       <p>Estudios Literarios y Edición</p>
       <p>Universidad Jorge Tadeo Lozano</p>
       <p>Curaduría, textos y edición</p>
       <p>María Angélica Valbuena Acuña</p>
       <p>Bogotá, Colombia</p>
-
     </div>
 
   </div>
@@ -1126,313 +821,245 @@
   <div class="pie-final">
     BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL
   </div>
-
 </footer>
 
 <script>
 
-  // OBRAS DE VIDA COTIDIANA
+  /* Información de las obras */
 
-  const obrasVida = [
+  const obras = [
 
     {
       titulo: "Humor de Ascensoristas",
-
       imagen: "imgs/humor-ascensoristas.png",
-
-      alt: "Cartel de la obra teatral Humor de Ascensoristas",
+      alt: "Afiche de la obra de teatro Humor de Ascensoristas",
 
       autor: "Iván Gómez Gaitán",
-
-      fecha: "2022 (dramaturgia y reconocimiento editorial)",
-
+      fecha: "2022 (reconocimiento) · presentación en Bogotá en 2024",
       tipo: "Teatro",
-
       lugar: "Congreso de la República",
-
       temas: "Vida cotidiana",
-
       mirada: "La nostálgica",
-
-      impacto: "4. Volvería a ella",
-
+      impacto: "Volvería a ella",
       reaccion: "Deja pensando",
 
-      pregunta:
-        "¿Cuántas historias pueden permanecer escondidas detrás de las puertas de un lugar que creemos conocer?",
+      pregunta: "¿Cuántas historias pueden permanecer escondidas detrás de las puertas de un lugar que creemos conocer?",
 
       parrafos: [
-        `En <em>Humor de Ascensoristas</em>, Iván Gómez Gaitán entrelaza las vidas de Pedro, un antiguo ascensorista del Congreso que, en su vejez, se prepara para una nueva entrevista de trabajo, y Marcos, un joven soldado que enfrenta la inminencia de la muerte en una zona de guerra. Sus historias se encuentran en un relato atravesado por los recuerdos, las ausencias y la necesidad de encontrar respuestas o despedirse.`,
+        "En <em>Humor de Ascensoristas</em>, Iván Gómez Gaitán entrelaza las vidas de Pedro, un antiguo ascensorista del Congreso que, en su vejez, se prepara para una nueva entrevista de trabajo, y Marcos, un joven soldado que enfrenta la inminencia de la muerte en una zona de guerra. Sus historias se encuentran en un relato atravesado por los recuerdos, las ausencias y la necesidad de encontrar respuestas o despedirse.",
 
-        `La obra nos invita a mirar más allá de los espacios que habitualmente asociamos con la vida institucional de Bogotá. A través de Pedro, recupera la figura de quien, desde un oficio cotidiano y muchas veces inadvertido, también ha sido parte de la historia de un lugar. Porque detrás de los edificios que reconocemos, de los trabajos que pocas veces nombramos y de los encuentros que parecen pasajeros, existen vidas enteras, recuerdos y sentimientos que merecen ser escuchados.`,
+        "La obra nos invita a mirar más allá de los espacios que habitualmente asociamos con la vida institucional de Bogotá. A través de Pedro, recupera la figura de quien, desde un oficio cotidiano y muchas veces inadvertido, también ha sido parte de la historia de un lugar. Porque detrás de los edificios que reconocemos, de los trabajos que pocas veces nombramos y de los encuentros que parecen pasajeros, existen vidas enteras, recuerdos y sentimientos que merecen ser escuchados.",
 
-        `Entre la nostalgia, la soledad y el arrepentimiento, <em>Humor de Ascensoristas</em> nos recuerda que la ciudad también se construye con las historias de quienes la habitan y la recorren cada día.`
+        "Entre la nostalgia, la soledad y el arrepentimiento, <em>Humor de Ascensoristas</em> nos recuerda que la ciudad también se construye con las historias de quienes la habitan y la recorren cada día."
       ]
+
     },
 
     {
       titulo: "Que pase lo peor",
-
       imagen: "imgs/que-pase-lo-peor.webp",
-
-      alt: "Portada de la novela Que pase lo peor, de Antonio García Ángel",
+      alt: "Portada del libro Que pase lo peor, de Antonio García Ángel",
 
       autor: "Antonio García Ángel",
-
       fecha: "2025",
-
       tipo: "Novela",
-
       lugar: "Bogotá · Ciudad Montes",
-
       temas: "Vida cotidiana",
-
       mirada: "La rebelde",
-
-      impacto: "5. No me la saco de la cabeza",
-
+      impacto: "No me la saco de la cabeza",
       reaccion: "Vuela la cabeza",
 
-      pregunta:
-        "¿Qué tienen que ver Gregorio Samsa, una cucaracha gigante y las calles de Bogotá? En esta novela, mucho más de lo que podrías imaginar.",
+      pregunta: "¿Qué tienen que ver Gregorio Samsa, una cucaracha gigante y las calles de Bogotá?",
 
       parrafos: [
-        `En <em>Que pase lo peor</em>, Antonio García Ángel nos presenta a Nelson Camargo, un profesor de lógica y escritor que atraviesa una vida llena de contratiempos: pierde su trabajo, acumula deudas y parece estar cada vez más cerca del desastre. Su situación da un giro inesperado cuando acepta cuidar a Yeison Mestizo, un personaje cuya misteriosa presencia terminará convirtiéndose en el comienzo de una aventura delirante.`,
+        "En esta novela, Nelson Camargo, un profesor de lógica y escritor cuya vida parece desmoronarse, termina encargado de cuidar a Yeison Mestizo, una presencia enigmática que poco a poco transforma la historia en una aventura delirante.",
 
-        `Leer esta novela es también recorrer Bogotá. Sus calles, barrios, bares y TransMilenios aparecen como parte de un paisaje familiar que despierta recuerdos y sensaciones, especialmente en quienes conocen la ciudad. Pero García Ángel no se conforma con retratarla: juega con ella, la transforma y la lleva hasta escenarios tan absurdos como sorprendentes.`,
+        "Leer esta novela es también recorrer Bogotá. Sus calles, barrios, bares y TransMilenios aparecen como parte de un paisaje familiar que despierta recuerdos y sensaciones, especialmente en quienes conocen la ciudad. Pero García Ángel no se conforma con retratarla: juega con ella, la transforma y la lleva hasta escenarios tan absurdos como sorprendentes.",
 
-        `Entre referencias literarias, música, cultura popular, humor e ironía, la novela convierte la lectura en una especie de pogo literario: un salto constante entre lo cotidiano y lo extraordinario, entre la risa y el desconcierto. Desde el guiño a <em>La metamorfosis</em> de Kafka hasta los juegos con la propia narración, cada referencia abre nuevas posibilidades para quien lee.`,
+        "Entre referencias literarias, música, cultura popular, humor e ironía, la novela convierte la lectura en una especie de pogo literario: un salto constante entre lo cotidiano y lo extraordinario, entre la risa y el desconcierto. Desde el guiño a <em>La metamorfosis</em> de Kafka hasta los juegos con la propia narración, cada referencia abre nuevas posibilidades para quien lee.",
 
-        `Una invitación a recorrer Bogotá desde la imaginación, reconocer sus lugares y dejarse llevar por una historia en la que lo familiar puede convertirse, de un momento a otro, en algo completamente inesperado.`
-      ]
+        "Una invitación a recorrer Bogotá desde la imaginación, reconocer sus lugares y dejarse llevar por una historia en la que lo familiar puede convertirse, de un momento a otro, en algo completamente inesperado."
+      ],
+
+      enlace: "https://www.youtube.com/watch?v=uQL9EE2z1-Y&t=503s",
+      textoEnlace: "Ver entrevista al autor en YouTube ↗"
+
     }
 
   ];
 
 
-  // ELEMENTOS DE LA PÁGINA
+  /* Elementos de la página */
 
-  const imagenObra = document.getElementById("imagen-obra");
-  const contadorObra = document.getElementById("contador-obra");
-  const tituloObra = document.getElementById("titulo-obra");
-  const fichaObra = document.getElementById("ficha-obra");
-  const descripcionObra = document.getElementById("descripcion-obra");
+  let indiceActual = 0;
 
-  const botonAnterior = document.getElementById("anterior");
-  const botonSiguiente = document.getElementById("siguiente");
-
-  const miniaturas = document.querySelectorAll(".miniatura");
-
-  const enlacesMenu = document.querySelectorAll(
-    ".obra-menu[data-obra]"
-  );
-
-  let obraActual = 0;
-
-
-  // ACTUALIZAR LA FICHA TÉCNICA
-
-  function actualizarFicha(obra) {
-
-    const campos = [
-      ["Autoría", obra.autor],
-      ["Año", obra.fecha],
-      ["Tipo", obra.tipo],
-      ["Lugar", obra.lugar],
-      ["Temas", obra.temas],
-      ["Mirada", obra.mirada],
-      ["Impacto", obra.impacto],
-      ["Reacción", obra.reaccion]
-    ];
-
-    fichaObra.innerHTML = "";
-
-    campos.forEach(([etiqueta, valor]) => {
-
-      const dt = document.createElement("dt");
-      const dd = document.createElement("dd");
-
-      dt.textContent = etiqueta;
-      dd.textContent = valor;
-
-      fichaObra.append(dt, dd);
-
-    });
-
-  }
+  const campos = {
+    titulo: document.getElementById("titulo-obra"),
+    imagen: document.getElementById("imagen-obra"),
+    autor: document.getElementById("autor-obra"),
+    fecha: document.getElementById("fecha-obra"),
+    tipo: document.getElementById("tipo-obra"),
+    lugar: document.getElementById("lugar-obra"),
+    temas: document.getElementById("temas-obra"),
+    mirada: document.getElementById("mirada-obra"),
+    impacto: document.getElementById("impacto-obra"),
+    reaccion: document.getElementById("reaccion-obra"),
+    descripcion: document.getElementById("texto-obra"),
+    contador: document.getElementById("contador-obra")
+  };
 
 
-  // ACTUALIZAR LA DESCRIPCIÓN AMPLIA
+  /* Construir la descripción de cada obra */
 
   function actualizarDescripcion(obra) {
 
-    descripcionObra.innerHTML = "";
-
-    const titulo = document.createElement("h3");
-    titulo.textContent = obra.titulo;
+    campos.descripcion.innerHTML = "";
 
     const pregunta = document.createElement("p");
     pregunta.className = "pregunta-obra";
     pregunta.textContent = obra.pregunta;
 
-    descripcionObra.append(titulo, pregunta);
+    campos.descripcion.appendChild(pregunta);
 
     obra.parrafos.forEach(texto => {
 
       const parrafo = document.createElement("p");
-
-      // Permite conservar las cursivas de los títulos de las obras.
       parrafo.innerHTML = texto;
 
-      descripcionObra.appendChild(parrafo);
+      campos.descripcion.appendChild(parrafo);
 
     });
+
+    /* El botón aparece únicamente si la obra tiene un enlace */
+
+    if (obra.enlace) {
+
+      const boton = document.createElement("a");
+
+      boton.className = "boton-recuerdo";
+      boton.href = obra.enlace;
+      boton.target = "_blank";
+      boton.rel = "noopener noreferrer";
+      boton.textContent = obra.textoEnlace;
+
+      campos.descripcion.appendChild(boton);
+
+    }
 
   }
 
 
-  // MOSTRAR LA OBRA SELECCIONADA
+  /* Mostrar la obra seleccionada */
 
   function mostrarObra(indice) {
 
-    obraActual = (indice + obrasVida.length) % obrasVida.length;
+    indiceActual = (indice + obras.length) % obras.length;
 
-    const obra = obrasVida[obraActual];
+    const obra = obras[indiceActual];
 
-    // Actualizar imagen
+    campos.titulo.textContent = obra.titulo;
 
-    imagenObra.style.display = "block";
-    imagenObra.src = obra.imagen;
-    imagenObra.alt = obra.alt;
+    campos.imagen.src = obra.imagen;
+    campos.imagen.alt = obra.alt;
+    campos.imagen.style.display = "block";
 
-    imagenObra.onerror = function () {
-
-      this.style.display = "none";
-
-      console.warn(
-        "No se encontró la imagen:",
-        obra.imagen
-      );
-
+    campos.imagen.onerror = () => {
+      campos.imagen.style.display = "none";
     };
 
-    // Actualizar contador
+    campos.autor.textContent = obra.autor;
+    campos.fecha.textContent = obra.fecha;
+    campos.tipo.textContent = obra.tipo;
+    campos.lugar.textContent = obra.lugar;
+    campos.temas.textContent = obra.temas;
+    campos.mirada.textContent = obra.mirada;
+    campos.impacto.textContent = obra.impacto;
+    campos.reaccion.textContent = obra.reaccion;
 
-    contadorObra.textContent =
-      String(obraActual + 1).padStart(2, "0") +
-      " / " +
-      String(obrasVida.length).padStart(2, "0");
+    campos.contador.textContent =
+      `${String(indiceActual + 1).padStart(2, "0")} / ${String(obras.length).padStart(2, "0")}`;
 
-    // Actualizar título
-
-    tituloObra.textContent = obra.titulo;
-
-    // Actualizar ficha y descripción
-
-    actualizarFicha(obra);
     actualizarDescripcion(obra);
 
-    // Actualizar miniaturas
-
-    miniaturas.forEach((miniatura, i) => {
-
-      const seleccionada = i === obraActual;
-
-      miniatura.classList.toggle(
-        "seleccionada",
-        seleccionada
-      );
-
-      miniatura.setAttribute(
-        "aria-pressed",
-        String(seleccionada)
-      );
-
-    });
-
-    // Actualizar menú lateral
-
-    enlacesMenu.forEach(enlace => {
-
-      const seleccionada =
-        Number(enlace.dataset.obra) === obraActual;
-
-      enlace.classList.toggle(
-        "seleccionada",
-        seleccionada
-      );
-
-      if (seleccionada) {
-
-        enlace.setAttribute("aria-current", "true");
-
-      } else {
-
-        enlace.removeAttribute("aria-current");
-
-      }
-
+    document.querySelectorAll(".miniatura").forEach((boton, i) => {
+      boton.classList.toggle("seleccionada", i === indiceActual);
     });
 
   }
 
 
-  // FLECHA ANTERIOR
+  /* Botones para cambiar de obra */
 
-  botonAnterior.addEventListener("click", () => {
+  document.getElementById("anterior").addEventListener("click", () => {
+    mostrarObra(indiceActual - 1);
+  });
 
-    mostrarObra(obraActual - 1);
-
+  document.getElementById("siguiente").addEventListener("click", () => {
+    mostrarObra(indiceActual + 1);
   });
 
 
-  // FLECHA SIGUIENTE
+  /* Navegación mediante miniaturas */
 
-  botonSiguiente.addEventListener("click", () => {
+  document.querySelectorAll(".miniatura").forEach(boton => {
 
-    mostrarObra(obraActual + 1);
-
-  });
-
-
-  // MINIATURAS
-
-  miniaturas.forEach(miniatura => {
-
-    miniatura.addEventListener("click", () => {
-
-      mostrarObra(
-        Number(miniatura.dataset.obra)
-      );
-
+    boton.addEventListener("click", () => {
+      mostrarObra(Number(boton.dataset.indice));
     });
 
   });
 
 
-  // ENLACES DEL MENÚ LATERAL
+  /* Visor de imágenes ampliadas */
 
-  enlacesMenu.forEach(enlace => {
+  const visor = document.getElementById("visor-imagen");
+  const imagenAmpliada = document.getElementById("imagen-ampliada");
+  const cerrarVisor = document.getElementById("cerrar-visor");
 
-    enlace.addEventListener("click", evento => {
+  function abrirImagen() {
 
-      evento.preventDefault();
+    imagenAmpliada.src = campos.imagen.src;
+    imagenAmpliada.alt = campos.imagen.alt;
 
-      mostrarObra(
-        Number(enlace.dataset.obra)
-      );
+    visor.classList.add("abierto");
+    document.body.style.overflow = "hidden";
 
-      document.getElementById("obra-actual").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+    cerrarVisor.focus();
 
-    });
+  }
+
+  function cerrarImagen() {
+
+    visor.classList.remove("abierto");
+    imagenAmpliada.src = "";
+    document.body.style.overflow = "";
+
+    campos.imagen.focus();
+
+  }
+
+  campos.imagen.addEventListener("click", abrirImagen);
+
+  cerrarVisor.addEventListener("click", cerrarImagen);
+
+  visor.addEventListener("click", (evento) => {
+
+    if (evento.target === visor) {
+      cerrarImagen();
+    }
+
+  });
+
+  document.addEventListener("keydown", (evento) => {
+
+    if (evento.key === "Escape" && visor.classList.contains("abierto")) {
+      cerrarImagen();
+    }
 
   });
 
 
-  // INICIAR LA COLECCIÓN
+  /* Mostrar la primera obra al cargar la página */
 
   mostrarObra(0);
 
@@ -1440,4 +1067,3 @@
 
 </body>
 </html>
-
