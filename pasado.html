@@ -274,10 +274,11 @@
 
     .ficha-obra dt { color: var(--acento); }
     .ficha-obra dd { margin: 0; color: #e4deef; }
-
-    .descripcion-obra {
+        .descripcion-obra {
+      max-width: 1050px;
+      margin: 35px auto 0;
       border-top: 1px solid var(--linea);
-      padding-top: 17px;
+      padding-top: 25px;
       color: #c6cee0;
       font: 400 12px 'Montserrat',sans-serif;
       line-height: 1.8;
@@ -287,10 +288,11 @@
     .descripcion-obra strong { color: #f5f1ff; }
 
     .enlaces-obra {
+      max-width: 1050px;
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
-      margin-top: 15px;
+      margin: 15px auto 0;
     }
 
     .enlace-obra {
@@ -644,7 +646,7 @@
 
     </div>
   </section>
-    <div class="coleccion-layout" id="exposicion-memoria">
+      <div class="coleccion-layout" id="exposicion-memoria">
 
     <aside class="menu-colecciones" aria-label="Navegación entre colecciones">
       <h2>COLECCIONES</h2>
@@ -751,55 +753,57 @@
 
           </dl>
 
-
-          <div class="descripcion-obra" id="texto-obra">
-
-            <p>
-              <strong>¿Cómo era Bogotá cuando sus plazas eran también
-              escenarios de la vida cotidiana?</strong>
-            </p>
-
-            <p>
-              En <em>Crónicas de Bogotá – Tomo II</em>, Pedro María Ibáñez
-              reconstruye distintos momentos de la historia de la capital.
-              A través de una reseña histórica que aborda desde la llegada
-              de la imprenta y su influencia en la literatura y la política
-              de la Nueva Granada hasta el grito de independencia, la obra
-              permite acercarnos a los acontecimientos y procesos que
-              marcaron la formación de la ciudad.
-            </p>
-
-            <p>
-              La Plaza de Bolívar, como espacio representativo de esta
-              colección, nos invita a pensar en los lugares que han
-              acompañado la historia de Bogotá. Sus transformaciones no
-              solo pueden observarse en los cambios arquitectónicos o
-              urbanísticos, sino también en las actividades, encuentros y
-              acontecimientos que han tenido lugar allí.
-            </p>
-
-            <p>
-              Acercarse a esta obra es descubrir una ciudad distinta de
-              la que recorremos actualmente. Sus páginas nos permiten
-              reconocer que Bogotá ha sido muchas ciudades a lo largo
-              del tiempo y que conocer sus historias también es una
-              forma de comprender el presente.
-            </p>
-
-          </div>
-
-          <div class="enlaces-obra" id="enlaces-obra">
-
-            <a class="enlace-obra"
-               href="https://babel.banrepcultural.org/digital/collection/p17054coll10/id/2396/"
-               target="_blank"
-               rel="noopener noreferrer">
-              Leer la obra digitalizada ↗
-            </a>
-
-          </div>
-
         </article>
+
+      </div>
+
+
+      <!-- DESCRIPCIÓN DE LA OBRA, DEBAJO DE LA IMAGEN Y LA FICHA -->
+
+      <div class="descripcion-obra" id="texto-obra">
+
+        <p>
+          <strong>¿Cómo era Bogotá cuando sus plazas eran también
+          escenarios de la vida cotidiana?</strong>
+        </p>
+
+        <p>
+          En <em>Crónicas de Bogotá – Tomo II</em>, Pedro María Ibáñez
+          reconstruye distintos momentos de la historia de la capital.
+          A través de una reseña histórica que aborda desde la llegada
+          de la imprenta y su influencia en la literatura y la política
+          de la Nueva Granada hasta el grito de independencia, la obra
+          permite acercarnos a los acontecimientos y procesos que
+          marcaron la formación de la ciudad.
+        </p>
+
+        <p>
+          La Plaza de Bolívar, como espacio representativo de esta
+          colección, nos invita a pensar en los lugares que han
+          acompañado la historia de Bogotá. Sus transformaciones no
+          solo pueden observarse en los cambios arquitectónicos o
+          urbanísticos, sino también en las actividades, encuentros y
+          acontecimientos que han tenido lugar allí.
+        </p>
+
+        <p>
+          Acercarse a esta obra es descubrir una ciudad distinta de
+          la que recorremos actualmente. Sus páginas nos permiten
+          reconocer que Bogotá ha sido muchas ciudades a lo largo
+          del tiempo y que conocer sus historias también es una
+          forma de comprender el presente.
+        </p>
+
+      </div>
+
+      <div class="enlaces-obra" id="enlaces-obra">
+
+        <a class="enlace-obra"
+           href="https://babel.banrepcultural.org/digital/collection/p17054coll10/id/2396/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Leer la obra digitalizada ↗
+        </a>
 
       </div>
 
@@ -925,9 +929,7 @@
     </p>
 
   </section>
-
-
-  <!-- RECOMENDACIÓN EXTERNA -->
+    <!-- RECOMENDACIÓN EXTERNA -->
 
   <section class="bloque-vida" aria-labelledby="titulo-recomendacion">
 
