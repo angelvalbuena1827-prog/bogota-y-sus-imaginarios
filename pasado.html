@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="La ciudad que fuimos, la ciudad que permanece: un recorrido por las transformaciones y las huellas del pasado de Bogotá.">
+  <meta name="description" content="Pasado: un recorrido por las transformaciones y las huellas que el tiempo ha dejado en Bogotá.">
   <title>Pasado | Bogotá y sus imaginarios</title>
   <link rel="stylesheet" href="style.css">
 
@@ -12,10 +12,10 @@
       --fondo: #07111f;
       --panel: #0a192b;
       --acento: #FFB52E;
-      --acento-rgb: 255, 181, 46;
+      --acento-rgb: 255,181,46;
       --texto: #d4d9e7;
       --suave: #aeb9d0;
-      --linea: rgba(var(--acento-rgb), .27);
+      --linea: rgba(var(--acento-rgb),.27);
     }
 
     * { box-sizing: border-box; }
@@ -32,14 +32,14 @@
       display: inline-block;
       color: #f5f1ff;
       text-decoration: none;
-      font: 500 12px 'Montserrat', sans-serif;
+      font: 500 12px 'Montserrat',sans-serif;
       letter-spacing: 2px;
     }
 
     .marca-memoria span {
       color: var(--acento);
       margin-left: 8px;
-      text-shadow: 0 0 14px rgba(var(--acento-rgb), .35);
+      text-shadow: 0 0 14px rgba(var(--acento-rgb),.35);
     }
 
     .apertura-memoria {
@@ -60,9 +60,9 @@
     .titulo-memoria {
       margin: 0;
       color: var(--acento);
-      font: 600 clamp(52px, 8vw, 108px) 'Bodoni Moda', serif;
+      font: 600 clamp(52px,8vw,108px) 'Bodoni Moda',serif;
       line-height: .98;
-      text-shadow: 0 0 22px rgba(var(--acento-rgb), .15);
+      text-shadow: 0 0 22px rgba(var(--acento-rgb),.15);
     }
 
     .epigrafe-memoria {
@@ -74,28 +74,28 @@
     .epigrafe-memoria blockquote {
       margin: 0;
       color: var(--acento);
-      font: italic 400 clamp(18px, 2.1vw, 25px) 'Cormorant Garamond', serif;
+      font: italic 400 clamp(18px,2.1vw,25px) 'Cormorant Garamond',serif;
       line-height: 1.5;
     }
 
     .epigrafe-memoria p {
       margin: 12px 0 0;
       color: var(--suave);
-      font: 400 11px 'Montserrat', sans-serif;
+      font: 400 11px 'Montserrat',sans-serif;
     }
 
     .texto-intro-memoria {
       max-width: 900px;
       margin: 0 auto;
       color: var(--texto);
-      font: 400 15px 'Montserrat', sans-serif;
+      font: 400 15px 'Montserrat',sans-serif;
       line-height: 1.95;
     }
 
     .subtitulo-memoria {
       margin: 0 0 28px;
       color: #f5f1ff;
-      font: italic 400 clamp(28px, 3.5vw, 39px) 'Cormorant Garamond', serif;
+      font: italic 400 clamp(28px,3.5vw,39px) 'Cormorant Garamond',serif;
     }
 
     .texto-intro-memoria p { margin: 0 0 22px; }
@@ -105,7 +105,7 @@
       padding: 24px 0 0;
       border-top: 1px solid var(--linea);
       color: var(--acento);
-      font: italic 400 26px 'Cormorant Garamond', serif;
+      font: italic 400 26px 'Cormorant Garamond',serif;
     }
 
     .enlace-recorrido {
@@ -115,18 +115,16 @@
       text-decoration: none;
       border-bottom: 1px solid var(--acento);
       padding-bottom: 7px;
-      font: 500 11px 'Montserrat', sans-serif;
+      font: 500 11px 'Montserrat',sans-serif;
       letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
     .enlace-recorrido:hover { color: var(--acento); }
 
-    /* DISTRIBUCIÓN DE LA EXPOSICIÓN */
-
     .coleccion-layout {
       display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
+      grid-template-columns: 210px minmax(0,1fr);
       gap: 38px;
       max-width: 1600px;
       margin: 70px auto 0;
@@ -139,7 +137,7 @@
     }
 
     .menu-colecciones h2 {
-      font: 500 11px 'Montserrat', sans-serif;
+      font: 500 11px 'Montserrat',sans-serif;
       letter-spacing: 3px;
       color: var(--acento);
       margin: 0 0 25px;
@@ -158,13 +156,13 @@
       background: transparent;
       color: #e4deef;
       text-decoration: none;
-      font: 400 13px 'Montserrat', sans-serif;
+      font: 400 13px 'Montserrat',sans-serif;
       text-align: left;
     }
 
     .boton-coleccion.activa {
       color: var(--acento);
-      text-shadow: 0 0 12px rgba(var(--acento-rgb), .4);
+      text-shadow: 0 0 12px rgba(var(--acento-rgb),.4);
     }
 
     .contenido-coleccion { min-width: 0; }
@@ -179,7 +177,7 @@
 
     .numero-coleccion {
       color: var(--acento);
-      font: 500 11px 'Montserrat', sans-serif;
+      font: 500 11px 'Montserrat',sans-serif;
       letter-spacing: 2px;
       margin: 0;
     }
@@ -187,44 +185,40 @@
     .sobre-coleccion h2 {
       margin: 8px 0 0;
       color: var(--acento);
-      font: 600 clamp(35px, 4vw, 58px) 'Bodoni Moda', serif;
+      font: 600 clamp(35px,4vw,58px) 'Bodoni Moda',serif;
     }
 
     .descripcion-coleccion {
       max-width: 320px;
       margin: 0;
       color: #c6cee0;
-      font: italic 400 20px 'Cormorant Garamond', serif;
+      font: italic 400 20px 'Cormorant Garamond',serif;
       line-height: 1.4;
     }
 
-    /* IMAGEN ARRIBA Y FICHA DEBAJO */
+    /* MISMA COMPOSICIÓN DE VIDA COTIDIANA */
 
     .exposicion {
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 0;
-      align-items: start;
+      grid-template-columns: minmax(0,1.5fr) minmax(220px,.8fr);
+      gap: 30px;
+      align-items: center;
     }
 
     .marco-obra {
       position: relative;
-      width: 100%;
-      max-width: 1050px;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 4/3;
       min-width: 0;
-      margin: 0 auto;
       display: grid;
       place-items: center;
       padding: 18px;
       border: 1px solid var(--linea);
       background:
-        radial-gradient(ellipse at center, rgba(var(--acento-rgb), .10), transparent 70%),
+        radial-gradient(ellipse at center,rgba(var(--acento-rgb),.10),transparent 70%),
         var(--panel);
     }
 
     .imagen-obra {
-      display: block;
       width: 100%;
       height: 100%;
       max-height: 100%;
@@ -241,88 +235,79 @@
       height: 42px;
       border: 1px solid var(--acento);
       border-radius: 50%;
-      background: rgba(7, 21, 45, .95);
+      background: rgba(7,21,45,.95);
       color: #f5f1ff;
       font-size: 22px;
       cursor: pointer;
     }
 
     .flecha-obra:hover {
-      box-shadow: 0 0 17px rgba(var(--acento-rgb), .4);
+      box-shadow: 0 0 17px rgba(var(--acento-rgb),.4);
       color: var(--acento);
     }
 
     .flecha-anterior { left: -21px; }
     .flecha-siguiente { right: -21px; }
 
-    .datos-obra {
-      width: 100%;
-      padding: 28px 0 0;
-    }
+    .datos-obra { padding: 12px 0; }
 
     .contador-obra {
       color: var(--acento);
-      font: 500 11px 'Montserrat', sans-serif;
+      font: 500 11px 'Montserrat',sans-serif;
       letter-spacing: 2px;
       margin: 0;
     }
 
     .datos-obra h3 {
       color: var(--acento);
-      font: italic 500 clamp(25px, 3vw, 38px) 'Cormorant Garamond', serif;
+      font: italic 500 clamp(25px,3vw,38px) 'Cormorant Garamond',serif;
       margin: 16px 0 20px;
     }
 
     .ficha-obra {
       display: grid;
-      grid-template-columns: 100px 1fr;
+      grid-template-columns: 85px 1fr;
       gap: 11px 8px;
-      font: 400 12px 'Montserrat', sans-serif;
+      font: 400 12px 'Montserrat',sans-serif;
       line-height: 1.6;
     }
 
     .ficha-obra dt { color: var(--acento); }
     .ficha-obra dd { margin: 0; color: #e4deef; }
 
-    /* DESCRIPCIÓN A TODO EL ANCHO, DEBAJO DE LA FICHA */
-
     .descripcion-obra {
-      width: 100%;
-      margin-top: 25px;
       border-top: 1px solid var(--linea);
-      padding-top: 22px;
+      padding-top: 17px;
       color: #c6cee0;
-      font: 400 13px 'Montserrat', sans-serif;
-      line-height: 1.9;
+      font: 400 12px 'Montserrat',sans-serif;
+      line-height: 1.8;
     }
 
-    .descripcion-obra p { margin: 0 0 18px; }
-
+    .descripcion-obra p { margin: 0 0 14px; }
     .descripcion-obra strong { color: #f5f1ff; }
 
     .enlaces-obra {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 9px;
+      margin-top: 15px;
     }
 
     .enlace-obra {
       display: inline-block;
-      padding: 11px 14px;
+      padding: 10px 12px;
       border: 1px solid var(--acento);
       color: #f5f1ff;
-      background: rgba(var(--acento-rgb), .08);
+      background: rgba(var(--acento-rgb),.08);
       text-decoration: none;
-      font: 500 10px 'Montserrat', sans-serif;
-      letter-spacing: .8px;
+      font: 500 10px 'Montserrat',sans-serif;
+      letter-spacing: .6px;
       transition: .2s ease;
     }
 
     .enlace-obra:hover {
       color: var(--acento);
-      background: rgba(var(--acento-rgb), .17);
-      box-shadow: 0 0 15px rgba(var(--acento-rgb), .15);
+      background: rgba(var(--acento-rgb),.17);
     }
 
     .miniaturas {
@@ -353,43 +338,39 @@
 
     .miniatura.seleccionada {
       border-color: var(--acento);
-      box-shadow: 0 0 13px rgba(var(--acento-rgb), .35);
+      box-shadow: 0 0 13px rgba(var(--acento-rgb),.35);
     }
-
-    /* BLOQUES COMPLEMENTARIOS */
 
     .bloque-vida {
       max-width: 1100px;
       margin: 55px auto 30px;
       padding: 34px 28px;
       border: 1px solid var(--linea);
-      background:
-        linear-gradient(135deg, rgba(var(--acento-rgb), .09), transparent 65%),
-        var(--panel);
+      background: linear-gradient(135deg,rgba(var(--acento-rgb),.09),transparent 65%),var(--panel);
     }
 
     .etiqueta-participacion {
       color: var(--acento);
-      font: 500 11px 'Montserrat', sans-serif;
+      font: 500 11px 'Montserrat',sans-serif;
       letter-spacing: 2px;
     }
 
     .bloque-vida h2 {
       margin: 10px 0;
       color: var(--acento);
-      font: 600 clamp(28px, 4vw, 42px) 'Bodoni Moda', serif;
+      font: 600 clamp(28px,4vw,42px) 'Bodoni Moda',serif;
     }
 
     .bloque-vida p {
       max-width: 850px;
       color: var(--texto);
-      font: 400 13px 'Montserrat', sans-serif;
+      font: 400 13px 'Montserrat',sans-serif;
       line-height: 1.8;
     }
 
     .bloque-vida .cierre-vida {
       color: var(--acento);
-      font: italic 400 21px 'Cormorant Garamond', serif;
+      font: italic 400 21px 'Cormorant Garamond',serif;
     }
 
     .boton-recuerdo {
@@ -398,36 +379,33 @@
       padding: 14px 20px;
       border: 1px solid var(--acento);
       color: #f5f1ff;
-      background: rgba(var(--acento-rgb), .10);
+      background: rgba(var(--acento-rgb),.10);
       text-decoration: none;
-      font: 500 11px 'Montserrat', sans-serif;
+      font: 500 11px 'Montserrat',sans-serif;
       letter-spacing: 1.2px;
       text-transform: uppercase;
-      transition: background .2s ease, box-shadow .2s ease;
+      transition: background .2s ease,box-shadow .2s ease;
     }
 
     .boton-recuerdo:hover {
-      background: rgba(var(--acento-rgb), .2);
-      box-shadow: 0 0 18px rgba(var(--acento-rgb), .2);
+      background: rgba(var(--acento-rgb),.2);
+      box-shadow: 0 0 18px rgba(var(--acento-rgb),.2);
       color: var(--acento);
     }
 
     .nota-participacion {
-      color: var(--suave) !important;
-      font-size: 11px !important;
+      color: var(--suave)!important;
+      font-size: 11px!important;
     }
-
-    /* REPRODUCTOR DE YOUTUBE */
 
     .reproductor-youtube {
       position: relative;
       width: 100%;
       max-width: 760px;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16/9;
       margin: 25px 0;
       border: 1px solid var(--linea);
       background: #000;
-      box-shadow: 0 0 25px rgba(var(--acento-rgb), .08);
     }
 
     .reproductor-youtube iframe {
@@ -438,14 +416,14 @@
       border: 0;
     }
 
-    /* AMPLIACIÓN DE IMÁGENES */
+    /* VISOR DE IMÁGENES */
 
     .visor-imagen {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: rgba(2, 8, 18, .94);
+      background: rgba(2,8,18,.94);
       align-items: center;
       justify-content: center;
       padding: 45px;
@@ -461,7 +439,6 @@
       height: auto;
       object-fit: contain;
       cursor: default;
-      box-shadow: 0 0 35px rgba(0, 0, 0, .4);
     }
 
     .cerrar-visor {
@@ -477,8 +454,6 @@
 
     .cerrar-visor:hover { color: var(--acento); }
 
-    /* PIE DE PÁGINA */
-
     .pie-pagina {
       width: 100%;
       margin: 55px 0 0;
@@ -490,7 +465,7 @@
     .pie-contenido {
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);
       align-items: center;
       gap: 24px;
     }
@@ -498,7 +473,7 @@
     .pie-marca {
       margin: 0;
       color: var(--acento);
-      font: 600 12px 'Montserrat', sans-serif;
+      font: 600 12px 'Montserrat',sans-serif;
       letter-spacing: 1.2px;
       overflow-wrap: anywhere;
     }
@@ -506,7 +481,7 @@
     .pie-descripcion {
       margin: 0;
       color: #c6cee0;
-      font: 400 12px 'Montserrat', sans-serif;
+      font: 400 12px 'Montserrat',sans-serif;
       line-height: 1.6;
       text-align: center;
     }
@@ -515,7 +490,7 @@
       min-width: 0;
       justify-self: end;
       color: #c6cee0;
-      font: 400 10px 'Montserrat', sans-serif;
+      font: 400 10px 'Montserrat',sans-serif;
       line-height: 1.65;
       overflow-wrap: anywhere;
     }
@@ -528,11 +503,11 @@
       padding-top: 10px;
       border-top: 1px solid var(--linea);
       color: #8995ad;
-      font: 400 9px 'Montserrat', sans-serif;
+      font: 400 9px 'Montserrat',sans-serif;
       letter-spacing: 1px;
     }
 
-    @media(max-width: 850px) {
+    @media(max-width:850px) {
       .coleccion-layout {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -543,6 +518,8 @@
         border-bottom: 1px solid var(--linea);
         padding: 0 0 15px;
       }
+
+      .exposicion { grid-template-columns: 1fr; }
 
       .sobre-coleccion {
         align-items: flex-start;
@@ -560,12 +537,12 @@
       .pie-descripcion { text-align: left; }
 
       .pie-creditos {
-        grid-column: 1 / -1;
+        grid-column: 1/-1;
         justify-self: start;
       }
     }
 
-    @media(max-width: 600px) {
+    @media(max-width:600px) {
       .pagina-coleccion { padding: 24px 18px; }
 
       .encabezado-memoria {
@@ -581,7 +558,7 @@
 
       .texto-intro-memoria { font-size: 14px; }
 
-      .marco-obra { aspect-ratio: 4 / 3; }
+      .marco-obra { aspect-ratio: 1/1; }
 
       .flecha-anterior { left: -12px; }
       .flecha-siguiente { right: -12px; }
@@ -648,35 +625,13 @@
       </h2>
 
       <p>
-        Bogotá no siempre ha sido la ciudad que conocemos hoy. Sus calles han
-        cambiado de nombre y de apariencia, sus paisajes se han transformado
-        y los lugares que alguna vez fueron escenarios de la vida cotidiana
-        han adquirido nuevos significados. Sin embargo, basta detenernos un
-        momento para descubrir que el pasado no ha desaparecido por completo:
-        permanece en las construcciones, en los relatos, en las imágenes y en
-        las huellas que todavía forman parte de nuestro presente.
-      </p>
-
-      <p>
-        Esta colección reúne obras que nos permiten acercarnos a distintas
-        Bogotás: la que fue narrada por sus cronistas, la que quedó registrada
-        en fotografías y la que hoy se reinventa a través de nuevas expresiones
-        artísticas. Cada una ofrece una manera diferente de observar el paso
-        del tiempo y reconocer las transformaciones de la ciudad.
-      </p>
-
-      <p>
-        Desde las crónicas de finales del siglo XIX hasta las expresiones
-        musicales contemporáneas, estas obras nos invitan a recorrer espacios
-        que han tenido distintas vidas. Nos recuerdan que un lugar nunca es
-        solamente lo que vemos en él: también es aquello que ocurrió, las
-        personas que lo habitaron y las historias que siguen acompañándolo.
-      </p>
-
-      <p>
-        Volver al pasado no significa quedarse en él. Significa mirar nuestra
-        ciudad con otros ojos, reconocer lo que ha cambiado y preguntarnos
-        qué permanece en medio de tantas transformaciones.
+        Esta colección reúne obras que nos permiten mirar las distintas
+        Bogotás que han existido y reconocer las huellas que el tiempo ha
+        dejado en la ciudad. Desde las calles, paisajes y formas de vida
+        de otros momentos hasta las miradas contemporáneas que dialogan
+        con ellos, estas obras nos invitan a recorrer una ciudad que
+        cambia constantemente, pero en la que el pasado todavía encuentra
+        formas de permanecer.
       </p>
 
       <p class="pregunta-memoria">
@@ -686,15 +641,16 @@
       <a class="enlace-recorrido" href="#exposicion-memoria">
         Recorrer las obras ↓
       </a>
-        <div class="coleccion-layout" id="exposicion-memoria">
+
+    </div>
+  </section>
+    <div class="coleccion-layout" id="exposicion-memoria">
 
     <aside class="menu-colecciones" aria-label="Navegación entre colecciones">
       <h2>COLECCIONES</h2>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion" href="vida-cotidiana.html">
-          01　Vida cotidiana
-        </a>
+        <a class="boton-coleccion" href="vida-cotidiana.html">01　Vida cotidiana</a>
       </div>
 
       <div class="grupo-coleccion">
@@ -704,33 +660,23 @@
       </div>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion" href="vida-nocturna.html">
-          03　Vida nocturna
-        </a>
+        <a class="boton-coleccion" href="vida-nocturna.html">03　Vida nocturna</a>
       </div>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion" href="violencia.html">
-          04　Violencia
-        </a>
+        <a class="boton-coleccion" href="violencia.html">04　Violencia</a>
       </div>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion" href="resistencia.html">
-          05　Resistencia
-        </a>
+        <a class="boton-coleccion" href="resistencia.html">05　Resistencia</a>
       </div>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion" href="memoria.html">
-          06　Memoria
-        </a>
+        <a class="boton-coleccion" href="memoria.html">06　Memoria</a>
       </div>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion" href="amor.html">
-          07　Amor
-        </a>
+        <a class="boton-coleccion" href="amor.html">07　Amor</a>
       </div>
     </aside>
 
@@ -749,11 +695,12 @@
       </header>
 
 
-      <!-- IMAGEN Y FICHA TÉCNICA -->
+      <!-- OBRA SELECCIONADA -->
 
       <div class="exposicion">
 
         <div class="marco-obra">
+
           <button class="flecha-obra flecha-anterior"
                   id="anterior"
                   aria-label="Obra anterior">‹</button>
@@ -766,7 +713,9 @@
           <button class="flecha-obra flecha-siguiente"
                   id="siguiente"
                   aria-label="Obra siguiente">›</button>
+
         </div>
+
 
         <article class="datos-obra">
 
@@ -801,56 +750,57 @@
             <dd id="reaccion-obra">Deja pensando</dd>
 
           </dl>
+
+
+          <div class="descripcion-obra" id="texto-obra">
+
+            <p>
+              <strong>¿Cómo era Bogotá cuando sus plazas eran también
+              escenarios de la vida cotidiana?</strong>
+            </p>
+
+            <p>
+              En <em>Crónicas de Bogotá – Tomo II</em>, Pedro María Ibáñez
+              reconstruye distintos momentos de la historia de la capital.
+              A través de una reseña histórica que aborda desde la llegada
+              de la imprenta y su influencia en la literatura y la política
+              de la Nueva Granada hasta el grito de independencia, la obra
+              permite acercarnos a los acontecimientos y procesos que
+              marcaron la formación de la ciudad.
+            </p>
+
+            <p>
+              La Plaza de Bolívar, como espacio representativo de esta
+              colección, nos invita a pensar en los lugares que han
+              acompañado la historia de Bogotá. Sus transformaciones no
+              solo pueden observarse en los cambios arquitectónicos o
+              urbanísticos, sino también en las actividades, encuentros y
+              acontecimientos que han tenido lugar allí.
+            </p>
+
+            <p>
+              Acercarse a esta obra es descubrir una ciudad distinta de
+              la que recorremos actualmente. Sus páginas nos permiten
+              reconocer que Bogotá ha sido muchas ciudades a lo largo
+              del tiempo y que conocer sus historias también es una
+              forma de comprender el presente.
+            </p>
+
+          </div>
+
+          <div class="enlaces-obra" id="enlaces-obra">
+
+            <a class="enlace-obra"
+               href="https://babel.banrepcultural.org/digital/collection/p17054coll10/id/2396/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Leer la obra digitalizada ↗
+            </a>
+
+          </div>
+
         </article>
 
-      </div>
-
-
-      <!-- DESCRIPCIÓN DE LA OBRA: DEBAJO DE LA IMAGEN Y LA FICHA -->
-
-      <div class="descripcion-obra" id="texto-obra">
-
-        <p>
-          <strong>¿Cómo era Bogotá cuando sus plazas eran también escenarios
-          de la vida cotidiana?</strong>
-        </p>
-
-        <p>
-          En <em>Crónicas de Bogotá – Tomo II</em>, Pedro María Ibáñez
-          reconstruye distintos momentos de la historia de la capital.
-          A través de una reseña histórica que aborda desde la llegada de
-          la imprenta y su influencia en la literatura y la política de la
-          Nueva Granada hasta el grito de independencia, la obra permite
-          acercarnos a los acontecimientos y procesos que marcaron la
-          formación de la ciudad.
-        </p>
-
-        <p>
-          La Plaza de Bolívar, como espacio representativo de esta
-          colección, nos invita a pensar en los lugares que han acompañado
-          la historia de Bogotá. Sus transformaciones no solo pueden
-          observarse en los cambios arquitectónicos o urbanísticos, sino
-          también en las actividades, encuentros y acontecimientos que
-          han tenido lugar allí.
-        </p>
-
-        <p>
-          Acercarse a esta obra es descubrir una ciudad distinta de la que
-          recorremos actualmente. Sus páginas nos permiten reconocer que
-          Bogotá ha sido muchas ciudades a lo largo del tiempo y que
-          conocer sus historias también es una forma de comprender el
-          presente.
-        </p>
-
-      </div>
-
-      <div class="enlaces-obra" id="enlaces-obra">
-        <a class="enlace-obra"
-           href="https://babel.banrepcultural.org/digital/collection/p17054coll10/id/2396/"
-           target="_blank"
-           rel="noopener noreferrer">
-          Leer la obra digitalizada ↗
-        </a>
       </div>
 
 
@@ -1049,7 +999,7 @@
     </a>
 
   </section>
-      </main>
+  </main>
 
 
 <!-- VISOR PARA AMPLIAR LAS IMÁGENES -->
@@ -1099,8 +1049,6 @@
 
 <script>
 
-  // INFORMACIÓN DE LAS TRES OBRAS
-
   const obras = [
 
     {
@@ -1125,11 +1073,11 @@
         <p>
           En <em>Crónicas de Bogotá – Tomo II</em>, Pedro María Ibáñez
           reconstruye distintos momentos de la historia de la capital.
-          A través de una reseña histórica que aborda desde la llegada de
-          la imprenta y su influencia en la literatura y la política de la
-          Nueva Granada hasta el grito de independencia, la obra permite
-          acercarnos a los acontecimientos y procesos que marcaron la
-          formación de la ciudad.
+          A través de una reseña histórica que aborda desde la llegada
+          de la imprenta y su influencia en la literatura y la política
+          de la Nueva Granada hasta el grito de independencia, la obra
+          permite acercarnos a los acontecimientos y procesos que
+          marcaron la formación de la ciudad.
         </p>
 
         <p>
@@ -1145,8 +1093,8 @@
           Acercarse a esta obra es descubrir una ciudad distinta de la que
           recorremos actualmente. Sus páginas nos permiten reconocer que
           Bogotá ha sido muchas ciudades a lo largo del tiempo y que
-          conocer sus historias también es una forma de comprender el
-          presente.
+          conocer sus historias también es una forma de comprender
+          el presente.
         </p>
       `,
 
@@ -1180,9 +1128,9 @@
         <p>
           En esta fotografía de 1930, Gumersindo Cuéllar Jiménez registra
           un paisaje del río Bogotá que nos permite acercarnos a una
-          relación diferente entre la ciudad y su entorno natural. La
-          imagen conserva una mirada de otro tiempo, en la que el río
-          aparece como parte visible del paisaje y de la experiencia
+          relación diferente entre la ciudad y su entorno natural.
+          La imagen conserva una mirada de otro tiempo, en la que el
+          río aparece como parte visible del paisaje y de la experiencia
           territorial de Bogotá.
         </p>
 
@@ -1190,16 +1138,16 @@
           Observar esta fotografía es también detenernos en aquello que
           las transformaciones de la ciudad pueden hacer menos visible.
           El crecimiento urbano, los cambios en el territorio y las
-          distintas maneras de relacionarnos con el entorno han modificado
-          profundamente el paisaje que nos rodea.
+          distintas maneras de relacionarnos con el entorno han
+          modificado profundamente el paisaje que nos rodea.
         </p>
 
         <p>
-          Sin embargo, el río continúa formando parte de la historia y la
-          identidad del territorio. Esta imagen nos invita a comparar
-          aquello que vemos con lo que conocemos hoy, preguntándonos cómo
-          ha cambiado nuestra relación con uno de los elementos naturales
-          más importantes de la ciudad.
+          Sin embargo, el río continúa formando parte de la historia
+          y la identidad del territorio. Esta imagen nos invita a
+          comparar aquello que vemos con lo que conocemos hoy,
+          preguntándonos cómo ha cambiado nuestra relación con uno
+          de los elementos naturales más importantes de la ciudad.
         </p>
       `,
 
@@ -1232,31 +1180,32 @@
         </p>
 
         <p>
-          En <em>Fluir</em>, Chell interpreta una canción en vivo desde el
-          Bronx Distrito Creativo, un territorio de Bogotá cuya historia
-          está atravesada por profundas transformaciones. La presentación
-          nos acerca a una ciudad contemporánea que encuentra en el arte
-          y la cultura nuevas maneras de habitar, representar y resignificar
-          sus espacios.
+          En <em>Fluir</em>, Chell interpreta una canción en vivo desde
+          el Bronx Distrito Creativo, un territorio de Bogotá cuya
+          historia está atravesada por profundas transformaciones.
+          La presentación nos acerca a una ciudad contemporánea que
+          encuentra en el arte y la cultura nuevas maneras de habitar,
+          representar y resignificar sus espacios.
         </p>
 
         <p>
-          El lugar desde el que se desarrolla esta presentación tiene una
-          historia que no desaparece con su transformación. Durante décadas,
-          este sector estuvo marcado por la marginalización, la violencia y
-          el abandono. Hoy, el Bronx Distrito Creativo forma parte de los
-          espacios desde los que la ciudad imagina otras posibilidades para
-          el territorio. Las nuevas expresiones artísticas conviven con las
-          huellas de aquello que existió antes.
+          El lugar desde el que se desarrolla esta presentación tiene
+          una historia que no desaparece con su transformación.
+          Durante décadas, este sector estuvo marcado por la
+          marginalización, la violencia y el abandono. Hoy, el Bronx
+          Distrito Creativo forma parte de los espacios desde los que
+          la ciudad imagina otras posibilidades para el territorio.
+          Las nuevas expresiones artísticas conviven con las huellas
+          de aquello que existió antes.
         </p>
 
         <p>
-          La música nos permite acercarnos a esa transformación desde otra
-          sensibilidad. En la presentación de Chell, el territorio deja de
-          ser únicamente un escenario físico y se convierte también en un
-          espacio de expresión, encuentro y creación. Así, <em>Fluir</em>
-          nos invita a mirar una Bogotá que cambia sin desprenderse
-          completamente de su historia.
+          La música nos permite acercarnos a esa transformación desde
+          otra sensibilidad. En la presentación de Chell, el territorio
+          deja de ser únicamente un escenario físico y se convierte
+          también en un espacio de expresión, encuentro y creación.
+          Así, <em>Fluir</em> nos invita a mirar una Bogotá que cambia
+          sin desprenderse completamente de su historia.
         </p>
       `,
 
@@ -1328,10 +1277,10 @@
     campos.descripcion.innerHTML = obra.descripcion;
 
     campos.contador.textContent =
-      `${String(indiceActual + 1).padStart(2, "0")} / ${String(obras.length).padStart(2, "0")}`;
+      `${String(indiceActual + 1).padStart(2,"0")} / ${String(obras.length).padStart(2,"0")}`;
 
 
-    // ACTUALIZAR LOS ENLACES DE LA OBRA
+    // ACTUALIZAR ENLACES
 
     campos.enlaces.innerHTML = "";
 
@@ -1350,7 +1299,7 @@
     });
 
 
-    // ACTUALIZAR LAS MINIATURAS
+    // ACTUALIZAR MINIATURAS
 
     document.querySelectorAll(".miniatura").forEach((boton, i) => {
 
@@ -1364,32 +1313,20 @@
   }
 
 
-  // BOTÓN DE OBRA ANTERIOR
+  // NAVEGACIÓN ENTRE OBRAS
 
   document.getElementById("anterior").addEventListener("click", () => {
-
     mostrarObra(indiceActual - 1);
-
   });
-
-
-  // BOTÓN DE OBRA SIGUIENTE
 
   document.getElementById("siguiente").addEventListener("click", () => {
-
     mostrarObra(indiceActual + 1);
-
   });
-
-
-  // NAVEGACIÓN MEDIANTE MINIATURAS
 
   document.querySelectorAll(".miniatura").forEach(boton => {
 
     boton.addEventListener("click", () => {
-
       mostrarObra(Number(boton.dataset.indice));
-
     });
 
   });
@@ -1402,8 +1339,6 @@
   const cerrarVisor = document.getElementById("cerrar-visor");
 
 
-  // Abrir imagen
-
   campos.imagen.addEventListener("click", () => {
 
     if (campos.imagen.style.display === "none") return;
@@ -1412,17 +1347,15 @@
     imagenAmpliada.alt = campos.imagen.alt;
 
     visor.classList.add("abierto");
-    visor.setAttribute("aria-hidden", "false");
+    visor.setAttribute("aria-hidden","false");
 
   });
 
 
-  // Cerrar imagen
-
   function cerrarImagen() {
 
     visor.classList.remove("abierto");
-    visor.setAttribute("aria-hidden", "true");
+    visor.setAttribute("aria-hidden","true");
     imagenAmpliada.src = "";
 
   }
@@ -1430,10 +1363,7 @@
 
   cerrarVisor.addEventListener("click", cerrarImagen);
 
-
-  // Cerrar al pulsar fuera de la imagen
-
-  visor.addEventListener("click", (evento) => {
+  visor.addEventListener("click", evento => {
 
     if (evento.target === visor) {
       cerrarImagen();
@@ -1441,10 +1371,7 @@
 
   });
 
-
-  // Cerrar con Escape
-
-  document.addEventListener("keydown", (evento) => {
+  document.addEventListener("keydown", evento => {
 
     if (evento.key === "Escape") {
       cerrarImagen();
@@ -1453,7 +1380,7 @@
   });
 
 
-  // CARGAR LA PRIMERA OBRA
+  // CARGAR PRIMERA OBRA
 
   mostrarObra(0);
 
@@ -1461,7 +1388,3 @@
 
 </body>
 </html>
-    
-
-    </div>
-  </section>
