@@ -1,0 +1,1174 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Resistencia: expresiones de identidad, memoria y apropiación del espacio público en Bogotá.">
+<title>Resistencia | Bogotá y sus imaginarios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --fondo: #07111f;
+  --panel: #0a192b;
+  --acento: #F5C842;
+  --acento-rgb: 245,200,66;
+  --texto: #d4d9e7;
+  --suave: #aeb9d0;
+  --linea: rgba(var(--acento-rgb),.27);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--fondo); }
+
+.pagina-coleccion {
+  min-height: 100vh;
+  background: var(--fondo);
+  color: #f5f1ff;
+  padding: 35px 4%;
+}
+
+.marca-memoria {
+  display: inline-block;
+  color: #f5f1ff;
+  text-decoration: none;
+  font: 500 12px Montserrat,sans-serif;
+  letter-spacing: 2px;
+}
+
+.marca-memoria span {
+  color: var(--acento);
+  margin-left: 8px;
+  text-shadow: 0 0 14px rgba(var(--acento-rgb),.35);
+}
+
+.apertura-memoria {
+  max-width: 1450px;
+  margin: 58px auto 0;
+  padding: 25px 0 65px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.encabezado-memoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 35px;
+  margin-bottom: 58px;
+}
+
+.titulo-memoria {
+  margin: 0;
+  color: var(--acento);
+  font: 600 clamp(52px,8vw,108px) 'Bodoni Moda',serif;
+  line-height: .98;
+  text-shadow: 0 0 22px rgba(var(--acento-rgb),.15);
+}
+
+.epigrafe-memoria {
+  max-width: 480px;
+  padding-top: 12px;
+  text-align: right;
+}
+
+.epigrafe-memoria blockquote {
+  margin: 0;
+  color: var(--acento);
+  font: italic 400 clamp(18px,2.1vw,25px) 'Cormorant Garamond',serif;
+  line-height: 1.5;
+}
+
+.epigrafe-memoria p {
+  margin: 12px 0 0;
+  color: var(--suave);
+  font: 400 11px Montserrat,sans-serif;
+}
+
+.texto-intro-memoria {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--texto);
+  font: 400 15px Montserrat,sans-serif;
+  line-height: 1.95;
+}
+
+.subtitulo-memoria {
+  margin: 0 0 28px;
+  color: #f5f1ff;
+  font: italic 400 clamp(28px,3.5vw,39px) 'Cormorant Garamond',serif;
+}
+
+.texto-intro-memoria p { margin: 0 0 22px; }
+
+.pregunta-memoria {
+  margin: 38px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--linea);
+  color: var(--acento);
+  font: italic 400 26px 'Cormorant Garamond',serif;
+}
+
+.enlace-recorrido {
+  display: inline-block;
+  margin-top: 24px;
+  color: #f5f1ff;
+  text-decoration: none;
+  border-bottom: 1px solid var(--acento);
+  padding-bottom: 7px;
+  font: 500 11px Montserrat,sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.enlace-recorrido:hover { color: var(--acento); }
+
+.coleccion-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0,1fr);
+  gap: 38px;
+  max-width: 1600px;
+  margin: 70px auto 0;
+  scroll-margin-top: 30px;
+}
+
+.menu-colecciones {
+  border-right: 1px solid var(--linea);
+  padding-right: 20px;
+}
+
+.menu-colecciones h2 {
+  font: 500 11px Montserrat,sans-serif;
+  letter-spacing: 3px;
+  color: var(--acento);
+  margin: 0 0 25px;
+}
+
+.grupo-coleccion { margin-bottom: 7px; }
+
+.boton-coleccion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 5px;
+  border: 0;
+  background: transparent;
+  color: #e4deef;
+  text-decoration: none;
+  font: 400 13px Montserrat,sans-serif;
+  text-align: left;
+}
+
+.boton-coleccion.activa {
+  color: var(--acento);
+  text-shadow: 0 0 12px rgba(var(--acento-rgb),.4);
+}
+
+.contenido-coleccion { min-width: 0; }
+
+.sobre-coleccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.numero-coleccion {
+  color: var(--acento);
+  font: 500 11px Montserrat,sans-serif;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.sobre-coleccion h2 {
+  margin: 8px 0 0;
+  color: var(--acento);
+  font: 600 clamp(35px,4vw,58px) 'Bodoni Moda',serif;
+}
+
+.descripcion-coleccion {
+  max-width: 320px;
+  margin: 0;
+  color: #c6cee0;
+  font: italic 400 20px 'Cormorant Garamond',serif;
+  line-height: 1.4;
+}
+
+/* Exposición */
+
+.exposicion {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(230px,.75fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.marco-obra {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  aspect-ratio: 4/3;
+  min-width: 0;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border: 1px solid var(--linea);
+  background:
+    radial-gradient(ellipse at center,rgba(var(--acento-rgb),.10),transparent 70%),
+    var(--panel);
+}
+
+.imagen-obra {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: zoom-in;
+  transition: transform .25s ease;
+}
+
+.imagen-obra:hover { transform: scale(1.015); }
+
+.flecha-obra {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--acento);
+  border-radius: 50%;
+  background: rgba(7,21,45,.95);
+  color: #f5f1ff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.flecha-obra:hover {
+  box-shadow: 0 0 17px rgba(var(--acento-rgb),.4);
+  color: var(--acento);
+}
+
+.flecha-anterior { left: -21px; }
+.flecha-siguiente { right: -21px; }
+
+.datos-obra { padding: 12px 0; }
+
+.contador-obra {
+  color: var(--acento);
+  font: 500 11px Montserrat,sans-serif;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.datos-obra h3 {
+  color: var(--acento);
+  font: italic 500 clamp(25px,3vw,38px) 'Cormorant Garamond',serif;
+  margin: 16px 0 20px;
+}
+
+.ficha-obra {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  gap: 11px 8px;
+  font: 400 12px Montserrat,sans-serif;
+  line-height: 1.6;
+}
+
+.ficha-obra dt { color: var(--acento); }
+.ficha-obra dd { margin: 0; color: #e4deef; }
+
+.descripcion-obra {
+  max-width: 1050px;
+  margin: 35px auto 0;
+  padding: 25px 0 0;
+  border-top: 1px solid var(--linea);
+  color: #c6cee0;
+  font: 400 13px Montserrat,sans-serif;
+  line-height: 1.9;
+}
+
+.descripcion-obra p { margin: 0 0 18px; }
+
+.descripcion-obra .pregunta-obra {
+  color: var(--acento);
+  font: italic 400 24px 'Cormorant Garamond',serif;
+  line-height: 1.5;
+}
+
+/* Miniaturas y visor */
+
+.miniaturas {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 25px 2px 15px;
+  margin-top: 12px;
+}
+
+.miniatura {
+  flex: 0 0 76px;
+  height: 90px;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  background: #122238;
+  cursor: pointer;
+}
+
+.miniatura img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.miniatura.seleccionada {
+  border-color: var(--acento);
+  box-shadow: 0 0 13px rgba(var(--acento-rgb),.35);
+}
+
+.visor-imagen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 30px;
+  background: rgba(2,7,15,.96);
+  backdrop-filter: blur(7px);
+}
+
+.visor-imagen.abierto { display: flex; }
+
+.visor-imagen img {
+  display: block;
+  max-width: min(100%,1100px);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 0 40px rgba(0,0,0,.5);
+}
+
+.cerrar-visor {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--acento);
+  border-radius: 50%;
+  background: rgba(7,17,31,.8);
+  color: var(--acento);
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* Bloques complementarios */
+
+.bloque-vida {
+  max-width: 1100px;
+  margin: 55px auto 30px;
+  padding: 34px 28px;
+  border: 1px solid var(--linea);
+  background: linear-gradient(135deg,rgba(var(--acento-rgb),.09),transparent 65%),var(--panel);
+}
+
+.etiqueta-participacion {
+  color: var(--acento);
+  font: 500 11px Montserrat,sans-serif;
+  letter-spacing: 2px;
+}
+
+.bloque-vida h2 {
+  margin: 10px 0;
+  color: var(--acento);
+  font: 600 clamp(28px,4vw,42px) 'Bodoni Moda',serif;
+}
+
+.bloque-vida p {
+  max-width: 850px;
+  color: var(--texto);
+  font: 400 13px Montserrat,sans-serif;
+  line-height: 1.8;
+}
+
+.bloque-vida .cierre-vida {
+  color: var(--acento);
+  font: italic 400 21px 'Cormorant Garamond',serif;
+}
+
+.nota-participacion {
+  color: var(--suave) !important;
+  font-size: 11px !important;
+}
+
+.boton-recuerdo {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 20px;
+  border: 1px solid var(--acento);
+  color: #f5f1ff;
+  background: rgba(var(--acento-rgb),.10);
+  text-decoration: none;
+  font: 500 11px Montserrat,sans-serif;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  transition: background .2s ease,box-shadow .2s ease;
+}
+
+.boton-recuerdo:hover {
+  background: rgba(var(--acento-rgb),.2);
+  box-shadow: 0 0 18px rgba(var(--acento-rgb),.2);
+  color: var(--acento);
+}
+
+/* Registro fotográfico */
+
+.galeria-registro {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 14px;
+  margin: 24px 0 28px;
+}
+
+.galeria-registro img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #122238;
+}
+
+.texto-registro {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  color: var(--texto);
+  font: 400 13px Montserrat,sans-serif;
+  line-height: 1.9;
+}
+
+.texto-registro p {
+  max-width: none;
+  margin: 0 0 18px;
+}
+
+.texto-registro .cierre-registro {
+  margin-top: 28px;
+  color: var(--acento);
+  font: italic 400 23px 'Cormorant Garamond',serif;
+}
+
+/* Noticias */
+
+.noticias {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.noticia {
+  padding: 22px;
+  border: 1px solid var(--linea);
+  background: rgba(7,17,31,.35);
+}
+
+.noticia .fecha-noticia {
+  color: var(--acento);
+  font: 500 10px Montserrat,sans-serif;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.noticia h3 {
+  margin: 12px 0;
+  color: #f5f1ff;
+  font: 500 24px 'Cormorant Garamond',serif;
+  line-height: 1.2;
+}
+
+.noticia p {
+  color: var(--texto);
+  font: 400 12px Montserrat,sans-serif;
+  line-height: 1.8;
+}
+
+.noticia a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--acento);
+  font: 500 10px Montserrat,sans-serif;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--acento);
+  padding-bottom: 5px;
+}
+
+/* Pie de página */
+
+.pie-pagina {
+  width: 100%;
+  margin: 55px 0 0;
+  padding: 22px 3%;
+  border-top: 1px solid var(--linea);
+  background: #07111f;
+}
+
+.pie-contenido {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.pie-marca {
+  margin: 0;
+  color: var(--acento);
+  font: 600 12px Montserrat,sans-serif;
+  letter-spacing: 1.2px;
+  overflow-wrap: anywhere;
+}
+
+.pie-descripcion {
+  margin: 0;
+  color: #c6cee0;
+  font: 400 12px Montserrat,sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.pie-creditos {
+  min-width: 0;
+  justify-self: end;
+  color: #c6cee0;
+  font: 400 10px Montserrat,sans-serif;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.pie-creditos p { margin: 0; }
+.pie-etiqueta { color: var(--acento); font-weight: 500; }
+
+.pie-final {
+  margin: 15px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--linea);
+  color: #8995ad;
+  font: 400 9px Montserrat,sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media(max-width:1000px) {
+  .noticias { grid-template-columns: 1fr 1fr; }
+  .galeria-registro { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media(max-width:850px) {
+  .coleccion-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .menu-colecciones {
+    border-right: 0;
+    border-bottom: 1px solid var(--linea);
+    padding: 0 0 15px;
+  }
+
+  .exposicion { grid-template-columns: 1fr; }
+
+  .sobre-coleccion {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .descripcion-coleccion { max-width: 600px; }
+  .marco-obra { max-width: 680px; }
+
+  .pie-contenido {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .pie-descripcion { text-align: left; }
+
+  .pie-creditos {
+    grid-column: 1/-1;
+    justify-self: start;
+  }
+}
+
+@media(max-width:600px) {
+  .pagina-coleccion { padding: 24px 18px; }
+
+  .encabezado-memoria {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 38px;
+  }
+
+  .epigrafe-memoria {
+    align-self: flex-end;
+    max-width: 92%;
+  }
+
+  .texto-intro-memoria { font-size: 14px; }
+
+  .marco-obra {
+    aspect-ratio: 1/1;
+    padding: 14px;
+  }
+
+  .flecha-anterior { left: -12px; }
+  .flecha-siguiente { right: -12px; }
+
+  .bloque-vida { padding: 22px 18px; }
+
+  .visor-imagen { padding: 55px 12px; }
+
+  .visor-imagen img {
+    max-width: 100%;
+    max-height: 82vh;
+  }
+
+  .galeria-registro { gap: 8px; }
+
+  .galeria-registro img { height: 135px; }
+
+  .texto-registro .cierre-registro { font-size: 21px; }
+
+  .noticias { grid-template-columns: 1fr; }
+
+  .pie-pagina {
+    width: calc(100% + 36px);
+    margin: 55px -18px -24px;
+    padding: 26px 18px;
+  }
+
+  .pie-contenido {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .pie-descripcion { text-align: left; }
+
+  .pie-creditos {
+    grid-column: auto;
+    justify-self: start;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="pagina-coleccion">
+
+<a class="marca-memoria" href="index.html">
+  BOGOTÁ <span>Y SUS IMAGINARIOS</span>
+</a>
+
+<section class="apertura-memoria" aria-labelledby="titulo-apertura">
+  <div class="encabezado-memoria">
+    <h1 class="titulo-memoria" id="titulo-apertura">Resistencia</h1>
+
+    <div class="epigrafe-memoria">
+      <blockquote>
+        «Que si un pueblo su dura cadena<br>
+        no se atreve a romper con sus manos,<br>
+        bien le es fácil mudar de tiranos,<br>
+        pero nunca ser libre podrá».
+      </blockquote>
+      <p>— José María Heredia, <em>La estrella de Cuba</em> (1823)</p>
+    </div>
+  </div>
+
+  <div class="texto-intro-memoria">
+    <h2 class="subtitulo-memoria">Las formas de no dejarse borrar</h2>
+
+    <p>¿De cuántas maneras puede una ciudad expresar que no está dispuesta a olvidar quién es?</p>
+
+    <p>A veces la resistencia se manifiesta en las calles, en las paredes que se convierten en lienzos, en las historias que pasan de una generación a otra o en las expresiones culturales que mantienen vivas las raíces de un territorio. No siempre aparece en grandes acontecimientos; también está presente en los pequeños gestos con los que las personas defienden su identidad, hacen memoria y reclaman un lugar en la ciudad.</p>
+
+    <p>Bogotá puede parecer una ciudad fría, acelerada y, en ocasiones, hostil. Sin embargo, entre sus calles y espacios cotidianos surgen distintas formas de apropiación y expresión que transforman la manera de habitarla. El arte urbano, los relatos y las manifestaciones culturales permiten que otras voces ocupen el espacio público y que historias que podrían quedar en el olvido encuentren una manera de permanecer.</p>
+
+    <p>He escogido estas obras porque quiero acercarte a una Bogotá que se expresa, que recuerda y que encuentra en la creación una forma de hacerse visible. A través de ellas podremos reconocer las identidades que habitan sus barrios, acercarnos a sus raíces y descubrir cómo el arte puede convertir un lugar de paso en un espacio de encuentro y memoria.</p>
+
+    <p>Recorrer esta colección también es reconocer que la ciudad no se construye únicamente a partir de sus edificios, sus calles o sus transformaciones urbanísticas. La construyen las personas que la habitan, las historias que comparten y las expresiones con las que se niegan a desaparecer.</p>
+
+    <p>Te invito a mirar estas obras con curiosidad, a detenerte en sus formas y sus historias y a descubrir qué hay detrás de cada expresión. Porque resistir también puede ser una manera de crear, recordar y seguir perteneciendo.</p>
+
+    <p class="pregunta-memoria">¿Qué formas de resistencia podemos encontrar en una ciudad que nunca deja de transformarse?</p>
+
+    <a class="enlace-recorrido" href="#exposicion-memoria">Recorrer las obras ↓</a>
+  </div>
+</section>
+
+<div class="coleccion-layout" id="exposicion-memoria">
+
+<aside class="menu-colecciones" aria-label="Navegación entre colecciones">
+  <h2>COLECCIONES</h2>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="vida-cotidiana.html">01　Vida cotidiana</a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="pasado.html">02　Pasado</a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="vida-nocturna.html">03　Vida nocturna</a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="violencia.html">04　Violencia</a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion activa" href="resistencia.html">
+      05　Resistencia <span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="memoria.html">06　Memoria</a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="amor.html">07　Amor</a>
+  </div>
+</aside>
+
+<section class="contenido-coleccion" aria-label="Exposición digital">
+
+<header class="sobre-coleccion">
+  <div>
+    <p class="numero-coleccion">COLECCIÓN 05 / 07</p>
+    <h2>Resistencia</h2>
+  </div>
+
+  <p class="descripcion-coleccion">
+    Las formas de crear, recordar y permanecer.
+  </p>
+</header>
+
+<div class="exposicion">
+
+  <div class="marco-obra">
+    <button class="flecha-obra flecha-anterior" id="anterior" aria-label="Obra anterior">‹</button>
+
+    <img
+      class="imagen-obra"
+      id="imagen-obra"
+      src="imgs/la-concordia.jpg"
+      alt="Mural La Concordia, de Guache"
+      title="Haz clic para ampliar la imagen"
+    >
+
+    <button class="flecha-obra flecha-siguiente" id="siguiente" aria-label="Obra siguiente">›</button>
+  </div>
+
+  <article class="datos-obra">
+    <p class="contador-obra" id="contador-obra">01 / 02</p>
+
+    <h3 id="titulo-obra">La Concordia</h3>
+
+    <dl class="ficha-obra">
+      <dt>Autoría</dt>
+      <dd id="autor-obra">Guache</dd>
+
+      <dt>Fecha</dt>
+      <dd id="fecha-obra">2018</dd>
+
+      <dt>Tipo</dt>
+      <dd id="tipo-obra">Mural</dd>
+
+      <dt>Lugar</dt>
+      <dd id="lugar-obra">La Concordia</dd>
+
+      <dt>Temas</dt>
+      <dd id="temas-obra">Resistencia</dd>
+
+      <dt>Mirada</dt>
+      <dd id="mirada-obra">La creativa</dd>
+
+      <dt>Impacto</dt>
+      <dd id="impacto-obra">Disfrutable</dd>
+
+      <dt>Reacción</dt>
+      <dd id="reaccion-obra">Genera tranquilidad</dd>
+    </dl>
+  </article>
+
+</div>
+
+<article class="descripcion-obra" id="texto-obra" aria-live="polite">
+  <p class="pregunta-obra">¿Puede un muro contar la historia de un barrio?</p>
+
+  <p>En <em>La Concordia</em>, el artista urbano Guache lleva al espacio público el retrato de una persona del sector, realizado a partir de una fotografía de Lucas Rodríguez. El rostro ocupa el centro de la composición y se integra con formas geométricas, líneas y colores intensos que se extienden por la pared. La imagen no aparece aislada: se mezcla con el entorno y establece un diálogo visual con el lugar en el que se encuentra.</p>
+
+  <p>El mural convierte las calles de La Concordia en un espacio de encuentro entre arte, identidad y memoria. Al tomar como punto de partida el retrato de alguien vinculado con el sector, la obra desplaza la mirada hacia las personas que construyen la vida del barrio y que, muchas veces, permanecen fuera de los relatos oficiales de la ciudad. La pared deja de ser únicamente una superficie y se transforma en un soporte para reconocer a quienes habitan ese territorio.</p>
+
+  <p>En una ciudad que cambia constantemente, estas intervenciones también son una forma de apropiación del espacio público. La obra permanece a la vista de quienes transitan por el barrio, invita a detenerse y recuerda que la identidad de un lugar no está hecha solamente de sus edificios o de su historia arquitectónica, sino también de las personas, los vínculos y las memorias que lo mantienen vivo.</p>
+</article>
+
+<nav class="miniaturas" id="miniaturas" aria-label="Navegar entre las obras">
+  <button class="miniatura seleccionada" data-indice="0" aria-label="Ver La Concordia">
+    <img src="imgs/la-concordia.jpg" alt="">
+  </button>
+
+  <button class="miniatura" data-indice="1" aria-label="Ver Fuerza y Raíz">
+    <img src="imgs/fuerza-y-raiz.jpg" alt="">
+  </button>
+</nav>
+
+</section>
+</div>
+
+<!-- Visor de imágenes ampliadas -->
+<div class="visor-imagen" id="visor-imagen" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="cerrar-visor" id="cerrar-visor" aria-label="Cerrar imagen ampliada">×</button>
+  <img id="imagen-ampliada" src="" alt="">
+</div>
+
+<!-- Noticias -->
+<section class="bloque-vida" aria-labelledby="titulo-noticias">
+  <span class="etiqueta-participacion">PARA MIRAR LO QUE ESTÁ PASANDO</span>
+
+  <h2 id="titulo-noticias">Resistir también es estar informados</h2>
+
+  <p>La resistencia no se encuentra únicamente en los murales o en las manifestaciones artísticas. También está en las discusiones que atraviesan nuestra sociedad, en las decisiones que afectan los espacios públicos y en las voces que se organizan para defender aquello que consideran importante.</p>
+
+  <p>Reunimos aquí algunas noticias recientes sobre cultura, memoria, lectura y libertad de expresión. No se trata de cerrar las discusiones, sino de acercarnos a los hechos, conocer distintas perspectivas y preguntarnos qué está en juego cuando se transforma o se limita el acceso a la cultura.</p>
+
+  <div class="noticias">
+
+    <article class="noticia">
+      <p class="fecha-noticia">Bogotá · 5 de noviembre de 2026</p>
+
+      <h3>El debate por las piezas retiradas del Museo Nacional continúa</h3>
+
+      <p>Un juzgado ordenó reintegrar las piezas retiradas de las salas del Museo Nacional. La Defensa Jurídica del Estado impugnó el fallo y el debate mantiene abiertas preguntas sobre la memoria histórica, la libertad de expresión y los criterios curatoriales que deben orientar las exposiciones públicas.</p>
+
+      <a href="https://www.elespectador.com/judicial/gobierno-busca-tumbar-fallo-que-ordeno-reintegrar-piezas-retiradas-del-museo-nacional/" target="_blank" rel="noopener noreferrer">Leer noticia en El Espectador ↗</a>
+    </article>
+
+    <article class="noticia">
+      <p class="fecha-noticia">Bogotá · 22 de octubre de 2026</p>
+
+      <h3>Un plantón en defensa de las bibliotecas públicas</h3>
+
+      <p>Bibliotecarios, escritores y trabajadores del sector cultural se reunieron frente a la Biblioteca Nacional para expresar su preocupación por el presupuesto, los programas de lectura y el fortalecimiento de las bibliotecas públicas. La movilización puso en el centro la defensa de los espacios culturales como bienes colectivos.</p>
+
+      <a href="https://caracol.com.co/2026/10/23/planton-en-bogota-contra-el-recorte-presupuestal-de-bibliotecas-publicas-a-nivel-nacional/" target="_blank" rel="noopener noreferrer">Leer noticia en Caracol Radio ↗</a>
+    </article>
+
+    <article class="noticia">
+      <p class="fecha-noticia">Fráncfort · 9 de octubre de 2026</p>
+
+      <h3>De «Casa Común» a «La Patria Milagro»: el estand colombiano en debate</h3>
+
+      <p>La propuesta inicial para el estand de Colombia en la Feria del Libro de Fráncfort fue reemplazada por una imagen asociada al lema del Gobierno. El cambio generó críticas de voces del sector editorial sobre la autonomía cultural y la manera en que se representa al país en un escenario internacional.</p>
+
+      <a href="https://cambiocolombia.com/cultura/articulo/2026/10/de-casa-comun-a-la-patria-milagro-por-que-cambio-el-diseno-del-estand-de-colombia-en-francfort" target="_blank" rel="noopener noreferrer">Leer investigación en CAMBIO ↗</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- Registro fotográfico -->
+<section class="bloque-vida" aria-labelledby="titulo-registro">
+  <span class="etiqueta-participacion">REGISTRO FOTOGRÁFICO · BIBLIOTECA NACIONAL</span>
+
+  <h2 id="titulo-registro">La resistencia también se escribe en las calles</h2>
+
+  <p>Defender una biblioteca también es defender el derecho de encontrarnos, leer, aprender y participar de la vida cultural de nuestra ciudad.</p>
+
+  <div class="galeria-registro">
+    <img src="imgs/resistencia-01.jpeg" alt="Personas reunidas durante la movilización frente a la Biblioteca Nacional">
+    <img src="imgs/resistencia-02.jpeg" alt="Cartel en defensa de la sala infantil">
+    <img src="imgs/resistencia-03.jpeg" alt="Cartel con un mensaje sobre la poesía">
+    <img src="imgs/resistencia-04.jpeg" alt="Pancarta durante la movilización">
+    <img src="imgs/resistencia-05.jpeg" alt="Manifestantes con mensajes en defensa de los libros">
+    <img src="imgs/resistencia-06.jpeg" alt="Cartel Menos milagros, más libros">
+    <img src="imgs/resistencia-07.jpeg" alt="Personas reunidas frente a la Biblioteca Nacional">
+    <img src="imgs/resistencia-08.jpeg" alt="Fachada de la Biblioteca Nacional durante la jornada">
+  </div>
+
+  <div class="texto-registro">
+    <p>El compromiso ahora es habitar los espacios de la Biblioteca Nacional, apropiarnos de ellos y no permitir que nos los arrebaten. No podemos permanecer indiferentes mientras aquello que pertenece a todos se ve amenazado por decisiones que pueden debilitarlo, desfinanciarlo o despojarlo de las condiciones necesarias para seguir existiendo. Una biblioteca pública no es un privilegio ni un espacio reservado para unos cuantos: es del pueblo y para el pueblo.</p>
+
+    <p>Estar allí fue encontrarse con muchas voces reunidas alrededor de una preocupación común. Entre pancartas, consignas, libros y poemas, la Biblioteca Nacional dejó de ser únicamente el edificio que tantas veces vemos al pasar y se convirtió en un espacio de encuentro, de expresión y de defensa de lo público. Las palabras aparecieron en carteles, las lecturas se abrieron paso entre las voces y cada persona encontró una manera de manifestar por qué estos espacios importan.</p>
+
+    <p>Había mensajes que invitaban a leer, otros que reclamaban la apertura de la sala infantil y algunos que recordaban el lugar que tienen los libros en una sociedad que necesita preguntarse, cuestionar y pensar por sí misma. También estaba presente la tensión de una movilización acompañada por la fuerza pública. Pero, entre todas esas imágenes, me quedo con la voluntad de quienes decidieron estar allí y hacer escuchar sus voces.</p>
+
+    <p>El compromiso no puede terminar cuando se recoge la última pancarta. Si nos gusta leer, lleguemos a la biblioteca. Si todavía no hemos encontrado un libro que nos atrape, démosle una oportunidad. Visitemos sus salas, participemos de sus actividades y recordemos que una institución pública también se mantiene viva gracias a las personas que la habitan.</p>
+
+    <p>No es tiempo de ser ajenos a lo que está pasando en nuestro país. Defender la cultura, la lectura y el acceso al conocimiento también es una forma de participar en la construcción de la sociedad que queremos. Leamos, leamos mucho. Y, sobre todo, no dejemos de defender aquello que nos pertenece colectivamente.</p>
+
+    <p class="cierre-registro">Porque una biblioteca no se defiende solamente cuando está en peligro: también se defiende entrando en ella, llenándola de lectores y haciendo que siga siendo un lugar para todos.</p>
+
+    <p class="nota-participacion">Jornada de movilización frente a la Biblioteca Nacional de Colombia · Bogotá, octubre de 2026 · Fotografías de archivo personal.</p>
+  </div>
+</section>
+
+<!-- Recomendación musical -->
+<section class="bloque-vida" aria-labelledby="titulo-musica">
+  <span class="etiqueta-participacion">RECOMENDACIÓN MUSICAL</span>
+
+  <h2 id="titulo-musica">Bogotá también resiste sin miedo</h2>
+
+  <p>Hay momentos en los que guardar silencio deja de ser una opción. <em>Sin Miedo</em>, de LosPetitFellas, nos recuerda la importancia de no permitir que el miedo nos paralice, de reconocer aquello que nos incomoda y de encontrar el valor para expresarnos.</p>
+
+  <p>Con una energía que transita entre la inconformidad y la fuerza colectiva, esta canción acompaña el espíritu de la colección: resistir también significa levantarse, hacer escuchar la propia voz y no renunciar a aquello en lo que creemos.</p>
+
+  <p class="nota-participacion"><em>Sin Miedo</em> · LosPetitFellas · Video subtitulado.</p>
+
+  <a class="boton-recuerdo" href="https://www.youtube.com/watch?v=F2e9SO9F3x8" target="_blank" rel="noopener noreferrer">Escuchar «Sin Miedo» ↗</a>
+</section>
+
+<!-- Participación -->
+<section class="bloque-vida" aria-labelledby="titulo-participacion">
+  <span class="etiqueta-participacion">UNA PAUSA PARA COMPARTIR</span>
+
+  <h2 id="titulo-participacion">¿Qué significa resistir en Bogotá?</h2>
+
+  <p>La resistencia también está en los lugares que defendemos, en las expresiones que nos representan y en las historias que nos negamos a dejar desaparecer. Queremos conocer esos espacios, murales, intervenciones y manifestaciones culturales que para ti tienen un significado especial.</p>
+
+  <p>Cuéntanos qué expresión de resistencia te gustaría compartir, dónde se encuentra y qué historia o mensaje reconoces en ella. Tu aporte puede ayudarnos a ampliar este archivo y a descubrir otras maneras de mirar la ciudad.</p>
+
+  <p class="nota-participacion">La participación es voluntaria. No necesitas compartir información personal.</p>
+
+  <a class="boton-recuerdo" href="https://docs.google.com/forms/d/e/1FAIpQLScySJAWMuzvii4Pk7l5W95p5zZWKDOKacPZS2hfmg9pJ4Ykvg/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">Compartir mi mirada ↗</a>
+</section>
+
+</main>
+
+<footer class="pie-pagina">
+  <div class="pie-contenido">
+    <div>
+      <p class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</p>
+    </div>
+
+    <p class="pie-descripcion">
+      Un archivo para descubrir otras formas de mirar la ciudad.
+    </p>
+
+    <div class="pie-creditos">
+      <p class="pie-etiqueta">Proyecto académico</p>
+      <p>Estudios Literarios y Edición</p>
+      <p>Universidad Jorge Tadeo Lozano</p>
+      <p>Curaduría, textos y edición</p>
+      <p>María Angélica Valbuena Acuña</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </div>
+
+  <div class="pie-final">
+    BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL
+  </div>
+</footer>
+
+<script>
+const obras = [
+
+  {
+    titulo: "La Concordia",
+    imagen: "imgs/la-concordia.jpg",
+    alt: "Mural La Concordia, de Guache",
+
+    autor: "Guache",
+    fecha: "2018",
+    tipo: "Mural",
+    lugar: "La Concordia",
+    temas: "Resistencia",
+    mirada: "La creativa",
+    impacto: "Disfrutable",
+    reaccion: "Genera tranquilidad",
+
+    pregunta: "¿Puede un muro contar la historia de un barrio?",
+
+    parrafos: [
+      "En <em>La Concordia</em>, el artista urbano Guache lleva al espacio público el retrato de una persona del sector, realizado a partir de una fotografía de Lucas Rodríguez. El rostro ocupa el centro de la composición y se integra con formas geométricas, líneas y colores intensos que se extienden por la pared. La imagen no aparece aislada: se mezcla con el entorno y establece un diálogo visual con el lugar en el que se encuentra.",
+
+      "El mural convierte las calles de La Concordia en un espacio de encuentro entre arte, identidad y memoria. Al tomar como punto de partida el retrato de alguien vinculado con el sector, la obra desplaza la mirada hacia las personas que construyen la vida del barrio y que, muchas veces, permanecen fuera de los relatos oficiales de la ciudad. La pared deja de ser únicamente una superficie y se transforma en un soporte para reconocer a quienes habitan ese territorio.",
+
+      "En una ciudad que cambia constantemente, estas intervenciones también son una forma de apropiación del espacio público. La obra permanece a la vista de quienes transitan por el barrio, invita a detenerse y recuerda que la identidad de un lugar no está hecha solamente de sus edificios o de su historia arquitectónica, sino también de las personas, los vínculos y las memorias que lo mantienen vivo."
+    ]
+  },
+
+  {
+    titulo: "Fuerza y Raíz",
+    imagen: "imgs/fuerza-y-raiz.jpg",
+    alt: "Mural Fuerza y Raíz en el Portal de Suba",
+
+    autor: "Colectivo Nocrew",
+    fecha: "2021",
+    tipo: "Mural",
+    lugar: "Portal de Suba",
+    temas: "Resistencia",
+    mirada: "La ancestral",
+    impacto: "Me dejó algo",
+    reaccion: "Eriza la piel",
+
+    pregunta: "¿Qué historias siguen viviendo debajo de una ciudad que no deja de crecer?",
+
+    parrafos: [
+      "En el Portal de Suba, el colectivo Nocrew lleva al espacio público una leyenda muisca sobre el origen de la tierra y la vida. La composición reúne figuras humanas, vegetación, maíz y una serpiente que atraviesa el relato visual. Estos elementos no funcionan como adornos aislados: evocan una memoria ancestral y proponen una manera de reconocer el territorio desde las historias que lo preceden.",
+
+      "El mural conecta el presente cotidiano de Suba con sus raíces indígenas. En un lugar marcado por el movimiento constante de pasajeros, buses y trayectos, la obra introduce otra temporalidad: la de los relatos de origen, la relación con la naturaleza y los saberes que han sido transmitidos a través de generaciones. Así, un espacio de tránsito se convierte también en un lugar para detener la mirada y recordar que la ciudad se levanta sobre territorios con historias mucho más antiguas que sus construcciones actuales.",
+
+      "La resistencia aparece aquí como una forma de mantener visibles esas raíces y de reconocer que la identidad de Bogotá no puede separarse de los pueblos y las memorias que hacen parte de su historia. Al llevar una narración muisca a un espacio público contemporáneo, <em>Fuerza y Raíz</em> abre un diálogo entre pasado y presente, y nos invita a preguntarnos qué conocimientos, símbolos y formas de habitar el territorio queremos preservar."
+    ]
+  }
+
+];
+
+/* Elementos de la página */
+
+let indiceActual = 0;
+
+const campos = {
+  titulo: document.getElementById("titulo-obra"),
+  imagen: document.getElementById("imagen-obra"),
+  autor: document.getElementById("autor-obra"),
+  fecha: document.getElementById("fecha-obra"),
+  tipo: document.getElementById("tipo-obra"),
+  lugar: document.getElementById("lugar-obra"),
+  temas: document.getElementById("temas-obra"),
+  mirada: document.getElementById("mirada-obra"),
+  impacto: document.getElementById("impacto-obra"),
+  reaccion: document.getElementById("reaccion-obra"),
+  descripcion: document.getElementById("texto-obra"),
+  contador: document.getElementById("contador-obra")
+};
+
+/* Construir la descripción de cada obra */
+
+function actualizarDescripcion(obra) {
+  campos.descripcion.innerHTML = "";
+
+  const pregunta = document.createElement("p");
+  pregunta.className = "pregunta-obra";
+  pregunta.textContent = obra.pregunta;
+
+  campos.descripcion.appendChild(pregunta);
+
+  obra.parrafos.forEach(texto => {
+    const parrafo = document.createElement("p");
+    parrafo.innerHTML = texto;
+    campos.descripcion.appendChild(parrafo);
+  });
+}
+
+/* Mostrar la obra seleccionada */
+
+function mostrarObra(indice) {
+  indiceActual = (indice + obras.length) % obras.length;
+
+  const obra = obras[indiceActual];
+
+  campos.titulo.textContent = obra.titulo;
+
+  campos.imagen.src = obra.imagen;
+  campos.imagen.alt = obra.alt;
+  campos.imagen.style.display = "block";
+
+  campos.imagen.onerror = () => {
+    campos.imagen.style.display = "none";
+  };
+
+  ["autor","fecha","tipo","lugar","temas","mirada","impacto","reaccion"].forEach(k => {
+    campos[k].textContent = obra[k];
+  });
+
+  campos.contador.textContent =
+    `${String(indiceActual + 1).padStart(2,"0")} / ${String(obras.length).padStart(2,"0")}`;
+
+  actualizarDescripcion(obra);
+
+  document.querySelectorAll(".miniatura").forEach((boton,i) => {
+    boton.classList.toggle("seleccionada",i === indiceActual);
+  });
+}
+
+/* Botones para cambiar de obra */
+
+document.getElementById("anterior").addEventListener("click",() => {
+  mostrarObra(indiceActual - 1);
+});
+
+document.getElementById("siguiente").addEventListener("click",() => {
+  mostrarObra(indiceActual + 1);
+});
+
+/* Navegación mediante miniaturas */
+
+document.querySelectorAll(".miniatura").forEach(boton => {
+  boton.addEventListener("click",() => {
+    mostrarObra(Number(boton.dataset.indice));
+  });
+});
+
+/* Visor de imágenes ampliadas */
+
+const visor = document.getElementById("visor-imagen");
+const imagenAmpliada = document.getElementById("imagen-ampliada");
+const cerrarVisor = document.getElementById("cerrar-visor");
+
+function abrirImagen() {
+  imagenAmpliada.src = campos.imagen.src;
+  imagenAmpliada.alt = campos.imagen.alt;
+
+  visor.classList.add("abierto");
+  document.body.style.overflow = "hidden";
+
+  cerrarVisor.focus();
+}
+
+function cerrarImagen() {
+  visor.classList.remove("abierto");
+  imagenAmpliada.src = "";
+  document.body.style.overflow = "";
+
+  campos.imagen.focus();
+}
+
+campos.imagen.addEventListener("click",abrirImagen);
+cerrarVisor.addEventListener("click",cerrarImagen);
+
+visor.addEventListener("click",evento => {
+  if (evento.target === visor) {
+    cerrarImagen();
+  }
+});
+
+document.addEventListener("keydown",evento => {
+  if (evento.key === "Escape" && visor.classList.contains("abierto")) {
+    cerrarImagen();
+  }
+});
+
+/* Mostrar la primera obra al cargar la página */
+
+mostrarObra(0);
+</script>
+
+</body>
+</html>
