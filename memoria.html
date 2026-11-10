@@ -800,7 +800,51 @@
   <div class="coleccion-layout" id="exposicion-memoria">
     <aside class="menu-colecciones">
       <h2>COLECCIONES</h2>
-      <div id="menu-lateral"></div>
+<div id="menu-lateral">
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="vida-cotidiana.html">
+      <span>01　Vida cotidiana</span><span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="pasado.html">
+      <span>02　Pasado</span><span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="vida-nocturna.html">
+      <span>03　Vida nocturna</span><span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="violencia.html">
+      <span>04　Violencia</span><span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="resistencia.html">
+      <span>05　Resistencia</span><span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion activa" href="memoria.html" aria-current="page">
+      <span>06　Memoria</span><span>↗</span>
+    </a>
+  </div>
+
+  <div class="grupo-coleccion">
+    <a class="boton-coleccion" href="amor.html">
+      <span>07　Amor</span><span>↗</span>
+    </a>
+  </div>
+
+</div>
     </aside>
 
     <section class="contenido-coleccion" aria-label="Exposición digital">
@@ -1439,11 +1483,10 @@ function crearMenu() {
   }
 
   function actualizarPagina() {
-    crearMenu();
-    actualizarApertura();
-    actualizarObra();
-    actualizarExtras();
-  }
+  actualizarApertura();
+  actualizarObra();
+  actualizarExtras();
+}
 
   actualizarPagina();
 </script>
