@@ -127,8 +127,7 @@
     /* Navegación entre colecciones */
 
     .coleccion-layout {
-      display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
+      display: grid;      grid-template-columns: 210px minmax(0, 1fr);
       gap: 38px;
       max-width: 1600px;
       margin: 70px auto 0;
@@ -258,8 +257,7 @@
 
     .flecha-anterior { left: -21px; }
     .flecha-siguiente { right: -21px; }
-
-    .datos-obra { padding: 12px 0; }
+        .datos-obra { padding: 12px 0; }
 
     .contador-obra {
       color: var(--acento);
@@ -388,7 +386,7 @@
 
     .cerrar-visor {
       position: absolute;
-      top: 18px;
+            top: 18px;
       right: 25px;
       width: 44px;
       height: 44px;
@@ -518,8 +516,7 @@
         border-bottom: 1px solid var(--linea);
         padding: 0 0 15px;
       }
-
-      .exposicion { grid-template-columns: 1fr; }
+            .exposicion { grid-template-columns: 1fr; }
 
       .sobre-coleccion {
         align-items: flex-start;
@@ -636,20 +633,19 @@
       <h2>COLECCIONES</h2>
 
       <div class="grupo-coleccion">
-        <a class="boton-coleccion activa" href="vida-cotidiana.html">
+        <a class="boton-coleccion" href="vida-cotidiana.html">
           <span>01　Vida cotidiana</span><span>↗</span>
         </a>
       </div>
 
       <div class="grupo-coleccion"><a class="boton-coleccion" href="pasado.html">02　Pasado</a></div>
       <div class="grupo-coleccion"><a class="boton-coleccion" href="vida-nocturna.html">03　Vida nocturna</a></div>
-      <div class="grupo-coleccion"><a class="boton-coleccion" href="violencia.html">04　Violencia</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion activa" href="violencia.html" aria-current="page">04　Violencia</a></div>
       <div class="grupo-coleccion"><a class="boton-coleccion" href="resistencia.html">05　Resistencia</a></div>
       <div class="grupo-coleccion"><a class="boton-coleccion" href="memoria.html">06　Memoria</a></div>
       <div class="grupo-coleccion"><a class="boton-coleccion" href="amor.html">07　Amor</a></div>
     </aside>
-
-    <section class="contenido-coleccion" aria-label="Exposición digital">
+        <section class="contenido-coleccion" aria-label="Exposición digital">
 
       <header class="sobre-coleccion">
         <div>
@@ -694,7 +690,7 @@
             <dd id="lugar-obra">Plaza de Bolívar</dd>
 
             <dt>Temas</dt>
-            <dd id="temas-obra">Vida cotidiana</dd>
+            <dd id="temas-obra">Violencia</dd>
 
             <dt>Mirada</dt>
             <dd id="mirada-obra">La rebelde</dd>
@@ -761,13 +757,11 @@
     <h2 id="titulo-recomendaciones">Otras historias de violencia en Bogotá</h2>
     <p>Estas obras y documentos permiten acercarnos a otras formas de violencia que han atravesado la ciudad. Cada uno propone una manera distinta de mirar sus territorios, sus conflictos y las experiencias de quienes los habitan.</p>
 
-    <h3 class="titulo-recomendacion">María entre pandillas</h3>
-    <p>Esta historia se acerca a la vida de María Zabala y a la violencia de las pandillas en el barrio Egipto, en el centro-oriente de Bogotá, durante las décadas de 1980 y 1990. Una mirada a las experiencias de quienes crecieron en medio de esas dinámicas.</p>
-    <a class="boton-recuerdo" href="https://plazacapital.co/escena/7217-maria-entre-pandillas-una-historia-con-amor" target="_blank" rel="noopener noreferrer">Conocer la historia ↗</a>
-
     <h3 class="titulo-recomendacion">Bogotá Alto Riesgo</h3>
     <p>Este documental de 1995, realizado por Citurna TV, presenta distintas realidades de la ciudad relacionadas con la precariedad, la exclusión y las condiciones de vida de quienes habitan sus territorios más vulnerables. Una mirada a otras formas de violencia que atraviesan la experiencia urbana.</p>
-    <a class="boton-recuerdo" href="https://www.youtube.com/watch?v=lADIQcnn7fY" target="_blank" rel="noopener noreferrer">Ver documental ↗</a>    <h3 class="titulo-recomendacion">Bagatela</h3>
+    <a class="boton-recuerdo" href="https://www.youtube.com/watch?v=lADIQcnn7fY" target="_blank" rel="noopener noreferrer">Ver documental ↗</a>
+
+    <h3 class="titulo-recomendacion">Bagatela</h3>
     <p>En este documental, Jorge Caballero observa el funcionamiento cotidiano de la justicia en Bogotá y los procesos relacionados con delitos menores. La película permite acercarse a las desigualdades y contradicciones que atraviesan la vida urbana.</p>
     <a class="boton-recuerdo" href="https://www.gusano.org/videos/bagatela/" target="_blank" rel="noopener noreferrer">Ver documental ↗</a>
 
@@ -779,8 +773,7 @@
 
 <footer class="pie-pagina">
   <div class="pie-contenido">
-
-    <div>
+        <div>
       <p class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</p>
     </div>
 
@@ -805,10 +798,86 @@
 </footer>
 
 <script>
-
   /* Información de las obras */
 
-  const obras = [  /* Elementos de la página */
+  const obras = [
+    {
+      titulo: "Quema de tranvías",
+      imagen: "imgs/quema-de-tranvias.jpg",
+      alt: "Fotografía de los tranvías incendiados durante el Bogotazo, 9 de abril de 1948.",
+      autor: "Sady González",
+      fecha: "1948",
+      tipo: "Fotografía",
+      lugar: "Plaza de Bolívar",
+      temas: "Violencia",
+      mirada: "La rebelde",
+      impacto: "Me dejó algo",
+      reaccion: "Deja pensando",
+      pregunta: "¿Una ciudad en llamas también puede quedar atrapada en una fotografía?",
+      parrafos: [
+        "El 9 de abril de 1948, Bogotá vivió uno de los episodios más determinantes y violentos de su historia. Tras el asesinato de Jorge Eliécer Gaitán, las calles se llenaron de manifestaciones, disturbios e incendios que transformaron profundamente el centro de la ciudad. Entre las imágenes que conservaron la memoria de aquella jornada se encuentran las fotografías de Sady González, quien registró los tranvías en llamas y los estragos que dejó el Bogotazo.",
+        "A través de su cámara, González capturó una ciudad alterada por la indignación y el desconcierto. Los vehículos destruidos, las columnas de humo y las calles convertidas en escenarios de enfrentamiento revelan la magnitud de una jornada en la que el espacio urbano se transformó ante los ojos de sus habitantes. La fotografía no solo documenta la destrucción material, sino que conserva un instante en el que la vida cotidiana de Bogotá quedó interrumpida por la violencia.",
+        "Los tranvías, que durante décadas habían formado parte de los recorridos habituales de los bogotanos, aparecen aquí convertidos en símbolos de una ciudad que atraviesa una ruptura. Aquello que antes representaba el movimiento y la conexión entre sus habitantes se transforma en testimonio de una jornada que modificó el rumbo de la historia nacional y dejó profundas marcas en la memoria urbana.",
+        "Observar esta fotografía es acercarse a un momento en el que Bogotá parece detenerse entre el humo y las llamas. Una imagen que nos recuerda que las ciudades también guardan memoria de sus heridas y que, a veces, una fotografía puede conservar aquello que el tiempo no consigue borrar."
+      ],
+      recursosTitulo: "Para conocer más sobre el Bogotazo",
+      recursos: [
+        { texto: "Explorar Los bogotanos del Bogotazo ↗", url: "https://www.bibliotecadigitaldebogota.gov.co/expositions/los-bogotanos-del-bogotazo/" },
+        { texto: "Consultar la ficha de Cesó la horrible noche ↗", url: "https://parrilla.rtvc.gov.co/node/27781" },
+        { texto: "Ver El Bogotazo en RTVCPlay ↗", url: "https://rtvcplay.co/series-ficcion/revivamos-nuestra-historia-el-bogotazo" }
+      ]
+    },
+    {
+      titulo: "En un lugar llamado El Cartucho",
+      imagen: "imgs/el-cartucho.jpg",
+      alt: "Portada de En un lugar llamado El Cartucho, de Ingrid Morris Rincón.",
+      autor: "Ingrid Morris Rincón",
+      fecha: "2011",
+      tipo: "Crónica",
+      lugar: "El Cartucho",
+      temas: "Violencia",
+      mirada: "La ruda",
+      impacto: "No me la saco de la cabeza",
+      reaccion: "Eriza la piel",
+      pregunta: "¿Qué queda de un lugar cuando desaparece, pero su historia permanece?",
+      parrafos: [
+        "En <em>En un lugar llamado El Cartucho</em>, Ingrid Morris Rincón reconstruye la historia de un territorio que durante años estuvo marcado por la marginalidad, la violencia y la exclusión social. A través de la crónica, la autora se acerca al antiguo barrio Santa Inés y a las transformaciones que dieron lugar a uno de los sectores más estigmatizados de Bogotá. Su relato permite mirar más allá del nombre de El Cartucho y reconocer las historias humanas que quedaron vinculadas a ese espacio.",
+        "La crónica nos conduce por un lugar en el que convivieron distintas formas de habitar la ciudad. Detrás de las imágenes asociadas al abandono y la inseguridad existieron barrios, viviendas, comercios y comunidades que hicieron parte de la vida del centro de Bogotá. Con el paso del tiempo, las condiciones sociales y urbanas transformaron profundamente el sector, hasta convertirlo en escenario de intervenciones que modificaron tanto su apariencia como las dinámicas de quienes lo habitaban.",
+        "La desaparición de El Cartucho y la construcción del Parque Tercer Milenio representan una de las transformaciones urbanas más significativas de este sector. Sin embargo, la renovación del espacio no significa que su historia haya desaparecido. Las experiencias de sus habitantes, las desigualdades que atravesaron el territorio y las memorias de quienes lo conocieron continúan formando parte de una Bogotá que muchas veces recuerda los lugares por aquello en lo que se convirtieron, pero olvida lo que fueron.",
+        "Leer esta crónica es acercarse a una ciudad que también se construye desde sus contradicciones y sus ausencias. Una invitación a mirar más allá de los espacios que desaparecen y preguntarnos por las personas, las historias y las memorias que permanecen incluso cuando un lugar deja de existir."
+      ],
+      recursosTitulo: "Para acercarte a esta historia",
+      recursos: [
+        { texto: "Consultar la ficha del documental Cartucho ↗", url: "https://www.proimagenescolombia.com/secciones/cine_colombiano/peliculas_colombianas/pelicula_plantilla.php?id_pelicula=2689" }
+      ]
+    },
+    {
+      titulo: "El crimen del siglo",
+      imagen: "imgs/el-crimen-del-siglo.jpg",
+      alt: "Portada de la novela El crimen del siglo, de Miguel Torres.",
+      autor: "Miguel Torres",
+      fecha: "2006",
+      tipo: "Novela",
+      lugar: "Salto del Tequendama",
+      temas: "Violencia",
+      mirada: "La ruda",
+      impacto: "Volvería a ella",
+      reaccion: "Pegarle a la mesa",
+            pregunta: "¿Qué pasaría si pudiéramos mirar el Bogotazo desde los ojos de quien lo desencadenó?",
+      parrafos: [
+        "En <em>El crimen del siglo</em>, Miguel Torres reconstruye el asesinato de Jorge Eliécer Gaitán y los acontecimientos que desembocaron en el Bogotazo a través de una mirada centrada en Juan Roa Sierra, señalado como autor material del crimen. La novela se aproxima a uno de los episodios más determinantes de la historia colombiana y recupera una Bogotá de los años cuarenta, atravesada por las tensiones políticas, las desigualdades sociales y las expectativas de transformación.",
+        "A partir de la figura de Roa Sierra, Torres construye un relato que combina acontecimientos históricos y ficción literaria. La narración se acerca a la vida del personaje, sus circunstancias y los sucesos que lo rodearon, proponiendo una perspectiva distinta sobre un crimen cuya repercusión trascendió las calles de Bogotá. De esta manera, la novela no se limita a reconstruir lo ocurrido, sino que explora las posibilidades de imaginar aquello que la historia no siempre alcanza a explicar.",
+        "La ciudad ocupa un lugar fundamental en este relato. La Bogotá de mediados del siglo XX aparece como un espacio de contrastes, donde las tensiones sociales y políticas conviven con las esperanzas de cambio. El asesinato de Gaitán desencadena una jornada de violencia que transforma sus calles y altera la vida de sus habitantes, dejando una huella que todavía permanece en la memoria colectiva.",
+        "Leer <em>El crimen del siglo</em> es volver sobre un acontecimiento que marcó profundamente la historia de Bogotá, pero también preguntarnos cómo se construyen los relatos alrededor de quienes protagonizan la historia. Una novela que nos invita a mirar más allá de las versiones conocidas del Bogotazo y a descubrir otras perspectivas sobre una ciudad que aún intenta comprender sus propias heridas."
+      ],
+      recursosTitulo: "Para contextualizar el Bogotazo",
+      recursos: [
+        { texto: "Leer sobre El Bogotazo en Señal Memoria ↗", url: "https://www.senalmemoria.co/articulos/el-bogotazo-contado-por-revivamos-nuestra-historia" }
+      ]
+    }
+  ];
+
+  /* Elementos de la página */
 
   let indiceActual = 0;
 
@@ -827,75 +896,48 @@
     contador: document.getElementById("contador-obra")
   };
 
-
-  /* Construir la descripción de cada obra */
-
   function actualizarDescripcion(obra) {
-
     campos.descripcion.innerHTML = "";
 
     const pregunta = document.createElement("p");
     pregunta.className = "pregunta-obra";
     pregunta.textContent = obra.pregunta;
-
     campos.descripcion.appendChild(pregunta);
 
     obra.parrafos.forEach(texto => {
-
       const parrafo = document.createElement("p");
       parrafo.innerHTML = texto;
-
       campos.descripcion.appendChild(parrafo);
-
     });
 
-    /* El botón aparece únicamente si la obra tiene un enlace */
+    if (obra.recursos && obra.recursos.length) {
+      const tituloRecursos = document.createElement("h3");
+      tituloRecursos.className = "titulo-recomendacion";
+      tituloRecursos.textContent = obra.recursosTitulo;
+      campos.descripcion.appendChild(tituloRecursos);
 
-    if (obra.enlace) {
-
-      const boton = document.createElement("a");
-
-      boton.className = "boton-recuerdo";
-      boton.href = obra.enlace;
-      boton.target = "_blank";
-      boton.rel = "noopener noreferrer";
-      boton.textContent = obra.textoEnlace;
-
-      campos.descripcion.appendChild(boton);
-
+      obra.recursos.forEach(recurso => {
+        const enlace = document.createElement("a");
+        enlace.className = "boton-recuerdo";
+        enlace.href = recurso.url;
+        enlace.target = "_blank";
+        enlace.rel = "noopener noreferrer";
+        enlace.textContent = recurso.texto;
+        enlace.style.marginRight = "10px";
+        enlace.style.marginBottom = "10px";
+        campos.descripcion.appendChild(enlace);
+      });
     }
-
-    if (obra.enlaceSecundario) {
-      const botonSecundario = document.createElement("a");
-      botonSecundario.className = "boton-recuerdo";
-      botonSecundario.href = obra.enlaceSecundario;
-      botonSecundario.target = "_blank";
-      botonSecundario.rel = "noopener noreferrer";
-      botonSecundario.style.marginLeft = "10px";
-      botonSecundario.textContent = obra.textoEnlaceSecundario;
-      campos.descripcion.appendChild(botonSecundario);
-    }
-
   }
 
-
-  /* Mostrar la obra seleccionada */
-
   function mostrarObra(indice) {
-
     indiceActual = (indice + obras.length) % obras.length;
-
     const obra = obras[indiceActual];
 
     campos.titulo.textContent = obra.titulo;
-
     campos.imagen.src = obra.imagen;
     campos.imagen.alt = obra.alt;
     campos.imagen.style.display = "block";
-
-    campos.imagen.onerror = () => {
-      campos.imagen.style.display = "none";
-    };
 
     campos.autor.textContent = obra.autor;
     campos.fecha.textContent = obra.fecha;
@@ -905,7 +947,6 @@
     campos.mirada.textContent = obra.mirada;
     campos.impacto.textContent = obra.impacto;
     campos.reaccion.textContent = obra.reaccion;
-
     campos.contador.textContent =
       `${String(indiceActual + 1).padStart(2, "0")} / ${String(obras.length).padStart(2, "0")}`;
 
@@ -914,11 +955,7 @@
     document.querySelectorAll(".miniatura").forEach((boton, i) => {
       boton.classList.toggle("seleccionada", i === indiceActual);
     });
-
   }
-
-
-  /* Botones para cambiar de obra */
 
   document.getElementById("anterior").addEventListener("click", () => {
     mostrarObra(indiceActual - 1);
@@ -928,17 +965,11 @@
     mostrarObra(indiceActual + 1);
   });
 
-
-  /* Navegación mediante miniaturas */
-
   document.querySelectorAll(".miniatura").forEach(boton => {
-
     boton.addEventListener("click", () => {
       mostrarObra(Number(boton.dataset.indice));
     });
-
   });
-
 
   /* Visor de imágenes ampliadas */
 
@@ -947,52 +978,35 @@
   const cerrarVisor = document.getElementById("cerrar-visor");
 
   function abrirImagen() {
-
+    if (!campos.imagen.src || campos.imagen.style.display === "none") return;
     imagenAmpliada.src = campos.imagen.src;
     imagenAmpliada.alt = campos.imagen.alt;
-
     visor.classList.add("abierto");
     document.body.style.overflow = "hidden";
-
     cerrarVisor.focus();
-
   }
 
   function cerrarImagen() {
-
     visor.classList.remove("abierto");
     imagenAmpliada.src = "";
     document.body.style.overflow = "";
-
     campos.imagen.focus();
-
   }
 
   campos.imagen.addEventListener("click", abrirImagen);
-
   cerrarVisor.addEventListener("click", cerrarImagen);
 
-  visor.addEventListener("click", (evento) => {
-
-    if (evento.target === visor) {
-      cerrarImagen();
-    }
-
+  visor.addEventListener("click", evento => {
+    if (evento.target === visor) cerrarImagen();
   });
 
-  document.addEventListener("keydown", (evento) => {
-
+  document.addEventListener("keydown", evento => {
     if (evento.key === "Escape" && visor.classList.contains("abierto")) {
       cerrarImagen();
     }
-
   });
 
-
-  /* Mostrar la primera obra al cargar la página */
-
   mostrarObra(0);
-
 </script>
 
 </body>
