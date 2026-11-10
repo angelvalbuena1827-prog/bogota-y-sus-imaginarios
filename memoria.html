@@ -26,7 +26,7 @@
       min-height: 100vh;
       background: var(--fondo);
       color: #f5f1ff;
-      padding: 35px 4%;
+      padding: 35px 4% 12px;
     }
 
     .marca-memoria {
@@ -312,56 +312,30 @@
       line-height: 1.8;
     }
 
-    .miniaturas {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding: 25px 2px 15px;
-      margin-top: 12px;
+    /* DESCRIPCIÓN AMPLIADA DE CADA OBRA */
+    .exposicion {
+      align-items: center;
     }
-
-    .miniatura {
-      flex: 0 0 76px;
-      height: 90px;
-      padding: 4px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border: 1px solid var(--linea);
-      background: #122238;
-      cursor: pointer;
-    }
-
-    .miniatura img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .miniatura.seleccionada {
-      border-color: #d6b6ff;
-      box-shadow: 0 0 12px rgba(168, 60, 255, .35);
-    }
-
-    .sin-obras {
-      padding: 28px;
-      border: 1px solid var(--linea);
-      color: var(--suave);
-      font: 13px 'Montserrat', sans-serif;
-      line-height: 1.8;
-    }
-          line-height: 1.6;
-    }
-
-    .ficha-obra dt { color: #d6b6ff; }
-    .ficha-obra dd { margin: 0; color: #e4deef; }
 
     .descripcion-obra {
+      max-width: 1050px;
+      margin: 34px auto 0;
+      padding: 24px 0 0;
       border-top: 1px solid rgba(229, 200, 255, .3);
-      padding-top: 17px;
       color: #c6cee0;
-      font: 400 12px 'Montserrat', sans-serif;
-      line-height: 1.8;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .descripcion-obra p {
+      margin: 0 0 18px;
+    }
+
+    .descripcion-obra .pregunta-descripcion {
+      margin: 0 0 22px;
+      color: var(--lila);
+      font: italic 400 24px 'Cormorant Garamond', serif;
+      line-height: 1.5;
     }
 
     .miniaturas {
@@ -403,12 +377,47 @@
       line-height: 1.8;
     }
 
-    .nota-prototipo {
-      margin: 15px 0 0;
+    .nota-prototipo {      margin: 15px 0 0;
       color: #8995ad;
       font: 400 10px 'Montserrat', sans-serif;
       line-height: 1.6;
     }
+
+
+    .credito-imagen {
+      margin: 10px 0 0;
+      color: var(--suave);
+      font: 400 10px 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .bloque-vida {
+      max-width: 1100px;
+      margin: 45px auto 30px;
+      padding: 34px 28px;
+      border: 1px solid var(--linea);
+      background: linear-gradient(135deg, rgba(168, 60, 255, .10), transparent 65%), var(--panel);
+    }
+
+    .bloque-vida h2 {
+      margin: 10px 0;
+      color: var(--lila);
+      font: 600 clamp(28px, 4vw, 42px) 'Bodoni Moda', serif;
+    }
+
+    .bloque-vida p {
+      max-width: 850px;
+      color: var(--texto);
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
+    .bloque-vida .cierre-vida {
+      color: #d6b6ff;
+      font: italic 400 21px 'Cormorant Garamond', serif;
+    }
+
+    .bloque-vida[hidden], .extras-memoria[hidden] { display: none; }
 
     /* ARCHIVO SONORO */
 
@@ -514,11 +523,59 @@
       color: var(--lila);
     }
 
+    .enlaces-obra-adicionales {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      max-width: 1050px;
+      margin: 14px auto 0;
+    }
+
+    .enlaces-obra-adicionales .enlace-obra {
+      display: inline-block;
+      margin: 0;
+    }
+
+    .visor-pastiche {
+      max-width: 1050px;
+      margin: 30px auto 38px;
+      padding: 22px;
+      border: 1px solid rgba(214, 182, 255, .28);
+      background: rgba(10, 17, 34, .72);
+    }
+
+    .visor-pastiche h4 {
+      margin: 0 0 8px;
+      color: var(--lila);
+      font: italic 400 25px 'Cormorant Garamond', serif;
+    }
+
+    .visor-pastiche p {
+      margin: 0 0 16px;
+      color: var(--suave);
+      font: 400 11px 'Montserrat', sans-serif;
+      line-height: 1.7;
+    }
+
+    .visor-pastiche iframe {
+      display: block;
+      width: 100%;
+      height: min(820px, 82vh);
+      min-height: 540px;
+      border: 1px solid rgba(214, 182, 255, .22);
+      background: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .visor-pastiche { padding: 12px; }
+      .visor-pastiche iframe { height: 70vh; min-height: 430px; }
+    }
+
     /* PIE DE PÁGINA EDITORIAL */
 
     .pie-pagina {
       width: 100%;
-      margin: 55px 0 0;
+      margin: 0;
       padding: 22px 3%;
       border-top: 1px solid rgba(229, 200, 255, .22);
       background: #07111f;
@@ -667,7 +724,7 @@
       }
     }
   </style>
-</head>
+  </head>
 
 <body>
 <main class="pagina-coleccion">
@@ -683,15 +740,15 @@
       <h1 class="titulo-memoria" id="titulo-apertura">Memoria</h1>
 
       <div class="epigrafe-memoria">
-        <blockquote>
+        <blockquote id="epigrafe-texto">
           «Recordar: del latín re-cordis, volver a pasar por el corazón».
         </blockquote>
-        <p>— Eduardo Galeano</p>
+        <p id="epigrafe-autor">— Eduardo Galeano</p>
       </div>
     </div>
 
-    <div class="texto-intro-memoria">
-      <h2 class="subtitulo-memoria">Volver a pasar por el corazón.</h2>
+    <div class="texto-intro-memoria" id="texto-editorial">
+      <h2 class="subtitulo-memoria" id="subtitulo-apertura">Volver a pasar por el corazón</h2>
 
       <p>
         Bienvenido a esta colección. Antes de comenzar, quiero invitarte
@@ -728,11 +785,11 @@
         esas historias que todavía tienen algo que decirnos.
       </p>
 
-      <p class="pregunta-memoria">
+      <p class="pregunta-memoria" id="pregunta-apertura">
         ¿Qué crees que conserva una ciudad cuando recuerda?
       </p>
 
-      <a class="enlace-recorrido" href="#exposicion-memoria">
+      <a class="enlace-recorrido" id="enlace-apertura" href="#exposicion-memoria">
         Recorrer las obras ↓
       </a>
     </div>
@@ -766,6 +823,7 @@
     </section>
   </div>
 
+  <div id="extras-memoria" class="extras-memoria">
   <!-- ARCHIVO SONORO -->
 
   <section class="audio-memoria" aria-labelledby="titulo-audio">
@@ -853,6 +911,55 @@
     </a>
   </section>
 
+  <!-- RECURSOS DE MEMORIA HISTÓRICA -->
+  <section class="participacion-memoria" aria-labelledby="titulo-recursos-memoria">
+    <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO</span>
+    <h2 id="titulo-recursos-memoria">Bogotá: archivos, relatos y memoria</h2>
+
+    <p>
+      La memoria de una ciudad también se construye a través de los archivos,
+      los testimonios y los proyectos que reúnen distintas voces sobre su historia.
+      Estos recursos permiten ampliar el recorrido y acercarnos a otras formas
+      de recordar y comprender Bogotá.
+    </p>
+
+    <p><strong>Bogotá, Ciudad Memoria</strong> reúne contenidos y recorridos
+      para explorar acontecimientos, lugares y relatos que hacen parte de la
+      memoria de la capital.</p>
+    <a class="boton-recuerdo" href="http://centromemoria.gov.co/bogotaciudadmemoria/"
+       target="_blank" rel="noopener noreferrer">Explorar Bogotá, Ciudad Memoria ↗</a>
+
+    <p><strong>Centro de Memoria</strong> es el portal del Centro de Memoria,
+      Paz y Reconciliación, desde el que puedes conocer sus iniciativas,
+      contenidos y actividades relacionadas con la memoria y la construcción
+      de paz.</p>
+    <a class="boton-recuerdo" href="http://centromemoria.gov.co/"
+       target="_blank" rel="noopener noreferrer">Visitar el Centro de Memoria ↗</a>
+  </section>
+  </div>
+
+  <!-- EXPERIENCIAS DE VIDA COTIDIANA -->
+  <section id="extras-vida" class="bloque-vida" hidden aria-labelledby="titulo-mirada">
+    <span class="etiqueta-participacion">UNA PAUSA PARA COMPARTIR</span>
+    <h2 id="titulo-mirada">Una mirada a nuestra ciudad</h2>
+    <p>No siempre necesitamos recorrer grandes distancias para descubrir algo nuevo. A veces basta con detenernos a mirar aquello que tenemos delante.</p>
+    <p>¿Qué estás viendo en este momento? Puede ser una calle por la que pasas todos los días, una ventana, un árbol que crece entre el concreto, una persona trabajando o un paisaje que te gusta.</p>
+    <p>Te invitamos a compartir una fotografía de Bogotá: puede ser algo que estés contemplando mientras recorres esta colección o una imagen que hayas guardado porque significa algo para ti.</p>
+    <p>Cada mirada es distinta y, cuando las reunimos, descubrimos que nuestra ciudad tiene muchas más formas de ser contada.</p>
+    <p class="audio-nota">Puedes participar subiendo una fotografía y contándonos dónde la tomaste y qué llamó tu atención. Google Forms solicitará iniciar sesión para adjuntar imágenes.</p>
+    <a class="boton-recuerdo" href="https://docs.google.com/forms/d/e/1FAIpQLSdGIJoDsHfww0Nzmwchi5DVU7_zaAO60iQpRQHSaAMDEEwSuQ/viewform" target="_blank" rel="noopener noreferrer">Compartir mi fotografía ↗</a>
+  </section>
+
+  <section id="recomendacion-vida" class="bloque-vida" hidden aria-labelledby="titulo-sonidos-bogotanos">
+    <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO · RECOMENDACIÓN AUDIOVISUAL</span>
+    <h2 id="titulo-sonidos-bogotanos">Bogotá también se escucha</h2>
+    <p>Hay ciudades que reconocemos por sus paisajes, sus calles y sus edificios, pero también por los sonidos que las acompañan.</p>
+    <p>En <em>Sonidos Bogotanos</em>, el director Omar Mosquera nos propone acercarnos a esa dimensión sonora de Bogotá. El tráfico, el perifoneo, las construcciones y los sonidos de la naturaleza componen un paisaje que, aunque muchas veces confundimos con ruido, también hace parte de nuestra identidad.</p>
+    <p>Te invitamos a ver este documental y a escuchar con otros oídos esa ciudad que recorremos todos los días. Quizás descubras que algunos de los sonidos que más te representan estaban ahí desde siempre, esperando a que les prestaras atención.</p>
+    <p class="audio-nota"><em>Sonidos Bogotanos</em> · Omar Mosquera N. · Colombia, 2024 · Documental · 6 minutos. Forma parte de la serie <em>Bogotario</em>.</p>
+    <a class="boton-recuerdo" href="https://www.retinalatina.org/peliculas/sonidos-bogotanos-omar-mosquera/" target="_blank" rel="noopener noreferrer">Ver documental en Retina Latina ↗</a>
+  </section>
+
 </main>
 
 <!-- PIE DE PÁGINA EDITORIAL -->
@@ -885,104 +992,35 @@
 </footer>
 
 <script>
-  const colecciones = [
-    {
-      nombre: "Vida cotidiana",
-      descripcion: "Las historias que habitan lo común.",
-      obras: []
+  const textosApertura = {
+    0: {
+      epigrafe: "«Aisthesis designa la experiencia estética fundamental de que una obra de arte puede renovar la percepción de las cosas, embotada por la costumbre». ",
+      autor: "— Hans Robert Jauss, Pequeña apología de la experiencia estética",
+      subtitulo: "El maravilloso arte de la contemplación",
+      parrafos: [
+        "Bienvenido a esta colección. Antes de comenzar, quiero invitarte a hacer algo sencillo: detente un momento. Ahora que me lees, tómate unos segundos para mirar el lugar en el que estás. ¿Dónde te encuentras? ¿Qué es lo primero que ves? ¿Qué sonidos llegan hasta ti? ¿Hay algo a tu alrededor en lo que nunca antes te habías detenido?",
+        "A veces transitamos los mismos lugares tantas veces que dejamos de mirarlos. Caminamos por las mismas calles, repetimos nuestros recorridos, coincidimos con otras personas y nos acostumbramos a los paisajes que nos rodean. La prisa convierte los días en una sucesión de actividades y, casi sin darnos cuenta, dejamos de reparar en aquello que también forma parte de nuestra vida.",
+        "Sin embargo, la ciudad no ocurre únicamente en sus grandes acontecimientos. También está en los trabajos que pasan inadvertidos, en las conversaciones fugaces, en los encuentros inesperados, en los lugares que habitamos y en esos pequeños momentos que parecen no tener mayor importancia. Allí también hay historias, contrastes y maneras de comprender quiénes somos y cómo vivimos Bogotá.",
+        "He escogido estas obras porque quiero invitarte a descubrir esas otras formas de contar nuestra ciudad. A mirar con curiosidad lo que quizás ya conoces, a encontrar belleza en lo habitual y a reconocer que incluso las escenas más sencillas pueden despertar preguntas, recuerdos y nuevas maneras de percibir nuestro entorno.",
+        "En un mundo que cada día parece avanzar más deprisa, detenernos también puede ser una pequeña revolución. Contemplar no significa alejarnos de lo que sucede, sino estar más presentes en ello. A veces, basta con prestar atención para descubrir que aquello que creíamos conocer todavía tiene mucho por mostrarnos."
+      ],
+      pregunta: "¿Cuánto de tu ciudad has dejado de mirar por estar acostumbrado a ella?",
+      boton: "Recorrer las obras ↓"
     },
-    {
-      nombre: "Pasado",
-      descripcion: "Las huellas de las ciudades que fuimos.",
-      obras: []
-    },
-    {
-      nombre: "Vida nocturna",
-      descripcion: "La ciudad que aparece cuando cae la noche.",
-      obras: []
-    },
-    {
-      nombre: "Violencia",
-      descripcion: "Las heridas que transforman la ciudad.",
-      obras: []
-    },
-    {
-      nombre: "Resistencia",
-      descripcion: "Crear, permanecer y transformar el espacio.",
-      obras: []
-    },
-    {
-      nombre: "Memoria",
-      descripcion: "Volver a pasar por el corazón.",
-      obras: [
-        {
-          titulo: "La siempreviva",
-          imagen: "imgs/la-siempreviva.jpg",
-          enlace: "https://www.youtube.com/watch?v=OQipIt6m-CY",
-          textoEnlace: "Ver la obra de teatro en YouTube",
-          autor: "Miguel Torres",
-          fecha: "1994",
-          tipo: "Teatro",
-          lugar: "La Candelaria",
-          temas: "Memoria",
-          mirada: "La ruda",
-          impacto: "No me la saco de la cabeza",
-          reaccion: "Llorar varios días",
-          pregunta: "¿Qué queda de una ciudad después de una tragedia que todavía duele?",
-          descripcion: "La siempreviva, de Miguel Torres, reconstruye desde el teatro la historia de una familia marcada por la toma y retoma del Palacio de Justicia de 1985. En medio de la incertidumbre, la desaparición y la espera, Bogotá aparece como una ciudad atravesada por la violencia y por una memoria que se niega a desaparecer."
-        },
-        {
-          titulo: "Parque de la Independencia",
-          imagen: "imgs/parque-independencia.jpg",
-          autor: "Luis Fernando Roldán Jaramillo",
-          fecha: "1994",
-          tipo: "Pintura",
-          lugar: "Parque de la Independencia",
-          temas: "Memoria",
-          mirada: "La cotidiana",
-          impacto: "Me dejó algo",
-          reaccion: "Vuela la cabeza",
-          pregunta: "¿Cómo se pinta un lugar que ya conocemos?",
-          descripcion: "Luis Fernando Roldán dedicó una serie de 32 pinturas al Parque de la Independencia, explorando el espacio desde una mirada que se mueve entre la abstracción y la realidad. La luz, la vegetación, las montañas y la arquitectura bogotana aparecen transformadas por la materia y el color, convirtiendo un parque conocido en una experiencia distinta de la ciudad."
-        },
-        {
-          titulo: "Bogotá",
-          imagen: "imgs/bogota-andres-cepeda.jpg",
-          enlace: "https://youtu.be/HgPbFmnDF8M?si=6X_rWzQkAGqY-9Mn",
-          textoEnlace: "Escuchar y ver el video en YouTube",
-          autor: "Andrés Cepeda",
-          fecha: "2024",
-          tipo: "Canción",
-          lugar: "Teatro Colón",
-          temas: "Memoria",
-          mirada: "La nostálgica",
-          impacto: "Me dejó algo",
-          reaccion: "Deja pensando",
-          pregunta: "¿Puede una ciudad caber en los recuerdos de una infancia?",
-          descripcion: "Andrés Cepeda convierte a Bogotá en un álbum de recuerdos familiares y cotidianos. Entre la memoria, la casa y los lugares que acompañan una vida, la canción construye una Bogotá íntima, afectiva y atravesada por la nostalgia."
-        },
-                {
-          titulo: "Avenida de la República [Carrera Séptima], Bogotá",
-          imagen: "imgs/carrera-septima-1930.jpg",
-          autor: "Gumersindo Cuéllar Jiménez",
-          fecha: "1930",
-          tipo: "Fotografía",
-          lugar: "Carrera Séptima",
-          temas: "Memoria",
-          mirada: "La cotidiana",
-          impacto: "Me dejó algo",
-          reaccion: "Deja pensando",
-          pregunta: "¿Cuánto puede cambiar una calle y, al mismo tiempo, seguir siendo la misma ciudad?",
-          descripcion: "Esta fotografía de Gumersindo Cuéllar recorre la Carrera Séptima a la altura de la Calle 26 y conserva una mirada de Bogotá en 1930. Entre viviendas, calles y arquitectura, la imagen permite asomarse a una ciudad que todavía estaba en transformación y comparar sus formas de habitar y recorrer el espacio con la Bogotá que conocemos hoy."
-        }
-      ]
-    },
-    {
-      nombre: "Amor",
-      descripcion: "Los afectos también construyen ciudad.",
-      obras: []
+    5: {
+      epigrafe: "«Recordar: del latín re-cordis, volver a pasar por el corazón». ",
+      autor: "— Eduardo Galeano",
+      subtitulo: "Volver a pasar por el corazón.",
+      parrafos: [
+        "Bienvenido a esta colección. Antes de comenzar, quiero invitarte a pensar en un recuerdo de Bogotá. Puede ser bueno o malo, alegre o doloroso; un momento, un lugar o una persona que todavía guardes en tu memoria. Mantenlo contigo. Vamos a recorrer juntos los recuerdos de esta ciudad.",
+        "La memoria de Bogotá no está hecha únicamente de fechas y acontecimientos. También vive en los lugares que habitamos, en las historias que heredamos, en las personas con quienes nos encontramos y en las experiencias que dejan una huella en nuestras vidas.",
+        "He escogido estas obras porque quiero acercarte a momentos bellos y dolorosos de nuestra historia. Recordar no siempre es fácil, pero nos permite reconocer lo que hemos vivido, comprender las experiencias de otros y preguntarnos qué podemos aprender de nuestro pasado. Porque cuando olvidamos las historias que nos han formado, corremos el riesgo de repetir errores y de perder de vista quiénes somos y de dónde venimos.",
+        "Recordar es también permitirnos sentir. A veces, una imagen nos devuelve a un lugar; una canción nos recuerda a alguien; una historia nos acerca a una experiencia que nunca vivimos, pero que ahora podemos comprender de otra manera. Las obras de esta colección nos invitan a detenernos, conmovernos y mantener vivas esas historias que todavía tienen algo que decirnos."
+      ],
+      pregunta: "¿Qué crees que conserva una ciudad cuando recuerda?",
+      boton: "Recorrer las obras ↓"
     }
-  ];
+  };
 
   let coleccionActual = 5;
   let obraActual = 0;
@@ -1000,57 +1038,20 @@
       const boton = document.createElement("button");
       boton.className = "boton-coleccion" +
         (indice === coleccionActual ? " activa" : "");
-
-      boton.setAttribute("aria-expanded", String(indice === coleccionActual));
+      boton.type = "button";
+      boton.setAttribute("aria-current", indice === coleccionActual ? "page" : "false");
 
       boton.innerHTML =
-        `<span>${String(indice + 1).padStart(2, "0")}　${coleccion.nombre}</span>
-         <span aria-hidden="true">${indice === coleccionActual ? "⌃" : "⌄"}</span>`;
-
-      const lista = document.createElement("ul");
-      lista.className = "lista-obras";
-      lista.hidden = indice !== coleccionActual;
-
-      if (coleccion.obras.length) {
-        coleccion.obras.forEach((obra, i) => {
-          const elemento = document.createElement("li");
-          const enlace = document.createElement("button");
-
-          enlace.className = "obra-menu" +
-            (indice === coleccionActual && i === obraActual ? " seleccionada" : "");
-
-          enlace.textContent =
-            `${String(i + 1).padStart(2, "0")}. ${obra.titulo}`;
-
-          enlace.addEventListener("click", () => {
-            coleccionActual = indice;
-            obraActual = i;
-            actualizarPagina();
-          });
-
-          elemento.appendChild(enlace);
-          lista.appendChild(elemento);
-        });
-      } else {
-        const elemento = document.createElement("li");
-        elemento.className = "pendiente";
-        elemento.textContent = "Obras en preparación";
-        lista.appendChild(elemento);
-      }
+        `<span>${String(indice + 1).padStart(2, "0")}　${coleccion.nombre}</span>`;
 
       boton.addEventListener("click", () => {
-        if (coleccionActual === indice) {
-          lista.hidden = !lista.hidden;
-          boton.setAttribute("aria-expanded", String(!lista.hidden));
-          boton.lastElementChild.textContent = lista.hidden ? "⌄" : "⌃";
-        } else {
-          coleccionActual = indice;
-          obraActual = 0;
-          actualizarPagina();
-        }
+        if (indice === coleccionActual) return;
+        coleccionActual = indice;
+        obraActual = 0;
+        actualizarPagina();
       });
 
-      grupo.append(boton, lista);
+      grupo.appendChild(boton);
       menu.appendChild(grupo);
     });
   }
@@ -1080,10 +1081,10 @@
             <dt>Impacto</dt><dd id="impacto-obra"></dd>
             <dt>Reacción</dt><dd id="reaccion-obra"></dd>
           </dl>
-
-          <p class="descripcion-obra" id="texto-obra"></p>
         </article>
       </div>
+
+      <article class="descripcion-obra" id="texto-obra"></article>
 
       <nav class="miniaturas" id="miniaturas"
         aria-label="Navegar entre las obras"></nav>
@@ -1142,15 +1143,18 @@
     document.getElementById("reaccion-obra").textContent = obra.reaccion;
 
     const texto = document.getElementById("texto-obra");
-    const pregunta = document.createElement("strong");
-    pregunta.textContent = obra.pregunta;
+    texto.innerHTML = "";
 
-    texto.replaceChildren(
-      pregunta,
-      document.createElement("br"),
-      document.createElement("br"),
-      document.createTextNode(obra.descripcion)
-    );
+    const pregunta = document.createElement("p");
+    pregunta.className = "pregunta-descripcion";
+    pregunta.textContent = obra.pregunta;
+    texto.appendChild(pregunta);
+
+    obra.descripcion.split("\\n\\n").forEach(fragmento => {
+      const parrafo = document.createElement("p");
+      parrafo.textContent = fragmento;
+      texto.appendChild(parrafo);
+    });
 
     const enlaceExistente = document.getElementById("enlace-obra");
     if (enlaceExistente) enlaceExistente.remove();
@@ -1165,6 +1169,64 @@
       enlaceObra.textContent = obra.textoEnlace + " ↗";
 
       texto.insertAdjacentElement("afterend", enlaceObra);
+    }
+
+    const enlacesAdicionales = [];
+    if (obra.fuente) {
+      enlacesAdicionales.push({
+        href: obra.fuente,
+        texto: obra.textoFuente || "Consultar fuente y créditos"
+      });
+    }
+    const bloqueEnlacesAnterior = document.getElementById("enlaces-obra-adicionales");
+    if (bloqueEnlacesAnterior) bloqueEnlacesAnterior.remove();
+
+    if (enlacesAdicionales.length) {
+      const bloqueEnlaces = document.createElement("div");
+      bloqueEnlaces.id = "enlaces-obra-adicionales";
+      bloqueEnlaces.className = "enlaces-obra-adicionales";
+
+      enlacesAdicionales.forEach(item => {
+        const enlace = document.createElement("a");
+        enlace.className = "enlace-obra";
+        enlace.href = item.href;
+        enlace.target = "_blank";
+        enlace.rel = "noopener noreferrer";
+        enlace.textContent = item.texto + " ↗";
+        bloqueEnlaces.appendChild(enlace);
+      });
+
+      const enlacePrincipal = document.getElementById("enlace-obra");
+      if (enlacePrincipal) {
+        enlacePrincipal.insertAdjacentElement("afterend", bloqueEnlaces);
+      } else {
+        texto.insertAdjacentElement("afterend", bloqueEnlaces);
+      }
+    }
+
+    const visorAnterior = document.getElementById("visor-pastiche");
+    if (visorAnterior) visorAnterior.remove();
+
+    if (obra.titulo === "La siempreviva") {
+      const visor = document.createElement("section");
+      visor.id = "visor-pastiche";
+      visor.className = "visor-pastiche";
+      visor.innerHTML = `
+        <h4>Una lectura personal: el eco de Julieta</h4>
+        <p>Monólogo de María Angélica Valbuena Acuña, inspirado en <em>La siempreviva</em>, de Miguel Torres. Puedes recorrer las páginas desde los controles del documento.</p>
+        <iframe
+          src="documentos/Monologo_de_Julieta_Memoria_portada_floral.pdf#toolbar=1&navpanes=0&view=FitH"
+          title="Monólogo de Julieta: El silencio ensordecedor de una desaparecida"
+          loading="lazy">
+        </iframe>
+        <p style="margin-top:12px;">Si el visor no aparece en tu navegador, <a href="documentos/Monologo_de_Julieta_Memoria_portada_floral.pdf" target="_blank" rel="noopener noreferrer">abre el PDF en una pestaña nueva ↗</a>.</p>
+      `;
+      const enlacePrincipal = document.getElementById("enlace-obra");
+      if (enlacePrincipal) {
+        enlacePrincipal.insertAdjacentElement("afterend", visor);
+      } else {
+        texto.insertAdjacentElement("afterend", visor);
+      }
     }
 
     const miniaturas = document.getElementById("miniaturas");
@@ -1206,9 +1268,42 @@
       "Explora las obras mediante las flechas o seleccionando sus miniaturas.";
   }
 
+  function actualizarApertura() {
+    const contenido = textosApertura[coleccionActual];
+    if (!contenido) return;
+
+    document.getElementById("titulo-apertura").textContent = colecciones[coleccionActual].nombre;
+    document.getElementById("epigrafe-texto").textContent = contenido.epigrafe;
+    document.getElementById("epigrafe-autor").textContent = contenido.autor;
+    document.getElementById("subtitulo-apertura").textContent = contenido.subtitulo;
+
+    const contenedor = document.getElementById("texto-editorial");
+    contenedor.querySelectorAll("p:not(.pregunta-memoria)").forEach(p => p.remove());
+    contenido.parrafos.forEach(parrafo => {
+      const p = document.createElement("p");
+      p.textContent = parrafo;
+      contenedor.insertBefore(p, document.getElementById("pregunta-apertura"));
+    });
+
+    const pregunta = document.getElementById("pregunta-apertura");
+    pregunta.textContent = contenido.pregunta;
+    document.getElementById("enlace-apertura").textContent = contenido.boton;
+    document.getElementById("enlace-apertura").href = "#exposicion-memoria";
+  }
+
+  function actualizarExtras() {
+    const esMemoria = coleccionActual === 5;
+    const esVida = coleccionActual === 0;
+    document.getElementById("extras-memoria").hidden = !esMemoria;
+    document.getElementById("extras-vida").hidden = !esVida;
+    document.getElementById("recomendacion-vida").hidden = !esVida;
+  }
+
   function actualizarPagina() {
     crearMenu();
+    actualizarApertura();
     actualizarObra();
+    actualizarExtras();
   }
 
   actualizarPagina();
