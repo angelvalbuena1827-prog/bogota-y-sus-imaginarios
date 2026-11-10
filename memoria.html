@@ -1163,33 +1163,36 @@
   const menu = document.getElementById("menu-lateral");
   const panel = document.getElementById("panel-obras");
 
-  function crearMenu() {
-    menu.innerHTML = "";
+function crearMenu() {
+  menu.innerHTML = "";
 
-    colecciones.forEach((coleccion, indice) => {
-      const grupo = document.createElement("div");
-      grupo.className = "grupo-coleccion";
+  colecciones.forEach((coleccion, indice) => {
+    const grupo = document.createElement("div");
+    grupo.className = "grupo-coleccion";
 
-      const boton = document.createElement("button");
-      boton.className = "boton-coleccion" +
-        (indice === coleccionActual ? " activa" : "");
-      boton.type = "button";
-      boton.setAttribute("aria-current", indice === coleccionActual ? "page" : "false");
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "boton-coleccion";
 
-      boton.innerHTML =
-        `<span>${String(indice + 1).padStart(2, "0")}　${coleccion.nombre}</span>`;
+    boton.innerHTML = `
+      <span>${String(indice + 1).padStart(2, "0")}　${coleccion.nombre}</span>
+    `;
 
-      boton.addEventListener("click", () => {
-        if (indice === coleccionActual) return;
-        coleccionActual = indice;
-        obraActual = 0;
-        actualizarPagina();
-      });
+    if (indice === coleccionActual) {
+      boton.classList.add("activa");
+      boton.setAttribute("aria-current", "page");
+    }
 
-      grupo.appendChild(boton);
-      menu.appendChild(grupo);
-    });
-  }
+    boton.onclick = function () {
+      coleccionActual = indice;
+      obraActual = 0;
+      actualizarPagina();
+    };
+
+    grupo.appendChild(boton);
+    menu.appendChild(grupo);
+  });
+}
 
   function crearPanelObra() {
     panel.innerHTML = `
