@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Una colección sobre las huellas de la violencia en la historia y la memoria de Bogotá.">
+  <title>Violencia | Bogotá y sus imaginarios</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --fondo: #07111f;
+      --panel: #0a192b;
+      --acento: #D94B50;
+      --acento-rgb: 217, 75, 80;
+      --texto: #d4d9e7;
+      --suave: #aeb9d0;
+      --linea: rgba(var(--acento-rgb), .27);
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+
+    .pagina-coleccion {
+      min-height: 100vh;
+      background: var(--fondo);
+      color: #f5f1ff;
+      padding: 35px 4%;
+    }
+
+    .marca-memoria {
+      display: inline-block;
+      color: #f5f1ff;
+      text-decoration: none;
+      font: 500 12px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .marca-memoria span {
+      color: var(--acento);
+      margin-left: 8px;
+      text-shadow: 0 0 14px rgba(var(--acento-rgb), .35);
+    }
+
+    .apertura-memoria {
+      max-width: 1450px;
+      margin: 58px auto 0;
+      padding: 25px 0 65px;
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .encabezado-memoria {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 35px;
+      margin-bottom: 58px;
+    }
+
+    .titulo-memoria {
+      margin: 0;
+      color: var(--acento);
+      font: 600 clamp(52px, 8vw, 108px) 'Bodoni Moda', serif;
+      line-height: .98;
+      text-shadow: 0 0 22px rgba(var(--acento-rgb), .15);
+    }
+
+    .epigrafe-memoria {
+      max-width: 480px;
+      padding-top: 12px;
+      text-align: right;
+    }
+
+    .epigrafe-memoria blockquote {
+      margin: 0;
+      color: var(--acento);
+      font: normal 400 clamp(18px, 2.1vw, 25px) 'Cormorant Garamond', serif;
+      line-height: 1.5;
+    }
+
+    .epigrafe-memoria p {
+      margin: 12px 0 0;
+      color: var(--suave);
+      font: 400 11px 'Montserrat', sans-serif;
+    }
+
+    .texto-intro-memoria {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--texto);
+      font: 400 15px 'Montserrat', sans-serif;
+      line-height: 1.95;
+    }
+
+    .subtitulo-memoria {
+      margin: 0 0 28px;
+      color: #f5f1ff;
+      font: italic 300 clamp(28px, 3.5vw, 39px) 'Cormorant Garamond', serif !important;
+      letter-spacing: 0;
+      text-shadow: none;
+    }
+
+    .texto-intro-memoria p { margin: 0 0 22px; }
+
+    .pregunta-memoria {
+      margin: 38px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--linea);
+      color: var(--acento);
+      font: italic 400 26px 'Cormorant Garamond', serif;
+    }
+
+    .enlace-recorrido {
+      display: inline-block;
+      margin-top: 24px;
+      color: #f5f1ff;
+      text-decoration: none;
+      border-bottom: 1px solid var(--acento);
+      padding-bottom: 7px;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .enlace-recorrido:hover { color: var(--acento); }
+
+    /* Navegación entre colecciones */
+
+    .coleccion-layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 38px;
+      max-width: 1600px;
+      margin: 70px auto 0;
+      scroll-margin-top: 30px;
+    }
+
+    .menu-colecciones {
+      border-right: 1px solid var(--linea);
+      padding-right: 20px;
+    }
+
+    .menu-colecciones h2 {
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 3px;
+      color: var(--acento);
+      margin: 0 0 25px;
+    }
+
+    .grupo-coleccion { margin-bottom: 7px; }
+
+    .boton-coleccion {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 5px;
+      border: 0;
+      background: transparent;
+      color: #e4deef;
+      text-decoration: none;
+      font: 400 13px 'Montserrat', sans-serif;
+      text-align: left;
+    }
+
+    .boton-coleccion.activa {
+      color: var(--acento);
+      text-shadow: 0 0 12px rgba(var(--acento-rgb), .4);
+    }
+
+    .contenido-coleccion { min-width: 0; }
+
+    .sobre-coleccion {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 28px;
+    }
+
+    .numero-coleccion {
+      color: var(--acento);
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .sobre-coleccion h2 {
+      margin: 8px 0 0;
+      color: var(--acento);
+      font: 600 clamp(35px, 4vw, 58px) 'Bodoni Moda', serif;
+    }
+
+    .descripcion-coleccion {
+      max-width: 320px;
+      margin: 0;
+      color: #c6cee0;
+      font: italic 400 20px 'Cormorant Garamond', serif;
+      line-height: 1.4;
+    }
+
+    /* Exposición */
+
+    .exposicion {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(230px, .75fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .marco-obra {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 4 / 3;
+      min-width: 0;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      border: 1px solid var(--linea);
+      background:
+        radial-gradient(ellipse at center, rgba(var(--acento-rgb), .10), transparent 70%),
+        var(--panel);
+    }
+
+    .imagen-obra {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: zoom-in;
+      transition: transform .25s ease;
+    }
+
+    .imagen-obra:hover { transform: scale(1.015); }
+
+    .flecha-obra {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--acento);
+      border-radius: 50%;
+      background: rgba(7, 21, 45, .95);
+      color: #f5f1ff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .flecha-obra:hover {
+      box-shadow: 0 0 17px rgba(var(--acento-rgb), .4);
+      color: var(--acento);
+    }
+
+    .flecha-anterior { left: -21px; }
+    .flecha-siguiente { right: -21px; }
+
+    .datos-obra { padding: 12px 0; }
+
+    .contador-obra {
+      color: var(--acento);
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .datos-obra h3 {
+      color: var(--acento);
+      font: italic 500 clamp(25px, 3vw, 38px) 'Cormorant Garamond', serif;
+      margin: 16px 0 20px;
+    }
+
+    .ficha-obra {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 11px 8px;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .ficha-obra dt { color: var(--acento); }
+    .ficha-obra dd { margin: 0; color: #e4deef; }
+
+    /* Descripción debajo de la exposición */
+
+    .descripcion-obra {
+      max-width: 1050px;
+      margin: 35px auto 0;
+      padding: 25px 0 0;
+      border-top: 1px solid var(--linea);
+      color: #c6cee0;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .descripcion-obra p { margin: 0 0 18px; }
+
+    .descripcion-obra .pregunta-obra {
+      color: var(--acento);
+      font: italic 400 24px 'Cormorant Garamond', serif;
+      line-height: 1.5;
+    }
+
+    /* Botón para entrevista */
+
+    .boton-recuerdo {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 20px;
+      border: 1px solid var(--acento);
+      color: #f5f1ff;
+      background: rgba(var(--acento-rgb), .10);
+      text-decoration: none;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      transition: background .2s ease, box-shadow .2s ease;
+    }
+
+    .boton-recuerdo:hover {
+      background: rgba(var(--acento-rgb), .2);
+      box-shadow: 0 0 18px rgba(var(--acento-rgb), .2);
+      color: var(--acento);
+    }
+
+    /* Miniaturas */
+
+    .miniaturas {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 25px 2px 15px;
+      margin-top: 12px;
+    }
+
+    .miniatura {
+      flex: 0 0 76px;
+      height: 90px;
+      padding: 4px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--linea);
+      background: #122238;
+      cursor: pointer;
+    }
+
+    .miniatura img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .miniatura.seleccionada {
+      border-color: var(--acento);
+      box-shadow: 0 0 13px rgba(var(--acento-rgb), .35);
+    }
+
+    /* Ventana para ampliar las imágenes */
+
+    .visor-imagen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 55px 30px;
+      background: rgba(2, 7, 15, .96);
+      backdrop-filter: blur(7px);
+    }
+
+    .visor-imagen.abierto { display: flex; }
+
+    .visor-imagen img {
+      display: block;
+      max-width: min(100%, 1100px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 0 40px rgba(0, 0, 0, .5);
+    }
+
+    .cerrar-visor {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--acento);
+      border-radius: 50%;
+      background: rgba(7, 17, 31, .8);
+      color: var(--acento);
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    .cerrar-visor:hover {
+      background: rgba(var(--acento-rgb), .15);
+      box-shadow: 0 0 15px rgba(var(--acento-rgb), .3);
+    }
+
+    /* Participación y recomendación */
+
+    .bloque-vida {
+      max-width: 1100px;
+      margin: 55px auto 30px;
+      padding: 34px 28px;
+      border: 1px solid var(--linea);
+      background: linear-gradient(135deg, rgba(var(--acento-rgb), .09), transparent 65%), var(--panel);
+    }
+
+    .etiqueta-participacion {
+      color: var(--acento);
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .bloque-vida h2 {
+      margin: 10px 0;
+      color: var(--acento);
+      font: 600 clamp(28px, 4vw, 42px) 'Bodoni Moda', serif;
+    }
+
+    .bloque-vida p {
+      max-width: 850px;
+      color: var(--texto);
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
+    .bloque-vida .cierre-vida {
+      color: var(--acento);
+      font: italic 400 21px 'Cormorant Garamond', serif;
+    }
+
+    .nota-participacion {
+      color: var(--suave) !important;
+      font-size: 11px !important;
+    }
+
+    .titulo-recomendacion {
+      margin: 30px 0 8px;
+      color: var(--acento);
+      font: italic 400 25px 'Cormorant Garamond', serif;
+    }
+
+    /* Pie de página */
+
+    .pie-pagina {
+      width: 100%;
+      margin: 55px 0 0;
+      padding: 22px 3%;
+      border-top: 1px solid var(--linea);
+      background: #07111f;
+    }
+
+    .pie-contenido {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 24px;
+    }
+
+    .pie-marca {
+      margin: 0;
+      color: var(--acento);
+      font: 600 12px 'Montserrat', sans-serif;
+      letter-spacing: 1.2px;
+      overflow-wrap: anywhere;
+    }
+
+    .pie-descripcion {
+      margin: 0;
+      color: #c6cee0;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .pie-creditos {
+      min-width: 0;
+      justify-self: end;
+      color: #c6cee0;
+      font: 400 10px 'Montserrat', sans-serif;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    .pie-creditos p { margin: 0; }
+    .pie-etiqueta { color: var(--acento); font-weight: 500; }
+
+    .pie-final {
+      margin: 15px 0 0;
+      padding-top: 10px;
+      border-top: 1px solid var(--linea);
+      color: #8995ad;
+      font: 400 9px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    /* Adaptación a pantallas pequeñas */
+
+    @media (max-width: 850px) {
+      .coleccion-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .menu-colecciones {
+        border-right: 0;
+        border-bottom: 1px solid var(--linea);
+        padding: 0 0 15px;
+      }
+
+      .exposicion { grid-template-columns: 1fr; }
+
+      .sobre-coleccion {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .descripcion-coleccion { max-width: 600px; }
+
+      .marco-obra { max-width: 680px; }
+
+      .pie-contenido {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .pie-descripcion { text-align: left; }
+
+      .pie-creditos {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pagina-coleccion { padding: 24px 18px; }
+
+      .encabezado-memoria {
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 38px;
+      }
+
+      .epigrafe-memoria {
+        align-self: flex-end;
+        max-width: 92%;
+      }
+
+      .texto-intro-memoria { font-size: 14px; }
+
+      .marco-obra {
+        aspect-ratio: 1 / 1;
+        padding: 14px;
+      }
+
+      .flecha-anterior { left: -12px; }
+      .flecha-siguiente { right: -12px; }
+
+      .bloque-vida { padding: 22px 18px; }
+
+      .visor-imagen { padding: 55px 12px; }
+
+      .visor-imagen img { max-width: 100%; max-height: 82vh; }
+
+      .pie-pagina {
+        width: calc(100% + 36px);
+        margin: 55px -18px -24px;
+        padding: 26px 18px;
+      }
+
+      .pie-contenido {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .pie-descripcion { text-align: left; }
+
+      .pie-creditos {
+        grid-column: auto;
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<main class="pagina-coleccion">
+
+  <a class="marca-memoria" href="index.html">
+    BOGOTÁ <span>Y SUS IMAGINARIOS</span>
+  </a>
+
+  <section class="apertura-memoria" aria-labelledby="titulo-apertura">
+    <div class="encabezado-memoria">
+      <h1 class="titulo-memoria" id="titulo-apertura">Violencia</h1>
+
+      <div class="epigrafe-memoria">
+        <blockquote>«Antes que me hubiera apasionado por mujer alguna, jugué mi corazón al azar y me lo ganó la Violencia».</blockquote>
+        <p>— José Eustasio Rivera, <em>La vorágine</em></p>
+      </div>
+    </div>
+
+    <div class="texto-intro-memoria">
+      <h2 class="subtitulo-memoria">Las heridas que también cuentan nuestra historia</h2>
+
+      <p>¿Alguna vez te has detenido a pensar cuántas historias de violencia guardan las calles que recorres? Quizás algunas las conoces por los libros de historia, otras por las fotografías que has visto o por los relatos que alguien de tu familia te ha contado. Algunas ocurrieron hace décadas; otras siguen formando parte de la ciudad que habitamos.</p>
+
+      <p>Bogotá ha sido escenario de acontecimientos que dejaron huellas profundas en su historia. Sus calles han presenciado enfrentamientos, protestas, destrucciones y transformaciones que cambiaron para siempre la manera de vivir y comprender la ciudad. Pero la violencia no se encuentra únicamente en los grandes acontecimientos: también permanece en los lugares que desaparecieron, en las historias de quienes los habitaron y en las memorias que todavía intentan hacerse escuchar.</p>
+
+      <p>He escogido estas obras porque quiero acercarte a distintas formas de mirar esa Bogotá. A través de fotografías, relatos y expresiones artísticas, podremos recorrer algunos de sus episodios más dolorosos, reconocer los territorios que fueron marcados por la violencia y acercarnos a las experiencias que muchas veces quedan fuera de los relatos oficiales.</p>
+
+      <p>Mirar estas historias no significa acostumbrarnos al dolor ni quedarnos atrapados en el pasado. Significa detenernos a reconocer lo que ocurrió, escuchar otras voces y comprender que las heridas de una ciudad no desaparecen simplemente porque el tiempo pase. Algunas permanecen en sus espacios, otras en sus habitantes y muchas en la memoria colectiva.</p>
+
+      <p>Te invito a recorrer estas obras con una mirada atenta y sensible. A preguntarte qué historias conocemos, cuáles hemos olvidado y qué significa habitar una ciudad que todavía conserva las huellas de su propia historia.</p>
+
+      <p class="pregunta-memoria">¿Qué heridas de Bogotá siguen hablando, incluso cuando nadie las nombra?</p>
+
+      <a class="enlace-recorrido" href="#exposicion-memoria">Recorrer las obras ↓</a>
+    </div>
+  </section>
+      <div class="coleccion-layout" id="exposicion-memoria">
+
+    <aside class="menu-colecciones" aria-label="Navegación entre colecciones">
+      <h2>COLECCIONES</h2>
+
+      <div class="grupo-coleccion">
+        <a class="boton-coleccion activa" href="vida-cotidiana.html">
+          <span>01　Vida cotidiana</span><span>↗</span>
+        </a>
+      </div>
+
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="pasado.html">02　Pasado</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="vida-nocturna.html">03　Vida nocturna</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="violencia.html">04　Violencia</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="resistencia.html">05　Resistencia</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="memoria.html">06　Memoria</a></div>
+      <div class="grupo-coleccion"><a class="boton-coleccion" href="amor.html">07　Amor</a></div>
+    </aside>
+
+    <section class="contenido-coleccion" aria-label="Exposición digital">
+
+      <header class="sobre-coleccion">
+        <div>
+          <p class="numero-coleccion">COLECCIÓN 04 / 07</p>
+          <h2>Violencia</h2>
+        </div>
+        <p class="descripcion-coleccion">Las heridas que también cuentan nuestra historia.</p>
+      </header>
+
+      <div class="exposicion">
+
+        <div class="marco-obra">
+          <button class="flecha-obra flecha-anterior" id="anterior" aria-label="Obra anterior">‹</button>
+
+          <img
+            class="imagen-obra"
+            id="imagen-obra"
+            src="imgs/quema-de-tranvias.jpg"
+            alt="Fotografía de los tranvías incendiados durante el Bogotazo, 9 de abril de 1948."
+            title="Haz clic para ampliar la imagen"
+          >
+
+          <button class="flecha-obra flecha-siguiente" id="siguiente" aria-label="Obra siguiente">›</button>
+        </div>
+
+        <article class="datos-obra">
+          <p class="contador-obra" id="contador-obra">01 / 03</p>
+
+          <h3 id="titulo-obra">Quema de tranvías</h3>
+
+          <dl class="ficha-obra">
+            <dt>Autoría</dt>
+            <dd id="autor-obra">Sady González</dd>
+
+            <dt>Fecha</dt>
+            <dd id="fecha-obra">1948</dd>
+
+            <dt>Tipo</dt>
+            <dd id="tipo-obra">Fotografía</dd>
+
+            <dt>Lugar</dt>
+            <dd id="lugar-obra">Plaza de Bolívar</dd>
+
+            <dt>Temas</dt>
+            <dd id="temas-obra">Vida cotidiana</dd>
+
+            <dt>Mirada</dt>
+            <dd id="mirada-obra">La rebelde</dd>
+
+            <dt>Impacto</dt>
+            <dd id="impacto-obra">Me dejó algo</dd>
+
+            <dt>Reacción</dt>
+            <dd id="reaccion-obra">Deja pensando</dd>
+          </dl>
+        </article>
+
+      </div>
+
+      <!-- La descripción aparece debajo de la imagen y de la ficha -->
+      <article class="descripcion-obra" id="texto-obra" aria-live="polite">
+        <p class="pregunta-obra">¿Una ciudad en llamas también puede quedar atrapada en una fotografía?</p>
+        <p>El 9 de abril de 1948, Bogotá vivió uno de los episodios más determinantes y violentos de su historia. Tras el asesinato de Jorge Eliécer Gaitán, las calles se llenaron de manifestaciones, disturbios e incendios que transformaron profundamente el centro de la ciudad. Entre las imágenes que conservaron la memoria de aquella jornada se encuentran las fotografías de Sady González, quien registró los tranvías en llamas y los estragos que dejó el Bogotazo.</p>
+        <p>A través de su cámara, González capturó una ciudad alterada por la indignación y el desconcierto. Los vehículos destruidos, las columnas de humo y las calles convertidas en escenarios de enfrentamiento revelan la magnitud de una jornada en la que el espacio urbano se transformó ante los ojos de sus habitantes. La fotografía no solo documenta la destrucción material, sino que conserva un instante en el que la vida cotidiana de Bogotá quedó interrumpida por la violencia.</p>
+        <p>Los tranvías, que durante décadas habían formado parte de los recorridos habituales de los bogotanos, aparecen aquí convertidos en símbolos de una ciudad que atraviesa una ruptura. Aquello que antes representaba el movimiento y la conexión entre sus habitantes se transforma en testimonio de una jornada que modificó el rumbo de la historia nacional y dejó profundas marcas en la memoria urbana.</p>
+        <p>Observar esta fotografía es acercarse a un momento en el que Bogotá parece detenerse entre el humo y las llamas. Una imagen que nos recuerda que las ciudades también guardan memoria de sus heridas y que, a veces, una fotografía puede conservar aquello que el tiempo no consigue borrar.</p>
+      </article>
+
+      <nav class="miniaturas" id="miniaturas" aria-label="Navegar entre las obras">
+        <button class="miniatura seleccionada" data-indice="0" aria-label="Ver Quema de tranvías">
+          <img src="imgs/quema-de-tranvias.jpg" alt="">
+        </button>
+        <button class="miniatura" data-indice="1" aria-label="Ver En un lugar llamado El Cartucho">
+          <img src="imgs/el-cartucho.jpg" alt="">
+        </button>
+        <button class="miniatura" data-indice="2" aria-label="Ver El crimen del siglo">
+          <img src="imgs/el-crimen-del-siglo.jpg" alt="">
+        </button>
+      </nav>
+
+    </section>
+  </div>
+
+  <!-- Visor de imágenes ampliadas -->
+  <div
+    class="visor-imagen"
+    id="visor-imagen"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Imagen ampliada"
+  >
+    <button class="cerrar-visor" id="cerrar-visor" aria-label="Cerrar imagen ampliada">×</button>
+    <img id="imagen-ampliada" src="" alt="">
+  </div>
+
+  <!-- Participación fotográfica -->
+  <section class="bloque-vida" aria-labelledby="titulo-mirada">
+    <span class="etiqueta-participacion">UNA PAUSA PARA COMPARTIR</span>
+    <h2 id="titulo-mirada">Una ciudad que también necesita ser escuchada</h2>
+    <p>Bogotá guarda historias que no siempre conocemos. Algunas permanecen en sus calles, otras en los recuerdos de quienes la habitan y muchas esperan ser reconocidas para no desaparecer en el olvido.</p>
+    <p>Queremos invitarte a compartir tu mirada sobre las historias, los lugares y los acontecimientos relacionados con la violencia en Bogotá que consideras importantes para recordar.</p>
+    <p>Tu participación es voluntaria. No necesitas compartir experiencias personales ni relatar situaciones dolorosas. Puedes responder únicamente aquello con lo que te sientas cómodo.</p>
+    <p>Gracias por ayudarnos a construir otras formas de mirar y comprender nuestra ciudad.</p>
+    <a class="boton-recuerdo" href="https://docs.google.com/forms/d/e/1FAIpQLSc4tzFa2sotoQ4-28DGnz_o-5JrWMYpbCIDIxmD8RjVLrruCw/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Compartir mi mirada ↗</a>
+  </section>
+
+  <section class="bloque-vida" aria-labelledby="titulo-recomendaciones">
+    <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO · RECOMENDACIONES</span>
+    <h2 id="titulo-recomendaciones">Otras historias de violencia en Bogotá</h2>
+    <p>Estas obras y documentos permiten acercarnos a otras formas de violencia que han atravesado la ciudad. Cada uno propone una manera distinta de mirar sus territorios, sus conflictos y las experiencias de quienes los habitan.</p>
+
+    <h3 class="titulo-recomendacion">María entre pandillas</h3>
+    <p>Esta historia se acerca a la vida de María Zabala y a la violencia de las pandillas en el barrio Egipto, en el centro-oriente de Bogotá, durante las décadas de 1980 y 1990. Una mirada a las experiencias de quienes crecieron en medio de esas dinámicas.</p>
+    <a class="boton-recuerdo" href="https://plazacapital.co/escena/7217-maria-entre-pandillas-una-historia-con-amor" target="_blank" rel="noopener noreferrer">Conocer la historia ↗</a>
+
+    <h3 class="titulo-recomendacion">Bogotá Alto Riesgo</h3>
+    <p>Este documental de 1995, realizado por Citurna TV, presenta distintas realidades de la ciudad relacionadas con la precariedad, la exclusión y las condiciones de vida de quienes habitan sus territorios más vulnerables. Una mirada a otras formas de violencia que atraviesan la experiencia urbana.</p>
+    <a class="boton-recuerdo" href="https://www.youtube.com/watch?v=lADIQcnn7fY" target="_blank" rel="noopener noreferrer">Ver documental ↗</a>    <h3 class="titulo-recomendacion">Bagatela</h3>
+    <p>En este documental, Jorge Caballero observa el funcionamiento cotidiano de la justicia en Bogotá y los procesos relacionados con delitos menores. La película permite acercarse a las desigualdades y contradicciones que atraviesan la vida urbana.</p>
+    <a class="boton-recuerdo" href="https://www.gusano.org/videos/bagatela/" target="_blank" rel="noopener noreferrer">Ver documental ↗</a>
+
+    <h3 class="titulo-recomendacion">Limpieza social. Una violencia mal nombrada</h3>
+    <p>Este informe del Centro Nacional de Memoria Histórica estudia la llamada limpieza social como una forma de violencia ejercida contra poblaciones estigmatizadas. Incluye un acercamiento a Ciudad Bolívar y permite reconocer una problemática que también ha marcado distintos territorios de Bogotá.</p>
+    <a class="boton-recuerdo" href="https://www.centrodememoriahistorica.gov.co/limpieza-social-una-violencia-mal-nombrada/" target="_blank" rel="noopener noreferrer">Consultar el informe ↗</a>
+  </section>
+  </main>
+
+<footer class="pie-pagina">
+  <div class="pie-contenido">
+
+    <div>
+      <p class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</p>
+    </div>
+
+    <p class="pie-descripcion">
+      Un archivo para descubrir otras formas de mirar la ciudad.
+    </p>
+
+    <div class="pie-creditos">
+      <p class="pie-etiqueta">Proyecto académico</p>
+      <p>Estudios Literarios y Edición</p>
+      <p>Universidad Jorge Tadeo Lozano</p>
+      <p>Curaduría, textos y edición</p>
+      <p>María Angélica Valbuena Acuña</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+
+  </div>
+
+  <div class="pie-final">
+    BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL
+  </div>
+</footer>
+
+<script>
+
+  /* Información de las obras */
+
+  const obras = [  /* Elementos de la página */
+
+  let indiceActual = 0;
+
+  const campos = {
+    titulo: document.getElementById("titulo-obra"),
+    imagen: document.getElementById("imagen-obra"),
+    autor: document.getElementById("autor-obra"),
+    fecha: document.getElementById("fecha-obra"),
+    tipo: document.getElementById("tipo-obra"),
+    lugar: document.getElementById("lugar-obra"),
+    temas: document.getElementById("temas-obra"),
+    mirada: document.getElementById("mirada-obra"),
+    impacto: document.getElementById("impacto-obra"),
+    reaccion: document.getElementById("reaccion-obra"),
+    descripcion: document.getElementById("texto-obra"),
+    contador: document.getElementById("contador-obra")
+  };
+
+
+  /* Construir la descripción de cada obra */
+
+  function actualizarDescripcion(obra) {
+
+    campos.descripcion.innerHTML = "";
+
+    const pregunta = document.createElement("p");
+    pregunta.className = "pregunta-obra";
+    pregunta.textContent = obra.pregunta;
+
+    campos.descripcion.appendChild(pregunta);
+
+    obra.parrafos.forEach(texto => {
+
+      const parrafo = document.createElement("p");
+      parrafo.innerHTML = texto;
+
+      campos.descripcion.appendChild(parrafo);
+
+    });
+
+    /* El botón aparece únicamente si la obra tiene un enlace */
+
+    if (obra.enlace) {
+
+      const boton = document.createElement("a");
+
+      boton.className = "boton-recuerdo";
+      boton.href = obra.enlace;
+      boton.target = "_blank";
+      boton.rel = "noopener noreferrer";
+      boton.textContent = obra.textoEnlace;
+
+      campos.descripcion.appendChild(boton);
+
+    }
+
+    if (obra.enlaceSecundario) {
+      const botonSecundario = document.createElement("a");
+      botonSecundario.className = "boton-recuerdo";
+      botonSecundario.href = obra.enlaceSecundario;
+      botonSecundario.target = "_blank";
+      botonSecundario.rel = "noopener noreferrer";
+      botonSecundario.style.marginLeft = "10px";
+      botonSecundario.textContent = obra.textoEnlaceSecundario;
+      campos.descripcion.appendChild(botonSecundario);
+    }
+
+  }
+
+
+  /* Mostrar la obra seleccionada */
+
+  function mostrarObra(indice) {
+
+    indiceActual = (indice + obras.length) % obras.length;
+
+    const obra = obras[indiceActual];
+
+    campos.titulo.textContent = obra.titulo;
+
+    campos.imagen.src = obra.imagen;
+    campos.imagen.alt = obra.alt;
+    campos.imagen.style.display = "block";
+
+    campos.imagen.onerror = () => {
+      campos.imagen.style.display = "none";
+    };
+
+    campos.autor.textContent = obra.autor;
+    campos.fecha.textContent = obra.fecha;
+    campos.tipo.textContent = obra.tipo;
+    campos.lugar.textContent = obra.lugar;
+    campos.temas.textContent = obra.temas;
+    campos.mirada.textContent = obra.mirada;
+    campos.impacto.textContent = obra.impacto;
+    campos.reaccion.textContent = obra.reaccion;
+
+    campos.contador.textContent =
+      `${String(indiceActual + 1).padStart(2, "0")} / ${String(obras.length).padStart(2, "0")}`;
+
+    actualizarDescripcion(obra);
+
+    document.querySelectorAll(".miniatura").forEach((boton, i) => {
+      boton.classList.toggle("seleccionada", i === indiceActual);
+    });
+
+  }
+
+
+  /* Botones para cambiar de obra */
+
+  document.getElementById("anterior").addEventListener("click", () => {
+    mostrarObra(indiceActual - 1);
+  });
+
+  document.getElementById("siguiente").addEventListener("click", () => {
+    mostrarObra(indiceActual + 1);
+  });
+
+
+  /* Navegación mediante miniaturas */
+
+  document.querySelectorAll(".miniatura").forEach(boton => {
+
+    boton.addEventListener("click", () => {
+      mostrarObra(Number(boton.dataset.indice));
+    });
+
+  });
+
+
+  /* Visor de imágenes ampliadas */
+
+  const visor = document.getElementById("visor-imagen");
+  const imagenAmpliada = document.getElementById("imagen-ampliada");
+  const cerrarVisor = document.getElementById("cerrar-visor");
+
+  function abrirImagen() {
+
+    imagenAmpliada.src = campos.imagen.src;
+    imagenAmpliada.alt = campos.imagen.alt;
+
+    visor.classList.add("abierto");
+    document.body.style.overflow = "hidden";
+
+    cerrarVisor.focus();
+
+  }
+
+  function cerrarImagen() {
+
+    visor.classList.remove("abierto");
+    imagenAmpliada.src = "";
+    document.body.style.overflow = "";
+
+    campos.imagen.focus();
+
+  }
+
+  campos.imagen.addEventListener("click", abrirImagen);
+
+  cerrarVisor.addEventListener("click", cerrarImagen);
+
+  visor.addEventListener("click", (evento) => {
+
+    if (evento.target === visor) {
+      cerrarImagen();
+    }
+
+  });
+
+  document.addEventListener("keydown", (evento) => {
+
+    if (evento.key === "Escape" && visor.classList.contains("abierto")) {
+      cerrarImagen();
+    }
+
+  });
+
+
+  /* Mostrar la primera obra al cargar la página */
+
+  mostrarObra(0);
+
+</script>
+
+</body>
+</html>
