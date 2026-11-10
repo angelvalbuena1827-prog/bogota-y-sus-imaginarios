@@ -200,14 +200,15 @@
       font: italic 400 20px 'Cormorant Garamond', serif;
       line-height: 1.4;
     }
-
-    /* Exposición */
+        /* Exposición */
 
     .exposicion {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(230px, .75fr);
       gap: 30px;
       align-items: center;
+      width: 100%;
+      min-width: 0;
     }
 
     .marco-obra {
@@ -225,17 +226,14 @@
         radial-gradient(ellipse at center, rgba(var(--acento-rgb), .10), transparent 70%),
         var(--panel);
     }
-      padding: 22px;
-      border: 1px solid var(--linea);
-      background:
-        radial-gradient(ellipse at center, rgba(var(--acento-rgb), .10), transparent 70%),
-        var(--panel);
-    }
 
     .imagen-obra {
       display: block;
       width: 100%;
+      max-width: 100%;
       height: 100%;
+      min-width: 0;
+      min-height: 0;
       object-fit: contain;
       cursor: zoom-in;
       transition: transform .25s ease;
@@ -295,19 +293,21 @@
     /* Descripción debajo de la exposición */
 
     .descripcion-obra {
+      max-width: 1050px;
+      margin: 35px auto 0;
+      padding: 25px 0 0;
       border-top: 1px solid var(--linea);
-      padding-top: 17px;
       color: #c6cee0;
-      font: 400 12px 'Montserrat', sans-serif;
-      line-height: 1.8;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
     }
 
     .descripcion-obra p { margin: 0 0 18px; }
 
     .descripcion-obra .pregunta-obra {
-      color: #f5f1ff;
-      font: 600 12px 'Montserrat', sans-serif;
-      line-height: 1.8;
+      color: var(--acento);
+      font: italic 400 24px 'Cormorant Garamond', serif;
+      line-height: 1.5;
     }
 
     /* Botón para entrevista */
@@ -444,7 +444,8 @@
       font: italic 400 21px 'Cormorant Garamond', serif;
     }
 
-    .nota-participacion {      color: var(--suave) !important;
+    .nota-participacion {
+      color: var(--suave) !important;
       font-size: 11px !important;
     }
 
@@ -502,8 +503,7 @@
       font: 400 9px 'Montserrat', sans-serif;
       letter-spacing: 1px;
     }
-
-    /* Adaptación a pantallas pequeñas */
+        /* Adaptación a pantallas pequeñas */
 
     @media (max-width: 850px) {
       .coleccion-layout {
@@ -673,8 +673,7 @@
       <a class="enlace-recorrido" href="#exposicion-memoria">Recorrer las obras ↓</a>
     </div>
   </section>
-
-  <div class="coleccion-layout" id="exposicion-memoria">
+    <div class="coleccion-layout" id="exposicion-memoria">
     <aside class="menu-colecciones" aria-label="Navegación entre colecciones">
       <h2>COLECCIONES</h2>
       <div class="grupo-coleccion"><a class="boton-coleccion" href="vida-cotidiana.html">01　Vida cotidiana</a></div>
@@ -685,6 +684,7 @@
       <div class="grupo-coleccion"><a class="boton-coleccion" href="memoria.html">06　Memoria</a></div>
       <div class="grupo-coleccion"><a class="boton-coleccion" href="amor.html">07　Amor</a></div>
     </aside>
+
     <section class="contenido-coleccion" aria-label="Exposición digital">
       <header class="sobre-coleccion">
         <div>
@@ -788,7 +788,6 @@
   </div>
   <div class="pie-final">BOGOTÁ, COLOMBIA · ARCHIVO DIGITAL</div>
 </footer>
-
 <script>
   const obras = [{
     titulo: "Opio en las nubes",
