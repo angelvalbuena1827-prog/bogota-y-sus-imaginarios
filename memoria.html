@@ -377,7 +377,8 @@
       line-height: 1.8;
     }
 
-    .nota-prototipo {      margin: 15px 0 0;
+    .nota-prototipo {
+      margin: 15px 0 0;
       color: #8995ad;
       font: 400 10px 'Montserrat', sans-serif;
       line-height: 1.6;
@@ -724,8 +725,7 @@
       }
     }
   </style>
-  </head>
-
+</head>
 <body>
 <main class="pagina-coleccion">
 
@@ -847,7 +847,8 @@
       La reproducción comienza únicamente cuando decides escuchar.
     </p>
   </section>
-    <!-- FORMULARIO PARTICIPATIVO -->
+
+  <!-- FORMULARIO PARTICIPATIVO -->
 
   <section class="participacion-memoria" aria-labelledby="titulo-participacion">
     <span class="etiqueta-participacion">MEMORIA COLECTIVA</span>
@@ -912,6 +913,7 @@
   </section>
 
   <!-- RECURSOS DE MEMORIA HISTÓRICA -->
+
   <section class="participacion-memoria" aria-labelledby="titulo-recursos-memoria">
     <span class="etiqueta-participacion">PARA SEGUIR EXPLORANDO</span>
     <h2 id="titulo-recursos-memoria">Bogotá: archivos, relatos y memoria</h2>
@@ -939,6 +941,7 @@
   </div>
 
   <!-- EXPERIENCIAS DE VIDA COTIDIANA -->
+
   <section id="extras-vida" class="bloque-vida" hidden aria-labelledby="titulo-mirada">
     <span class="etiqueta-participacion">UNA PAUSA PARA COMPARTIR</span>
     <h2 id="titulo-mirada">Una mirada a nuestra ciudad</h2>
@@ -992,6 +995,138 @@
 </footer>
 
 <script>
+  const colecciones = [
+        {
+      nombre: "Vida cotidiana",
+      descripcion: "Las historias que habitan lo común.",
+      obras: [
+        {
+          titulo: "Humor de Ascensoristas",
+          imagen: "imgs/humor-ascensoristas.png",
+          autor: "Iván Gómez Gaitán",
+          fecha: "2022 (reconocimiento) · presentación en Bogotá en 2024",
+          tipo: "Teatro",
+          lugar: "Congreso de la República",
+          temas: "Vida cotidiana",
+          mirada: "La nostálgica",
+          impacto: "Volvería a ella",
+          reaccion: "Deja pensando",
+          pregunta: "¿Cuántas historias pueden permanecer escondidas detrás de las puertas de un lugar que creemos conocer?",
+          descripcion: "En Humor de Ascensoristas, Iván Gómez Gaitán entrelaza las vidas de Pedro, un antiguo ascensorista del Congreso que, en su vejez, se prepara para una nueva entrevista de trabajo, y Marcos, un joven soldado que enfrenta la inminencia de la muerte en una zona de guerra. Sus historias se encuentran en un relato atravesado por los recuerdos, las ausencias y la necesidad de encontrar respuestas o despedirse. La obra nos invita a mirar más allá de los espacios que habitualmente asociamos con la vida institucional de Bogotá. A través de Pedro, recupera la figura de quien, desde un oficio cotidiano y muchas veces inadvertido, también ha sido parte de la historia de un lugar. Porque detrás de los edificios que reconocemos, de los trabajos que pocas veces nombramos y de los encuentros que parecen pasajeros, existen vidas enteras, recuerdos y sentimientos que merecen ser escuchados. Entre la nostalgia, la soledad y el arrepentimiento, Humor de Ascensoristas nos recuerda que la ciudad también se construye con las historias de quienes la habitan y la recorren cada día."
+        },
+        {
+          titulo: "Que pase lo peor",
+          imagen: "imgs/que-pase-lo-peor.webp",
+          autor: "Antonio García Ángel",
+          fecha: "2025",
+          tipo: "Novela",
+          lugar: "Bogotá · Ciudad Montes",
+          temas: "Vida cotidiana",
+          mirada: "La rebelde",
+          impacto: "No me la saco de la cabeza",
+          reaccion: "Vuela la cabeza",
+          pregunta: "¿Qué tienen que ver Gregorio Samsa, una cucaracha gigante y las calles de Bogotá?",
+          descripcion: "En esta novela, Nelson Camargo, un profesor de lógica y escritor cuya vida parece desmoronarse, termina encargado de cuidar a Yeison Mestizo, una presencia enigmática que poco a poco transforma la historia en una aventura delirante. Leer esta novela es también recorrer Bogotá. Sus calles, barrios, bares y TransMilenios aparecen como parte de un paisaje familiar que despierta recuerdos y sensaciones, especialmente en quienes conocen la ciudad. Pero García Ángel no se conforma con retratarla: juega con ella, la transforma y la lleva hasta escenarios tan absurdos como sorprendentes. Entre referencias literarias, música, cultura popular, humor e ironía, la novela convierte la lectura en una especie de pogo literario: un salto constante entre lo cotidiano y lo extraordinario, entre la risa y el desconcierto. Desde el guiño a La metamorfosis de Kafka hasta los juegos con la propia narración, cada referencia abre nuevas posibilidades para quien lee. Una invitación a recorrer Bogotá desde la imaginación, reconocer sus lugares y dejarse llevar por una historia en la que lo familiar puede convertirse, de un momento a otro, en algo completamente inesperado."
+        }
+      ]
+    },
+    {
+      nombre: "Pasado",
+      descripcion: "Las huellas de las ciudades que fuimos.",
+      obras: []
+    },
+    {
+      nombre: "Vida nocturna",
+      descripcion: "La ciudad que aparece cuando cae la noche.",
+      obras: []
+    },
+    {
+      nombre: "Violencia",
+      descripcion: "Las heridas que transforman la ciudad.",
+      obras: []
+    },
+    {
+      nombre: "Resistencia",
+      descripcion: "Crear, permanecer y transformar el espacio.",
+      obras: []
+    },
+    {
+      nombre: "Memoria",
+      descripcion: "Volver a pasar por el corazón.",
+      obras: [
+        {
+          titulo: "La siempreviva",
+          imagen: "imgs/la-siempreviva.jpg",
+          enlace: "https://www.youtube.com/watch?v=OQipIt6m-CY",
+          textoEnlace: "Ver la obra de teatro en YouTube",
+          autor: "Miguel Torres",
+          fecha: "1994",
+          tipo: "Teatro",
+          lugar: "La Candelaria",
+          temas: "Memoria",
+          mirada: "La ruda",
+          impacto: "No me la saco de la cabeza",
+          reaccion: "Llorar varios días",
+          pregunta: "¿Qué queda de una ciudad después de una tragedia que todavía duele?",
+          descripcion: "La siempreviva, de Miguel Torres, reconstruye desde el teatro la historia de una familia marcada por la toma y retoma del Palacio de Justicia de 1985. La obra se acerca a las consecuencias de aquellos acontecimientos a través de la vida doméstica y de los vínculos familiares, llevando la historia colectiva al terreno de las experiencias íntimas. De este modo, la tragedia no aparece únicamente como un episodio de la historia nacional, sino como una herida que atraviesa la vida de quienes esperan, buscan respuestas y conviven con la ausencia.\n\n\n\nEn medio de la incertidumbre, la desaparición y la espera, Bogotá aparece como una ciudad atravesada por la violencia y por una memoria que se niega a desaparecer. La Candelaria, espacio al que se vincula la obra, se convierte en un punto de encuentro entre la representación teatral y una historia que sigue interpelando a la ciudad. El escenario permite acercarnos a aquello que los registros históricos no siempre alcanzan a transmitir: el dolor, el desconcierto y las huellas que un acontecimiento deja en las personas.\n\n\n\nLa obra nos invita a recordar desde la empatía. Nos recuerda que detrás de las fechas, los informes y las versiones de un acontecimiento existen vidas concretas, familias y preguntas que permanecen abiertas. Mirar La siempreviva es reconocer que la memoria también se construye al escuchar esas experiencias y al negarnos a tratar la desaparición como un asunto concluido."
+        },
+        {
+          titulo: "Parque de la Independencia",
+          imagen: "imgs/parque-independencia.jpg",
+          fuente: "https://colecciones.banrepcultural.org/es/documento/parque-de-la-independencia-pintura/63a069015d96b8790f25e9e1",
+          textoFuente: "Consultar obra y créditos",
+          autor: "Luis Fernando Roldán Jaramillo",
+          fecha: "1994",
+          tipo: "Pintura",
+          lugar: "Parque de la Independencia",
+          temas: "Memoria",
+          mirada: "La cotidiana",
+          impacto: "Me dejó algo",
+          reaccion: "Vuela la cabeza",
+          pregunta: "¿Cómo se pinta un lugar que ya conocemos?",
+          descripcion: "Luis Fernando Roldán dedicó una serie de 32 pinturas al Parque de la Independencia, explorando el espacio desde una mirada que se mueve entre la abstracción y la realidad. La luz, la vegetación, las montañas y la arquitectura bogotana aparecen transformadas por la materia y el color. En lugar de limitarse a reproducir el paisaje, las pinturas proponen una interpretación del parque: lo reconocible se mezcla con formas, atmósferas y sensaciones que hacen que el lugar vuelva a aparecer ante nuestros ojos.\n\n\n\nEl parque es uno de esos espacios que forman parte de la memoria urbana. Ha sido escenario de paseos, encuentros y recorridos, y su imagen se transforma con el paso del tiempo y con las experiencias de quienes lo visitan. Al dedicarle una serie completa, Roldán convierte un lugar cotidiano en motivo de observación artística. Cada pintura ofrece una manera distinta de acercarse al mismo territorio y demuestra que un paisaje conocido nunca se agota en una sola mirada.\n\n\n\nLa memoria, en esta obra, no depende de reconstruir un acontecimiento doloroso ni de conservar una imagen exacta del pasado. También puede surgir de la relación afectiva con un lugar y de la posibilidad de reconocer cómo lo hemos visto y habitado. Estas pinturas nos invitan a detenernos en el parque, a recordar nuestras propias experiencias en sus espacios y a descubrir que la ciudad permanece también en los paisajes que aprendemos a reconocer como nuestros."
+        },
+        {
+          titulo: "Bogotá",
+          imagen: "imgs/bogota-andres-cepeda.jpg",
+          enlace: "https://youtu.be/HgPbFmnDF8M?si=6X_rWzQkAGqY-9Mn",
+          textoEnlace: "Escuchar y ver el video en YouTube",
+          autor: "Andrés Cepeda",
+          fecha: "2024",
+          tipo: "Canción",
+          lugar: "Teatro Colón",
+          temas: "Memoria",
+          mirada: "La nostálgica",
+          impacto: "Me dejó algo",
+          reaccion: "Deja pensando",
+          pregunta: "¿Puede una ciudad caber en los recuerdos de una infancia?",
+          descripcion: "En la canción Bogotá, Andrés Cepeda convierte la ciudad en un álbum de recuerdos familiares y cotidianos. La memoria aparece ligada a la infancia, a la casa y a esos lugares que acompañan el crecimiento y que, con el paso de los años, adquieren un significado distinto. La ciudad no se presenta solamente como un escenario: se vuelve parte de la historia personal, un territorio afectivo donde se guardan momentos, personas y experiencias.\n\n\n\nLa canción propone una mirada íntima de Bogotá. Sus recuerdos permiten pensar en la manera en que cada habitante construye una relación particular con la ciudad: una calle puede devolvernos a una etapa de la vida, una casa puede conservar la presencia de quienes ya no están y un recorrido puede reunir distintas versiones de nosotros mismos. Así, la memoria individual se conecta con una experiencia compartida, porque muchas personas reconocen en esos afectos algo de su propia historia.\n\n\n\nAl escucharla, la ciudad puede sentirse cercana incluso cuando el tiempo y las transformaciones urbanas la han hecho distinta. Bogotá se convierte en un lugar al que regresamos a través de la memoria, no necesariamente para encontrarlo tal como era, sino para reconocer lo que todavía permanece en nosotros. La canción nos recuerda que recordar una ciudad también es recordar quiénes fuimos mientras la habitábamos."
+        },
+        {
+          titulo: "Avenida de la República [Carrera Séptima], Bogotá",
+          imagen: "imgs/carrera-septima-1930.jpg",
+          fuente: "https://www.bibliotecadigitaldebogota.gov.co/resources/2078345/",
+          textoFuente: "Consultar fotografía y créditos",
+          autor: "Gumersindo Cuéllar Jiménez",
+          fecha: "1930",
+          tipo: "Fotografía",
+          lugar: "Carrera Séptima",
+          temas: "Memoria",
+          mirada: "La cotidiana",
+          impacto: "Me dejó algo",
+          reaccion: "Deja pensando",
+          pregunta: "¿Cuánto puede cambiar una calle y, al mismo tiempo, seguir siendo la misma ciudad?",
+          descripcion: "Esta fotografía de Gumersindo Cuéllar recorre la Carrera Séptima a la altura de la Calle 26 y conserva una mirada de Bogotá en 1930. Entre viviendas, calles y arquitectura, la imagen permite asomarse a una ciudad que todavía estaba en transformación. La fotografía registra una escena urbana concreta, pero también conserva señales de una época: las formas de construir, la disposición del espacio y la manera en que la ciudad se presentaba ante quienes la recorrían.\n\n\n\nLa Carrera Séptima ha sido uno de los ejes más reconocibles de Bogotá. Su paisaje ha cambiado con las décadas, al ritmo de las transformaciones del centro y de las nuevas maneras de desplazarse y ocupar el espacio público. Al observar esta imagen, podemos comparar lo que aparece en ella con la avenida que conocemos hoy y preguntarnos qué elementos han desaparecido, cuáles permanecen y qué historias se han acumulado sobre el mismo recorrido.\n\n\n\nEl archivo fotográfico permite que una escena del pasado vuelva a estar disponible para nuestra mirada. No se trata únicamente de contemplar cómo era la ciudad, sino de reconocer que cada transformación deja rastros y que las fotografías ayudan a conservarlos. Esta imagen nos invita a mirar la Carrera Séptima como un espacio vivo, cargado de cambios y continuidades, y a pensar cuánto puede transformarse una calle sin dejar de formar parte de la memoria de Bogotá."
+        }
+      ]
+    },
+    {
+      nombre: "Amor",
+      descripcion: "Los afectos también construyen ciudad.",
+      obras: []
+    }
+  ];
+
   const textosApertura = {
     0: {
       epigrafe: "«Aisthesis designa la experiencia estética fundamental de que una obra de arte puede renovar la percepción de las cosas, embotada por la costumbre». ",
@@ -1010,7 +1145,7 @@
     5: {
       epigrafe: "«Recordar: del latín re-cordis, volver a pasar por el corazón». ",
       autor: "— Eduardo Galeano",
-      subtitulo: "Volver a pasar por el corazón.",
+      subtitulo: "Volver a pasar por el corazón",
       parrafos: [
         "Bienvenido a esta colección. Antes de comenzar, quiero invitarte a pensar en un recuerdo de Bogotá. Puede ser bueno o malo, alegre o doloroso; un momento, un lugar o una persona que todavía guardes en tu memoria. Mantenlo contigo. Vamos a recorrer juntos los recuerdos de esta ciudad.",
         "La memoria de Bogotá no está hecha únicamente de fechas y acontecimientos. También vive en los lugares que habitamos, en las historias que heredamos, en las personas con quienes nos encontramos y en las experiencias que dejan una huella en nuestras vidas.",
@@ -1178,6 +1313,7 @@
         texto: obra.textoFuente || "Consultar fuente y créditos"
       });
     }
+
     const bloqueEnlacesAnterior = document.getElementById("enlaces-obra-adicionales");
     if (bloqueEnlacesAnterior) bloqueEnlacesAnterior.remove();
 
@@ -1215,11 +1351,11 @@
         <h4>Una lectura personal: el eco de Julieta</h4>
         <p>Monólogo de María Angélica Valbuena Acuña, inspirado en <em>La siempreviva</em>, de Miguel Torres. Puedes recorrer las páginas desde los controles del documento.</p>
         <iframe
-          src="documentos/Monologo_de_Julieta_Memoria_portada_floral.pdf#toolbar=1&navpanes=0&view=FitH"
+          src="https://angelvalbuena1827-prog.github.io/bogota-y-sus-imaginarios/documentos/Monologo_de_Julieta_Memoria_portada_floral.pdf#toolbar=1&navpanes=0&view=FitH"
           title="Monólogo de Julieta: El silencio ensordecedor de una desaparecida"
           loading="lazy">
         </iframe>
-        <p style="margin-top:12px;">Si el visor no aparece en tu navegador, <a href="documentos/Monologo_de_Julieta_Memoria_portada_floral.pdf" target="_blank" rel="noopener noreferrer">abre el PDF en una pestaña nueva ↗</a>.</p>
+        <p style="margin-top:12px;">Si el visor no aparece en tu navegador, <a href="https://angelvalbuena1827-prog.github.io/bogota-y-sus-imaginarios/documentos/Monologo_de_Julieta_Memoria_portada_floral.pdf" target="_blank" rel="noopener noreferrer">abre el PDF en una pestaña nueva ↗</a>.</p>
       `;
       const enlacePrincipal = document.getElementById("enlace-obra");
       if (enlacePrincipal) {
