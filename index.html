@@ -3,191 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Bogotá y sus imaginarios</title>
-
     <meta name="description" content="Explora Bogotá a través de sus memorias, afectos, historias y formas de habitar la ciudad.">
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header class="encabezado">
-        <a href="index.html" class="marca">
-            BOGOTÁ <span>Y SUS IMAGINARIOS</span>
-        </a>
+<header class="encabezado">
+    <a href="index.html" class="marca">BOGOTÁ <span>Y SUS IMAGINARIOS</span></a>
 
-        <nav class="navegacion" aria-label="Navegación principal">
-            <a href="index.html" class="activo">Inicio</a>
-            <a href="#colecciones">Colecciones</a>
-            <a href="#recorridos">Recorridos</a>
-            <a href="sobre-el-proyecto.html">Sobre el proyecto</a>
-        </nav>
-    </header>
+    <nav class="navegacion" aria-label="Navegación principal">
+        <a href="index.html" class="activo">Inicio</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="recorridos.html">Recorridos</a>
+        <a href="sobre-el-proyecto.html">Sobre el proyecto</a>
+    </nav>
 
-    <main>
+    <button id="boton-lluvia" class="boton-lluvia" type="button" aria-pressed="false">
+        <span aria-hidden="true">♫</span> <span class="texto-lluvia">Activar lluvia</span>
+    </button>
+</header>
 
-        <section class="portada" aria-labelledby="titulo-principal">
+<main>
+    <section class="portada" aria-labelledby="titulo-principal">
+        <div class="portada-contenido">
+            <p class="etiqueta">ARCHIVO DIGITAL · BOGOTÁ, COLOMBIA</p>
+            <h1 id="titulo-principal">BOGOTÁ</h1>
+            <p class="subtitulo">y sus imaginarios</p>
+            <p class="introduccion">Una ciudad. Muchas formas de imaginarla.</p>
+            <a href="#colecciones" class="explorar">EXPLORAR LA CIUDAD <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="indicador"><span></span> UNA CIUDAD, MUCHAS HISTORIAS</div>
+    </section>
 
-            <div class="portada-contenido">
+    <div class="franja-palabras" aria-hidden="true">
+        <div class="franja-contenido">
+            <span>Memoria</span><i>✦</i><span>Ciudad</span><i>✦</i><span>Encuentros</span><i>✦</i><span>Territorios</span><i>✦</i><span>Historias</span><i>✦</i><span>Imaginarios</span><i>✦</i>
+            <span>Memoria</span><i>✦</i><span>Ciudad</span><i>✦</i><span>Encuentros</span><i>✦</i><span>Territorios</span><i>✦</i><span>Historias</span><i>✦</i><span>Imaginarios</span><i>✦</i>
+        </div>
+    </div>
 
-                <p class="etiqueta">ARCHIVO DIGITAL · BOGOTÁ, COLOMBIA</p>
-
-                <h1 id="titulo-principal">BOGOTÁ</h1>
-
-                <p class="subtitulo">y sus imaginarios</p>
-
-                <p class="introduccion">
-                    Una ciudad. Muchas formas de imaginarla.
-                </p>
-
-                <a href="#colecciones" class="explorar">
-                    EXPLORAR LA CIUDAD
-                    <span aria-hidden="true">↓</span>
-                </a>
-
-            </div>
-
-            <div class="indicador">
-                <span></span>
-                UNA CIUDAD, MUCHAS HISTORIAS
-            </div>
-
-        </section>
-
-        <section id="colecciones" class="seccion-colecciones">
-
-            <div class="encabezado-seccion">
-                <p class="etiqueta">SIETE FORMAS DE MIRAR</p>
-                <h2>Explora sus imaginarios</h2>
-                <p>
-                    Cada colección abre una ventana a las historias
-                    que construyen y transforman la ciudad.
-                </p>
+    <section id="colecciones" class="seccion-colecciones">
+        <div class="contenedor">
+            <div class="encabezado-seccion aparecer">
+                <div>
+                    <p class="etiqueta">SIETE FORMAS DE MIRAR</p>
+                    <h2>Explora sus <em>imaginarios.</em></h2>
+                </div>
+                <p class="texto-intro-seccion">Cada colección abre una ventana a las historias que construyen y transforman la ciudad. Entra, descubre sus obras y encuentra otras maneras de mirar Bogotá.</p>
             </div>
 
             <div class="colecciones-grid">
-
-                <a class="coleccion" href="vida-cotidiana.html">
-                    <span class="numero">01</span>
-                    <span class="nombre-coleccion">Vida cotidiana</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-1 aparecer" href="vida-cotidiana.html" data-palabra="Ritmos">
+                    <div class="contenido-coleccion"><div><span class="numero">01 / UNA CIUDAD HABITADA</span><h3>Vida cotidiana</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
-                <a class="coleccion" href="pasado.html">
-                    <span class="numero">02</span>
-                    <span class="nombre-coleccion">Pasado</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-2 aparecer" href="pasado.html" data-palabra="Huellas">
+                    <div class="contenido-coleccion"><div><span class="numero">02 / LO QUE PERMANECE</span><h3>Pasado</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
-                <a class="coleccion" href="vida-nocturna.html">
-                    <span class="numero">03</span>
-                    <span class="nombre-coleccion">Vida nocturna</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-3 aparecer" href="vida-nocturna.html" data-palabra="Noche">
+                    <div class="contenido-coleccion"><div><span class="numero">03 / CUANDO CAE EL DÍA</span><h3>Vida nocturna</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
-                <a class="coleccion" href="violencia.html">
-                    <span class="numero">04</span>
-                    <span class="nombre-coleccion">Violencia</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-4 aparecer" href="violencia.html" data-palabra="Heridas">
+                    <div class="contenido-coleccion"><div><span class="numero">04 / LAS MARCAS DE LA CIUDAD</span><h3>Violencia</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
-                <a class="coleccion" href="resistencia.html">
-                    <span class="numero">05</span>
-                    <span class="nombre-coleccion">Resistencia</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-5 aparecer" href="resistencia.html" data-palabra="Fuerza">
+                    <div class="contenido-coleccion"><div><span class="numero">05 / OTRAS VOCES</span><h3>Resistencia</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
-                <a class="coleccion" href="memoria.html">
-                    <span class="numero">06</span>
-                    <span class="nombre-coleccion">Memoria</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-6 aparecer" href="memoria.html" data-palabra="Recuerdo">
+                    <div class="contenido-coleccion"><div><span class="numero">06 / LO QUE NOS CUENTA</span><h3>Memoria</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
-                <a class="coleccion" href="amor.html">
-                    <span class="numero">07</span>
-                    <span class="nombre-coleccion">Amor</span>
-                    <span class="flecha" aria-hidden="true">↗</span>
+                <a class="coleccion coleccion-7 aparecer" href="amor.html" data-palabra="Afectos">
+                    <div class="contenido-coleccion"><div><span class="numero">07 / VÍNCULOS Y DESEOS</span><h3>Amor</h3></div><span class="flecha" aria-hidden="true">↗</span></div>
                 </a>
-
             </div>
+        </div>
+    </section>
 
-        </section>
+    <section id="recorridos" class="seccion-recorridos">
+        <div class="contenedor recorridos-contenido">
+            <div class="texto-recorridos aparecer">
+                <p class="etiqueta">MÁS ALLÁ DEL ARCHIVO</p>
+                <h2>La ciudad también se lee <em>caminando.</em></h2>
+                <p>Hay historias que se encuentran en una calle, una plaza, un barrio o un trayecto. Explora las relaciones entre las obras y los lugares que habitan Bogotá.</p>
+                <a href="recorridos.html" class="enlace-redondo">ENTRAR A RECORRIDOS <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="mapa-abstracto" aria-label="Representación abstracta de un mapa de Bogotá con puntos luminosos">
+                <svg class="lineas-mapa" viewBox="0 0 500 400" fill="none" aria-hidden="true">
+                    <path d="M30 270L120 210 185 235 250 120 320 155 450 65M45 330L160 280 225 310 300 235 440 270M70 80L150 140 220 90 300 150 390 110" stroke="#e9b36f" stroke-width="1.2" stroke-dasharray="4 8"/>
+                    <path d="M85 20L125 100 190 170 220 260 280 370M400 15L350 100 320 190 370 290" stroke="#d58e61" stroke-width="1" opacity=".6"/>
+                </svg>
+                <i class="punto-mapa punto-1"></i><i class="punto-mapa punto-2"></i><i class="punto-mapa punto-3"></i><i class="punto-mapa punto-4"></i>
+                <div class="centro-mapa">Bogotá<small>UN MAPA DE HISTORIAS</small></div>
+            </div>
+        </div>
+        <div class="marca-agua-recorridos" aria-hidden="true">RECORRIDOS</div>
+    </section>
 
-        <section id="recorridos" class="seccion-recorridos">
-            <p class="etiqueta">MÁS ALLÁ DEL ARCHIVO</p>
-            <h2>Recorrer también es imaginar.</h2>
-            <p>
-                Descubre relaciones, lugares y relatos que revelan
-                otras maneras de experimentar Bogotá.
-            </p>
-        </section>
+    <section class="cierre">
+        <div class="contenedor aparecer">
+            <p class="etiqueta">UNA INVITACIÓN A MIRAR DE NUEVO</p>
+            <blockquote>Porque Bogotá no tiene un solo rostro. <em>Tiene tantos como miradas se detengan a imaginarla.</em></blockquote>
+            <p>Un archivo para descubrir otras formas de mirar la ciudad.</p>
+            <a href="sobre-el-proyecto.html" class="enlace-redondo enlace-proyecto">CONOCE EL PROYECTO <span aria-hidden="true">↗</span></a>
+        </div>
+    </section>
+</main>
 
-       <section id="proyecto" class="seccion-proyecto">
-    <p class="etiqueta">SOBRE EL PROYECTO</p>
-    <h2>Una ciudad que nunca es una sola.</h2>
-    <p>
-        Bogotá y sus imaginarios reúne fotografías, textos,
-        canciones, obras y otros registros para explorar las
-        múltiples formas de representar, habitar y sentir la ciudad.
-    </p>
-
-    <a href="sobre-el-proyecto.html" class="explorar">
-        CONOCE EL PROYECTO
-        <span aria-hidden="true">↗</span>
-    </a>
-</section>
-
-    </main>
-
- <footer class="pie-pagina">
-    <a href="index.html">BOGOTÁ Y SUS IMAGINARIOS</a>
-
-    <p>Un archivo para descubrir otras formas de mirar la ciudad.</p>
-
+<footer class="pie-pagina">
+    <a href="index.html" class="pie-marca">BOGOTÁ Y SUS IMAGINARIOS</a>
+    <p class="pie-frase">Un archivo para descubrir otras formas de mirar la ciudad.</p>
     <div class="creditos">
         <p>Proyecto académico</p>
         <p>Estudios Literarios y Edición</p>
         <p>Universidad Jorge Tadeo Lozano</p>
-
-        <p class="credito-autoria">
-            <span>Curaduría, textos y edición</span>
-            <strong>María Angélica Valbuena Acuña</strong>
-        </p>
-
+        <p class="credito-autoria"><span>Curaduría, textos y edición</span><strong>María Angélica Valbuena Acuña</strong></p>
         <p class="ubicacion">Bogotá, Colombia</p>
     </div>
 </footer>
-<!-- Sonido ambiental de lluvia -->
-<audio id="sonido-lluvia" loop>
+
+<audio id="sonido-lluvia" loop preload="none">
     <source src="sonidos/lluvia-bogota.mp3" type="audio/mpeg">
     Tu navegador no puede reproducir este audio.
 </audio>
 
-<button id="boton-lluvia" class="boton-lluvia" type="button" aria-pressed="false">
-    ♫ Activar lluvia
-</button>
-
 <script>
-    const sonidoLluvia = document.getElementById('sonido-lluvia');
-    const botonLluvia = document.getElementById('boton-lluvia');
+const elementosAparecer = document.querySelectorAll('.aparecer');
 
-    botonLluvia.addEventListener('click', async () => {
-        if (sonidoLluvia.paused) {
-            try {
-                await sonidoLluvia.play();
-                botonLluvia.textContent = '♫ Silenciar lluvia';
-                botonLluvia.setAttribute('aria-pressed', 'true');
-            } catch (error) {
-                botonLluvia.textContent = 'No se pudo reproducir';
+if ('IntersectionObserver' in window) {
+    const observador = new IntersectionObserver((entradas, observadorActual) => {
+        entradas.forEach(entrada => {
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add('visible');
+                observadorActual.unobserve(entrada.target);
             }
-        } else {
-            sonidoLluvia.pause();
-            botonLluvia.textContent = '♫ Activar lluvia';
-            botonLluvia.setAttribute('aria-pressed', 'false');
+        });
+    }, { threshold: 0.12 });
+
+    elementosAparecer.forEach(elemento => observador.observe(elemento));
+} else {
+    elementosAparecer.forEach(elemento => elemento.classList.add('visible'));
+}
+
+const sonidoLluvia = document.getElementById('sonido-lluvia');
+const botonLluvia = document.getElementById('boton-lluvia');
+const textoLluvia = botonLluvia.querySelector('.texto-lluvia');
+
+botonLluvia.addEventListener('click', async () => {
+    if (sonidoLluvia.paused) {
+        try {
+            await sonidoLluvia.play();
+            textoLluvia.textContent = 'Silenciar lluvia';
+            botonLluvia.setAttribute('aria-pressed', 'true');
+            botonLluvia.classList.add('reproduciendo');
+        } catch (error) {
+            textoLluvia.textContent = 'Audio no disponible';
         }
-    });
+    } else {
+        sonidoLluvia.pause();
+        textoLluvia.textContent = 'Activar lluvia';
+        botonLluvia.setAttribute('aria-pressed', 'false');
+        botonLluvia.classList.remove('reproduciendo');
+    }
+});
 </script>
 </body>
 </html>
