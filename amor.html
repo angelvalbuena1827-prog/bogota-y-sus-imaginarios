@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +20,6 @@
     }
 
     * { box-sizing: border-box; }
-
     body { margin: 0; }
 
     .pagina-coleccion {
@@ -73,7 +73,7 @@
     .epigrafe-memoria blockquote {
       margin: 0;
       color: #f4c1d7;
-      font: italic 400 clamp(18px, 2.1vw, 25px) 'Cormorant Garamond', serif;
+      font: normal 400 clamp(18px, 2.1vw, 25px) 'Cormorant Garamond', serif;
       line-height: 1.5;
     }
 
@@ -313,6 +313,72 @@
       line-height: 1.8;
     }
 
+    .exposicion { align-items: center; }
+
+    .descripcion-obra {
+      max-width: 1050px;
+      margin: 34px auto 0;
+      padding: 24px 0 0;
+      border-top: 1px solid rgba(229, 200, 255, .3);
+      color: #c6cee0;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .descripcion-obra p { margin: 0 0 18px; }
+
+    .descripcion-obra .pregunta-descripcion {
+      margin: 0 0 22px;
+      color: var(--lila);
+      font: italic 400 24px 'Cormorant Garamond', serif;
+      line-height: 1.5;
+    }
+
+    .miniaturas {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 25px 2px 15px;
+      margin-top: 12px;
+    }
+
+    .miniatura {
+      flex: 0 0 105px;
+      height: 75px;
+      border: 1px solid var(--linea);
+      background: var(--panel);
+      padding: 5px;
+      cursor: pointer;
+      opacity: .55;
+    }
+
+    .miniatura.activa {
+      opacity: 1;
+      border-color: var(--violeta);
+      box-shadow: 0 0 12px rgba(217, 79, 145, .25);
+    }
+
+    .miniatura img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .ficha-obra dt { color: #f4c1d7; }
+    .ficha-obra dd { margin: 0; color: #e4deef; }
+
+    .descripcion-obra {
+      border-top: 1px solid rgba(229, 200, 255, .3);
+      padding-top: 17px;
+      color: #c6cee0;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
     /* DESCRIPCIÓN AMPLIADA DE CADA OBRA */
     .exposicion {
       align-items: center;
@@ -369,84 +435,51 @@
       object-fit: contain;
     }
 
+    /* El amor también se cuenta */
     .seccion-extra {
-      max-width: 1450px;
-      margin: 100px auto 0;
-      padding: 55px 0;
-      border-top: 1px solid var(--linea);
+      max-width: 1100px;
+      margin: 55px auto 30px;
+      padding: 34px 28px;
+      border: 1px solid var(--linea);
+      background: linear-gradient(135deg, rgba(217, 79, 145, .08), transparent 65%), var(--panel);
     }
 
     .seccion-extra h2 {
       color: var(--lila);
       font: 500 clamp(32px, 4vw, 54px) 'Bodoni Moda', serif;
-      margin: 0 0 25px;
+      margin: 0 0 18px;
     }
 
     .seccion-extra > p {
       max-width: 850px;
+      margin: 0;
       color: var(--texto);
-      font: 400 14px 'Montserrat', sans-serif;
+      font: 400 13px 'Montserrat', sans-serif;
       line-height: 1.9;
     }
 
-    .tarjetas-extra {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 25px;
-      margin-top: 35px;
-    }
-
-    .tarjeta-extra {
-      border: 1px solid var(--linea);
-      background: rgba(10, 25, 43, .7);
-      padding: 24px;
-    }
-
-    .tarjeta-extra h3 {
-      color: var(--lila);
-      font: italic 500 25px 'Cormorant Garamond', serif;
-      margin: 0 0 12px;
-    }
-
-    .tarjeta-extra p {
-      color: var(--texto);
-      font: 400 12px 'Montserrat', sans-serif;
-      line-height: 1.8;
-    }
-
-    .tarjeta-extra a {
-      display: inline-block;
-      margin-top: 12px;
-      color: var(--lila);
-      text-decoration: none;
-      border-bottom: 1px solid var(--violeta);
-      padding-bottom: 5px;
-      font: 500 10px 'Montserrat', sans-serif;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
+    /* Participación: bloque alineado a la izquierda */
     .participacion {
-      max-width: 1450px;
-      margin: 80px auto 0;
-      padding: 55px 0;
-      border-top: 1px solid var(--linea);
-      border-bottom: 1px solid var(--linea);
-      text-align: center;
+      max-width: 1100px;
+      margin: 55px auto 30px;
+      padding: 34px 28px;
+      border: 1px solid var(--linea);
+      background: linear-gradient(135deg, rgba(217, 79, 145, .08), transparent 65%), var(--panel);
+      text-align: left;
     }
 
     .participacion h2 {
       color: var(--lila);
-      font: 500 clamp(32px, 4vw, 54px) 'Bodoni Moda', serif;
-      margin: 0 0 18px;
+      font: 500 clamp(28px, 4vw, 42px) 'Bodoni Moda', serif;
+      margin: 10px 0;
     }
 
     .participacion p {
-      max-width: 750px;
-      margin: 0 auto 25px;
+      max-width: 850px;
+      margin: 0 0 18px;
       color: var(--texto);
-      font: 400 14px 'Montserrat', sans-serif;
-      line-height: 1.9;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.8;
     }
 
     .boton-participar {
@@ -466,41 +499,38 @@
       color: #07111f;
     }
 
+    /* Recomendaciones en bloques de lectura, como Vida nocturna */
     .recomendaciones {
-      max-width: 1450px;
-      margin: 80px auto 0;
-      padding: 55px 0;
-      border-top: 1px solid var(--linea);
+      max-width: 1100px;
+      margin: 55px auto 30px;
+      padding: 34px 28px;
+      border: 1px solid var(--linea);
+      background: var(--panel);
     }
 
     .recomendaciones h2 {
       color: var(--lila);
       font: 500 clamp(32px, 4vw, 54px) 'Bodoni Moda', serif;
-      margin: 0 0 25px;
+      margin: 0 0 18px;
     }
 
     .recomendaciones-intro {
       max-width: 850px;
+      margin: 0 0 20px;
       color: var(--texto);
-      font: 400 14px 'Montserrat', sans-serif;
+      font: 400 13px 'Montserrat', sans-serif;
       line-height: 1.9;
     }
 
     .recomendacion {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 25px;
-      align-items: center;
-      padding: 25px 0;
+      display: block;
+      width: 100%;
+      padding: 24px 0;
       border-bottom: 1px solid var(--linea);
     }
 
-    .recomendacion img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border: 1px solid var(--linea);
-    }
+    .recomendacion:last-child { border-bottom: 0; }
+    .recomendacion img { display: none; }
 
     .recomendacion h3 {
       color: var(--lila);
@@ -509,8 +539,9 @@
     }
 
     .recomendacion p {
+      max-width: 850px;
       color: var(--texto);
-      font: 400 12px 'Montserrat', sans-serif;
+      font: 400 13px 'Montserrat', sans-serif;
       line-height: 1.8;
       margin: 0 0 12px;
     }
@@ -525,14 +556,7 @@
       text-transform: uppercase;
     }
 
-    .video-recomendacion {
-      width: 100%;
-      max-width: 850px;
-      aspect-ratio: 16 / 9;
-      display: block;
-      margin: 25px auto 0;
-      border: 1px solid var(--linea);
-    }
+    .recomendacion a:hover { color: #fff; }
 
     .pie-memoria {
       max-width: 1450px;
@@ -632,7 +656,7 @@
       <div class="texto-intro-memoria">
 
         <h2 class="subtitulo-memoria">
-          Una ciudad también se habita desde los afectos.
+          Una ciudad también se habita desde los afectos
         </h2>
 
         <p>
@@ -857,9 +881,12 @@
 
       </div>
     </section>
-        <section class="seccion-extra" id="extras-amor">
+
+    <section class="seccion-extra" id="extras-amor">
 
       <h2>El amor también se cuenta</h2>
+
+      <h3 style="color: var(--lila); font: italic 500 25px 'Cormorant Garamond', serif; margin: 0 0 12px;">Cartografías del afecto</h3>
 
       <p>
         Las historias de amor no viven únicamente en las obras que leemos,
@@ -869,29 +896,6 @@
         esas otras formas de narrar el afecto y de reconocerlo en la ciudad.
       </p>
 
-      <div class="tarjetas-extra">
-
-        <article class="tarjeta-extra">
-          <h3>Cartografías del afecto</h3>
-          <p>
-            Los lugares también guardan historias. Un parque, una estación,
-            una calle o una esquina pueden convertirse en escenarios de
-            encuentros, despedidas y recuerdos. Bogotá se transforma cuando
-            la recorremos desde aquello que hemos vivido en ella.
-          </p>
-        </article>
-
-        <article class="tarjeta-extra">
-          <h3>Otras formas de amar</h3>
-          <p>
-            El amor no tiene una sola forma. Puede aparecer en la pareja,
-            la amistad, la familia, el cuidado, el deseo y los vínculos que
-            construimos con quienes nos rodean. También puede permanecer
-            en la memoria de un lugar o de una experiencia.
-          </p>
-        </article>
-
-      </div>
     </section>
 
     <section class="participacion" id="participacion">
@@ -928,12 +932,6 @@
 
       <article class="recomendacion">
 
-        <img
-          src="imgs/amor-del-48.jpg"
-          alt="Imagen de referencia del documental Amor del 48"
-          onerror="this.style.display='none'"
-        >
-
         <div>
           <h3>Amor del 48</h3>
 
@@ -960,12 +958,6 @@
       </article>
 
       <article class="recomendacion">
-
-        <img
-          src="imgs/lo-que-no-tiene-nombre.jpg"
-          alt="Imagen de referencia de Lo que no tiene nombre"
-          onerror="this.style.display='none'"
-        >
 
         <div>
           <h3>Lo que no tiene nombre</h3>
@@ -995,11 +987,50 @@
 
       <article class="recomendacion">
 
-        <img
-          src="imgs/elvira-sastre.jpg"
-          alt="Elvira Sastre recitando poesía"
-          onerror="this.style.display='none'"
-        >
+        <div>
+          <h3>Elvira Sastre — Quiero hacer contigo todo lo que la poesía aún no ha escrito</h3>
+
+          <p>
+            Un recital poético de Elvira Sastre en una etapa temprana de
+            su trayectoria. Su interpretación acerca la poesía a otros
+            espacios y públicos, y nos recuerda que los sentimientos
+            también encuentran en la palabra una manera de hacerse visibles.
+          </p>
+
+          <a
+            href="https://www.youtube.com/watch?v=biWwQem_H_W0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver recital en YouTube
+          </a>
+        </div>
+
+      </article>
+
+    </section>
+
+            A través del teatro, la música, la poesía y otros lenguajes
+            artísticos, la obra se aproxima al duelo y a la memoria desde
+            un vínculo atravesado por el amor materno. Su presencia en esta
+            colección permite ampliar la mirada sobre los afectos y reconocer
+            que el amor también se manifiesta en los lazos familiares, el
+            cuidado y la permanencia de quienes siguen haciendo parte
+            de nuestra historia.
+          </p>
+
+          <a
+            href="https://teatrolibre.com/funcion/lo-que-no-tiene-nombre/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Conocer la obra
+          </a>
+        </div>
+
+      </article>
+
+      <article class="recomendacion">
 
         <div>
           <h3>Elvira Sastre — Quiero hacer contigo todo lo que la poesía aún no ha escrito</h3>
@@ -1012,7 +1043,7 @@
           </p>
 
           <a
-            href="https://youtu.be/biWwQem_HW0"
+            href="https://www.youtube.com/watch?v=biWwQem_H_W0"
             target="_blank"
             rel="noopener noreferrer"
           >
