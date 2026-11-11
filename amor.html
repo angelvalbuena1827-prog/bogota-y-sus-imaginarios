@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora la colección Amor de Bogotá y sus imaginarios.">
+  <title>Amor | Bogotá y sus imaginarios</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --fondo: #07111f;
+      --panel: #0a192b;
+      --lila: #f4c1d7;
+      --violeta: #d94f91;
+      --texto: #d4d9e7;
+      --suave: #aeb9d0;
+      --linea: rgba(244, 193, 215, .25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body { margin: 0; }
+
+    .pagina-coleccion {
+      min-height: 100vh;
+      background: var(--fondo);
+      color: #f5f1ff;
+      padding: 35px 4% 12px;
+    }
+
+    .marca-memoria {
+      display: inline-block;
+      color: #f5f1ff;
+      text-decoration: none;
+      font: 500 12px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .marca-memoria span {
+      color: var(--lila);
+      margin-left: 8px;
+    }
+
+    .apertura-memoria {
+      max-width: 1450px;
+      margin: 58px auto 0;
+      padding: 25px 0 65px;
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .encabezado-memoria {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 35px;
+      margin-bottom: 58px;
+    }
+
+    .titulo-memoria {
+      margin: 0;
+      color: var(--lila);
+      font: 600 clamp(52px, 8vw, 108px) 'Bodoni Moda', serif;
+      line-height: .98;
+    }
+
+    .epigrafe-memoria {
+      max-width: 450px;
+      padding-top: 12px;
+      text-align: right;
+    }
+
+    .epigrafe-memoria blockquote {
+      margin: 0;
+      color: #f4c1d7;
+      font: italic 400 clamp(18px, 2.1vw, 25px) 'Cormorant Garamond', serif;
+      line-height: 1.5;
+    }
+
+    .epigrafe-memoria p {
+      margin: 12px 0 0;
+      color: var(--suave);
+      font: 400 11px 'Montserrat', sans-serif;
+    }
+
+    .texto-intro-memoria {
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--texto);
+      font: 400 15px 'Montserrat', sans-serif;
+      line-height: 1.95;
+    }
+
+    .subtitulo-memoria {
+      margin: 0 0 28px;
+      color: #f5f1ff;
+      font: italic 400 clamp(28px, 3.5vw, 39px) 'Cormorant Garamond', serif;
+    }
+
+    .texto-intro-memoria p { margin: 0 0 22px; }
+
+    .pregunta-memoria {
+      margin: 38px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--linea);
+      color: var(--lila);
+      font: italic 400 26px 'Cormorant Garamond', serif;
+    }
+
+    .enlace-recorrido {
+      display: inline-block;
+      margin-top: 24px;
+      color: #f5f1ff;
+      text-decoration: none;
+      border-bottom: 1px solid var(--violeta);
+      padding-bottom: 7px;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .enlace-recorrido:hover { color: var(--lila); }
+
+    .coleccion-layout {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 38px;
+      max-width: 1600px;
+      margin: 70px auto 0;
+      scroll-margin-top: 30px;
+    }
+
+    .menu-colecciones {
+      border-right: 1px solid var(--linea);
+      padding-right: 20px;
+    }
+
+    .menu-colecciones h2 {
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 3px;
+      color: #f4c1d7;
+      margin: 0 0 25px;
+    }
+
+    .grupo-coleccion { margin-bottom: 7px; }
+
+    .boton-coleccion {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 5px;
+      border: 0;
+      background: transparent;
+      color: #e4deef;
+      font: 400 13px 'Montserrat', sans-serif;
+      text-align: left;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .boton-coleccion.activa {
+      color: var(--lila);
+      text-shadow: 0 0 12px rgba(217, 79, 145, .35);
+    }
+
+    .lista-obras {
+      list-style: none;
+      margin: 4px 0 12px;
+      padding: 0 0 0 12px;
+      border-left: 1px solid rgba(214, 182, 255, .35);
+    }
+
+    .lista-obras[hidden] { display: none; }
+
+    .obra-menu {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #bfc6d8;
+      text-align: left;
+      padding: 9px 8px;
+      font: 400 11px 'Montserrat', sans-serif;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    .obra-menu:hover,
+    .obra-menu.seleccionada {
+      background: rgba(217, 79, 145, .15);
+      color: #f5f1ff;
+    }
+
+    .pendiente {
+      padding: 8px;
+      color: #8995ad;
+      font: 10px 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .contenido-coleccion { min-width: 0; }
+
+    .sobre-coleccion {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 28px;
+    }
+
+    .numero-coleccion {
+      color: #f4c1d7;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .sobre-coleccion h2 {
+      margin: 8px 0 0;
+      color: var(--lila);
+      font: 600 clamp(35px, 4vw, 58px) 'Bodoni Moda', serif;
+    }
+
+    .descripcion-coleccion {
+      max-width: 320px;
+      margin: 0;
+      color: #c6cee0;
+      font: italic 400 20px 'Cormorant Garamond', serif;
+      line-height: 1.4;
+    }
+
+    .exposicion {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(220px, .8fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .marco-obra {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      border: 1px solid var(--linea);
+      background:
+        radial-gradient(ellipse at center, rgba(49, 91, 255, .14), transparent 70%),
+        var(--panel);
+    }
+
+    .imagen-obra {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .flecha-obra {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--violeta);
+      border-radius: 50%;
+      background: rgba(7, 21, 45, .95);
+      color: #f5f1ff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .flecha-obra:hover {
+      box-shadow: 0 0 16px rgba(217, 79, 145, .35);
+    }
+
+    .flecha-anterior { left: -21px; }
+    .flecha-siguiente { right: -21px; }
+
+    .datos-obra { padding: 12px 0; }
+
+    .contador-obra {
+      color: #f4c1d7;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .datos-obra h3 {
+      color: var(--lila);
+      font: italic 500 clamp(25px, 3vw, 38px) 'Cormorant Garamond', serif;
+      margin: 16px 0 20px;
+    }
+
+    .ficha-obra {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 11px 8px;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    .ficha-obra dt { color: #f4c1d7; }
+    .ficha-obra dd { margin: 0; color: #e4deef; }
+
+    .descripcion-obra {
+      border-top: 1px solid rgba(229, 200, 255, .3);
+      padding-top: 17px;
+      color: #c6cee0;
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
+    /* DESCRIPCIÓN AMPLIADA DE CADA OBRA */
+    .exposicion {
+      align-items: center;
+    }
+
+    .descripcion-obra {
+      max-width: 1050px;
+      margin: 34px auto 0;
+      padding: 24px 0 0;
+      border-top: 1px solid rgba(229, 200, 255, .3);
+      color: #c6cee0;
+      font: 400 13px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .descripcion-obra p {
+      margin: 0 0 18px;
+    }
+
+    .descripcion-obra .pregunta-descripcion {
+      margin: 0 0 22px;
+      color: var(--lila);
+      font: italic 400 24px 'Cormorant Garamond', serif;
+      line-height: 1.5;
+    }
+
+    .miniaturas {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 25px 2px 15px;
+      margin-top: 12px;
+    }
+
+    .miniatura {
+      flex: 0 0 105px;
+      height: 75px;
+      border: 1px solid var(--linea);
+      background: var(--panel);
+      padding: 5px;
+      cursor: pointer;
+      opacity: .55;
+    }
+
+    .miniatura.activa {
+      opacity: 1;
+      border-color: var(--violeta);
+      box-shadow: 0 0 12px rgba(217, 79, 145, .25);
+    }
+
+    .miniatura img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .seccion-extra {
+      max-width: 1450px;
+      margin: 100px auto 0;
+      padding: 55px 0;
+      border-top: 1px solid var(--linea);
+    }
+
+    .seccion-extra h2 {
+      color: var(--lila);
+      font: 500 clamp(32px, 4vw, 54px) 'Bodoni Moda', serif;
+      margin: 0 0 25px;
+    }
+
+    .seccion-extra > p {
+      max-width: 850px;
+      color: var(--texto);
+      font: 400 14px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .tarjetas-extra {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .tarjeta-extra {
+      border: 1px solid var(--linea);
+      background: rgba(10, 25, 43, .7);
+      padding: 24px;
+    }
+
+    .tarjeta-extra h3 {
+      color: var(--lila);
+      font: italic 500 25px 'Cormorant Garamond', serif;
+      margin: 0 0 12px;
+    }
+
+    .tarjeta-extra p {
+      color: var(--texto);
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.8;
+    }
+
+    .tarjeta-extra a {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--lila);
+      text-decoration: none;
+      border-bottom: 1px solid var(--violeta);
+      padding-bottom: 5px;
+      font: 500 10px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .participacion {
+      max-width: 1450px;
+      margin: 80px auto 0;
+      padding: 55px 0;
+      border-top: 1px solid var(--linea);
+      border-bottom: 1px solid var(--linea);
+      text-align: center;
+    }
+
+    .participacion h2 {
+      color: var(--lila);
+      font: 500 clamp(32px, 4vw, 54px) 'Bodoni Moda', serif;
+      margin: 0 0 18px;
+    }
+
+    .participacion p {
+      max-width: 750px;
+      margin: 0 auto 25px;
+      color: var(--texto);
+      font: 400 14px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .boton-participar {
+      display: inline-block;
+      padding: 14px 25px;
+      border: 1px solid var(--violeta);
+      color: #f5f1ff;
+      text-decoration: none;
+      font: 500 11px 'Montserrat', sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .boton-participar:hover {
+      background: var(--violeta);
+      color: #07111f;
+    }
+
+    .recomendaciones {
+      max-width: 1450px;
+      margin: 80px auto 0;
+      padding: 55px 0;
+      border-top: 1px solid var(--linea);
+    }
+
+    .recomendaciones h2 {
+      color: var(--lila);
+      font: 500 clamp(32px, 4vw, 54px) 'Bodoni Moda', serif;
+      margin: 0 0 25px;
+    }
+
+    .recomendaciones-intro {
+      max-width: 850px;
+      color: var(--texto);
+      font: 400 14px 'Montserrat', sans-serif;
+      line-height: 1.9;
+    }
+
+    .recomendacion {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 25px;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .recomendacion img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--linea);
+    }
+
+    .recomendacion h3 {
+      color: var(--lila);
+      font: italic 500 25px 'Cormorant Garamond', serif;
+      margin: 0 0 10px;
+    }
+
+    .recomendacion p {
+      color: var(--texto);
+      font: 400 12px 'Montserrat', sans-serif;
+      line-height: 1.8;
+      margin: 0 0 12px;
+    }
+
+    .recomendacion a {
+      color: var(--lila);
+      text-decoration: none;
+      border-bottom: 1px solid var(--violeta);
+      padding-bottom: 4px;
+      font: 500 10px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .video-recomendacion {
+      width: 100%;
+      max-width: 850px;
+      aspect-ratio: 16 / 9;
+      display: block;
+      margin: 25px auto 0;
+      border: 1px solid var(--linea);
+    }
+
+    .pie-memoria {
+      max-width: 1450px;
+      margin: 60px auto 0;
+      padding: 30px 0 15px;
+      border-top: 1px solid var(--linea);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--suave);
+      font: 400 10px 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .coleccion-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-colecciones {
+        border-right: 0;
+        border-bottom: 1px solid var(--linea);
+        padding: 0 0 20px;
+      }
+
+      .exposicion {
+        grid-template-columns: 1fr;
+      }
+
+      .datos-obra {
+        padding: 10px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pagina-coleccion { padding: 25px 5% 10px; }
+
+      .encabezado-memoria {
+        display: block;
+        margin-bottom: 35px;
+      }
+
+      .epigrafe-memoria {
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      .sobre-coleccion {
+        display: block;
+      }
+
+      .descripcion-coleccion {
+        margin-top: 15px;
+      }
+
+      .tarjetas-extra {
+        grid-template-columns: 1fr;
+      }
+
+      .recomendacion {
+        grid-template-columns: 1fr;
+      }
+
+      .recomendacion img {
+        max-width: 260px;
+      }
+
+      .pie-memoria {
+        display: block;
+        line-height: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="pagina-coleccion">
+
+    <a href="index.html" class="marca-memoria">
+      BOGOTÁ Y SUS IMAGINARIOS
+      <span>ARCHIVO DIGITAL</span>
+    </a>
+
+    <section class="apertura-memoria">
+
+      <div class="encabezado-memoria">
+        <h1 class="titulo-memoria">Amor</h1>
+
+        <div class="epigrafe-memoria">
+          <blockquote>
+            «El amor es un paréntesis abierto».
+          </blockquote>
+          <p>Elvira Sastre · «Doble o nada», Baluarte (2014)</p>
+        </div>
+      </div>
+
+      <div class="texto-intro-memoria">
+
+        <h2 class="subtitulo-memoria">
+          Una ciudad también se habita desde los afectos.
+        </h2>
+
+        <p>
+          Hay ciudades que se recuerdan por sus calles, sus edificios y sus
+          paisajes; otras permanecen en la memoria por las personas que
+          encontramos en ellas. Bogotá también puede ser recordada a través
+          de sus historias de amor: los primeros encuentros, los afectos que
+          nacen entre recorridos cotidianos, los deseos que se descubren y
+          las despedidas que dejan huella.
+        </p>
+
+        <p>
+          En una ciudad atravesada por el movimiento, las diferencias y las
+          contradicciones, amar también es una forma de habitar. Los parques,
+          las estaciones de transporte, las calles comerciales y los espacios
+          que suelen pasar inadvertidos se convierten en escenarios de
+          encuentros y experiencias íntimas. La ciudad deja de ser únicamente
+          un lugar de tránsito para transformarse en cómplice, testigo y,
+          en ocasiones, protagonista de las relaciones que se construyen en ella.
+        </p>
+
+        <p>
+          Esta colección reúne obras que exploran distintas maneras de
+          experimentar el amor en Bogotá. Desde el descubrimiento del primer
+          amor y el deseo hasta el desamor, la sensualidad, la complicidad y
+          los vínculos que desafían las formas convencionales de mirar a los
+          otros. Aquí el amor no aparece como una experiencia única ni
+          idealizada: puede ser contradictorio, rebelde, cotidiano, vulnerable
+          y profundamente humano.
+        </p>
+
+        <p>
+          Las obras reunidas nos invitan a reconocer que los sentimientos
+          también construyen memoria y territorio. Cada encuentro modifica
+          la manera de mirar los espacios que habitamos; cada historia deja
+          una huella en la ciudad y en quienes la recorren. Bogotá, con toda
+          su complejidad, es también una ciudad capaz de germinar relaciones
+          que la encarnan.
+        </p>
+
+        <p class="pregunta-memoria" id="pregunta-apertura">
+          ¿Cómo has amado Bogotá?
+        </p>
+
+      </div>
+    </section>
+
+    <section class="coleccion-layout" id="coleccion">
+
+      <aside class="menu-colecciones">
+        <h2>COLECCIONES</h2>
+
+        <nav id="menu-lateral">
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion" href="vida-cotidiana.html">
+              <span>01　Vida cotidiana</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion" href="pasado.html">
+              <span>02　Pasado</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion" href="vida-nocturna.html">
+              <span>03　Vida nocturna</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion" href="violencia.html">
+              <span>04　Violencia</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion" href="resistencia.html">
+              <span>05　Resistencia</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion" href="memoria.html">
+              <span>06　Memoria</span><span>↗</span>
+            </a>
+          </div>
+
+          <div class="grupo-coleccion">
+            <a class="boton-coleccion activa" href="amor.html" aria-current="page">
+              <span>07　Amor</span><span>↗</span>
+            </a>
+          </div>
+
+        </nav>
+      </aside>
+
+      <div class="contenido-coleccion">
+
+        <div class="sobre-coleccion">
+          <div>
+            <p class="numero-coleccion">COLECCIÓN 07 / 07</p>
+            <h2>Amor</h2>
+          </div>
+
+          <p class="descripcion-coleccion">
+            El deseo, los encuentros y los afectos que también construyen ciudad.
+          </p>
+        </div>
+
+        <div class="exposicion">
+
+          <div class="marco-obra">
+            <button class="flecha-obra flecha-anterior" id="anterior" aria-label="Obra anterior">‹</button>
+
+            <img
+              src="imgs/un-beso-de-dick.webp"
+              alt="Portada de Un beso de Dick"
+              class="imagen-obra"
+              id="imagen-principal"
+            >
+
+            <button class="flecha-obra flecha-siguiente" id="siguiente" aria-label="Obra siguiente">›</button>
+          </div>
+
+          <div class="datos-obra">
+            <p class="contador-obra" id="contador-obra">OBRA 01 / 04</p>
+            <h3 id="titulo-obra">Un beso de Dick</h3>
+
+            <dl class="ficha-obra" id="ficha-obra">
+              <dt>Artista</dt>
+              <dd>Fernando Molano</dd>
+
+              <dt>Año</dt>
+              <dd>1992</dd>
+
+              <dt>Tipo de obra</dt>
+              <dd>Novela</dd>
+
+              <dt>Espacio</dt>
+              <dd>Parque Nacional</dd>
+
+              <dt>Tema</dt>
+              <dd>Amor</dd>
+
+              <dt>Reconocimiento</dt>
+              <dd>4. Muy conocida</dd>
+
+              <dt>Bogotá</dt>
+              <dd>La cotidiana</dd>
+
+              <dt>Impacto</dt>
+              <dd>5. No me la saco de la cabeza</dd>
+
+              <dt>Reacción</dt>
+              <dd>Eriza la piel</dd>
+            </dl>
+          </div>
+
+        </div>
+
+        <div class="descripcion-obra" id="descripcion-obra">
+          <p class="pregunta-descripcion">
+            ¿Cómo se ve Bogotá cuando uno se enamora por primera vez?
+          </p>
+
+          <p>
+            En Un beso de Dick, Fernando Molano construye una historia de amor
+            y descubrimiento a través de Felipe y Leonardo, dos adolescentes
+            que comienzan a reconocer sus sentimientos y a explorar el deseo.
+            Narrada desde una sensibilidad íntima y juvenil, la novela se
+            aproxima a las incertidumbres, las emociones y las pequeñas
+            revelaciones que acompañan el primer amor. También se detiene en
+            la intensidad de esos sentimientos que, aunque puedan parecer
+            nuevos o difíciles de nombrar, transforman la manera en que los
+            personajes se comprenden a sí mismos y se relacionan con los demás.
+          </p>
+
+          <p>
+            Bogotá aparece como el espacio donde esa experiencia adquiere
+            forma. Sus parques, calles y escenarios cotidianos acompañan los
+            encuentros de los protagonistas y se convierten en parte de su
+            memoria afectiva. La ciudad no funciona solamente como telón de
+            fondo: es el territorio que recorren mientras descubren sus
+            propios sentimientos, enfrentan sus inquietudes y encuentran
+            nuevas maneras de reconocerse. En esos recorridos, los lugares
+            comunes adquieren una intimidad particular: dejan de ser simples
+            puntos de paso y empiezan a guardar algo de lo vivido por quienes
+            los habitan.
+          </p>
+
+          <p>
+            A través de esta historia, la novela nos acerca a una Bogotá
+            íntima, vista desde la experiencia de quienes empiezan a descubrir
+            quiénes son y a quiénes desean amar. Su mirada recuerda que crecer
+            también implica aprender a nombrar lo que sentimos y encontrar un
+            lugar propio —y compartido— en medio de la ciudad.
+          </p>
+        </div>
+
+        <div class="miniaturas" id="miniaturas">
+
+          <button class="miniatura activa" data-indice="0" aria-label="Ver Un beso de Dick">
+            <img src="imgs/un-beso-de-dick.webp" alt="">
+          </button>
+
+          <button class="miniatura" data-indice="1" aria-label="Ver Rock N' Love">
+            <img src="imgs/rock-n-love.png" alt="">
+          </button>
+
+          <button class="miniatura" data-indice="2" aria-label="Ver Bolero Falaz">
+            <img src="imgs/bolero-falaz.jpeg" alt="">
+          </button>
+
+          <button class="miniatura" data-indice="3" aria-label="Ver El beso de los invisibles">
+            <img src="imgs/beso-de-los-invisibles.jpg" alt="">
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+        <section class="seccion-extra" id="extras-amor">
+
+      <h2>El amor también se cuenta</h2>
+
+      <p>
+        Las historias de amor no viven únicamente en las obras que leemos,
+        escuchamos o contemplamos. También aparecen en los recuerdos que
+        guardamos, en los lugares que nos transforman y en las experiencias
+        que compartimos con otras personas. Esta colección invita a descubrir
+        esas otras formas de narrar el afecto y de reconocerlo en la ciudad.
+      </p>
+
+      <div class="tarjetas-extra">
+
+        <article class="tarjeta-extra">
+          <h3>Cartografías del afecto</h3>
+          <p>
+            Los lugares también guardan historias. Un parque, una estación,
+            una calle o una esquina pueden convertirse en escenarios de
+            encuentros, despedidas y recuerdos. Bogotá se transforma cuando
+            la recorremos desde aquello que hemos vivido en ella.
+          </p>
+        </article>
+
+        <article class="tarjeta-extra">
+          <h3>Otras formas de amar</h3>
+          <p>
+            El amor no tiene una sola forma. Puede aparecer en la pareja,
+            la amistad, la familia, el cuidado, el deseo y los vínculos que
+            construimos con quienes nos rodean. También puede permanecer
+            en la memoria de un lugar o de una experiencia.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="participacion" id="participacion">
+
+      <h2>¿Cómo has amado Bogotá?</h2>
+
+      <p>
+        Queremos conocer los lugares, encuentros y recuerdos que han hecho
+        de Bogotá una ciudad significativa en tu historia. Comparte con
+        nosotros tu experiencia y ayúdanos a construir otras memorias
+        afectivas de la ciudad.
+      </p>
+
+      <a
+        class="boton-participar"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSf56ZxmZTpntNAhx64Rl2U_ZjRFlSd25QZ6eEpLWCot-UC64g/viewform?usp=dialog"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Compartir mi experiencia
+      </a>
+
+    </section>
+
+    <section class="recomendaciones" id="recomendaciones">
+
+      <h2>Para seguir explorando</h2>
+
+      <p class="recomendaciones-intro">
+        Otras creaciones y relatos que nos permiten acercarnos al amor
+        desde distintas experiencias, vínculos y memorias relacionadas
+        con Bogotá.
+      </p>
+
+      <article class="recomendacion">
+
+        <img
+          src="imgs/amor-del-48.jpg"
+          alt="Imagen de referencia del documental Amor del 48"
+          onerror="this.style.display='none'"
+        >
+
+        <div>
+          <h3>Amor del 48</h3>
+
+          <p>
+            Este documental recupera la historia de María Antonia, una mujer
+            que recuerda el amor que encontró en 1948, en medio de los
+            acontecimientos del Bogotazo. A través de sus recuerdos y de
+            fotografías históricas de Sady González, la película reconstruye
+            una historia íntima atravesada por uno de los momentos más
+            convulsos de Bogotá. El relato permite acercarse a la ciudad
+            desde una memoria personal en la que el amor y la historia
+            colectiva se encuentran.
+          </p>
+
+          <a
+            href="https://www.senalcolombia.tv/general/amor-del-48-un-romance-en-medio-del-bogotazo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Conocer el documental
+          </a>
+        </div>
+
+      </article>
+
+      <article class="recomendacion">
+
+        <img
+          src="imgs/lo-que-no-tiene-nombre.jpg"
+          alt="Imagen de referencia de Lo que no tiene nombre"
+          onerror="this.style.display='none'"
+        >
+
+        <div>
+          <h3>Lo que no tiene nombre</h3>
+
+          <p>
+            Inspirada en el libro de Piedad Bonnett, esta propuesta escénica
+            aborda la experiencia de una madre ante la pérdida de su hijo.
+            A través del teatro, la música, la poesía y otros lenguajes
+            artísticos, la obra se aproxima al duelo y a la memoria desde
+            un vínculo atravesado por el amor materno. Su presencia en esta
+            colección permite ampliar la mirada sobre los afectos y reconocer
+            que el amor también se manifiesta en los lazos familiares, el
+            cuidado y la permanencia de quienes siguen haciendo parte
+            de nuestra historia.
+          </p>
+
+          <a
+            href="https://teatrolibre.com/funcion/lo-que-no-tiene-nombre/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Conocer la obra
+          </a>
+        </div>
+
+      </article>
+
+      <article class="recomendacion">
+
+        <img
+          src="imgs/elvira-sastre.jpg"
+          alt="Elvira Sastre recitando poesía"
+          onerror="this.style.display='none'"
+        >
+
+        <div>
+          <h3>Elvira Sastre — Quiero hacer contigo todo lo que la poesía aún no ha escrito</h3>
+
+          <p>
+            Un recital poético de Elvira Sastre en una etapa temprana de
+            su trayectoria. Su interpretación acerca la poesía a otros
+            espacios y públicos, y nos recuerda que los sentimientos
+            también encuentran en la palabra una manera de hacerse visibles.
+          </p>
+
+          <a
+            href="https://youtu.be/biWwQem_HW0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver recital en YouTube
+          </a>
+        </div>
+
+      </article>
+
+    </section>
+
+    <footer class="pie-memoria">
+      <span>BOGOTÁ Y SUS IMAGINARIOS</span>
+      <span>COLECCIÓN 07 · AMOR</span>
+    </footer>
+
+  </main>
+    <script>
+    const obras = [
+      {
+        titulo: "Un beso de Dick",
+        imagen: "imgs/un-beso-de-dick.webp",
+        artista: "Fernando Molano",
+        anio: "1992",
+        tipo: "Novela",
+        espacio: "Parque Nacional",
+        tema: "Amor",
+        reconocimiento: "4. Muy conocida",
+        bogota: "La cotidiana",
+        impacto: "5. No me la saco de la cabeza",
+        reaccion: "Eriza la piel",
+        pregunta: "¿Cómo se ve Bogotá cuando uno se enamora por primera vez?",
+        descripcion: `
+          <p>En <em>Un beso de Dick</em>, Fernando Molano construye una historia de amor y descubrimiento a través de Felipe y Leonardo, dos adolescentes que comienzan a reconocer sus sentimientos y a explorar el deseo. Narrada desde una sensibilidad íntima y juvenil, la novela se aproxima a las incertidumbres, las emociones y las pequeñas revelaciones que acompañan el primer amor. También se detiene en la intensidad de esos sentimientos que, aunque puedan parecer nuevos o difíciles de nombrar, transforman la manera en que los personajes se comprenden a sí mismos y se relacionan con los demás.</p>
+          <p>Bogotá aparece como el espacio donde esa experiencia adquiere forma. Sus parques, calles y escenarios cotidianos acompañan los encuentros de los protagonistas y se convierten en parte de su memoria afectiva. La ciudad no funciona solamente como telón de fondo: es el territorio que recorren mientras descubren sus propios sentimientos, enfrentan sus inquietudes y encuentran nuevas maneras de reconocerse. En esos recorridos, los lugares comunes adquieren una intimidad particular: dejan de ser simples puntos de paso y empiezan a guardar algo de lo vivido por quienes los habitan.</p>
+          <p>A través de esta historia, la novela nos acerca a una Bogotá íntima, vista desde la experiencia de quienes empiezan a descubrir quiénes son y a quiénes desean amar. Su mirada recuerda que crecer también implica aprender a nombrar lo que sentimos y encontrar un lugar propio —y compartido— en medio de la ciudad.</p>
+        `
+      },
+      {
+        titulo: "Rock N' Love",
+        imagen: "imgs/rock-n-love.png",
+        artista: "LosPetitFellas",
+        anio: "2014",
+        tipo: "Canción",
+        espacio: "TransMilenio",
+        tema: "Amor",
+        reconocimiento: "1. Poco conocida",
+        bogota: "La rebelde",
+        impacto: "4. Imprescindible",
+        reaccion: "Eriza la piel",
+        pregunta: "¿Y si Bogotá también fuera parte de una historia de amor?",
+        descripcion: `
+          <p>En <em>Rock N' Love</em>, LosPetitFellas convierten el recorrido por la ciudad en parte de una experiencia compartida. La canción acompaña la historia nocturna de una pareja que atraviesa distintos espacios urbanos, entre calles, transporte y paisajes que adquieren otro significado cuando se recorren junto a alguien más. La música se convierte en una forma de acompañar ese movimiento y de narrar una relación que se desarrolla mientras la ciudad continúa su propio ritmo.</p>
+          <p>La noche transforma la percepción de Bogotá. Los trayectos cotidianos se cargan de complicidad y movimiento, mientras la música imprime a la ciudad una energía propia. En este recorrido, el espacio urbano deja de ser una sucesión de lugares para convertirse en el escenario de una experiencia afectiva. El transporte, las calles y los paisajes urbanos adquieren una dimensión distinta cuando se comparten con alguien.</p>
+          <p>La canción propone una Bogotá en movimiento, donde el amor se mezcla con la música, la noche y la posibilidad de descubrir la ciudad desde la compañía de otro. Es una mirada que reconoce que los recorridos compartidos también pueden convertirse en recuerdos y que, a veces, una ciudad se siente diferente cuando se atraviesa junto a alguien.</p>
+        `
+      },
+      {
+        titulo: "Bolero Falaz",
+        imagen: "imgs/bolero-falaz.jpeg",
+        artista: "Aterciopelados",
+        anio: "1995",
+        tipo: "Canción",
+        espacio: "San Victorino",
+        tema: "Amor",
+        reconocimiento: "5. Emblemática",
+        bogota: "La rebelde",
+        impacto: "1. Puedo vivir sin ella",
+        reaccion: "Deja pensando",
+        pregunta: "¿Qué pasa cuando el amor también tiene algo de mentira, deseo y rabia?",
+        descripcion: `
+          <p>Con <em>Bolero Falaz</em>, Aterciopelados explora las contradicciones de las relaciones afectivas. Entre el desengaño, la ironía y la fuerza del rock, la canción se aleja de la representación idealizada del amor para acercarse a sus zonas más incómodas: aquellas en las que el deseo convive con la decepción y los sentimientos se vuelven difíciles de descifrar. Su fuerza está en esa mezcla de sensibilidad y rebeldía que convierte el desencanto en una expresión musical contundente.</p>
+          <p>Su videoclip incorpora las calles de San Victorino como parte de ese universo. La presencia de Aterciopelados entre la multitud y el movimiento comercial del centro construye una imagen de Bogotá popular, acelerada y llena de contrastes. El espacio urbano aporta una atmósfera particular a la canción y conecta sus emociones con una ciudad que nunca permanece quieta. La cotidianidad del centro se mezcla con la energía de la música y con una mirada que no intenta suavizar las contradicciones.</p>
+          <p>Así, <em>Bolero Falaz</em> presenta una Bogotá rebelde, en la que el amor también puede expresarse desde la inconformidad, el desencanto y la energía de quienes se resisten a vivirlo de una sola manera. La canción recuerda que los afectos no siempre son sencillos y que incluso las experiencias difíciles forman parte de nuestra manera de relacionarnos con los demás y con los lugares que habitamos.</p>
+        `
+      },
+      {
+        titulo: "El beso de los invisibles",
+        imagen: "imgs/beso-de-los-invisibles.jpg",
+        artista: "Vértigo Graffiti",
+        anio: "2013",
+        tipo: "Mural",
+        espacio: "Antiguo Bronx",
+        tema: "Amor",
+        reconocimiento: "5. Emblemática",
+        bogota: "La ruda",
+        impacto: "5. No me la saco de la cabeza",
+        reaccion: "Eriza la piel",
+        pregunta: "¿Puede un beso hacer visibles a quienes la ciudad suele ignorar?",
+        descripcion: `
+          <p>Inspirado en la fotografía de una pareja de habitantes de calle, <em>El beso de los invisibles</em> transforma una escena íntima en una imagen monumental que ocupa el espacio público de Bogotá. El mural lleva al centro de la ciudad un gesto de afecto que, por su sencillez, contrasta con las condiciones de exclusión y marginalidad que atraviesan la vida de muchas personas. Una escena cotidiana adquiere una dimensión pública y obliga a detener la mirada sobre quienes suelen permanecer al margen.</p>
+          <p>Su presencia en el entorno del antiguo Bronx propone otra manera de mirar a quienes habitan los márgenes urbanos. Allí donde suelen imponerse el estigma, la indiferencia y el olvido, la imagen de dos personas que se besan introduce una experiencia profundamente humana: la posibilidad de establecer vínculos, compartir afecto y construir intimidad incluso en circunstancias adversas. El mural desplaza por un momento la mirada habitual sobre este territorio y sitúa en el centro una expresión de ternura.</p>
+          <p>La obra convierte el beso en un gesto de reconocimiento. Su monumentalidad invita a detenerse ante una realidad que con frecuencia permanece fuera de la mirada y recuerda que el amor también existe en los lugares y entre las personas que la ciudad suele invisibilizar. De esta manera, el mural transforma una historia particular en una imagen compartida de la memoria urbana.</p>
+        `
+      }
+    ];
+
+    let obraActual = 0;
+
+    const imagenPrincipal = document.getElementById("imagen-principal");
+    const tituloObra = document.getElementById("titulo-obra");
+    const contadorObra = document.getElementById("contador-obra");
+    const fichaObra = document.getElementById("ficha-obra");
+    const descripcionObra = document.getElementById("descripcion-obra");
+    const miniaturas = document.querySelectorAll(".miniatura");
+
+    function actualizarObra() {
+      const obra = obras[obraActual];
+
+      imagenPrincipal.src = obra.imagen;
+      imagenPrincipal.alt = obra.titulo;
+
+      tituloObra.textContent = obra.titulo;
+
+      contadorObra.textContent =
+        `OBRA ${String(obraActual + 1).padStart(2, "0")} / 04`;
+
+      fichaObra.innerHTML = `
+        <dt>Artista</dt>
+        <dd>${obra.artista}</dd>
+
+        <dt>Año</dt>
+        <dd>${obra.anio}</dd>
+
+        <dt>Tipo de obra</dt>
+        <dd>${obra.tipo}</dd>
+
+        <dt>Espacio</dt>
+        <dd>${obra.espacio}</dd>
+
+        <dt>Tema</dt>
+        <dd>${obra.tema}</dd>
+
+        <dt>Reconocimiento</dt>
+        <dd>${obra.reconocimiento}</dd>
+
+        <dt>Bogotá</dt>
+        <dd>${obra.bogota}</dd>
+
+        <dt>Impacto</dt>
+        <dd>${obra.impacto}</dd>
+
+        <dt>Reacción</dt>
+        <dd>${obra.reaccion}</dd>
+      `;
+
+      descripcionObra.innerHTML = `
+        <p class="pregunta-descripcion">${obra.pregunta}</p>
+        ${obra.descripcion}
+      `;
+
+      miniaturas.forEach((miniatura, indice) => {
+        miniatura.classList.toggle("activa", indice === obraActual);
+      });
+    }
+
+    function cambiarObra(direccion) {
+      obraActual = (obraActual + direccion + obras.length) % obras.length;
+      actualizarObra();
+    }
+
+    document.getElementById("anterior").addEventListener("click", () => {
+      cambiarObra(-1);
+    });
+
+    document.getElementById("siguiente").addEventListener("click", () => {
+      cambiarObra(1);
+    });
+
+    miniaturas.forEach((miniatura) => {
+      miniatura.addEventListener("click", () => {
+        obraActual = Number(miniatura.dataset.indice);
+        actualizarObra();
+      });
+    });
+
+    actualizarObra();
+  </script>
+
+</body>
+</html>
