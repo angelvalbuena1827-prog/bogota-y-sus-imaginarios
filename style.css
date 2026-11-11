@@ -1,598 +1,214 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap');
-
-/* =========================
-   1. PALETA Y CONFIGURACIÓN
-========================= */
 
 :root {
     --azul-noche: #07152D;
+    --azul-profundo: #0A1935;
     --azul-electrico: #315BFF;
     --violeta: #A83CFF;
     --magenta: #D65CFF;
     --lila: #E5C8FF;
     --blanco-frio: #F5F1FF;
+    --dorado: #F4B47D;
+    --durazno: #FFC18C;
+    --texto-suave: #D0C4B8;
+    --linea: rgba(255, 205, 157, 0.22);
+    --serif: 'Bodoni Moda', Georgia, serif;
+    --serif-italica: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Montserrat', Arial, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    background: var(--azul-noche);
-    color: var(--blanco-frio);
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-::selection {
-    background: var(--violeta);
-    color: white;
-}
-
-/* =========================
-   2. ENCABEZADO Y NAVEGACIÓN
-========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; background: var(--azul-noche); }
+body { background: var(--azul-noche); color: var(--blanco-frio); font-family: var(--sans); line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--violeta); color: white; }
 
 .encabezado {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 28px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+    position: absolute; z-index: 20; top: 0; left: 0; width: 100%;
+    padding: 25px 5%; display: flex; align-items: center;
+    justify-content: space-between; gap: 24px;
 }
+.marca { display: flex; flex-direction: column; flex: 0 0 auto; font-size: .85rem; font-weight: 700; letter-spacing: .16em; line-height: 1.5; }
+.marca span { font-size: .58rem; font-weight: 400; letter-spacing: .22em; color: var(--dorado); }
+.navegacion { display: flex; align-items: center; justify-content: center; gap: 28px; }
+.navegacion a { position: relative; font-size: .7rem; font-weight: 500; letter-spacing: .04em; color: var(--blanco-frio); opacity: .88; transition: color .3s, opacity .3s; white-space: nowrap; }
+.navegacion a:hover, .navegacion a.activo { color: white; opacity: 1; }
+.navegacion a::after { content: ''; position: absolute; bottom: -7px; left: 0; width: 0; height: 1px; background: var(--dorado); box-shadow: 0 0 8px var(--dorado); transition: width .3s; }
+.navegacion a:hover::after, .navegacion a.activo::after { width: 100%; }
 
-.marca {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    line-height: 1.5;
+.boton-lluvia {
+    position: static; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 9px;
+    padding: 10px 14px; border: 1px solid rgba(255,205,157,.48); border-radius: 30px;
+    background: rgba(7,21,45,.72); color: #F8E8D8; font-family: var(--sans);
+    font-size: 10px; font-weight: 600; letter-spacing: .07em; cursor: pointer;
+    backdrop-filter: blur(10px); transition: background .3s, box-shadow .3s, border-color .3s;
+    white-space: nowrap;
 }
-
-.marca span {
-    font-size: 0.58rem;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    color: var(--lila);
-}
-
-.navegacion {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.navegacion a {
-    position: relative;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--blanco-frio);
-    opacity: 0.82;
-    transition: color 0.3s ease, opacity 0.3s ease;
-}
-
-.navegacion a:hover,
-.navegacion a.activo {
-    color: white;
-    opacity: 1;
-}
-
-.navegacion a::after {
-    content: '';
-    position: absolute;
-    bottom: -7px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--magenta);
-    box-shadow: 0 0 8px var(--magenta);
-    transition: width 0.3s ease;
-}
-
-.navegacion a:hover::after,
-.navegacion a.activo::after {
-    width: 100%;
-}
-
-/* =========================
-   3. PORTADA PRINCIPAL
-========================= */
+.boton-lluvia > span:first-child { color: var(--durazno); font-size: 15px; }
+.boton-lluvia:hover, .boton-lluvia.reproduciendo { background: rgba(180,103,65,.2); border-color: #f5b17e; box-shadow: 0 0 22px rgba(255,164,104,.18); }
+.boton-lluvia:focus-visible { outline: 2px solid var(--dorado); outline-offset: 4px; }
 
 .portada {
-    position: relative;
-    isolation: isolate;
-    min-height: 720px;
-    height: 100svh;
-    max-height: 1100px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 130px 5% 100px;
-    background-color: var(--azul-noche);
-
-    /* Sustituiremos esta ruta por el archivo
-       de la fotografía que guardes en GitHub. */
+    position: relative; isolation: isolate; min-height: 720px; height: 100svh; max-height: 1100px;
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+    padding: 130px 5% 100px; background-color: var(--azul-noche);
     background-image:
-        linear-gradient(
-            180deg,
-            rgba(4, 12, 31, 0.48) 0%,
-            rgba(4, 12, 31, 0.15) 38%,
-            rgba(4, 12, 31, 0.32) 65%,
-            rgba(4, 12, 31, 0.88) 100%
-        ),
-        linear-gradient(
-            90deg,
-            rgba(4, 12, 31, 0.30),
-            transparent 75%
-        ),
+        linear-gradient(180deg, rgba(4,12,31,.48) 0%, rgba(4,12,31,.15) 38%, rgba(4,12,31,.32) 65%, rgba(4,12,31,.88) 100%),
+        linear-gradient(90deg, rgba(4,12,31,.30), transparent 75%),
         url("imgs/portada.jpg");
-
     background-position: center, center, center 55%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: no-repeat; background-size: cover;
 }
-
 .portada::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    pointer-events: none;
-    background:
-        radial-gradient(
-            ellipse at 50% 43%,
-            rgba(49, 91, 255, 0.10),
-            transparent 52%
-        );
+    content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 50% 43%, rgba(255,177,125,.09), transparent 52%);
 }
-
-.portada-contenido {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
-    animation: aparecer 1.2s ease both;
-}
-
-.etiqueta {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--lila);
-}
-
-.portada .etiqueta {
-    margin-bottom: 16px;
-}
-
-/* =========================
-   4. TÍTULO Y LUMINOSIDAD
-========================= */
-
+.portada-contenido { position: relative; width: 100%; max-width: 1200px; text-align: center; animation: aparecer 1.2s ease both; }
+.etiqueta { font-size: .65rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--dorado); }
+.portada .etiqueta { margin-bottom: 16px; }
 .portada h1 {
-    font-family: 'Bodoni Moda', serif;
-    font-size: clamp(5rem, 14vw, 13rem);
-    font-weight: 700;
-    line-height: 0.95;
-    letter-spacing: -0.055em;
-    color: #F5F1FF;
-
-    text-shadow:
-        0 0 4px rgba(255, 255, 255, 0.85),
-        0 0 14px rgba(85, 123, 255, 0.8),
-        0 0 35px rgba(49, 91, 255, 0.6),
-        0 0 75px rgba(49, 91, 255, 0.25);
+    font-family: var(--serif); font-size: clamp(5rem,14vw,13rem); font-weight: 700;
+    line-height: .95; letter-spacing: -.055em; color: #F5F1FF;
+    text-shadow: 0 0 4px rgba(255,255,255,.85), 0 0 14px rgba(85,123,255,.8), 0 0 35px rgba(49,91,255,.6), 0 0 75px rgba(49,91,255,.25);
 }
-
 .subtitulo {
-    margin-top: 10px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 5vw, 4.8rem);
-    font-style: italic;
-    font-weight: 500;
-    line-height: 1.1;
-    color: var(--lila);
-
-    text-shadow:
-        0 0 7px rgba(229, 200, 255, 0.6),
-        0 0 20px rgba(214, 92, 255, 0.55),
-        0 0 42px rgba(168, 60, 255, 0.3);
+    margin-top: 10px; font-family: var(--serif-italica); font-size: clamp(2.2rem,5vw,4.8rem);
+    font-style: italic; font-weight: 500; line-height: 1.1; color: #FFD5AD;
+    text-shadow: 0 0 7px rgba(255,213,173,.45), 0 0 20px rgba(239,154,112,.3);
 }
-
-.introduccion {
-    margin-top: 28px;
-    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
-    letter-spacing: 0.06em;
-    color: var(--blanco-frio);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-}
-
+.introduccion { margin-top: 28px; font-size: clamp(.85rem,1.4vw,1.05rem); letter-spacing: .06em; color: var(--blanco-frio); text-shadow: 0 2px 12px rgba(0,0,0,.8); }
 .explorar {
-    display: inline-flex;
-    align-items: center;
-    gap: 18px;
-    margin-top: 36px;
-    padding: 13px 21px;
-    border: 1px solid rgba(229, 200, 255, 0.65);
-    color: white;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.3s ease;
+    display: inline-flex; align-items: center; gap: 18px; margin-top: 36px; padding: 13px 21px;
+    border: 1px solid rgba(255,218,182,.65); color: white; font-size: .68rem; font-weight: 600;
+    letter-spacing: .16em; transition: background .3s,border-color .3s,box-shadow .3s,transform .3s;
 }
+.explorar span { font-size: 1.1rem; color: var(--dorado); }
+.explorar:hover { background: rgba(239,154,112,.15); border-color: var(--dorado); box-shadow: 0 0 24px rgba(255,166,111,.2); transform: translateY(-3px); }
+.indicador { position: absolute; bottom: 27px; left: 5%; display: flex; align-items: center; gap: 12px; font-size: .58rem; letter-spacing: .18em; color: rgba(245,241,255,.8); }
+.indicador span { display: block; width: 27px; height: 1px; background: var(--dorado); box-shadow: 0 0 8px var(--dorado); }
 
-.explorar span {
-    font-size: 1.1rem;
-    color: var(--lila);
-}
+.franja-palabras { overflow: hidden; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); background: #0A1B35; padding: 17px 0; }
+.franja-contenido { display: flex; gap: 46px; white-space: nowrap; width: max-content; animation: desplazamiento 38s linear infinite; }
+.franja-contenido span { font: italic 20px var(--serif-italica); color: #E8C6A2; }
+.franja-contenido i { font: 10px var(--sans); font-style: normal; color: #F2A06E; align-self: center; }
+@keyframes desplazamiento { to { transform: translateX(-50%); } }
 
-.explorar:hover {
-    background: rgba(49, 91, 255, 0.18);
-    border-color: var(--magenta);
-    box-shadow: 0 0 24px rgba(49, 91, 255, 0.28);
-    transform: translateY(-3px);
-}
+.seccion-colecciones { position: relative; padding: 120px 5% 130px; background: radial-gradient(ellipse at 12% 50%,rgba(160,91,48,.18),transparent 45%),var(--azul-noche); }
+.contenedor { width: min(1420px,100%); margin: 0 auto; }
+.encabezado-seccion { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 58px; }
+.encabezado-seccion h2 { margin-top: 14px; font-family: var(--serif); font-size: clamp(2.8rem,6.5vw,5.5rem); font-weight: 600; line-height: 1.02; letter-spacing: -.045em; }
+.encabezado-seccion h2 em { color: var(--dorado); font-family: var(--serif-italica); font-weight: 500; }
+.texto-intro-seccion { max-width: 390px; color: var(--texto-suave); line-height: 1.85; font-size: .9rem; margin-bottom: 7px; }
 
-.indicador {
-    position: absolute;
-    bottom: 27px;
-    left: 5%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.58rem;
-    letter-spacing: 0.18em;
-    color: rgba(245, 241, 255, 0.8);
-}
-
-.indicador span {
-    display: block;
-    width: 27px;
-    height: 1px;
-    background: var(--magenta);
-    box-shadow: 0 0 8px var(--magenta);
-}
-
-/* =========================
-   5. COLECCIONES
-========================= */
-
-.seccion-colecciones {
-    position: relative;
-    padding: 110px 7% 120px;
-    background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(49, 91, 255, 0.12),
-            transparent 60%
-        ),
-        var(--azul-noche);
-}
-
-.encabezado-seccion {
-    max-width: 720px;
-    margin: 0 auto 55px;
-    text-align: center;
-}
-
-.encabezado-seccion h2,
-.seccion-recorridos h2,
-.seccion-proyecto h2 {
-    margin-top: 14px;
-    font-family: 'Bodoni Moda', serif;
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    font-weight: 600;
-    line-height: 1.15;
-}
-
-.encabezado-seccion > p:last-child,
-.seccion-recorridos > p:last-child,
-.seccion-proyecto > p:last-child {
-    margin-top: 18px;
-    color: rgba(245, 241, 255, 0.78);
-    font-size: 0.9rem;
-}
-
-.colecciones-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 1100px;
-    margin: 0 auto;
-    border-top: 1px solid rgba(229, 200, 255, 0.22);
-    border-left: 1px solid rgba(229, 200, 255, 0.22);
-}
-
+.colecciones-grid { display: grid; grid-template-columns: repeat(12,minmax(0,1fr)); gap: 17px; }
 .coleccion {
-    position: relative;
-    min-height: 125px;
-    padding: 25px 28px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border-right: 1px solid rgba(229, 200, 255, 0.22);
-    border-bottom: 1px solid rgba(229, 200, 255, 0.22);
-    background: rgba(255, 255, 255, 0.015);
-    transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+    position: relative; isolation: isolate; overflow: hidden; min-height: 300px;
+    display: flex; align-items: end; padding: 28px; border: 1px solid rgba(255,205,157,.22);
+    background-color: #172b43; background-position: center; background-size: cover;
+    transition: transform .5s,border-color .5s;
 }
+.coleccion::before { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(0deg,rgba(4,12,29,.94),rgba(4,12,29,.05) 85%); transition: opacity .5s,transform .7s; }
+.coleccion::after { content: attr(data-palabra); position: absolute; z-index: -1; right: -12px; top: 12px; white-space: nowrap; font: italic clamp(65px,9vw,125px) var(--serif-italica); color: rgba(255,221,174,.12); }
+.coleccion:hover { transform: translateY(-8px); border-color: rgba(255,178,119,.8); }
+.coleccion:hover::before { transform: scale(1.06); }
+.coleccion-1,.coleccion-4 { grid-column: span 5; }
+.coleccion-2,.coleccion-3 { grid-column: span 7; }
+.coleccion-5,.coleccion-6,.coleccion-7 { grid-column: span 4; min-height: 265px; }
+.coleccion-1 { background-image: url("imagenes/domingo-avenida-caracas.jpg"); }
+.coleccion-2 { background-image: url("imagenes/parque-independencia.jpg"); }
+.coleccion-3 { background-image: url("imagenes/opus-en-las-nubes.jpg"); }
+.coleccion-4 { background-image: url("imagenes/quema-de-tranvias.jpg"); }
+.coleccion-5 { background-image: url("imagenes/fuerza-y-raiz.jpg"); }
+.coleccion-6 { background-image: url("imagenes/la-siempreviva.jpg"); }
+.coleccion-7 { background-image: url("imagenes/bolero-falaz.jpeg"); }
+.contenido-coleccion { position: relative; z-index: 1; width: 100%; display: flex; justify-content: space-between; align-items: end; gap: 18px; }
+.numero { display: block; font-size: .62rem; font-weight: 600; letter-spacing: .12em; color: var(--durazno); }
+.contenido-coleccion h3 { margin-top: 10px; font: italic 500 clamp(1.8rem,3.5vw,2.8rem)/1.1 var(--serif-italica); color: #FFF3DF; }
+.flecha { flex: 0 0 44px; width: 44px; height: 44px; border: 1px solid rgba(255,218,182,.6); border-radius: 50%; display: grid; place-items: center; font-size: 1.2rem; transition: transform .4s,background .4s; }
+.coleccion:hover .flecha { transform: rotate(45deg); background: rgba(239,154,112,.2); }
 
-.coleccion:hover {
-    background: rgba(49, 91, 255, 0.12);
-    box-shadow: inset 0 0 25px rgba(49, 91, 255, 0.08);
+.seccion-recorridos { position: relative; overflow: hidden; padding: 120px 5%; background: linear-gradient(135deg,#0B1D3C,#18233D 60%,#07152D); }
+.seccion-recorridos::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 50%,rgba(95,83,160,.13),transparent 55%); pointer-events: none; }
+.recorridos-contenido { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.05fr; gap: 70px; align-items: center; }
+.texto-recorridos h2 { max-width: 620px; margin-top: 18px; font: 600 clamp(2.8rem,6.5vw,5.5rem)/1.04 var(--serif); letter-spacing: -.04em; }
+.texto-recorridos h2 em { color: var(--dorado); font-family: var(--serif-italica); font-weight: 500; }
+.texto-recorridos > p:not(.etiqueta) { max-width: 500px; margin: 28px 0; color: var(--texto-suave); font-size: 1rem; line-height: 1.9; }
+.enlace-redondo { display: inline-flex; align-items: center; gap: 20px; padding: 15px 22px; border: 1px solid rgba(255,218,182,.55); border-radius: 50px; font-size: .67rem; font-weight: 600; letter-spacing: .14em; transition: all .4s; }
+.enlace-redondo span { font-size: 1.2rem; color: #FFB47D; transition: transform .4s; }
+.enlace-redondo:hover { background: rgba(239,154,112,.12); box-shadow: 0 0 35px rgba(255,166,111,.15); transform: translateY(-3px); }
+.enlace-redondo:hover span { transform: translate(5px,-5px); }
+.mapa-abstracto { height: 440px; position: relative; display: grid; place-items: center; border: 1px solid rgba(255,205,142,.22); border-radius: 48% 52% 44% 56%/48% 43% 57% 52%; background: radial-gradient(ellipse at 50% 50%,rgba(86,119,205,.25),rgba(8,23,52,.15) 62%,transparent 70%); }
+.mapa-abstracto::before,.mapa-abstracto::after { content: ''; position: absolute; width: 78%; height: 78%; border: 1px solid rgba(206,187,255,.25); border-radius: 50%; transform: rotate(-25deg); }
+.mapa-abstracto::after { width: 58%; height: 95%; transform: rotate(35deg); }
+.lineas-mapa { position: absolute; width: 90%; height: 90%; opacity: .45; }
+.punto-mapa { position: absolute; z-index: 2; width: 11px; height: 11px; border-radius: 50%; background: #F4D4FF; box-shadow: 0 0 10px #E6AAFF,0 0 28px #A77AFF; animation: pulso 2.5s infinite; }
+.punto-1 { top: 22%; left: 37%; }.punto-2 { top: 43%; left: 70%; animation-delay: .5s; }.punto-3 { top: 69%; left: 28%; animation-delay: 1s; }.punto-4 { top: 75%; left: 61%; animation-delay: 1.5s; }
+@keyframes pulso { 50% { transform: scale(1.8); opacity: .55; } }
+.centro-mapa { position: relative; z-index: 3; font: italic 42px var(--serif-italica); text-align: center; text-shadow: 0 0 25px #A98AFF; }
+.centro-mapa small { display: block; margin-top: 12px; font: 10px var(--sans); letter-spacing: .2em; color: #D4B9FF; }
+.marca-agua-recorridos { position: absolute; left: 2%; top: 7%; white-space: nowrap; pointer-events: none; font: italic clamp(90px,18vw,230px) var(--serif-italica); color: rgba(255,205,157,.045); animation: deriva 24s linear infinite; }
+@keyframes deriva { to { transform: translateX(-8%); } }
+
+.cierre { padding: 115px 5% 125px; text-align: center; background: radial-gradient(ellipse at 50% 100%,rgba(190,112,75,.18),transparent 60%),#081831; }
+.cierre blockquote { max-width: 1050px; margin: 25px auto 38px; font: italic clamp(2.3rem,6vw,4.5rem)/1.2 var(--serif-italica); color: #FFF3DF; }
+.cierre blockquote em { color: #FFC18C; }
+.cierre > .contenedor > p:not(.etiqueta) { max-width: 620px; margin: 0 auto; color: var(--texto-suave); line-height: 1.8; }
+.enlace-proyecto { margin-top: 28px; }
+
+.pie-pagina { padding: 34px 5%; border-top: 1px solid var(--linea); display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: rgba(245,241,255,.7); }
+.pie-marca { font-size: .75rem; font-weight: 700; letter-spacing: .12em; color: #FFD5AD; }
+.pie-frase { color: #C4C8D6; font-size: .82rem; text-align: center; }
+.creditos { color: #B9C1D4; font-size: .72rem; line-height: 1.85; }
+.creditos p { margin: 0; }
+.credito-autoria { margin-top: 8px !important; }
+.credito-autoria span,.credito-autoria strong { display: block; }
+.credito-autoria strong { font-weight: 600; color: #F2D7C1; }
+.ubicacion { margin-top: 5px !important; }
+
+.aparecer { opacity: 0; transform: translateY(32px); transition: opacity .9s ease,transform .9s ease; }
+.aparecer.visible { opacity: 1; transform: none; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 1000px) {
+    .encabezado { flex-wrap: wrap; padding: 22px 5%; }
+    .navegacion { gap: 18px; }
+    .recorridos-contenido { gap: 35px; }
+    .pie-frase { text-align: left; }
 }
-
-.numero {
-    align-self: flex-start;
-    padding-top: 5px;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    color: var(--magenta);
+@media (max-width: 800px) {
+    .encabezado { align-items: flex-start; }
+    .navegacion { order: 3; width: 100%; flex-wrap: wrap; gap: 13px 22px; }
+    .boton-lluvia { margin-left: auto; }
+    .portada { min-height: 680px; padding-top: 170px; background-position: center,center,58% center; }
+    .portada h1 { font-size: clamp(4rem,15vw,8rem); }
+    .encabezado-seccion { display: block; }
+    .texto-intro-seccion { margin-top: 24px; }
+    .coleccion-1,.coleccion-2,.coleccion-3,.coleccion-4,.coleccion-5,.coleccion-6,.coleccion-7 { grid-column: span 6; min-height: 250px; }
+    .recorridos-contenido { grid-template-columns: 1fr; }
+    .mapa-abstracto { height: 350px; margin-top: 15px; }
+    .pie-pagina { align-items: flex-start; flex-direction: column; }
 }
-
-.nombre-coleccion {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    font-weight: 500;
+@media (max-width: 520px) {
+    .encabezado { padding: 18px 5%; gap: 15px; }
+    .marca { font-size: .78rem; }
+    .marca span { font-size: .52rem; }
+    .navegacion { gap: 12px 16px; }
+    .navegacion a { font-size: .62rem; }
+    .boton-lluvia { padding: 8px 11px; font-size: 9px; }
+    .portada { min-height: 650px; height: 92svh; padding-right: 5%; padding-left: 5%; background-position: center,center,60% center; }
+    .portada h1 { font-size: clamp(3.5rem,16vw,5.5rem); letter-spacing: -.06em; }
+    .subtitulo { font-size: clamp(2rem,8vw,2.8rem); }
+    .portada .etiqueta { font-size: .55rem; letter-spacing: .16em; }
+    .introduccion { font-size: .8rem; }
+    .indicador { left: 5%; font-size: .5rem; }
+    .seccion-colecciones,.seccion-recorridos { padding: 82px 6%; }
+    .coleccion-1,.coleccion-2,.coleccion-3,.coleccion-4,.coleccion-5,.coleccion-6,.coleccion-7 { grid-column: span 12; min-height: 235px; }
+    .mapa-abstracto { height: 280px; }
+    .cierre { padding: 85px 6%; }
+    .pie-pagina { padding: 30px 6%; }
+    .creditos { font-size: .7rem; }
 }
-
-.flecha {
-    margin-left: auto;
-    color: var(--lila);
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.coleccion:hover .flecha {
-    color: white;
-    transform: translate(3px, -3px);
-}
-
-/* =========================
-   6. RECORRIDOS Y PROYECTO
-========================= */
-
-.seccion-recorridos,
-.seccion-proyecto {
-    padding: 100px 8%;
-    text-align: center;
-}
-
-.seccion-recorridos {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(49, 91, 255, 0.12),
-            transparent 65%
-        ),
-        #0A1935;
-}
-
-.seccion-recorridos > p:last-child,
-.seccion-proyecto > p:last-child {
-    max-width: 650px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.seccion-proyecto {
-    background: var(--azul-noche);
-}
-
-/* =========================
-   7. PIE DE PÁGINA
-========================= */
-
-.pie-pagina {
-    padding: 30px 5%;
-    border-top: 1px solid rgba(229, 200, 255, 0.18);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    color: rgba(245, 241, 255, 0.7);
-    font-size: 0.7rem;
-}
-
-.pie-pagina a {
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--lila);
-}
-
-/* =========================
-   8. ANIMACIÓN Y ACCESIBILIDAD
-========================= */
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
-/* =========================
-   9. DISEÑO PARA TABLET Y MÓVIL
-========================= */
-
-@media (max-width: 850px) {
-    .encabezado {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 20px;
-        padding: 22px 5%;
-    }
-
-    .navegacion {
-        flex-wrap: wrap;
-        gap: 13px 22px;
-    }
-
-    .navegacion a {
-        font-size: 0.65rem;
-    }
-
-    .portada {
-        min-height: 680px;
-        padding-top: 170px;
-        background-position: center, center, 58% center;
-    }
-
-    .portada h1 {
-        font-size: clamp(4rem, 15vw, 8rem);
-    }
-
-    .colecciones-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .seccion-colecciones {
-        padding: 80px 5%;
-    }
-}
-
-@media (max-width: 480px) {
-    .marca {
-        font-size: 0.78rem;
-    }
-
-    .marca span {
-        font-size: 0.52rem;
-    }
-
-    .navegacion {
-        gap: 12px 16px;
-    }
-
-    .portada {
-        min-height: 650px;
-        height: 92svh;
-        padding-right: 5%;
-        padding-left: 5%;
-        background-position: center, center, 60% center;
-    }
-
-    .portada h1 {
-        font-size: clamp(3.5rem, 16vw, 5.5rem);
-        letter-spacing: -0.06em;
-    }
-
-    .subtitulo {
-        font-size: clamp(2rem, 8vw, 2.8rem);
-    }
-
-    .portada .etiqueta {
-        font-size: 0.55rem;
-        letter-spacing: 0.16em;
-    }
-
-    .introduccion {
-        font-size: 0.8rem;
-    }
-
-    .indicador {
-        left: 5%;
-        font-size: 0.5rem;
-    }
-
-    .coleccion {
-        min-height: 100px;
-        padding: 20px 17px;
-        gap: 14px;
-    }
-
-    .pie-pagina {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-/* Botón para activar y silenciar la lluvia */
-.boton-lluvia {
-    position: fixed;
-    right: 28px;
-    bottom: 26px;
-    z-index: 1000;
-
-    padding: 12px 18px;
-    border: 1px solid rgba(229, 200, 255, 0.55);
-    border-radius: 30px;
-
-    background: rgba(7, 21, 45, 0.85);
-    color: #F5F1FF;
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 18px rgba(168, 60, 255, 0.15);
-
-    transition: background 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-}
-
-.boton-lluvia:hover {
-    background: rgba(49, 91, 255, 0.25);
-    border-color: #D65CFF;
-    box-shadow: 0 0 22px rgba(168, 60, 255, 0.35);
-}
-
-.boton-lluvia:focus-visible {
-    outline: 2px solid #E5C8FF;
-    outline-offset: 4px;
-}
-
-@media (max-width: 600px) {
-    .boton-lluvia {
-        right: 16px;
-        bottom: 16px;
-        padding: 11px 15px;
-        font-size: 10px;
-    }
+    *,*::before,*::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    .aparecer { opacity: 1; transform: none; }
 }
