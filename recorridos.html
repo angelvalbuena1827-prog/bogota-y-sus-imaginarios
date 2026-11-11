@@ -62,28 +62,29 @@ footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:26px
 <footer><span>BOGOTÁ Y SUS IMAGINARIOS</span><span>ESTUDIOS LITERARIOS Y EDICIÓN · UNIVERSIDAD JORGE TADEO LOZANO</span></footer>
 <script>
 /* Para conectar las imágenes originales, completa image con la ruta exacta de cada archivo del repositorio. */
+
 const works=[
-{title:"Un beso de Dick",artist:"Fernando Molano",year:"1992",type:"Novela",place:"Parque Nacional",theme:"Amor",relation:"Espacio narrativo / representado",zone:"parques",image:"imagenes/un-beso-de-dick.webp"},
-{title:"La siempreviva",artist:"Miguel Torres",year:"1994",type:"Teatro",place:"La Candelaria",theme:"Memoria",relation:"Espacio relacionado con la obra",zone:"centro",image:"imagenes/la-siempreviva.jpg"},
-{title:"La Concordia",artist:"Guache",year:"2018",type:"Mural",place:"La Concordia",theme:"Resistencia",relation:"Obra situada o representativa del lugar",zone:"centro",image:"imagenes/la-concordia.jpg"},
-{title:"Rock N' Love",artist:"LosPetitFellas",year:"2014",type:"Canción",place:"TransMilenio",theme:"Amor",relation:"Recorrido narrativo / audiovisual",zone:"transmi",image:"imagenes/rock-n-love.png"},
-{title:"Quema de tranvías",artist:"Sady González",year:"1948",type:"Fotografía",place:"Plaza de Bolívar",theme:"Violencia",relation:"Lugar del acontecimiento histórico representado",zone:"centro",image:"imagenes/quema-de-tranvias.jpg"},
-{title:"En un lugar llamado El Cartucho",artist:"Ingrid Morris Rincón",year:"2011",type:"Crónica",place:"Antiguo sector de El Cartucho",theme:"Violencia",relation:"Espacio central de la crónica",zone:"centro",image:"imagenes/el-cartucho.jpg"},
-{title:"Parque de la Independencia",artist:"Luis Fernando Roldán Jaramillo",year:"1994",type:"Pintura",place:"Parque de la Independencia",theme:"Memoria",relation:"Lugar representado",zone:"parques",image:"imagenes/parque-independencia.jpg"},
-{title:"El crimen del siglo",artist:"Miguel Torres",year:"2018",type:"Teatro",place:"Salto del Tequendama",theme:"Violencia",relation:"Lugar donde ocurre un suceso narrativo",zone:"tequendama",image:"imagenes/el-crimen-del-siglo.jpg"},
-{title:"Bogotá",artist:"Andrés Cepeda",year:"2024",type:"Canción",place:"Teatro Colón",theme:"Memoria",relation:"Espacio relacionado con la canción",zone:"centro",image:"imagenes/bogota-andres-cepeda.jpg"},
-{title:"Avenida de la República, Bogotá",artist:"Gumersindo Cuéllar Jiménez",year:"1930",type:"Fotografía",place:"Carrera Séptima",theme:"Memoria",relation:"Lugar representado en la fotografía",zone:"centro",image:"imagenes/carrera-septima-1930.jpg"},
-{title:"Opio en las nubes",artist:"Rafael Chaparro Madiedo",year:"1992",type:"Novela",place:"Chapinero Central",theme:"Vida nocturna",relation:"Espacio narrativo / imaginario urbano",zone:"chapinero",image:"imagenes/opio-en-las-nubes.webp"},
-{title:"Crónicas de Bogotá",artist:"Pedro María Ibáñez",year:"1891",type:"Crónica",place:"Plaza de Bolívar",theme:"Pasado",relation:"Espacio histórico y urbano",zone:"centro",image:"imagenes/cronicas-bogota.jpg"},
-{title:"Fuerza y Raíz",artist:"Colectivo Nocrew",year:"2021",type:"Mural",place:"Portal de Suba",theme:"Resistencia",relation:"Lugar donde se encuentra la obra",zone:"suba",image:"imagenes/fuerza-y-raiz.jpg"},
-{title:"Domingo, avenida Caracas",artist:"Sergio Trujillo Magnenat",year:"1943",type:"Pintura",place:"Avenida Caracas",theme:"Vida cotidiana",relation:"Lugar representado en la pintura",zone:"chapinero",image:""},
-{title:"Bolero Falaz",artist:"Aterciopelados",year:"1995",type:"Canción",place:"San Victorino",theme:"Amor",relation:"Espacio relacionado con la canción",zone:"sanvictorino",image:"imagenes/bolero-falaz.jpeg"},
-{title:"Fluir",artist:"Chell",year:"2024",type:"Canción",place:"Bronx Distrito Creativo",theme:"Pasado",relation:"Lugar de realización audiovisual",zone:"bronx",image:"imagenes/fluir-chell.png"},
-{title:"Paisaje del Río Bogotá",artist:"Gumersindo Cuéllar Jiménez",year:"1930",type:"Fotografía",place:"Río Bogotá",theme:"Pasado",relation:"Paisaje representado",zone:"rio",image:"imagenes/paisaje-río-bogota.jpg"},
-{title:"Que pase lo peor",artist:"Antonio García Ángel",year:"2025",type:"Novela",place:"Ciudad Montes",theme:"Vida cotidiana",relation:"Espacio relacionado con la novela",zone:"ciudadmontes",image:"imagenes/que-pase-lo-peor.webp"},
-{title:"El beso de los invisibles",artist:"Vértigo Graffiti",year:"2013",type:"Mural",place:"Antiguo Bronx",theme:"Amor",relation:"Lugar donde se encuentra la obra",zone:"bronx",image:"imagenes/beso-de-los-invisibles.jpg"},
-{title:"Humor de Ascensoristas",artist:"Salto al Vacío",year:"2024",type:"Teatro",place:"Congreso de la República",theme:"Vida cotidiana",relation:"Espacio relacionado con la obra",zone:"centro",image:"imagenes/humor-ascensoristas.png"}
+ {title:"Un beso de Dick",artist:"Fernando Molano",year:"1992",type:"Novela",place:"Parque Nacional",theme:"Amor",relation:"Espacio narrativo / representado",zone:"parques",image:"imagenes/un-beso-de-dick.jpg"},
+ {title:"La siempreviva",artist:"Miguel Torres",year:"1994",type:"Teatro",place:"La Candelaria",theme:"Memoria",relation:"Espacio relacionado con la obra",zone:"centro",image:"imagenes/la-siempreviva.jpg"},
+ {title:"La Concordia",artist:"Guache",year:"2018",type:"Mural",place:"La Concordia",theme:"Resistencia",relation:"Obra situada o representativa del lugar",zone:"centro",image:"imagenes/la-concordia.jpg"},
+ {title:"Rock N' Love",artist:"LosPetitFellas",year:"2014",type:"Canción",place:"TransMilenio",theme:"Amor",relation:"Recorrido narrativo / audiovisual",zone:"transmi",image:"imagenes/rock-n-love.jpg"},
+ {title:"Quema de tranvías",artist:"Sady González",year:"1948",type:"Fotografía",place:"Plaza de Bolívar",theme:"Violencia",relation:"Lugar del acontecimiento histórico representado",zone:"centro",image:"imagenes/quema-de-tranvias.jpg"},
+ {title:"En un lugar llamado El Cartucho",artist:"Ingrid Morris Rincón",year:"2011",type:"Crónica",place:"Antiguo sector de El Cartucho",theme:"Violencia",relation:"Espacio central de la crónica",zone:"centro",image:"imagenes/el-cartucho.jpg"},
+ {title:"Parque de la Independencia",artist:"Luis Fernando Roldán Jaramillo",year:"1994",type:"Pintura",place:"Parque de la Independencia",theme:"Memoria",relation:"Lugar representado",zone:"parques",image:"imagenes/parque-independencia.jpg"},
+ {title:"El crimen del siglo",artist:"Miguel Torres",year:"2018",type:"Teatro",place:"Salto del Tequendama",theme:"Violencia",relation:"Lugar donde ocurre un suceso narrativo",zone:"tequendama",image:"imagenes/crimen-del-siglo.jpg"},
+ {title:"Bogotá",artist:"Andrés Cepeda",year:"2024",type:"Canción",place:"Teatro Colón",theme:"Memoria",relation:"Espacio relacionado con la canción",zone:"centro",image:"imagenes/bogota-andres-cepeda.jpg"},
+ {title:"Avenida de la República, Bogotá",artist:"Gumersindo Cuéllar Jiménez",year:"1930",type:"Fotografía",place:"Carrera Séptima",theme:"Memoria",relation:"Lugar representado en la fotografía",zone:"centro",image:"imagenes/carrera-septima-1930.jpg"},
+ {title:"Opio en las nubes",artist:"Rafael Chaparro Madiedo",year:"1992",type:"Novela",place:"Chapinero Central",theme:"Vida nocturna",relation:"Espacio narrativo / imaginario urbano",zone:"chapinero",image:"imagenes/opus-en-las-nubes.jpg"},
+ {title:"Fuerza y Raíz",artist:"Colectivo Nocrew",year:"2021",type:"Mural",place:"Portal de Suba",theme:"Resistencia",relation:"Lugar donde se encuentra la obra",zone:"suba",image:"imagenes/fuerza-y-raiz.jpg"},
+ {title:"Domingo, avenida Caracas",artist:"Sergio Trujillo Magnenat",year:"1943",type:"Pintura",place:"Avenida Caracas",theme:"Vida cotidiana",relation:"Lugar representado en la pintura",zone:"chapinero",image:"imagenes/domingo-avenida-caracas.jpg"},
+ {title:"Bolero Falaz",artist:"Aterciopelados",year:"1995",type:"Canción",place:"San Victorino",theme:"Amor",relation:"Espacio relacionado con la canción",zone:"sanvictorino",image:"imagenes/bolero-falaz.jpeg"},
+ {title:"Fluir",artist:"Chell",year:"2024",type:"Canción",place:"Bronx Distrito Creativo",theme:"Pasado",relation:"Lugar de realización audiovisual",zone:"bronx",image:"imagenes/fluir-chell.jpg"},
+ {title:"Paisaje del Río Bogotá",artist:"Gumersindo Cuéllar Jiménez",year:"1930",type:"Fotografía",place:"Río Bogotá",theme:"Pasado",relation:"Paisaje representado",zone:"rio",image:"imagenes/paisaje-rio-bogota.jpg"},
+ {title:"Que pase lo peor",artist:"Antonio García Ángel",year:"2025",type:"Novela",place:"Ciudad Montes",theme:"Vida cotidiana",relation:"Espacio relacionado con la novela",zone:"ciudadmontes",image:"imagenes/que-pase-lo-peor.jpg"},
+ {title:"El beso de los invisibles",artist:"Vértigo Graffiti",year:"2013",type:"Mural",place:"Antiguo Bronx",theme:"Amor",relation:"Lugar donde se encuentra la obra",zone:"bronx",image:"imagenes/el-beso-de-los-invisibles.jpg"},
+ {title:"Humor de Ascensoristas",artist:"Salto al Vacío",year:"2024",type:"Teatro",place:"Congreso de la República",theme:"Vida cotidiana",relation:"Espacio relacionado con la obra",zone:"centro",image:"imagenes/humor-de-ascensoristas.jpg"}
 ];
+
 const zones=[
 {id:"centro",name:"Centro histórico · La Candelaria",short:"La Candelaria",x:500,y:350,desc:"Plazas, calles y edificios donde se cruzan la memoria histórica, la vida cultural y distintas representaciones de Bogotá."},
 {id:"sanvictorino",name:"San Victorino",short:"San Victorino",x:720,y:500,desc:"Un sector comercial del centro que también aparece como escenario de las representaciones musicales de la ciudad."},
